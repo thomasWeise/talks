@@ -21,7 +21,7 @@
 \item<3-> \alert<3>{What does this mean?}%
 \item<4-> \alert<4>{And how do we find this algorithm?}%
 \item<5-> Hopefully this lesson will answer these questions.%
-\item<6-> As a complement to this lesson, I suggest the report \emph{``Benchmarking in Optimization: Best Practice and Open Issues''}\cite{BBDvdBBCEFKLCLIMMNOVWW2020BIOBPAOI} on arXiv.%
+\item<6-> As a complement to this lesson, I suggest the report \emph{\citetitle{BBDvdBBCEFKLCLIMMNOVWW2020BIOBPAOI}}\cite{BBDvdBBCEFKLCLIMMNOVWW2020BIOBPAOI} on arXiv.%
 \end{itemize}%
 \end{frame}%
 %
@@ -31,11 +31,11 @@
 \begin{itemize}%
 \item In optimization, there exist \alert{exact} and \alert{heuristic} algorithms.%
 %
-\item<2-> Let's look at the classical Traveling Salesperson Problem (TSP).%
-\only<3-5,20->{%
+\item<2-> Let's look at the classical \glsFull{TSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}.%
+\only<3-5,18->{%
 \begin{itemize}%
 \only<-5>{\item Clearly, there is (at least) one shortest tour.}%
-\only<-8>{\item<5-> \only<-5>{Theory proofs that the time to find this tour may grow exponentially with the number of cities we want to visit in the worst case.\cite{LLRKS1993SASAAC,CPW1998AROMSCAAA,C1971TCOTPP,K1972RACP,A2008TLOQC}}%
+\only<-8>{\item<5-> \only<-5>{Theory proofs that the time needed to find this tour may grow exponentially with the number~$s$ of cities we want to visit in the worst case.\cite{LLRKS1993SASAAC,CPW1998AROMSCAAA,C1971TCOTPP,K1972RACP,A2008TLOQC}}%
 \only<18->{Finding the best tour (what exact algorithms do) may take too long.}}%
 \only<-20>{\item<19-> But we can find just \alert{some} tour very quickly.}%
 \only<-21>{\item<20-> Of course the quality of that tour will be lower\only<21>{: the tour will be longer than the best one}.}%
@@ -49,29 +49,29 @@
 \strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut%
 %
 %
-\locateGraphic{2-3}{width=0.5\paperwidth}{graphics/tsp_china/tsp_china_solution}{0.25}{0.29}%
-\locateGraphic{4-5}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_1}{0.21}{0.4}%
+\locateGraphic{2-3}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china_solution}{0.25}{0.29}%
+\locateGraphic{4-5}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_1}{0.21}{0.38}%
 %
-\locateGraphic{6}{width=0.8\paperwidth}{graphics/function_growth/function_growth_01}{0.1}{0.27}%
-\locateGraphic{7}{width=0.8\paperwidth}{graphics/function_growth/function_growth_02}{0.1}{0.27}%
-\locateGraphic{8}{width=0.8\paperwidth}{graphics/function_growth/function_growth_03}{0.1}{0.27}%
-\locateGraphic{9}{width=0.8\paperwidth}{graphics/function_growth/function_growth_04}{0.1}{0.27}%
-\locateGraphic{10}{width=0.8\paperwidth}{graphics/function_growth/function_growth_05}{0.1}{0.27}%
-\locateGraphic{11}{width=0.8\paperwidth}{graphics/function_growth/function_growth_06}{0.1}{0.27}%
-\locateGraphic{12}{width=0.8\paperwidth}{graphics/function_growth/function_growth_07}{0.1}{0.27}%
-\locateGraphic{13}{width=0.8\paperwidth}{graphics/function_growth/function_growth_08}{0.1}{0.27}%
-\locateGraphic{14}{width=0.8\paperwidth}{graphics/function_growth/function_growth_09}{0.1}{0.27}%
-\locateGraphic{15}{width=0.8\paperwidth}{graphics/function_growth/function_growth_10}{0.1}{0.27}%
-\locateGraphic{16}{width=0.8\paperwidth}{graphics/function_growth/function_growth_11}{0.1}{0.27}%
-\locateGraphic{17}{width=0.8\paperwidth}{graphics/function_growth/function_growth}{0.1}{0.27}%
+\locateGraphic{6}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_01}{0.1}{0.27}%
+\locateGraphic{7}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_02}{0.1}{0.27}%
+\locateGraphic{8}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_03}{0.1}{0.27}%
+\locateGraphic{9}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_04}{0.1}{0.27}%
+\locateGraphic{10}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_05}{0.1}{0.27}%
+\locateGraphic{11}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_06}{0.1}{0.27}%
+\locateGraphic{12}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_07}{0.1}{0.27}%
+\locateGraphic{13}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_08}{0.1}{0.27}%
+\locateGraphic{14}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_09}{0.1}{0.27}%
+\locateGraphic{15}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_10}{0.1}{0.27}%
+\locateGraphic{16}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_11}{0.1}{0.27}%
+\locateGraphic{17}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_12}{0.1}{0.27}%
 %
-\locateGraphic{18}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_2}{0.21}{0.4}%
-\locateGraphic{19}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_3}{0.21}{0.4}%
-\locateGraphic{20-21}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_4}{0.21}{0.4}%
-\locateGraphic{22}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_5}{0.21}{0.4}%
-\locateGraphic{23}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_6}{0.21}{0.4}%
-\locateGraphic{24}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_7}{0.21}{0.4}%
-\locateGraphic{25}{width=0.58\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.21}{0.4}%
+\locateGraphic{18}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_2}{0.21}{0.38}%
+\locateGraphic{19}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_3}{0.21}{0.38}%
+\locateGraphic{20-21}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_4}{0.21}{0.38}%
+\locateGraphic{22}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_5}{0.21}{0.38}%
+\locateGraphic{23}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_6}{0.21}{0.38}%
+\locateGraphic{24}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_7}{0.21}{0.38}%
+\locateGraphic{25}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.21}{0.38}%
 \end{frame}%
 %
 \section{Views on Performance and Time}%
@@ -80,7 +80,7 @@
 \frametitle{Views on Performance}%
 \begin{itemize}%
 \item Runtime and solution quality in optimization are intertwined and should never be considered separately.%
-\item<2-> \only<4->{Two v}\only<-3>{V}iew\only<-3>{s}\cite{HAFR2010RPBBOB2ES,NFR2011CCCOTD,WNT2010AAOAB,WWQLT2018ADCOAAPIBAWATCFEDASAIF}\uncover<3->{:%
+\item<2-> The \only<4->{two }view\only<-3>{s} on what performance is\cite{HAFR2010RPBBOB2ES,NFR2011CCCOTD,WNT2010AAOAB,WWQLT2018ADCOAAPIBAWATCFEDASAIF}\uncover<3->{:%
 \begin{enumerate}%
 \item Solution quality reached after a certain \alert<5>{runtime}%
 \item<4-> \alert<5>{Runtime} to reach a certain solution quality%
@@ -88,8 +88,8 @@
 }%
 \end{itemize}%
 %
-\locateGraphic{3}{width=0.4\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_quality_after_runtime}{0.575}{0.55}%
-\locateGraphic{4-}{width=0.4\paperwidth}{graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_runtime_for_quality}{0.575}{0.55}%
+\locateGraphic{3}{width=0.4\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_quality_after_runtime}{0.575}{0.55}%
+\locateGraphic{4-}{width=0.4\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_runtime_for_quality}{0.575}{0.55}%
 %
 \end{frame}%
 %
@@ -102,15 +102,15 @@
 %
 \begin{frame}[t]%
 \frametitle{Clock Time as Absolute Runtime}%
-Measure the (absolute) consumed runtime of the \alert<2>{algorithm\only<2->{ implementation}} in~ms.%
+We can measure the (absolute) consumed runtime of the \alert<2>{algorithm\only<2->{ implementation}} in~ms.%
 \uncover<3->{%
 \begin{itemize}%
 %
-\item \textcolor{green}{Advantages}\uncover<4->{:%
+\item \textcolor{displayGreen}{Advantages}\uncover<4->{:%
 \begin{itemize}%
 \item Results in many works reported in this format%
 \item<5-> A quantity that makes physical sense%
-\item<6-> Includes all ``hidden complexities'' of an algorithm implementation%
+\item<6-> Includes all \inQuotes{hidden complexities} of an algorithm implementation%
 \end{itemize}%
 }%
 %
@@ -118,7 +118,7 @@ Measure the (absolute) consumed runtime of the \alert<2>{algorithm\only<2->{ imp
 \begin{itemize}%
 \item Strongly machine dependent and inherently incomparable over different machines%
 \item<9-> Measurements are only valuable for a few years%
-\item<10-> Can be biased by ``outside effects,'' e.g., OS, scheduling, other processes, I/O, swapping, \dots%
+\item<10-> Can be biased by \inQuotes{outside effects,} e.g., OS, scheduling, other processes, I/O, swapping, \dots%
 \end{itemize}%
 }%
 %
@@ -129,26 +129,26 @@ Measure the (absolute) consumed runtime of the \alert<2>{algorithm\only<2->{ imp
 \end{frame}%
 %
 \begin{frame}[t]%
-\frametitle{Function Evaluations: FEs}%
-Measure (count) the number of fully constructed and tested candidate solutions.%
+\frametitle{Objective Function Evaluations:~FEs}%
+We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candidate solutions.%
 \uncover<2->{%
 \begin{itemize}%
-\item \textcolor{green}{Advantages}\uncover<3->{:%
+\item \textcolor{displayGreen}{Advantages}\uncover<3->{:%
 \begin{itemize}%
-\item Results in many works reported in this format (or FEs can be deduced)%
+\item Results in many works reported in this format (or \glspl{objFE} can be deduced)%
 \item<4-> \alert{Machine-independent, theory-related measure}%
-\item<5-> Cannot be influenced by ``outside effects''%
+\item<5-> Cannot be influenced by \inQuotes{outside effects}%
 \item<6-> In many optimization problems, computing the objective value is the most time consuming task%
 \end{itemize}%
 }%
 \item<7-> \textcolor{red}{Disadvantages}\uncover<8->{:%
 \begin{itemize}%
 \item No clear relationship to real runtime%
-\item<9-> Does not contain ``hidden complexities'' of algorithm%
-\item<10-> 1~FE: very different costs in different situations!\cite{WCLTTCMY2014BOAAOSFFTTSP}\uncover<11->{%
+\item<9-> Does not contain \inQuotes{hidden complexities} of algorithm%
+\item<10-> 1~\gls{objFE}: very different costs in different situations!\cite{WCLTTCMY2014BOAAOSFFTTSP}\uncover<11->{%
 \begin{itemize}%
-\item When applying a local search that swaps two cities in each move to the Traveling Salesperson Problem (TSP), one FE can be done in $\bigOb{1}$.
-\item<12-> When applying Ant Colony Optimization instead, each FE takes~$\bigOb{n^2}$.%
+\item When applying a local search that swaps two cities in each move to the \gls{TSP}, 1~\gls{objFE} can be done in $\bigOb{1}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
+\item<12-> When applying \glsFull{ACO} instead, each \gls{objFE} takes~$\bigOb{n^2}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
 \end{itemize}%
 }%
 \end{itemize}%
@@ -160,18 +160,20 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 %
 \begin{frame}\frametitle{Do not count generations}%
 \begin{itemize}%
-\item Do not use the number of \emph{generations} in your EA as time measure! Instead count the FEs\only<-1>{.}\uncover<2->{, because:}%
-\item<2-> The ``number of generations'' are not really comparable for different population sizes or with algorithms that do not use populations.%
-\item<3-> Often, the mapping between generations and FEs is not clear\uncover<4->{, for example%
+\item In an \glsFull{algoEA}\cite{W2009GOATAA,BFM1997EA}, in each generation~(=~iteration), a set of new solution is created and evaluated.%
+\item<2-> Traditionally, the number of generations passed until some goal was reached was used in the \gls{algoEA} community.%
+\item<3-> Do not use the number of \emph{generations} in your \gls{algoEA} as time measure! Instead count the \glspl{objFE}\only<-3>{.}\uncover<4->{, because:}%
+\item<4-> The \inQuotes{number of generations} are not really comparable for different population sizes or with algorithms that do not use populations.%
+\item<5-> Often, the mapping between generations and \glspl{objFE} is not clear\uncover<6->{, for example%
 \begin{itemize}%
 \item Do you evaluate offspring solutions that are identical to their parents?%
-\item<5-> Is a local search involved that refines some or all solutions in the population?%
-\item<6-> In a \mbox{$(\mu+\lambda)$-EA}, is the first population of size~$\mu+\lambda$, $\lambda$, or~$\mu$?%
-\item<7-> What if the population size changes adaptively?%
+\item<7-> Is a local search involved that refines some or all solutions in the population?%
+\item<8-> In a \mbox{$(\mu+\lambda)$-\gls{algoEA}}, is the first population of size~$\mu+\lambda$, $\lambda$, or~$\mu$?%
+\item<9-> What if the population size changes adaptively?%
 \end{itemize}%
 }%
 %
-\item<8-> I suggest to prefer FEs over generations if you want to count algorithm steps.%
+\item<10-> I suggest to prefer \glspl{objFE} over generations if you want to count algorithm steps.%
 %
 \end{itemize}%
 \end{frame}%
@@ -179,10 +181,10 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \begin{frame}%
 \frametitle{Runtime}%
 \begin{itemize}%
-\item I suggest to always measure both the consumed FEs and the runtime in milliseconds.%
+\item I suggest to always measure both the consumed \glspl{objFE} and the runtime in milliseconds.%
 \item<2-> Anyway, with what we have learned, we can rewrite the two views by choosing a time measure\cite{WNT2010AAOAB,HAFR2010RPBBOB2ES}\uncover<3->{, e.g.:%
 \begin{enumerate}%
-\item Solution quality reached after a certain \alert{number of FEs}%
+\item Solution quality reached after a certain \alert{number of \glspl{objFE}}%
 \item<4-> \alert{Milliseconds} needed to reach a certain solution quality%
 \end{enumerate}%
 }%
@@ -198,7 +200,7 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \item<2-> Rewrite the two views\cite{WNT2010AAOAB,HAFR2010RPBBOB2ES}\uncover<3->{:%
 \begin{enumerate}%
 \item \alert{Best objective function value} reached after a certain number of milliseconds%
-\item<4-> Number FEs needed to reach a certain \alert{objective function value}%
+\item<4-> Number of \glspl{objFE} needed to reach a certain \alert{objective function value}%
 \end{enumerate}%
 }%
 \end{itemize}%
@@ -208,32 +210,32 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \begin{frame}[t]%
 \frametitle{Views on Performance}%
 \begin{itemize}%
-\item Which one is the ``better'' view on performance?%
+\item Which one is the \inQuotes{better} view on performance?%
 \uncover<2->{%
 \begin{enumerate}%
-\item \textcolor<2>{green}{Best objective function value reached after a certain number of FEs}%
-\item<3-> \textcolor<3>{red}{Number FEs needed to reach a certain objective function value}%
+\item \textcolor<2>{displayGreen}{Best objective function value reached after a certain number of \glspl{objFE}}%
+\item<3-> \textcolor<3>{red}{Number of \glspl{objFE} needed to reach a certain objective function value}%
 \end{enumerate}%
 }%
 \item<4-> This question is still debated in research\dots%
 %
 \end{itemize}%
 %
-\locateGraphic{1}{width=0.7\paperwidth}{graphics/performance_indicators_cuts/performance_indicators_cuts_1}{0.15}{0.4}%
-\locateGraphic{2}{width=0.7\paperwidth}{graphics/performance_indicators_cuts/performance_indicators_cuts_2}{0.15}{0.4}%
-\locateGraphic{3}{width=0.7\paperwidth}{graphics/performance_indicators_cuts/performance_indicators_cuts}{0.15}{0.4}%
+\locateGraphic{1}{width=0.7\paperwidth}{\sharedDir/graphics/performance_indicators_cuts/performance_indicators_cuts_1}{0.15}{0.4}%
+\locateGraphic{2}{width=0.7\paperwidth}{\sharedDir/graphics/performance_indicators_cuts/performance_indicators_cuts_2}{0.15}{0.4}%
+\locateGraphic{3}{width=0.7\paperwidth}{\sharedDir/graphics/performance_indicators_cuts/performance_indicators_cuts}{0.15}{0.4}%
 %
 \end{frame}%
 %
 \begin{frame}[t]%
 \frametitle{Which view is better?}%
 \begin{itemize}%
-\item \alert{Number FEs needed to reach a certain objective function value}%
+\item \alert{Number of \glspl{objFE} needed to reach a certain objective function value}%
 \item Preferred by, e.g., the BBOB/COCO benchmark suite\cite{HAFR2010RPBBOB2ES}\uncover<2->{:%
 \begin{itemize}%
-\item Measures the time needed to reach a target function value allows meaningful statements such as ``Algorithm~$A$ is two/ten/hundred times faster than Algorithm~$B$ in solving this problem.''%
+\item Measures the time needed to reach a target function value allows meaningful statements such as \inQuotes{Algorithm~$A$ is two/ten/hundred times faster than Algorithm~$B$ in solving this problem.}%
 \item<3-> However, there is no interpretable meaning to the fact that Algorithm~$A$ reaches a function value that is two/ten/hundred times smaller than the one reached by Algorithm~$B$.%
-\item<4-> ``Benchmarking Theory Perspective''
+\item<4-> \inQuotes{Benchmarking Theory Perspective}
 \end{itemize}%
 }%
 %
@@ -241,18 +243,18 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \item<6-> Then, alternative measures need to be computed, such as the ERT\cite{P1997DEVTFOT2I,AH2005PEOAALSEA} or PAR2 and PAR10\cite{BKKLMFHHLBTV2016AABLFAS,KBT2018POSOTAPIARSBOITS}.%
 \end{itemize}%
 %
-\locateGraphic{5-}{width=0.5\paperwidth}{graphics/performance_indicators_cuts/performance_indicators_cuts_goal_not_reached}{0.25}{0.66}%
+\locateGraphic{5-}{width=0.5\paperwidth}{\sharedDir/graphics/performance_indicators_cuts/performance_indicators_cuts_goal_not_reached}{0.25}{0.66}%
 %
 \end{frame}%
 %
 \begin{frame}%
 \frametitle{Which view is better?}%
 \begin{itemize}%
-\item \alert{Best objective function value reached after a certain number of FEs}%
+\item \alert{Best objective function value reached after a certain number of \glspl{objFE}}%
 \item<2-> Preferred by many benchmark suites such as\cite{TLSYW2010BFFTC2SSACOLSGO}.%
 \item<3-> Practice Perspective: Best results achievable with given time budget wins.%
 \item<4-> This perspective maybe less suitable for scientific benchmarking, but surely is useful in practice.%
-\item<5-> ``How good is the tour for the TSP that we can find in 5~minutes with our algorithm?''
+\item<5-> \inQuotes{How good is the tour for the \gls{TSP} that we can find in 5~minutes with our algorithm?}
 \item<6-> Always well-defined, because vertical cuts can always be reached.%
 \end{itemize}%
 \end{frame}%
@@ -260,9 +262,9 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \begin{frame}%
 \frametitle{Views on Performance}%
 \begin{itemize}%
-\item No official consensus on which view is ``better.''%
+\item No official consensus on which view is \inQuotes{better.}%
 \item<2-> This also strongly depends on the situation.%
-\item<3-> If we can actually always solve the problem to a ``natural'' goal quality (e.g., to optimality), then we should prefer the horizontal cut (time-to-target) method.%
+\item<3-> If we can actually always solve the problem to a \inQuotes{natural} goal quality (e.g., to optimality), then we should prefer the horizontal cut (time-to-target) method.%
 \item<4-> If we have clear application requirements specifying a fixed budget, then we should prefer the fixed-budget approach.%
 \item<5-> Otherwise, the best approach may be: Evaluate algorithm according to both methods.\cite{WCLTTCMY2014BOAAOSFFTTSP,WNT2010AAOAB,WWQLT2018ADCOAAPIBAWATCFEDASAIF}%
 \item<6-> Maybe cast a net of several horizontal and vertical cuts, to get a better picture\dots%
@@ -272,7 +274,7 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \begin{frame}%
 \frametitle{Determining Target Values}%
 \begin{itemize}%
-\item How to determine the right maximum FEs or target function values?%
+\item How to determine the right maximum \glspl{objFE} or target function values?%
 \uncover<2->{%
 \begin{enumerate}%
 \item from the constraints of a practical application%
@@ -291,7 +293,7 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \begin{frame}\frametitle{Problem Instances and Randomized Algorithms}%
 %
 \begin{itemize}%
-\item For each \alert<1>{optimization problem} (like the TSP) there are several \alert<1>{instances} (e.g., different sets of cities that need to be visited).%
+\item For each \alert<1>{optimization problem} (like the \gls{TSP}) there are several \alert<1>{instances} (e.g., different sets of cities that need to be visited).%
 \uncover<2->{%
 \begin{itemize}%
 \item Some instances will be easy, some will be hard.%
@@ -360,9 +362,9 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \end{center}%
 }%
 %
-\locateGraphic{5-6}{width=0.3\paperwidth}{graphics/dice/dice}{0.666}{0.58}%
-\locateGraphic{7-16}{width=0.15\paperwidth}{graphics/dice/dice}{0.83}{0.76}%
-\locateGraphic{17-}{width=0.25\paperwidth}{graphics/dice/dice}{0.70}{0.65}%
+\locateGraphic{5-6}{width=0.3\paperwidth}{\sharedDir/graphics/dice/dice}{0.666}{0.58}%
+\locateGraphic{7-16}{width=0.15\paperwidth}{\sharedDir/graphics/dice/dice}{0.83}{0.76}%
+\locateGraphic{17-}{width=0.25\paperwidth}{\sharedDir/graphics/dice/dice}{0.70}{0.65}%
 %
 \end{frame}%
 %
@@ -372,8 +374,8 @@ Measure (count) the number of fully constructed and tested candidate solutions.%
 \frametitle{Measures of the Average}%
 \begin{itemize}%
 \item Assume that we have obtained a sample~$A=(\arrayIndex{a}{0}, \arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ of $n$~observations from an experiment\only<-1>{.}\uncover<2->{, e.g., we have measured the qualities~$\arrayIndex{a}{i}$ of the best discovered solutions of $n=101$ independent runs of an optimization algorithm.}%
-\item<3-> We usually want to reduce this set of numbers to a single value which can give us an impression of what the ``average outcome'' (or result quality is).%
-\item<4-> Three of the most common options for doing so, for estimating the ``center'' of a distribution, are to either compute the \alert{arithmetic mean}, the \alert{median}, or the \alert{geometric mean}.%
+\item<3-> We usually want to reduce this set of numbers to a single value which can give us an impression of what the \inQuotes{average outcome} (or result quality is).%
+\item<4-> Three of the most common options for doing so, for estimating the \inQuotes{center} of a distribution, are to either compute the \alert{arithmetic mean}, the \alert{median}, or the \alert{geometric mean}.%
 \end{itemize}%
 \end{frame}%
 %
@@ -419,7 +421,7 @@ The median~\medianb{A} is the value separating the bigger-valued half from the s
 \item<5-> In my experiments here, there are sometimes outliers in the time that it takes to create and evaluate the first candidate solution.%
 \item<6-> But outliers are actually important. So I say this right now. I will also say it again later. But I am afraid that you may tune out during the following example. So remember: Outliers are important. Anyway\dots%
 \end{itemize}%
-\locateGraphic{5}{width=0.95\paperwidth}{graphics/outlier/outlier_first_fe_time}{0.025}{0.385}%
+\locateGraphic{5}{width=0.95\paperwidth}{\sharedDir/graphics/outlier/outlier_first_fe_time}{0.025}{0.385}%
 \end{frame}%
 %
 \begin{frame}%
@@ -458,7 +460,7 @@ B &=& (1, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 9, 9, 9, 10, 11, 12, \textcolor{red}{
 \item The operating systems scheduling or other strange effects could mess with our timing.\uncover<3->{ %
 This could cause worse results.\uncover<4->{ %
 But usually this is already it.}}%
-\item<5-> (Unless your objective function is noisy, e.g., if you measure some physical quantity, or the objective function involves randomized simulations, there are hardly any other ``outside'' effects that could mess up our results!)%
+\item<5-> (Unless your objective function is noisy, e.g., if you measure some physical quantity, or the objective function involves randomized simulations, there are hardly any other \inQuotes{outside} effects that could mess up our results!)%
 \end{enumerate}}%
 \item<6-> Instead, most likely there could be%
 \begin{itemize}%
@@ -468,7 +470,7 @@ But usually this is already it.}}%
 \item<8-> Yes, also in your code! (Btw: Please use unit tests.)%
 \end{itemize}}%
 \item<9-> Or: \alert{bad (but rare) worst-case behaviors of our algorithm!}\uncover<10->{\\[5pt]~~\parbox{0.9\linewidth}{Imagine that:%
-\uncover<11->{ Your algorithm can actually solve the TSP or MaxSat problem in polynomial time on 90\% of all instances{\dots}%
+\uncover<11->{ Your algorithm can actually solve the \gls{TSP} or MaxSat problem in polynomial time on 90\% of all instances{\dots}%
 \uncover<12->{ {\dots}but on 10\%, it needs exponential time.%
 \uncover<13->{ If you just look at the median runtime, you may think you discovered something awesome.%
 \uncover<14->{ Actually, this is quite common\dots}}}}}}%
@@ -477,8 +479,8 @@ But usually this is already it.}}%
 \end{itemize}%
 %
 \locate{15}{\colorbox{white!98!green}{\parbox{0.72\linewidth}{\centering\parbox{0.95\linewidth}{%
-\includegraphics[width=\linewidth]{graphics/maxsat_hoos_poly/maxsat_hoos_poly}\\%
-{\small{(Taken from the paper \emph{``Local Search Algorithms for {SAT}: An Empirical Evaluation''} by Hoos and Stützle, coloring added manually\cite{HS2000LSAFSAEE}.)%
+\includegraphics[width=\linewidth]{\sharedDir/graphics/maxsat_hoos_poly/maxsat_hoos_poly}\\%
+{\small{(Taken from the paper \emph{\inQuotes{\citetitle{HS2000LSAFSAEE}}} by \citeauthor{HS2000LSAFSAEE}, coloring added manually\cite{HS2000LSAFSAEE}.)%
 }}}}}}{0.14}{0.14}%
 %
 \end{frame}%
@@ -512,17 +514,17 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 \only<-14>{\item<3-> We measure the required runtimes as follows:}%
 \only<-17>{\item<14-> The arithmetic mean\only<15->{\only<-15>{ and}\only<16->{,} the median\only<16->{, and the geometric mean}} values are the same.}%
 \only<-18>{\item<17-> We can conclude that the three algorithms offer the same performance in average over these benchmark instances.}%
-\only<-20>{\item<18-> But often the measured numbers ``look messier'' and are harder to compare at first glance.}%
-\only<-21>{\item<19-> So often we want to normalize them by picking one algorithm as ``standard'' and dividing them by its measurements.}%
+\only<-20>{\item<18-> But often the measured numbers \inQuotes{look messier} and are harder to compare at first glance.}%
+\only<-21>{\item<19-> So often we want to normalize them by picking one algorithm as \inQuotes{standard} and dividing them by its measurements.}%
 \only<-22>{\item<20-> Let's say \textcolor<21>{blue}{$A_1$} was a well-known heuristic, maybe we even took its results from a paper, and we want to use it as baseline for comparison and normalize our data by it.}%
 \only<-26>{\item<22-> OK, so we get this table with normalized values, which allow us to make sense of the data at first glance.}%
-\only<-29>{\item<23-> If we now compute the arithmetic mean\uncover<24->{, then \textcolor{green}{$A_1$ is best}\uncover<25->{ and \textcolor{red}{$A_3$ looks worst}.}}}%
-\only<-29>{\item<26-> According to the median\uncover<27->{, \textcolor{green}{$A_3$ is best}\uncover<28->{ and \textcolor{red}{$A_2$ is worst!}}}}%
+\only<-29>{\item<23-> If we now compute the arithmetic mean\uncover<24->{, then \textcolor{displayGreen}{$A_1$ is best}\uncover<25->{ and \textcolor{red}{$A_3$ looks worst}.}}}%
+\only<-29>{\item<26-> According to the median\uncover<27->{, \textcolor{displayGreen}{$A_3$ is best}\uncover<28->{ and \textcolor{red}{$A_2$ is worst!}}}}%
 \only<-29>{\item<29-> Only the geometric mean still indicates that the algorithms perform the same\dots}%
 \only<-32>{\item<30-> Hm.\uncover<31->{ OK, then let's normalize using the results of \textcolor{cyan}{$A_2$} instead.}}%
 \only<-36>{\item<32-> OK, so we get this table with normalized values.}%
-\only<-39>{\item<33-> If we now compute the arithmetic mean\uncover<34->{, then \textcolor{green}{$A_2$ is best}\uncover<35->{ and \textcolor{red}{$A_1$ looks worst}.}}}%
-\only<-39>{\item<36-> According to the median\uncover<37->{, \textcolor{green}{$A_1$ is best}\uncover<38->{ and \textcolor{red}{$A_3$ is worst!}}}}%
+\only<-39>{\item<33-> If we now compute the arithmetic mean\uncover<34->{, then \textcolor{displayGreen}{$A_2$ is best}\uncover<35->{ and \textcolor{red}{$A_1$ looks worst}.}}}%
+\only<-39>{\item<36-> According to the median\uncover<37->{, \textcolor{displayGreen}{$A_1$ is best}\uncover<38->{ and \textcolor{red}{$A_3$ is worst!}}}}%
 \only<-40>{\item<39-> Only the geometric mean still indicates that the algorithms perform the same\dots}%
 \item<40-> The geometric mean is the only meaningful average if we have \alert{normalized} data!\cite{FW1986HNTLWSTCWTSBR}%
 \item<41-> And we very often have normalized data.%
@@ -555,8 +557,8 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 \textbf{$I_2$}&\textcolor<22->{blue}{1.00}&2.00&0.50\\%
 \textbf{$I_3$}&\textcolor<22->{blue}{1.00}&0.25&0.50\\%
 \hline%
-\uncover<23->{$\arithMean$:&\textcolor<24->{green}{1.00}&1.42&\textcolor<25->{red}{1.67}}\\%
-\uncover<26->{$\median$:&1.00&\textcolor<28->{red}{2.00}&\textcolor<27->{green}{0.50}}\\%
+\uncover<23->{$\arithMean$:&\textcolor<24->{displayGreen}{1.00}&1.42&\textcolor<25->{red}{1.67}}\\%
+\uncover<26->{$\median$:&1.00&\textcolor<28->{red}{2.00}&\textcolor<27->{displayGreen}{0.50}}\\%
 \uncover<29->{$\geoMean$:&1.00&1.00&1.00}\\%
 \end{tabular}%
 }}%
@@ -568,8 +570,8 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 \textbf{$I_2$}&0.50&\textcolor{cyan}{1.00}&0.25\\%
 \textbf{$I_3$}&4.00&\textcolor{cyan}{1.00}&2.00\\%
 \hline%
-\uncover<33->{$\arithMean$:&\textcolor<35->{red}{1.67}&\textcolor<34->{green}{1.00}&1.42}\\%
-\uncover<36->{$\median$:&\textcolor<37->{green}{0.50}&1.00&\textcolor<38->{red}{2.00}}\\%
+\uncover<33->{$\arithMean$:&\textcolor<35->{red}{1.67}&\textcolor<34->{displayGreen}{1.00}&1.42}\\%
+\uncover<36->{$\median$:&\textcolor<37->{displayGreen}{0.50}&1.00&\textcolor<38->{red}{2.00}}\\%
 \uncover<39->{$\geoMean$:&1.00&1.00&1.00}\\%
 \end{tabular}%
 }}%
@@ -603,7 +605,7 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 %
 \item<11-> Often, our data is implicitly or explicitly normalized\only<-11>{.}\uncover<12->{, e.g.,%
 \begin{itemize}%
-\item if we divide result qualities by results of well-known heuristics or ``Best-Known Solutions''\uncover<11->{ or}%
+\item if we divide result qualities by results of well-known heuristics or \inQuotes{Best-Known Solutions}\uncover<11->{ or}%
 \item<13-> if we normalize the runtime using another algorithm as standard.%
 \end{itemize}}%
 \item<14-> Then, the arithmetic mean and median can be very misleading and the geometric mean must be computed.%
@@ -682,7 +684,7 @@ h&=&(n-1)\frac{k}{q}\\
 \item Quantiles are a generalized form of the median.%
 \item<4-> The $\sampleQuantile{2}{1}{A}$ is the median of $A$%
 \item<5-> 4-quantiles are called \emph{quartiles}.%
-\item<6-> We often consider \emph{percentiles} or write things like ``98\%~quantile'' or ``0.98~percentile'' or ``98\%~percentile'' meaning~$\pgls{sampleQuantileMark}^{98}_{100}$.%
+\item<6-> We often consider \emph{percentiles} or write things like \inQuotes{98\%~quantile} or \inQuotes{0.98~percentile} or \inQuotes{98\%~percentile} meaning~$\pgls{sampleQuantileMark}^{98}_{100}$.%
 \end{itemize}%
 }%
 \end{frame}%
@@ -743,14 +745,14 @@ B &=& {\scalebox{0.8}{(1, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 9, 9, 9, 10, 11, 12, 
 \item The global optimum marks a lower bound for the possible objective values.%
 \item<6-> A good algorithm often returns results which are close-to-optimal.%
 \item<7-> There may be a long tail of few but significantly worse runs.
-\item<8-> A statement such as ``For this TSP~instance, our algorithm can find tours for with a length of $100\pm120$~km.'' makes little sense\dots%
+\item<8-> A statement such as \emph{\inQuotes{For this \gls{TSP}~instance, our algorithm can find tours with a length of $100\pm120$~km.}} makes little sense\dots%
 \end{itemize}%
 }%
 \end{itemize}%
-\locateGraphic{1}{width=0.6\paperwidth}{graphics/skew/skew_1}{0.2}{0.24}%
-\locateGraphic{2}{width=0.6\paperwidth}{graphics/skew/skew_2}{0.2}{0.24}%
-\locateGraphic{3}{width=0.6\paperwidth}{graphics/skew/skew_3}{0.2}{0.24}%
-\locateGraphic{4-7}{width=0.45\paperwidth}{graphics/skew/skew_3}{0.275}{0.44}%
+\locateGraphic{1}{width=0.6\paperwidth}{\sharedDir/graphics/skew/skew_1}{0.2}{0.24}%
+\locateGraphic{2}{width=0.6\paperwidth}{\sharedDir/graphics/skew/skew_2}{0.2}{0.24}%
+\locateGraphic{3}{width=0.6\paperwidth}{\sharedDir/graphics/skew/skew_3}{0.2}{0.24}%
+\locateGraphic{4-7}{width=0.45\paperwidth}{\sharedDir/graphics/skew/skew_3}{0.275}{0.44}%
 \end{frame}%
 %
 %
@@ -768,11 +770,11 @@ B &=& {\scalebox{0.8}{(1, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 9, 9, 9, 10, 11, 12, 
 %
 \item<4-> \alert{What does this mean?}%
 %
-\item<5-> It means that one of the two algorithms is better\uncover<6->{\alert<6>{~with a certain probability}}%
+\item<5-> It means that one of the two algorithms is better\only<-5>{.}\uncover<6->{\alert<6>{~with a certain probability}.}%
 %
-\item<7-> If we say \emph{``$A$ is better than $B$,''} we have a certain probability~$p$ to be wrong.%
+\item<7-> If we say \emph{\inQuotes{$A$ is better than $B$,}} we have a certain probability~$p$ to be wrong.%
 %
-\item<8-> \alert{The statement \emph{``$A$ is better than $B$''} makes only sense if we can give an upper bound~$\alpha$ for the error probability~$p$!}%
+\item<8-> \alert{The statement \emph{\inQuotes{$A$ is better than $B$}} makes only sense after we have decided about an upper bound~$\alpha$ for the acceptable error probability~$p$!}~(and if~$p<\alpha$, obviously)%
 %
 \end{itemize}%
 %
@@ -784,9 +786,9 @@ B &=& {\scalebox{0.8}{(1, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 9, 9, 9, 10, 11, 12, 
 %
 \item Compare two data samples $A=(a_1,a_2,\dots)$ and $B=(b_1,b_2,\dots)$ and%
 %
-\item<2-> get a result (e.g., \emph{``The median of $A$ is bigger than the median of $B$''}) \alert{together with} an error probability~$p$ that the conclusion is wrong.%
+\item<2-> get a result (e.g., \emph{\inQuotes{The median of $A$ is bigger than the median of $B$}}) \alert{together with} an error probability~$p$ that the conclusion is wrong.%
 %
-\item<3-> If~$p$ is less than a significance level (upper bound) \ensuremath{\alpha}, we can accept the conclusion.%
+\item<3-> If~$p$ is less than a \alert{previously chosen} significance level (upper bound) \ensuremath{\alpha}, we can accept the conclusion.%
 %
 \item<4-> Otherwise, the observation is not significant\only<-4>{.}\uncover<5->{ and must be ignored.}%
 %
@@ -801,15 +803,15 @@ B &=& {\scalebox{0.8}{(1, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 9, 9, 9, 10, 11, 12, 
 
 \begin{frame}[t]\frametitle{Example for Underlying Idea}%
 %
-\locateGraphic{2}{width=0.65\paperwidth}{graphics/coin/coin_head_tails}{0.175}{0.28}%
-\locateGraphic{5}{width=0.45\paperwidth}{graphics/coin/coin_toss}{0.275}{0.4}%
+\locateGraphic{2}{width=0.65\paperwidth}{\sharedDir/graphics/coin/coin_head_tails}{0.175}{0.28}%
+\locateGraphic{5}{width=0.45\paperwidth}{\sharedDir/graphics/coin/coin_toss}{0.275}{0.4}%
 %
 \begin{itemize}%
 \item<1-> Coin flip game: We flip a coin. If it is heads, I give you 1~RMB, if it is tails, you give me 1~RMB.%
 \item<3-> We play 160~times.%
 \item<4-> I win 128~times. You win 32~times.%
 %
-\item<6-> Did I cheat? Is my coin ``fixed?'' (i.e., is your chance to win $\neq0.5$)%
+\item<6-> Did I cheat? Is my coin \inQuotes{fixed?} (i.e., is your chance to win $\neq0.5$)%
 \item<7-> \alert<6>{Assumption: I cheat.} (alternative hypothesis $H_1$)%
 \item<8-> It is impossible to compute my winning probability if I cheated\dots%
 \item<9-> \alert<7>{Counter-Assumption: I did not cheat.} (null hypothesis $H_0$)%
@@ -920,6 +922,7 @@ O = A \cup B = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)%
 %
 \begin{frame}[t]\frametitle{A More Specific Example}%
 %
+\only<-5,8->{%
 \addtocounter{equation}{-1}%
 \begin{equation}%
 O = A \cup B = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)%
@@ -931,21 +934,27 @@ O = A \cup B = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)%
 \item<3-> There are ${10 \choose 4}={210}$ different ways to draw $4$ (or $6$) elements from $O$%
 \item<4-> If $H_0$ holds, all have the same probability%
 %
-\only<5-6>{\item<5-6> Use a program to test the combinations}%
+\only<5-7>{\item<5-7> Let's use a \python\cite{programmingWithPython} program to test the combinations}%
 %
-\item<7-> There are~27 such combinations with a mean of \alert<7>{less or equal~4}.%
+\item<8-> There are~27 such combinations with a mean of \alert<8>{less or equal~4}.%
 %
-\item<8-> The probability~$p$ to observe a situation at least as extreme as~$A$ and~$B$ under~$H_0$ is thus:%
+\item<9-> The probability~$p$ to observe a situation at least as extreme as~$A$ and~$B$ under~$H_0$ is thus:%
 \end{itemize}%
-\uncover<9->{%
+\uncover<10->{%
 \begin{equation}%
 p=\frac{\textnormal{\#cases~$C$}:\arithMeanb{c}\leq \arithMeanb{b}}{\textnormal{\#all cases}}=\frac{{27}}{{210}}=\frac{9}{70}\approx {0.1286}%
 \nonumber\end{equation}%
 }%
+}%
 %
-\locateListingBox{6}{%
-\lstinputlisting[language=java]{code/EnumerateAtLeastAsExtremeScenarios.java}%
-}{0}{0.1}{0.8}{1}%
+\locateListingBox{6-7}{%
+\lstinputlisting[style=python_style]{code/enumerate.py}%
+}{0.1}{0.16}{0.8}{0.8}%
+\gitExec{exec:enumerate}{}{}{python3 code/enumerate.py}%
+%
+\locateListingBox{7}{%
+\lstinputlisting[style=text_style]{\gitFile{exec:enumerate}}
+}{0.1}{0.775}{0.8}{0.4}%
 %
 \end{frame}
 %
@@ -1071,8 +1080,8 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 }}}%
 \end{itemize}%
 }%
-\locateGraphic{5}{width=0.9\paperwidth}{graphics/errorProb/multicomp_bonferroni_error}{0.05}{0.22}%
-\locateGraphic{8}{width=0.9\paperwidth}{graphics/errorProb/multicomp_bonferroni_corrected}{0.05}{0.22}%
+\locateGraphic{5}{width=0.9\paperwidth}{\sharedDir/graphics/errorProb/multicomp_bonferroni_error}{0.05}{0.22}%
+\locateGraphic{8}{width=0.9\paperwidth}{\sharedDir/graphics/errorProb/multicomp_bonferroni_corrected}{0.05}{0.22}%
 \end{frame}%
 %
 %
@@ -1084,7 +1093,7 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 \only<-2,4-6,11->{%
 \begin{itemize}%
 %
-\item Literature usually reports tuples ``$(\textnormal{instance}, \textnormal{result}, \textnormal{runtime})$''%
+\item Literature usually reports tuples \inQuotes{$(\textnormal{instance}, \textnormal{result}, \textnormal{runtime})$}%
 %
 \item<2-> \only<4->{\textcolor<-4>{red}{Problem}: }Papers often use different termination criteria%%
 %
@@ -1094,16 +1103,16 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 %
 \item<12-> Using statistical tests cannot solve this issue (still: at one point in time).%
 %
-\item<13-> We should have the ``whole performance curves!''\uncover<14->{ {\dots} ideally mean or median curves over several runs!}%
+\item<13-> We should have the \inQuotes{whole performance curves!}\uncover<14->{ {\dots} ideally mean or median curves over several runs!}%
 %
 \end{itemize}%
 }%
 %
-\locateGraphic{3}{width=0.7\paperwidth}{graphics/termination/points}{0.15}{0.24}%
-\locateGraphic{7}{width=0.7\paperwidth}{graphics/termination/points}{0.15}{0.24}%
-\locateGraphic{8}{width=0.7\paperwidth}{graphics/termination/lines}{0.15}{0.24}%
-\locateGraphic{9}{width=0.7\paperwidth}{graphics/performance_dimensions/performance_dimensions}{0.15}{0.24}%
-\locateGraphic{10}{width=0.7\paperwidth}{graphics/performance_cuts/performance_cuts}{0.15}{0.24}%
+\locateGraphic{3}{width=0.7\paperwidth}{\sharedDir/graphics/termination/points}{0.15}{0.24}%
+\locateGraphic{7}{width=0.7\paperwidth}{\sharedDir/graphics/termination/points}{0.15}{0.24}%
+\locateGraphic{8}{width=0.7\paperwidth}{\sharedDir/graphics/termination/lines}{0.15}{0.24}%
+\locateGraphic{9}{width=0.7\paperwidth}{\sharedDir/graphics/performance_dimensions/performance_dimensions}{0.15}{0.24}%
+\locateGraphic{10}{width=0.7\paperwidth}{\sharedDir/graphics/performance_cuts/performance_cuts}{0.15}{0.24}%
 %
 \end{frame}%
 %
@@ -1114,7 +1123,7 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 \item There are many papers that introduce two things at the same time: a new optimization problem and a new algorithm.\uncover<2->{ \alert{I think this is not a good idea.}}%
 \item<3-> If we introduce a new optimization algorithm, we should test it on well-known, well-established benchmark problems.\uncover<4->{ For such problems, results from other well-known and well-established algorithms exist -- so we can compare our algorithm to them and investigate its performance objectively.}%
 \item<5-> If we introduce a new optimization problem, we should apply well-known and well-established algorithms to it.\uncover<6->{ This way we get proper baseline results and can understand whether the problem is hard for the state-of-the-art and/or how far this state-of-the-art allows us to go.}%
-\item<7-> If we have two ``moving parts'' at the same time, it is hard to understand whether an algorithm is good and whether a problem is hard.%
+\item<7-> If we have two \inQuotes{moving parts} at the same time, it is hard to understand whether an algorithm is good and whether a problem is hard.%
 \item<8-> If you have an own new algorithm on a new problem and use other algorithms for comparision, you might be tempted to just use the most basic configurations of these algorithms.\uncover<9->{ Then your algorithm might look good, while it actually is not.}%
 \item<10> \alert{Know the standard benchmark instances for your field!}%
 \end{itemize}%
@@ -1125,7 +1134,7 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 \item Your experiments should be well-documented and reproducible.%
 \item<2-> In the ideal case, someone else can run your code and get the same results.%
 \item<3-> For this purpose, you should make your code available, e.g., put it on GitHub or zenodo.org.%
-\item<4-> If your experiments are time-consuming, also make sure to properly store all your results in human- and machine-readable form (ideally in a CSV format).%
+\item<4-> If your experiments are time-consuming, also make sure to properly store all your results in human- and machine-readable form, ideally in a \glsFull{CSV} format.%
 \item<5-> You should make an archive such that a)~I can directly run the same experiments that you did and b)~also have all the data and tools to create the same statistics and figures.%
 \item<6-> \alert{But what if someone finds an error in work?}%
 \item<7-> That is OK.%
@@ -1144,10 +1153,10 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 But only the 10 with the best results are reported.\uncover<5->{ %
 This can be prevented by generating the sequence of random seeds with a deterministic algorithm and reporting both.}}%
 \item<6-> Only the benchmark instances where the algorithm performs well are chosen.\uncover<7->{ %
-Be wary of statements such as ``We now present the results of our algorithm on 10 of the TSPLib instances.'' (TSPLib has more than 100\dots)}%
+Be wary of statements such as \inQuotes{We now present the results of our algorithm on 10 of the TSPLib instances.} (TSPLib has more than 100\dots)}%
 \item<8-> Weak algorithms are chosen for comparison.\uncover<9->{ %
 Comparison must always be done with the state-of-the-art on the specific problem at hand.\uncover<10->{ %
-Be wary of statements such as ``We compare our algorithm with the standard Genetic Algorithm.'' (because the SGA is usually not the state-of-the-art)}}%
+Be wary of statements such as \inQuotes{We compare our algorithm with the standard Genetic Algorithm.} (because the SGA is usually not the state-of-the-art)}}%
 \end{itemize}}%
 \item<11-> Sometimes, results may be straight up fabricated.\only<12>{ %
 Algorithm must be clearly specified and ideally the source code is available to prevent this.}%
@@ -1170,8 +1179,8 @@ Algorithm must be clearly specified and ideally the source code is available to 
 %%
 \item<3-> Two views on performance\uncover<4->{:%
 \begin{enumerate}%
-\item best result after fixed number of FEs/runtime%
-\item<5-> number of FEs/runtime needed to get certain result%
+\item best result after fixed number of \glspl{objFE}/runtime%
+\item<5-> number of \glspl{objFE}/runtime needed to get certain result%
 \end{enumerate}%
 }%
 %
@@ -1193,6 +1202,8 @@ Algorithm must be clearly specified and ideally the source code is available to 
 %
 \end{itemize}%
 \end{frame}%
+%
+\input{\sharedDir/advertisement/advertisement.tex}%
 %
 \endPresentation%
 \end{document}%%

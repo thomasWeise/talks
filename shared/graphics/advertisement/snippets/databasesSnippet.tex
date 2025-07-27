@@ -1,0 +1,42 @@
+\documentclass{article}%
+\usepackage[absolute,overlay]{textpos}%
+\usepackage{graphicx}%
+\usepackage{xcolor}%
+%
+%% Locate something at a specific position:
+%% #1 the thing to display
+%% #2 the x-coordinate (between 0 and 1)
+%% #3 the y-coordinate (between 0 and 1)
+\gdef\locate#1#2#3{%
+\setlength{\TPHorizModule}{\paperwidth}%
+\setlength{\TPVertModule}{\paperheight}%%
+\begin{textblock}{1}(#2,#3)#1\end{textblock}%
+}%
+%
+\protected\gdef\tightboxB#1{\bgroup%
+\fboxsep=0pt%
+\fboxrule=2pt%
+\mbox{\fcolorbox{black}{white}{\mbox{#1}}}%
+\egroup}%
+%
+\protected\gdef\tightboxW#1{\bgroup%
+\fboxsep=0pt%
+\fboxrule=1pt%
+\mbox{\fcolorbox{white}{white}{\mbox{#1}}}%
+\egroup}%
+%
+\protected\gdef\igf#1#2#3#4{%
+\locate{\tightboxW{\tightboxB{\includegraphics[page=#2,width=0.2\paperwidth]{#1.pdf}}}}{#3}{#4}%
+}%
+%
+\begin{document}\pagestyle{empty}%
+%
+\igf{databases}{301}{0.6}{0.6}%
+\igf{databases}{243}{0.5}{0.55}%
+\igf{databases}{197}{0.4}{0.5}%
+\igf{databases}{105}{0.3}{0.45}%
+\igf{databases}{38}{0.2}{0.5}%
+\igf{databases}{16}{0.1}{0.55}%
+\igf{databases}{1}{0}{0.6}%
+%
+\end{document}%
