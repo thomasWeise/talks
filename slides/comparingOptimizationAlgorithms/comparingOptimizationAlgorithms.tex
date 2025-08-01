@@ -535,7 +535,7 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 \only<-40>{\item<39-> Only the geometric mean still indicates that the algorithms perform the same\dots}%
 \item<40-> The geometric mean is the only meaningful average if we have \alert{normalized} data!\cite{FW1986HNTLWSTCWTSBR}%
 \item<41-> And we very often have normalized data.%
-\item<42-> For example, at least half of the papers on the Job Shop Scheduling Problem normalize the result qualities they obtain on benchmark instances with the \emph{Best Known Solutions} (BKS)\only<-42>{.}\uncover<43->{ and then compute the arithmetic mean.}%
+\item<42-> For example, at least half of the papers on the \gls{JSSP} normalize the result qualities they obtain on benchmark instances with the \glsFullpl{BKS}\only<-42>{.}\uncover<43->{ and then compute the arithmetic mean.}%
 %
 \end{itemize}%
 %
@@ -612,7 +612,7 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 %
 \item<11-> Often, our data is implicitly or explicitly normalized\only<-11>{.}\uncover<12->{, e.g.,%
 \begin{itemize}%
-\item if we divide result qualities by results of well-known heuristics or \inQuotes{Best-Known Solutions}\uncover<11->{ or}%
+\item if we divide result qualities by results of well-known heuristics or \glspl{BKS}\uncover<11->{ or}%
 \item<13-> if we normalize the runtime using another algorithm as standard.%
 \end{itemize}}%
 \item<14-> Then, the arithmetic mean and median can be very misleading and the geometric mean must be computed.%
