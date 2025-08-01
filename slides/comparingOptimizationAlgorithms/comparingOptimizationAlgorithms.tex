@@ -20,7 +20,7 @@
 \item<2-> For solving an optimization problem, we want to use the algorithm most suitable for it.%
 \item<3-> \alert<3>{What does this mean?}%
 \item<4-> \alert<4>{And how do we find this algorithm?}%
-\item<5-> Hopefully this lesson will answer these questions.%
+\item<5-> Hopefully this lesson will help answering these questions.%
 \item<6-> As a complement to this lesson, I suggest the report \emph{\citetitle{BBDvdBBCEFKLCLIMMNOVWW2020BIOBPAOI}}\cite{BBDvdBBCEFKLCLIMMNOVWW2020BIOBPAOI} on arXiv.%
 \end{itemize}%
 \end{frame}%
@@ -32,16 +32,24 @@
 \item In optimization, there exist \alert{exact} and \alert{heuristic} algorithms.%
 %
 \item<2-> Let's look at the classical \glsFull{TSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}.%
-\only<3-5,18->{%
+\only<6>{\item<6-> What does \alert{exponential growth} mean?}%
+\only<6-7>{\item<6-> Let's say we have a number of cities~$s$\only<-6>{.}\uncover<7->{ and a runtime as a function~$f(s)$ in this log-log plot.}}%
+\only<8>{\item<8-> A linear function means that the runtime~$f(s)$ grows slowly with~$s$.}%
+\only<9>{\item<9-> A quadratic function (a straight line in log-log plots) is also OK.}%
+\only<10-11>{\item<10-> A quartic function \only<-10>{$f(s)=s^4$ gets quite large for growing~$s$}\only<11>{exceeds the number of milliseconds per day at~$s\approx512$}.}%
+\only<12-13>{\item<12-> \only<-12>{But this is nothing compared to the exponential function~$f(s)=1.1^s$\dots}\only<13->{A runtime of~$1.1^s$ becomes infeasible for~$s>512$.}}%
+\only<14-15>{\item<14-> For larger bases, the runtime grows even faster.}%
+\only<16>{\item<16-> If we would enumerate all possible tours of $s$~cities in a \pgls{TSP}, that would be~\factorial{s}.}%
+\only<3-5,17->{%
 \begin{itemize}%
 \only<-5>{\item Clearly, there is (at least) one shortest tour.}%
 \only<-8>{\item<5-> \only<-5>{Theory proofs that the time needed to find this tour may grow exponentially with the number~$s$ of cities we want to visit in the worst case.\cite{LLRKS1993SASAAC,CPW1998AROMSCAAA,C1971TCOTPP,K1972RACP,A2008TLOQC}}%
-\only<18->{Finding the best tour (what exact algorithms do) may take too long.}}%
-\only<-20>{\item<19-> But we can find just \alert{some} tour very quickly.}%
-\only<-21>{\item<20-> Of course the quality of that tour will be lower\only<21>{: the tour will be longer than the best one}.}%
-\only<-23>{\item<22-> Is there something in between?}%
-\only<-24>{\item<23-> (Meta-)Heuristic optimization algorithms try to find solutions which are as good as possible as fast as possible.}%
-\item<24-> \alert{Optimization often means to make a trade-off between solution quality and runtime.}%
+\only<17->{\item Finding the best tour (what exact algorithms do) may take too long.}}%
+\only<-19>{\item<18-> But we can find just \alert{some} tour very quickly.}%
+\only<-20>{\item<19-> Of course the quality of that tour will be lower\only<20>{: the tour will be longer than the best one}.}%
+\only<-22>{\item<21-> Is there something in between?}%
+\only<-23>{\item<22-> (Meta-)Heuristic optimization algorithms try to find solutions which are as good as possible as fast as possible.}%
+\item<23-> \alert{Optimization often means to make a trade-off between solution quality and runtime.}%
 \end{itemize}%
 }%
 \end{itemize}%
@@ -52,26 +60,25 @@
 \locateGraphic{2-3}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china_solution}{0.25}{0.29}%
 \locateGraphic{4-5}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_1}{0.21}{0.38}%
 %
-\locateGraphic{6}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_01}{0.1}{0.27}%
-\locateGraphic{7}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_02}{0.1}{0.27}%
-\locateGraphic{8}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_03}{0.1}{0.27}%
-\locateGraphic{9}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_04}{0.1}{0.27}%
-\locateGraphic{10}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_05}{0.1}{0.27}%
-\locateGraphic{11}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_06}{0.1}{0.27}%
-\locateGraphic{12}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_07}{0.1}{0.27}%
-\locateGraphic{13}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_08}{0.1}{0.27}%
-\locateGraphic{14}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_09}{0.1}{0.27}%
-\locateGraphic{15}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_10}{0.1}{0.27}%
-\locateGraphic{16}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_11}{0.1}{0.27}%
-\locateGraphic{17}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_12}{0.1}{0.27}%
+\locateGraphic{6}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_01}{0.1}{0.29}%
+\locateGraphic{7}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_02}{0.1}{0.29}%
+\locateGraphic{8}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_03}{0.1}{0.29}%
+\locateGraphic{9}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_04}{0.1}{0.29}%
+\locateGraphic{10}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_05}{0.1}{0.29}%
+\locateGraphic{11}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_06}{0.1}{0.29}%
+\locateGraphic{12}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_07}{0.1}{0.29}%
+\locateGraphic{13}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_08}{0.1}{0.29}%
+\locateGraphic{14}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_09}{0.1}{0.29}%
+\locateGraphic{15}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_10}{0.1}{0.29}%
+\locateGraphic{16}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_11}{0.1}{0.29}%
 %
-\locateGraphic{18}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_2}{0.21}{0.38}%
-\locateGraphic{19}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_3}{0.21}{0.38}%
-\locateGraphic{20-21}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_4}{0.21}{0.38}%
-\locateGraphic{22}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_5}{0.21}{0.38}%
-\locateGraphic{23}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_6}{0.21}{0.38}%
-\locateGraphic{24}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_7}{0.21}{0.38}%
-\locateGraphic{25}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.21}{0.38}%
+\locateGraphic{17}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_2}{0.21}{0.38}%
+\locateGraphic{18}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_3}{0.21}{0.38}%
+\locateGraphic{19-20}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_4}{0.21}{0.38}%
+\locateGraphic{21}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_5}{0.21}{0.38}%
+\locateGraphic{22}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_6}{0.21}{0.38}%
+\locateGraphic{23}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_7}{0.21}{0.38}%
+\locateGraphic{24}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.21}{0.38}%
 \end{frame}%
 %
 \section{Views on Performance and Time}%
@@ -80,7 +87,7 @@
 \frametitle{Views on Performance}%
 \begin{itemize}%
 \item Runtime and solution quality in optimization are intertwined and should never be considered separately.%
-\item<2-> The \only<4->{two }view\only<-3>{s} on what performance is\cite{HAFR2010RPBBOB2ES,NFR2011CCCOTD,WNT2010AAOAB,WWQLT2018ADCOAAPIBAWATCFEDASAIF}\uncover<3->{:%
+\item<2-> There are two main views on what performance is\cite{HAFR2010RPBBOB2ES,NFR2011CCCOTD,WNT2010AAOAB,WWQLT2018ADCOAAPIBAWATCFEDASAIF}\only<-2>{.}\uncover<3->{:%
 \begin{enumerate}%
 \item Solution quality reached after a certain \alert<5>{runtime}%
 \item<4-> \alert<5>{Runtime} to reach a certain solution quality%
@@ -110,7 +117,7 @@ We can measure the (absolute) consumed runtime of the \alert<2>{algorithm\only<2
 \begin{itemize}%
 \item Results in many works reported in this format%
 \item<5-> A quantity that makes physical sense%
-\item<6-> Includes all \inQuotes{hidden complexities} of an algorithm implementation%
+\item<6-> Includes all \inQuotes{hidden complexities} of an algorithm implementation (memory management, matrix operations, data structures, \dots)%
 \end{itemize}%
 }%
 %
@@ -148,7 +155,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \item<10-> 1~\gls{objFE}: very different costs in different situations!\cite{WCLTTCMY2014BOAAOSFFTTSP}\uncover<11->{%
 \begin{itemize}%
 \item When applying a local search that swaps two cities in each move to the \gls{TSP}, 1~\gls{objFE} can be done in $\bigOb{1}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
-\item<12-> When applying \glsFull{ACO} instead, each \gls{objFE} takes~$\bigOb{n^2}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
+\item<12-> When applying \glsFull{ACO} instead, each \gls{objFE} takes~$\bigOb{s^2}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
 \end{itemize}%
 }%
 \end{itemize}%
@@ -162,7 +169,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \begin{itemize}%
 \item In an \glsFull{algoEA}\cite{W2009GOATAA,BFM1997EA}, in each generation~(=~iteration), a set of new solution is created and evaluated.%
 \item<2-> Traditionally, the number of generations passed until some goal was reached was used in the \gls{algoEA} community.%
-\item<3-> Do not use the number of \emph{generations} in your \gls{algoEA} as time measure! Instead count the \glspl{objFE}\only<-3>{.}\uncover<4->{, because:}%
+\item<3-> Do not use the number of \emph{generations} in your \gls{algoEA} as time measure! Instead count the \glspl{objFE}\only<-3>{.}\uncover<4->{,~because:}%
 \item<4-> The \inQuotes{number of generations} are not really comparable for different population sizes or with algorithms that do not use populations.%
 \item<5-> Often, the mapping between generations and \glspl{objFE} is not clear\uncover<6->{, for example%
 \begin{itemize}%
@@ -233,7 +240,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \item \alert{Number of \glspl{objFE} needed to reach a certain objective function value}%
 \item Preferred by, e.g., the BBOB/COCO benchmark suite\cite{HAFR2010RPBBOB2ES}\uncover<2->{:%
 \begin{itemize}%
-\item Measures the time needed to reach a target function value allows meaningful statements such as \inQuotes{Algorithm~$A$ is two/ten/hundred times faster than Algorithm~$B$ in solving this problem.}%
+\item Measuring the time needed to reach a target function value allows meaningful statements such as \inQuotes{Algorithm~$A$ is two/ten/hundred times faster than Algorithm~$B$ in solving this problem.}%
 \item<3-> However, there is no interpretable meaning to the fact that Algorithm~$A$ reaches a function value that is two/ten/hundred times smaller than the one reached by Algorithm~$B$.%
 \item<4-> \inQuotes{Benchmarking Theory Perspective}
 \end{itemize}%
@@ -303,7 +310,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 }%
 \item<5-> Special situation: Randomized Algorithms\uncover<6->{:%
 \begin{itemize}%
-\item Performance values cannot be given absolute!%
+\item Performance values cannot be given as an \inQuotes{absolute} value!%
 \item<7-> 1~run = 1~application of an optimization algorithm to a problem, runs are independent from all prior runs.%
 \item<8-> Results can be different for each run!%
 \item<9-> Executing a randomized algorithm one time does not give reliable information.%
@@ -335,18 +342,18 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \hline%
 \strut~~~~~~\#~throws&number&f(1)&f(2)&f(3)&f(4)&f(5)&f(6)\\%
 \hline%
-1&5&0.0000&0.0000&0.0000&0.0000&1.0000&0.0000%
-\only<8->{\\2&4&0.0000&0.0000&0.0000&0.5000&0.5000&0.0000%
-\only<9->{\\3&1&0.3333&0.0000&0.0000&0.3333&0.3333&0.0000%
-\only<10->{\\4&4&0.2500&0.0000&0.0000&0.5000&0.2500&0.0000%
-\only<11->{\\5&3&0.2000&0.0000&0.2000&0.4000&0.2000&0.0000%
-\only<12->{\\6&3&0.1667&0.0000&0.3333&0.3333&0.1667&0.0000%
-\only<13->{\\7&2&0.1429&0.1429&0.2857&0.2857&0.1429&0.0000\\%
-8&1&0.2500&0.1250&0.2500&0.2500&0.1250&0.0000\\%
-9&4&0.2222&0.1111&0.2222&0.3333&0.1111&0.0000\\%
-10&2&0.2000&0.2000&0.2000&0.3000&0.1000&0.0000%
-\only<14->{\\11&6&0.1818&0.1818&0.1818&0.2727&0.0909&0.0909\\%
-12&3&0.1667&0.1667&0.2500&0.2500&0.0833&0.0833%
+1&5&0.0000&0.0000&0.0000&0.0000&\textcolor<7>{red}{1.0000}&0.0000%
+\only<8->{\\2&4&0.0000&0.0000&0.0000&\textcolor<8>{red}{0.5000}&\textcolor<8>{red!20!black}{0.5000}&0.0000%
+\only<9->{\\3&1&\textcolor<9>{red}{0.3333}&0.0000&0.0000&\textcolor<9>{red!20!black}{0.3333}&\textcolor<9>{red!20!black}{0.3333}&0.0000%
+\only<10->{\\4&4&0.2500&0.0000&0.0000&\textcolor<10>{red}{0.5000}&0.2500&0.0000%
+\only<11->{\\5&3&0.2000&0.0000&0.2000&0.4000&\textcolor<11>{red}{0.2000}&0.0000%
+\only<12->{\\6&3&0.1667&0.0000&\textcolor<12>{red}{0.3333}&0.3333&0.1667&0.0000%
+\only<13->{\\7&2&0.1429&\textcolor<13>{red}{0.1429}&0.2857&0.2857&0.1429&0.0000\\%
+8&1&\textcolor<13>{red}{0.2500}&0.1250&0.2500&0.2500&0.1250&0.0000\\%
+9&4&0.2222&0.1111&0.2222&\textcolor<13>{red}{0.3333}&0.1111&0.0000\\%
+10&2&0.2000&\textcolor<13>{red}{0.2000}&0.2000&0.3000&0.1000&0.0000%
+\only<14->{\\11&6&0.1818&0.1818&0.1818&0.2727&0.0909&\textcolor<14>{red}{0.0909}\\%
+12&3&0.1667&0.1667&\textcolor<14>{red}{0.2500}&0.2500&0.0833&0.0833%
 \only<15->{\\100&\dots&0.1900&0.2100&0.1500&0.1600&0.1200&0.1700\\%
 1'000&\dots&0.1700&0.1670&0.1620&0.1670&0.1570&0.1770\\%
 10'000&\dots&0.1682&0.1699&0.1680&0.1661&0.1655&0.1623\\%
@@ -375,7 +382,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \begin{itemize}%
 \item Assume that we have obtained a sample~$A=(\arrayIndex{a}{0}, \arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ of $n$~observations from an experiment\only<-1>{.}\uncover<2->{, e.g., we have measured the qualities~$\arrayIndex{a}{i}$ of the best discovered solutions of $n=101$ independent runs of an optimization algorithm.}%
 \item<3-> We usually want to reduce this set of numbers to a single value which can give us an impression of what the \inQuotes{average outcome} (or result quality is).%
-\item<4-> Three of the most common options for doing so, for estimating the \inQuotes{center} of a distribution, are to either compute the \alert{arithmetic mean}, the \alert{median}, or the \alert{geometric mean}.%
+\item<4-> Three of the most common options for doing so, for estimating the \inQuotes{center} of a distribution, are the \alert{arithmetic mean}, the \alert{median}, and the \alert{geometric mean}.%
 \end{itemize}%
 \end{frame}%
 %
@@ -384,7 +391,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 %
 \begin{definition*}[Arithmetic Mean]%
 The arithmetic mean~\arithMeanb{A} is an \alert{estimate} of the expected value of a distribution from which a dataset was sampled.%
-\uncover<2->{ Its is computed on data sample $A=(\arrayIndex{a}{0},\arrayIndex{a}{1},\dots,\arrayIndex{a}{n-1})$ as the sum of all $n$ elements $\arrayIndex{a}{i}$ in the sample data~$A$ divided by the total number~$n$ of values.%
+\uncover<2->{ It is computed on data sample $A=(\arrayIndex{a}{0},\arrayIndex{a}{1},\dots,\arrayIndex{a}{n-1})$ as the sum of all $n$ elements $\arrayIndex{a}{i}$ in the sample data~$A$ divided by the total number~$n$ of values.%
 \uncover<3->{
 \begin{equation}%
 \arithMeanb{A} = \frac{1}{n} \sum_{i=0}^{n-1} \arrayIndex{a}{i}%
@@ -394,9 +401,9 @@ The arithmetic mean~\arithMeanb{A} is an \alert{estimate} of the expected value 
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Median}%
-\begin{definition*}[Median]%
-The median~\medianb{A} is the value separating the bigger-valued half from the smaller-valued half of a data sample or distribution.%
+\frametitle{Sample Median}%
+\begin{definition*}[Sample Median]%
+The sample median~\medianb{A} is the value separating the bigger-valued half from the smaller-valued half of a data sample or distribution.%
 \uncover<2->{ Its estimate is the value right in the middle of a \emph{sorted} data sample $A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ where $\arrayIndex{a}{i-1}\leq \arrayIndex{a}{i} \; \forall i \in 1\dots (n-1)$.%
 \uncover<3->{%
 \begin{equation}%
@@ -460,17 +467,17 @@ B &=& (1, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 9, 9, 9, 10, 11, 12, \textcolor{red}{
 \item The operating systems scheduling or other strange effects could mess with our timing.\uncover<3->{ %
 This could cause worse results.\uncover<4->{ %
 But usually this is already it.}}%
-\item<5-> (Unless your objective function is noisy, e.g., if you measure some physical quantity, or the objective function involves randomized simulations, there are hardly any other \inQuotes{outside} effects that could mess up our results!)%
+\item<5-> Unless your objective function is noisy, e.g., if you measure some physical quantity, or the objective function involves randomized simulations, there are hardly any other \inQuotes{outside} effects that could mess up our results!%
 \end{enumerate}}%
 \item<6-> Instead, most likely there could be%
 \begin{itemize}%
 \item \alert{bugs in our code!}\uncover<7->{%
 \begin{itemize}%
 \item Bugs in our code are \emph{the} most important number one reason for outliers!%
-\item<8-> Yes, also in your code! (Btw: Please use unit tests.)%
+\item<8-> Yes, also in your code! (Btw: Please use \gls{unitTest}\cite{P2021PUTAAOAEUTIP,R2006ASOUTP,TLG2006UTCU}.)%
 \end{itemize}}%
 \item<9-> Or: \alert{bad (but rare) worst-case behaviors of our algorithm!}\uncover<10->{\\[5pt]~~\parbox{0.9\linewidth}{Imagine that:%
-\uncover<11->{ Your algorithm can actually solve the \gls{TSP} or MaxSat problem in polynomial time on 90\% of all instances{\dots}%
+\uncover<11->{ Your algorithm can actually solve the \gls{TSP} or \glsFull{MaxSAT} problem in polynomial time on 90\% of all instances{\dots}%
 \uncover<12->{ {\dots}but on 10\%, it needs exponential time.%
 \uncover<13->{ If you just look at the median runtime, you may think you discovered something awesome.%
 \uncover<14->{ Actually, this is quite common\dots}}}}}}%
@@ -480,7 +487,7 @@ But usually this is already it.}}%
 %
 \locate{15}{\colorbox{white!98!green}{\parbox{0.72\linewidth}{\centering\parbox{0.95\linewidth}{%
 \includegraphics[width=\linewidth]{\sharedDir/graphics/maxsat_hoos_poly/maxsat_hoos_poly}\\%
-{\small{(Taken from the paper \emph{\inQuotes{\citetitle{HS2000LSAFSAEE}}} by \citeauthor{HS2000LSAFSAEE}, coloring added manually\cite{HS2000LSAFSAEE}.)%
+{\small{(Taken from the paper \emph{\citetitle{HS2000LSAFSAEE}} by \citeauthor{HS2000LSAFSAEE}, coloring added manually\cite{HS2000LSAFSAEE}.)%
 }}}}}}{0.14}{0.14}%
 %
 \end{frame}%
@@ -643,13 +650,14 @@ The variance of a distribution is the expectation of the squared deviation of th
 %
 \begin{frame}%
 \frametitle{Standard Deviation}%
-\begin{definition*}[Standard Deviation]%
-The statistical estimate~\sampleStdDevb{A} of the standard deviation of a data sample~$A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ with $n$~observations is the square root of the estimated variance~$\sampleVarb{A}$.
+\begin{definition*}[Sample Standard Deviation]%
+\sloppy%
+The statistical estimate~\sampleStdDevb{A} of the standard deviation of a data sample~$A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ with $n$~observations is the square root of the estimated variance~$\sampleVarb{A}$.%
 \begin{equation}%
 \sampleStdDevb{A} = \sqrt{\sampleVarb{A}}%
 \nonumber%
 \end{equation}%
-\end{definition*}%
+\end{definition*}\fussy%
 \end{frame}%
 %
 \begin{frame}%
@@ -664,7 +672,7 @@ The statistical estimate~\sampleStdDevb{A} of the standard deviation of a data s
 %
 \begin{frame}[t]%
 \frametitle{Quantiles}%
-\begin{definition*}[Quantile]%
+\begin{definition*}[Sample Quantile]%
 The $q$\nobreakdashes-quantiles are the cut points that divide a sorted data sample~$A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ where $\arrayIndex{a}{i-1}\leq \arrayIndex{a}{i} \; \forall i \in 1\dots (n-1)$ into $q$ equally-sized parts.%
 \uncover<2->{ \sampleQuantile{k}{q}{A}~be the $k$\textsuperscript{th}~$q$\nobreakdashes-quantile, with $k\in 1\dots (q-1)$, i.e., there are $q-1$ of the $q$\nobreakdashes-quantiles.%
 %
@@ -942,7 +950,7 @@ O = A \cup B = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)%
 \end{itemize}%
 \uncover<10->{%
 \begin{equation}%
-p=\frac{\textnormal{\#cases~$C$}:\arithMeanb{c}\leq \arithMeanb{b}}{\textnormal{\#all cases}}=\frac{{27}}{{210}}=\frac{9}{70}\approx {0.1286}%
+p=\frac{\textnormal{\#cases~$C$}:\arithMeanb{C}\leq \arithMeanb{B}}{\textnormal{\#all cases}}=\frac{{27}}{{210}}=\frac{9}{70}\approx {0.1286}%
 \nonumber\end{equation}%
 }%
 }%
@@ -969,7 +977,7 @@ p=\frac{\textnormal{\#cases~$C$}:\arithMeanb{c}\leq \arithMeanb{b}}{\textnormal{
 \only<2->{\only<1-5>{\\}%
 \only<2-6>{\sum_{\forall o\in O} o &=& \sum_{o=1}^{10}o = \frac{10 (10+1)}{2} = 55}\nonumber%
 \only<3->{\only<2-6>{\\}%
-\arithMeanb{b} =\left(\frac{1}{4}\sum_{\forall b\in B}b\right) \leq 4 &\Longrightarrow& \left(\sum_{\forall b\in B}b\right) \leq 4*4 \leq 16\nonumber%
+\arithMeanb{B} =\left(\frac{1}{4}\sum_{\forall b\in B}b\right) \leq 4 &\Longrightarrow& \left(\sum_{\forall b\in B}b\right) \leq 4*4 \leq 16\nonumber%
 \only<4->{\\%
 O=A\cup B&\Longrightarrow&\sum_{\forall a\in A}a = \left(\sum_{\forall o\in O}o\right)-\left(\sum_{\forall b\in B}b\right)\nonumber%
 \only<5->{\\%
@@ -994,7 +1002,7 @@ O=A\cup B&\Longrightarrow&\sum_{\forall a\in A}a = \left(\sum_{\forall o\in O}o\
 \end{itemize}%
 \addtocounter{equation}{-1}%
 \begin{equation}%
-p=\frac{\textnormal{\#cases~$C$}:\arithMeanb{c}\leq \arithMeanb{b}}{\textnormal{\#all cases}}=\frac{{27}}{{210}}=\frac{9}{70}\approx {0.1286}%
+p=\frac{\textnormal{\#cases~$C$}:\arithMeanb{C}\leq \arithMeanb{B}}{\textnormal{\#all cases}}=\frac{{27}}{{210}}=\frac{9}{70}\approx {0.1286}%
 \nonumber\end{equation}%
 %
 \begin{itemize}%
@@ -1075,7 +1083,7 @@ the \mbox{Randomization Test\cite{BLB2008VMIDBS,E1995RT}}, and %
 \item<2-> $N$ Algorithms $\Rightarrow$ $k=N(N-1)/2$ statistical tests\only<-4>{ (e.g., Mann-Whitney U)}%
 \only<3->{%
 \item<3-> $k$ tests and each with error proability \ensuremath{\alpha}\only<4->{ $\Longrightarrow$ %
-total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
+total probability $E$ to make at least one error $E=1-((1-\ensuremath{\alpha})^k)$%
 \item<6-> Correction needed\uncover<7->{: Bonferroni correction\cite{D1961MCAM}\uncover<6->{:~Use $\ensuremath{\alpha}'=\ensuremath{\alpha}/k$ as significance level instead of $\ensuremath{\alpha}$, then the overall probability $E$ to make an error will remain $E\leq\ensuremath{\alpha}$.}}%
 }}}%
 \end{itemize}%
@@ -1133,7 +1141,7 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 \begin{itemize}%
 \item Your experiments should be well-documented and reproducible.%
 \item<2-> In the ideal case, someone else can run your code and get the same results.%
-\item<3-> For this purpose, you should make your code available, e.g., put it on GitHub or zenodo.org.%
+\item<3-> For this purpose, you should make your code available, e.g., put it on \github\ or zenodo.org.%
 \item<4-> If your experiments are time-consuming, also make sure to properly store all your results in human- and machine-readable form, ideally in a \glsFull{CSV} format.%
 \item<5-> You should make an archive such that a)~I can directly run the same experiments that you did and b)~also have all the data and tools to create the same statistics and figures.%
 \item<6-> \alert{But what if someone finds an error in work?}%
@@ -1151,9 +1159,9 @@ total probability $E$ to make error $E=1-((1-\ensuremath{\alpha})^k)$%
 \begin{itemize}%
 \item On a benchmark instance, many runs are conducted with different random seeds.\uncover<4->{ %
 But only the 10 with the best results are reported.\uncover<5->{ %
-This can be prevented by generating the sequence of random seeds with a deterministic algorithm and reporting both.}}%
+This can be prevented by generating the sequence of random seeds with a deterministic algorithm and reporting both\cite{WW2023RSDEWASSAA}.}}%
 \item<6-> Only the benchmark instances where the algorithm performs well are chosen.\uncover<7->{ %
-Be wary of statements such as \inQuotes{We now present the results of our algorithm on 10 of the TSPLib instances.} (TSPLib has more than 100\dots)}%
+Be wary of statements such as \inQuotes{We now present the results of our algorithm on 10 of the \gls{TSPLib} instances.} (\gls{TSPLib} has more than 100\dots)}%
 \item<8-> Weak algorithms are chosen for comparison.\uncover<9->{ %
 Comparison must always be done with the state-of-the-art on the specific problem at hand.\uncover<10->{ %
 Be wary of statements such as \inQuotes{We compare our algorithm with the standard Genetic Algorithm.} (because the SGA is usually not the state-of-the-art)}}%
