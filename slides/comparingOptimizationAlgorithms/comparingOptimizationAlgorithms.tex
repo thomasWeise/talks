@@ -402,8 +402,8 @@ The arithmetic mean~\arithMeanb{A} is an \alert{estimate} of the expected value 
 %
 \begin{frame}%
 \frametitle{Sample Median}%
-\begin{definition*}[Sample Median]%
-The sample median~\medianb{A} is the value separating the bigger-valued half from the smaller-valued half of a data sample or distribution.%
+\begin{definition*}[Median]%
+The median~\medianb{A} is the value separating the bigger-valued half from the smaller-valued half of a data sample or distribution.%
 \uncover<2->{ Its estimate is the value right in the middle of a \emph{sorted} data sample $A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ where $\arrayIndex{a}{i-1}\leq \arrayIndex{a}{i} \; \forall i \in 1\dots (n-1)$.%
 \uncover<3->{%
 \begin{equation}%
@@ -535,7 +535,7 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 \only<-40>{\item<39-> Only the geometric mean still indicates that the algorithms perform the same\dots}%
 \item<40-> The geometric mean is the only meaningful average if we have \alert{normalized} data!\cite{FW1986HNTLWSTCWTSBR}%
 \item<41-> And we very often have normalized data.%
-\item<42-> For example, at least half of the papers on the \gls{JSSP} normalize the result qualities they obtain on benchmark instances with the \glsFullpl{BKS}\only<-42>{.}\uncover<43->{ and then compute the arithmetic mean.}%
+\item<42-> For example, at least half of the papers on the \glsFull{JSSP} normalize the result qualities they obtain on benchmark instances with the \glsFullpl{BKS}\only<-42>{.}\uncover<43->{ and then compute the arithmetic mean.}%
 %
 \end{itemize}%
 %
@@ -637,22 +637,25 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 %
 \begin{frame}%
 \frametitle{Sample Variance}%
-\begin{definition*}[Sample Variance]%
+\begin{definition*}[Variance]%
 The variance of a distribution is the expectation of the squared deviation of the underlying random variable from its expected value.%
-\uncover<2->{ The variance~\sampleVarb{A} of a data sample~$A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ with $n$~observations can be estimated as:%
+\end{definition*}%
+\uncover<2->{%
+\begin{definition*}[Sample Variance]%
+The variance~\sampleVarb{A} of a data sample~$A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ with $n$~observations can be estimated as:%
 \begin{equation}%
-\sampleVarb{A} = \frac{1}{n-1} \sum_{i=0}^{n-1} \left(\arrayIndex{a}{i} - \arithMeanb{A}\right)^2
+\sampleVarb{A} = \frac{1}{n-1} \sum_{i=0}^{n-1} \left(\arrayIndex{a}{i} - \arithMeanb{A}\right)^2=\frac{1}{n-1}\left[ \left(\sum_{i=0}^{n-1}\arrayIndex{a}{i}^2\right) - \frac{1}{n}\left(\sum_{i=0}^{n-1}\arrayIndex{a}{i}\right)^2\right]%
 \nonumber%
 \end{equation}%
-}%
 \end{definition*}%
+}%
 \end{frame}%
 %
 \begin{frame}%
 \frametitle{Standard Deviation}%
 \begin{definition*}[Sample Standard Deviation]%
 \sloppy%
-The statistical estimate~\sampleStdDevb{A} of the standard deviation of a data sample~$A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ with $n$~observations is the square root of the estimated variance~$\sampleVarb{A}$.%
+The standard deviation~\sampleStdDevb{A} of a data sample~$A=(\arrayIndex{a}{0},\arrayIndex{a}{1}, \dots, \arrayIndex{a}{n-1})$ with $n$~observations is the square root of the estimated variance~$\sampleVarb{A}$.%
 \begin{equation}%
 \sampleStdDevb{A} = \sqrt{\sampleVarb{A}}%
 \nonumber%
@@ -1006,7 +1009,7 @@ p=\frac{\textnormal{\#cases~$C$}:\arithMeanb{C}\leq \arithMeanb{B}}{\textnormal{
 \nonumber\end{equation}%
 %
 \begin{itemize}%
-\item<2-> If we claim that~$A$ and~$B$ are from distributions with different means\dots%
+\item<2-> If we claim that~$A$ and~$B$ are from distributions with means as different as observed\dots%
 \item<3-> {\dots}we are wrong with probability $p\approx 0.13$
 \item<4-> At a significance level of $\ensuremath{\alpha}=2\%$, the \alert{means} of~$A$ and~$B$ are not significantly different! ($2\%<0.13$)%
 \item<5-> Actually: This here is an example for an \emph{Randomization Test}\cite{BLB2008VMIDBS,E1995RT}.%
