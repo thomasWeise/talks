@@ -5,9 +5,13 @@
 [Here](https://thomasweise.github.io/talks) you can find some of the talks given by Prof. Dr. Thomas Weise (汤卫思教授). 
 
 - [Comparing Optimization Algorithms](https://thomasweise.github.io/talks/comparingOptimizationAlgorithms.pdf)
+- [Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf)
 
 ## 2. License
-The material provided in this repository is released under the Attribution-NonCommercial-ShareAlike 4.0 International license (CC&nbsp;BY&#8209;NC&#8209;SA&nbsp;4.0), see [http://creativecommons.org/licenses/by-nc-sa/4.0](http://creativecommons.org/licenses/by-nc-sa/4.0) for a summary.
+Most of the material provided in this repository is released under the Attribution-NonCommercial-ShareAlike 4.0 International license (CC&nbsp;BY&#8209;NC&#8209;SA&nbsp;4.0), see [http://creativecommons.org/licenses/by-nc-sa/4.0](http://creativecommons.org/licenses/by-nc-sa/4.0) for a summary.
+
+Exceptions to this licensing are all LaTeX classes and commands.
+Other exceptions are explicitly mentioned, e.g., sometimes a graphic may be under copyright held by another person or organization.
 
 ## 3. Contact
 If you have any questions or suggestions, please contact

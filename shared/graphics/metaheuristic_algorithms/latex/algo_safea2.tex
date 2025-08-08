@@ -1,0 +1,29 @@
+\Procedure{\sga}{$\objFun:\solutionSpace\mapsto\realNumbers^+$, $ps$, $cr$}\Comment{for maximization!}%
+%
+\State $\bestSoFarX\gets\emptyset$;~~$\bestSoFarF\gets -\infty$;\Comment{best-so-far solution}%
+%
+\For{$j\in 1\dots ps$}\Comment{random initial population}%
+\State randomly sample $\listItem{S_0}{j}.\solution$ from $\solutionSpace$;~~$\listItem{S_0}{j}.\oval \gets \objFunb{\listItem{S_0}{j}.\solution}$;%
+\If{\bestcolor{$\listItem{S_0}{j}.\oval>\bestSoFarF$}}\ \bestcolor{$\bestSoFarX\gets \listItem{S_0}{j}.\solution$;~~$\bestSoFarF\gets \listItem{S_0}{j}.\oval$;}%
+\EndIf%
+\EndFor%
+%
+\For{$i\in 0\dots \infty$}\Comment{iterate ``generations''}%
+%
+\For{$j\in 1\dots ps$}\Comment{new pop.\ via mutation and crossover}%%
+\If{$\randomZO<cr$}%
+\ $\listItem{N_i}{j}.\solution\gets\opBinary(\listItem{S_i}{\randomI{1}{ps}}.\solution,\listItem{S_i}{\randomI{1}{ps}}.\solution)$;%
+\Else%
+\ $\listItem{N_i}{j}.\solution\gets\opUnary(\listItem{S_i}{\randomI{1}{ps}}.\solution)$;%
+\EndIf%
+%
+\State $\listItem{N_i}{j}.\oval \gets \objFunb{\listItem{N_i}{j}.\solution}$;%
+\If{\bestcolor{$\listItem{N_i}{j}.\oval>\bestSoFarF$}}\ \bestcolor{$\bestSoFarX\gets \listItem{N_i}{j}.\solution$;~~$\bestSoFarF\gets \listItem{N_i}{j}.\oval$;}%
+\EndIf%
+\EndFor%
+%
+\State $S_{i+1}\gets$\ \parbox[t]{0.75\linewidth}{\emph{Roulette Wheel:} select $ps$~records from $P_i=S_i\cup N_i$ such that, for each of the $ps$~slots, the probability of $\listItem{P_i}{j}$ to be chosen is proportional to $\listItem{P_i}{j}.\oval$.}%
+%
+\EndFor%
+\Return \bestSoFarX, \bestSoFarF%
+\EndProcedure%

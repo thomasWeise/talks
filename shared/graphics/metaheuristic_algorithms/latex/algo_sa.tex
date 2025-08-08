@@ -1,0 +1,22 @@
+\Procedure{\sa}{$\objFun:\solutionSpace\mapsto\realNumbers$, $T_0$, $\varepsilon$}%
+%
+\State randomly sample $\solutioni{c}$ from $\solutionSpace$;~~$\ovali{c} \gets \objFunb{\solutioni{c}}$;%
+\State \bestcolor{$\bestSoFarX\gets\solutioni{c}$;~~$\bestSoFarF\gets\ovali{c}$};\Comment{preserve best!}%
+\State $\tau\gets 0$;\Comment{$\tau$ is iteration counter}%
+%
+\While{$\lnot$ terminate}%
+\State $\solutioni{n} \gets \opUnary(\solutioni{c})$;~~$\ovali{n} \gets \objFunb{\solutioni{n}}$;%
+\State $\tau\gets \tau+1$;
+\State $T\gets T_0(1-\varepsilon)^{\tau-1}$;\Comment{$T$ decreases over time}%
+%
+\If{$\randomZO<e^{\frac{\ovali{c}-\ovali{n}}{T}}$}\Comment{always true if $\ovali{n}\leq\ovali{c}$}%
+\State $\solutioni{c} \gets \solutioni{n}$;~~$\ovali{c} \gets \ovali{n}$;%
+%
+\If{\bestcolor{$\ovali{c}<\bestSoFarF$}} \bestcolor{$\bestSoFarX\gets\solutioni{c}$;~~$\bestSoFarF\gets\ovali{c}$;}%
+\EndIf%
+\smallskip%
+\EndIf%
+%
+\EndWhile%
+\Return \bestcolor{\bestSoFarX, \bestSoFarF}%
+\EndProcedure%

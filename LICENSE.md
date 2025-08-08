@@ -1,3 +1,7 @@
+Most of the material in this repository is under the license listed below.
+Exceptions to this licensing are all LaTeX classes and commands.
+Other exceptions are explicitly mentioned, e.g., sometimes a graphic may be under copyright held by another person or organization.
+
 ## creative commons
 
 # Attribution-NonCommercial-ShareAlike 4.0 International

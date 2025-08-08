@@ -1,0 +1,25 @@
+\Procedure{\fsa}{$\objFun:\solutionSpace\mapsto\naturalNumbers$}%
+%
+\State \ffacolor{$\ffaH\gets(0, 0, \cdots, 0)$;}%
+\State $T_0\gets 2$; $\varepsilon\gets 1 - (1/T_0)^{10^{-10}}$;%
+\State randomly sample $\solutioni{c}$ from $\solutionSpace$;~~$\ovali{c} \gets \objFunb{\solutioni{c}}$;%
+\State \bestcolor{$\bestSoFarX\gets\solutioni{c}$;~~$\bestSoFarF\gets\ovali{c}$}; $\tau\gets 0$;%
+%
+\While{$\lnot$ terminate}%
+\State $\solutioni{n} \gets \opUnary(\solutioni{c})$;~~$\ovali{n} \gets \objFunb{\solutioni{n}}$;%
+%
+\State \ffacolor{$\ffaHb{\ovali{c}} \gets \ffaHb{\ovali{c}} + 1$;~~$\ffaHb{\ovali{n}} \gets \ffaHb{\ovali{n}} + 1$;}%
+%
+\State $\tau\gets \tau+1$; $T\gets T_0(1-\varepsilon)^{\tau-1}$;%
+%
+\If{$\randomZO<e^{\frac{\ffaHb{\ovali{c}}-\ffaHb{\ovali{n}}}{T}}$}%
+\State $\solutioni{c} \gets \solutioni{n}$;~~$\ovali{c} \gets \ovali{n}$;%
+\EndIf%
+%
+\If{\bestcolor{$\ovali{c}<\bestSoFarF$}} \bestcolor{$\bestSoFarX\gets\solutioni{c}$;~~$\bestSoFarF\gets\ovali{c}$;}%
+\smallskip%
+\EndIf%
+%
+\EndWhile%
+\Return \bestcolor{\bestSoFarX, \bestSoFarF}%
+\EndProcedure%

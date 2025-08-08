@@ -1,0 +1,20 @@
+\Procedure{\opofea}{$\objFun:\solutionSpace\mapsto\naturalNumbers$}%
+%
+\State \ffacolor{$\ffaH\gets(0, 0, \cdots, 0)$;}%
+\State randomly sample $\solutioni{c}$ from $\solutionSpace$;~~$\ovali{c} \gets \objFunb{\solutioni{c}}$;%
+\State \bestcolor{$\bestSoFarX\gets\solutioni{c}$;~~$\bestSoFarF\gets\ovali{c}$};%
+%
+\While{$\lnot$ terminate}%
+\State $\solutioni{n} \gets \opUnary(\solutioni{c})$;~~$\ovali{n} \gets \objFunb{\solutioni{n}}$;%
+%
+\State \ffacolor{$\ffaHb{\ovali{c}} \gets \ffaHb{\ovali{c}} + 1$;~~$\ffaHb{\ovali{n}} \gets \ffaHb{\ovali{n}} + 1$;}%
+%
+\If{\ffacolor{$\ffaHb{\ovali{n}} \leq \ffaHb{\ovali{c}}$}}%
+\State $\solutioni{c} \gets \solutioni{n}$;~~$\ovali{c} \gets \ovali{n}$;%
+\If{\bestcolor{$\ovali{c}<\bestSoFarF$}} \bestcolor{$\bestSoFarX\gets\solutioni{c}$;~~$\bestSoFarF\gets\ovali{c}$;}%
+\EndIf%
+\smallskip%
+\EndIf%
+\EndWhile%
+\Return \bestcolor{\bestSoFarX, \bestSoFarF}%
+\EndProcedure%

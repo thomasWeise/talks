@@ -1,0 +1,26 @@
+\Procedure{\eafea}{$\objFun:\solutionSpace\mapsto\naturalNumbers$}%
+%
+\State \ffacolor{$\ffaH\gets(0, 0, \cdots, 0)$;}%
+\State randomly sample $\solutioni{c}$ from $\solutionSpace$;~~$\ovali{c} \gets \objFunb{\solutioni{c}}$;%
+\State $\solutioni{d} \gets \solutioni{c}$; $\ovali{d} \gets \ovali{c}$; $\mathrm{useFFA}\gets\btrue$;%
+%
+\While{$\lnot$ terminate}%
+%
+\State $\mathrm{useFFA}\gets\lnot \mathrm{useFFA}$;%
+\State \algorithmicif\ $\mathrm{useFFA}$\ \algorithmicthen\ %
+$\solutioni{p}\gets\solutioni{d}$\ \algorithmicelse\ %
+$\solutioni{p}\gets\solutioni{c}$;%
+\State $\solutioni{n} \gets \opUnary(\solutioni{p})$;~~$\ovali{n} \gets \objFunb{\solutioni{n}}$;%
+%
+\If{$\mathrm{useFFA}$}%
+\State \ffacolor{$\ffaHb{\ovali{d}} \gets \ffaHb{\ovali{d}} + 1$;~~$\ffaHb{\ovali{n}} \gets \ffaHb{\ovali{n}} + 1$;}%
+\If{\ffacolor{$\ffaHb{\ovali{n}} \leq \ffaHb{\ovali{d}}$}}\ $\solutioni{d} \gets \solutioni{n}$;~~$\ovali{d} \gets \ovali{n}$;%
+\EndIf%
+\EndIf%
+%
+\If{$\ovali{n} \leq \ovali{c}$}\ %
+$\solutioni{c} \gets \solutioni{n}$;~~$\ovali{c} \gets \ovali{n}$;%
+\EndIf%
+\EndWhile%
+\Return \solutioni{c}, \ovali{c}%
+\EndProcedure%

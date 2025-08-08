@@ -1,0 +1,13 @@
+\Procedure{\opoea}{$\objFun:\solutionSpace\mapsto \realNumbers$}%
+%
+\State randomly sample $\solutioni{c}$ from $\solutionSpace$;~~$\ovali{c} \gets \objFunb{\solutioni{c}}$;%
+%
+\While{$\lnot$ terminate}%
+\State $\solutioni{n} \gets \opUnary(\solutioni{c})$;~~$\ovali{n} \gets \objFunb{\solutioni{n}}$;%
+%
+\If{$\ovali{n} \leq \ovali{c}$}~~$\solutioni{c} \gets \solutioni{n}$;~~$\ovali{c} \gets \ovali{n}$;%
+\EndIf%
+%
+\EndWhile%
+\Return \solutioni{c}, \ovali{c}%
+\EndProcedure%

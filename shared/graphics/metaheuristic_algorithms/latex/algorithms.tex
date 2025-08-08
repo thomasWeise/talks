@@ -1,0 +1,170 @@
+\RequirePackage[noend]{algpseudocode}%
+\documentclass[pdflatex,sn-basic]{sn-jnl}%
+\jyear{2023}%
+\raggedbottom%
+%
+\usepackage{subfig}%
+\usepackage{amsmath,amssymb,amsfonts}%
+%
+\protected\gdef\objFun{\ensuremath{f}}%
+\protected\gdef\objFunb#1{\mbox{\ensuremath{\objFun\!\left(#1\right)}}}%
+%
+\protected\gdef\objectiveSpace{\ensuremath{\mathbb{Y}}}%
+\protected\gdef\oval{\ensuremath{y}}%
+\protected\gdef\ovali#1{\mbox{\ensuremath{\oval_{#1}}}}%
+%
+\protected\gdef\scale{\ensuremath{n}}%
+\protected\gdef\hscale{\ensuremath{M}}%
+\protected\gdef\hscalea{\ensuremath{m}}%
+%
+\protected\gdef\solutionSpace{\ensuremath{\mathbb{X}}}%
+\protected\gdef\solution{\ensuremath{x}}%
+\protected\gdef\solutioni#1{\mbox{\ensuremath{\solution_{#1}}}}%
+%
+\protected\gdef\naturalNumbers{\ensuremath{\mathbb{N}}}%
+\protected\gdef\realNumbers{\ensuremath{\mathbb{R}}}%
+%
+\protected\gdef\ffaH{\ensuremath{H}}%
+\protected\gdef\ffaHb#1{\mbox{\ensuremath{\ffaH\!\left[#1\right]}}}%
+%
+\protected\gdef\btrue{\texttt{TRUE}}%
+%
+\protected\gdef\algoStyle#1{\mbox{\ensuremath{\mathsf{#1}}}}%
+\protected\gdef\opoea{\algoStyle{(1+1)~EA}}%
+\protected\gdef\sga{\algoStyle{SGA}}%
+\protected\gdef\opofea{\algoStyle{(1+1)~FEA}}%
+\protected\gdef\sa{\algoStyle{SA}}%
+\protected\gdef\fsa{\algoStyle{FSA}}%
+\protected\gdef\eafea{\algoStyle{EAFEA}}%
+\protected\gdef\safea{\algoStyle{SAFEA}}%
+\protected\gdef\eafeaT{\algoStyle{EAFEA2}}%
+\protected\gdef\safeaT{\algoStyle{SAFEA2}}%
+%
+\protected\gdef\npPrefix{\ensuremath{\mathcal{NP}}}%
+\protected\gdef\npHard{\mbox{\npPrefix-hard}}%
+%
+\protected\gdef\nameStyle#1{\texttt{#1}}%
+\protected\gdef\opUnary{\nameStyle{move}}%
+\protected\gdef\opBinary{\nameStyle{binary}}%
+\protected\gdef\opReverse{\nameStyle{rev}}%
+\protected\gdef\opSwap{\nameStyle{swap}}%
+%
+\protected\gdef\bigO{\ensuremath{\mathbf{O}}}%
+\protected\gdef\bigOof#1{\mbox{\ensuremath{\bigO\!\left(#1\right)}}}%
+%
+\protected\gdef\tdots{\ensuremath{..}}%
+\protected\gdef\intFromTo#1#2{\ensuremath{[#1\tdots#2]}}%
+%
+\protected\gdef\bestSoFarX{\solutioni{\textnormal{B}}}%
+\protected\gdef\bestSoFarF{\ovali{\textnormal{B}}}%
+%
+\gdef\maxsat{\mbox{MaxSat}}%
+%
+\protected\gdef\random#1#2{\ensuremath{\mathfrak{R}^{\scriptscriptstyle{#2}}_{\scriptscriptstyle{#1}}}}%
+\protected\gdef\randomZO{\ensuremath{\random{0}{1}}}%
+\protected\gdef\randomI#1#2{\ensuremath{\left\lfloor\random{#1}{#2}\right\rfloor}}%
+\protected\gdef\listItem#1#2{\ensuremath{#1\hspace{-0.02em}[\resizebox{!}{1.5ex}{\ensuremath{#2}}]}}%
+%
+\protected\gdef\figurecol#1{%
+\begin{minipage}{0.49\linewidth}%
+\centering%
+#1%
+\end{minipage}%
+}%
+\protected\gdef\figurecolB#1{%
+\begin{minipage}{0.6\linewidth}%
+\centering%
+#1%
+\end{minipage}%
+}%
+%
+%% place an algorithm sub figure
+% #1 caption
+% #2 label
+% #3 contents
+\protected\gdef\algosubfig#1#2#3{%
+\subfloat[#1]{%
+\fcolorbox{black}{white}{%
+\resizebox{0.9995\linewidth}{!}{%
+\hspace*{-0.65em}%
+\parbox{1.5\linewidth}{%
+\begin{algorithmic}%
+#3%
+\end{algorithmic}%
+\label{#2}%
+}}}}}%
+%
+\protected\gdef\ffacolor#1{{\color{red!40!black}#1}}%
+\protected\gdef\bestcolor#1{{\color{blue!40!black}#1}}%
+%
+\begin{document}%
+%
+%
+\begin{figure}%
+%
+\setlength{\fboxsep}{0pt}%
+%%
+\figurecol{%
+\algosubfig{The \mbox{(1+1)~EA}, here denoted as \opoea}{fig:opoea}{%
+\input{algo_ea.tex}%
+}%
+%
+\strut\hfill\strut%
+%
+\\%
+%
+\algosubfig{The \mbox{(1+1)~FEA}, i.e., the \opoea\ with FFA, here denoted as \opofea}{fig:opofea}{%
+\input{algo_fea.tex}%
+}%
+\\%
+%
+\algosubfig{The \eafea, which alternates between \opoea\ and \opofea}{fig:eafea}{%
+\input{algo_eafea.tex}%
+}%%
+%
+}%  end col
+%
+\strut\hfill\strut%
+\figurecol{%
+%
+\algosubfig{Simulated Annealing~(\sa) algorithm with parameters~$\epsilon$ and~$T_0$}{fig:sa}{%
+\input{algo_sa.tex}%
+}%
+\\%
+%
+\algosubfig{The \fsa, i.e, \sa\ with FFA}{fig:fsa}{%
+\input{algo_fsa.tex}%
+}%
+\\%
+%
+\algosubfig{The \safea}{fig:safea}{%
+\input{algo_safea.tex}%
+}%
+}% end minipage
+%
+%
+\end{figure}
+
+\begin{figure}%
+%
+\setlength{\fboxsep}{0pt}%
+%%
+\figurecolB{%
+%
+\algosubfig{The \eafeaT}{fig:eafea2}{%
+\input{algo_eafea2.tex}%
+}%
+}%  end col
+%
+\\%
+\figurecolB{%
+%
+\algosubfig{The \safeaT}{fig:safea2}{%
+\input{algo_safea2.tex}%
+}%
+}% end minipage
+%
+%
+\end{figure}
+%
+\end{document}
