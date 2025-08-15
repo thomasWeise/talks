@@ -432,7 +432,7 @@ If you keep accepting better and better solutions, you will get really good solu
 \frametitle{Invariance Properties: OneMax Example}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
-\item OneMax is the simplest benchmark problem in discrete optimization.%
+\item OneMax is the simplest benchmark problem in discrete optimization\cite{M1992HGARWMAH}.%
 \item<2-> It is defined over~$\searchSpace=\{0,1\}^n$, i.e., the bit strings of length~$n$.%
 \item<3-> Goal:~\inQuotes{Find the bit string of all 1s!}%
 \item<4-> \inQuotes{Maximize the number of 1s!}%
@@ -664,6 +664,40 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \only<8->{\includegraphics[width=0.45\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/fea/fea}}%
 }%
 }{0.516666666}{0.3}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{FFA: What does this do?}%
+\begin{itemize}%
+\item The rating $H[f(x)]$ of a solution~$x$ depends only on the identity of $f(x)$.
+\item<2-> The rating $H[f(x)]$ of a solution~$x$ depends only on how often solutions~$x'$ with $f(x')=f(x)$ have previously been seen in the optimization process.%
+\item<3-> Static optimization problems become dynamic, because frequency fitness~$H$ changes over time.%
+\item<4-> Solutions get less attractive the more often their corresponding objective values have been seen. This also holds for local optima\dots%
+\item<5-> Solutions with better objective values are no longer preferred over such with worse objective value.%
+\item<6-> Instead, solutions with less-frequent objective values are preferred.%
+\item<7-> \alert{Algorithms using \gls{algoFFA} are invariant under all injective transformations of the objective function value.}%
+\item<8-> \alert{They perform identical on ALL of the OneMax-based functions previously.%
+from before!}%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Discrete Optimization Theory Benchmarks}%
+\locateGraphic{}{width=0.8\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks}{0.1}{0.11}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on OneMax}%
+\parbox{0.37\paperwidth}{%
+\begin{itemize}%
+\item As first example, we again take OneMax\cite{M1992HGARWMAH}.%
+\item<2-> The expected runtime of \gls{algoEAopo} on OneMax is in \bigThetab{n\ln{n}}.\cite{DDE2015FBBCTDNGA,M1992HGARWMAH}%
+\item<3-> The average runtime \gls{algoFEAopo} on OneMax seems to be slower by factor proportional to~$n$, i.e., seems to be in~\bigOb{n^2\ln{n}}.%
+\end{itemize}%
+}%
+%
+\locateGraphic{}{width=0.55\paperwidth}{\sharedDir/graphics/fea_performance/fea_onemax}{0.41}{0.22}%
 %
 \end{frame}%
 %
