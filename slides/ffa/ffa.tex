@@ -677,14 +677,19 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \item<5-> Solutions with better objective values are no longer preferred over such with worse objective value.%
 \item<6-> Instead, solutions with less-frequent objective values are preferred.%
 \item<7-> \alert{Algorithms using \gls{algoFFA} are invariant under all injective transformations of the objective function value.}%
-\item<8-> \alert{They perform identical on ALL of the OneMax-based functions previously.%
-from before!}%
+\item<8-> \alert{They perform identical on ALL of the OneMax-based functions from before!}%
 \end{itemize}%
 \end{frame}%
 %
-\begin{frame}%
+\begin{frame}[t]%
 \frametitle{Discrete Optimization Theory Benchmarks}%
-\locateGraphic{}{width=0.8\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks}{0.1}{0.11}%
+\begin{itemize}%
+\item If we use the encounter frequency of objective values as \alert{only} guide for optimization {\dots} can this work?%
+\item<2-> Why should this lead to anything but strange random walks?%
+\item<3-> So we tested it on discrete optimization benchmarks.%
+\end{itemize}%
+%
+\locateGraphic{3}{width=0.5\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks}{0.25}{0.40}%
 \end{frame}%
 %
 \begin{frame}%
@@ -700,6 +705,158 @@ from before!}%
 \locateGraphic{}{width=0.55\paperwidth}{\sharedDir/graphics/fea_performance/fea_onemax}{0.41}{0.22}%
 %
 \end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on LeadingOnes}%
+\parbox{0.37\paperwidth}{%
+\begin{itemize}%
+\item The LeadingOnes problem maximizes the number of leading \texttt{1} bits in a bit string\cite{W1989TGAASPWRBAORTIB,R1997CPOEA}.%
+\item<2-> The expected runtime of \gls{algoEAopo} on LeadingOnes is in \bigThetab{n^2}.\cite{DJW2002OTAOTOPOEA}%
+\item<3-> The average runtime \gls{algoFEAopo} on LeadingOnes seems to be slower by factor proportional to~$n$, i.e., seems to be in~\bigOb{n^3}.%
+\end{itemize}%
+}%
+%
+\locateGraphic{}{width=0.55\paperwidth}{\sharedDir/graphics/fea_performance/fea_leadingones}{0.41}{0.22}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on TwoMax}%
+\parbox{0.37\paperwidth}{%
+\begin{itemize}%
+\item The TwoMax problem has one local opposite to a global optimum\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}.%
+\item<2-> An \gls{algoEAopo} has a 50/50 chance to converge to the local or global optimum and thus has an expected runtime in \bigThetab{n^n}.\cite{FQW2018ELDBOAWHTMO,FOSW2009AODPMFGE}%
+\item<3-> The average runtime \gls{algoFEAopo} on TwoMax seems to be in~\bigOb{n^2 \ln{n}}.%
+\item<4-> It is \alert{identical} to its performance on OneMax, because TwoMax is an injective transformation of OneMax!%
+\end{itemize}%
+}%
+%
+\locateGraphic{1}{width=0.55\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_twomax}{0.41}{0.22}%
+\locateGraphic{2-}{width=0.55\paperwidth}{\sharedDir/graphics/fea_performance/fea_twomax}{0.41}{0.22}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on Trap}%
+\parbox{0.37\paperwidth}{%
+\begin{itemize}%
+\item The Trap problem basically swaps the global optimum with the worst solution\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}.%
+\item<2-> An \gls{algoEAopo} will converge to the resulting local optimum and thus have an expected runtime of \bigThetab{n^n}.\cite{DJW2002OTAOTOPOEA}%
+\item<3-> The average runtime \gls{algoFEAopo} on Trap seems to be in~\bigOb{n^2 \ln{n}}.%
+\end{itemize}%
+}\\%
+\uncover<4->{\begin{itemize}%
+\item The expected runtime is the same as on OneMax, because Trap is an injective transformation of OneMax, symmetric, and FFA \inQuotes{converges} into both directions.%
+\end{itemize}%
+}%
+%
+\locateGraphic{1}{width=0.55\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax_trap}{0.41}{0.22}%
+\locateGraphic{2-}{width=0.55\paperwidth}{\sharedDir/graphics/fea_performance/fea_trap}{0.41}{0.22}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on Jumps}%
+\parbox{0.37\paperwidth}{%
+\begin{itemize}%
+\item The Jump problem inserts a deceptive region of~$\omega-1$~bits before the optimum, forcing the algorithm to toggle~$\omega$ bits at once\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}.%
+\item<2-> An \gls{algoEAopo} will converge to the resulting local optimum and thus have an expected runtime of \bigThetab{n^{\omega}+n\ln{n}}.\cite{DJW2002OTAOTOPOEA}%
+\item<3-> The average runtime \gls{algoFEAopo} on Jump seems to \alert{always} be in~\bigOb{n^2 \ln{n}}.%
+\end{itemize}%
+}\\%
+\uncover<4->{\begin{itemize}%
+\item It is \alert{identical} to its performance on OneMax regardless of~$\omega$, because all Jumps are an injective transformation of OneMax!%
+\end{itemize}%
+}%
+%
+\locateGraphic{1}{width=0.55\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_jump}{0.41}{0.22}%
+\locateGraphic{2-}{width=0.55\paperwidth}{\sharedDir/graphics/fea_performance/fea_jump}{0.41}{0.22}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on Plateaus}%
+\parbox{0.37\paperwidth}{%
+\begin{itemize}%
+\item The Plateau problem inserts a neutral region of~$\omega-1$~bits before the optimum, forcing the algorithm to toggle~$\omega$ bits at once\cite{AD2018PRAFP}.%
+\item<2-> An \gls{algoEAopo} has an expected runtime of \bigThetab{n^{\omega}} on plateaus\cite{AD2018PRAFP}.%
+\item<3-> The average runtime \gls{algoFEAopo} on Plateaus is slower, again by a factor seemingly proportional in~$n$.%
+\item<4-> Plateaus remain plateaus under the identity-based fitness assignment FFA.%
+\end{itemize}%
+}%
+%
+\locateGraphic{1}{width=0.55\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_plateau}{0.41}{0.22}%
+\locateGraphic{2-}{width=0.55\paperwidth}{\sharedDir/graphics/fea_performance/fea_plateau}{0.41}{0.22}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on MaxSAT}%
+\begin{itemize}%
+\item The \glsFull{MaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is \npComplete~\cite{C1971TCOTPP}.%
+\item<2-> \gls{SATLIB}\cite{HS2000SAORFROS} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
+\item<3-> We conducted 11\decSep000~runs with the \gls{algoFEAopo} on each instance scale.%
+\item<4-> The \gls{algoEAopo} is very much slower than the \gls{algoFEAopo}, so we could use it only on smaller scales.%
+\item<5-> Our computational budget was always~$10^{10}$~\glsFullpl{objFE}.%
+\end{itemize}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on MaxSAT}%
+\parbox{0.25\paperwidth}{%
+\begin{itemize}%
+\item The \gls{algoFEAopo} is better on problems with 250 variables than the \gls{algoEAopo} on problems with 50.%
+\end{itemize}%
+}%
+%
+\locateGraphic{}{width=0.65\paperwidth}{\sharedDir/graphics/fea_performance/fea_maxsat_table}{0.3}{0.22}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{(1+1)~FEA on MaxSAT: ERT-ECDF}%
+%
+\locateGraphic{}{width=0.75\paperwidth}{\sharedDir/graphics/fea_performance/fea_maxsat_ecdf}{0.125}{0.15}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{FFA: What does this do?}%
+%
+\begin{itemize}%
+\item So it turns it, \gls{algoFFA} does work.%
+\item<2-> It works because it prefers solutions with rare objective values.%
+\item<3-> Solutions with very good objective values are also very rare on any problem worth tackling.%
+\item<4-> FFA makes the simple \gls{algoEAopo} slower on problems that it can easily solve.%
+\item<5-> The slowdown is roughly proportional to the number of possible objective different values.%
+\item<6-> On some non-\npHard\ problems for which the \gls{algoEAopo} needs \alert{exponential} runtime, the \gls{algoFEAopo} needs \alert{polynomial} mean runtime.%
+\item<7-> But not for all, because plateaus of the objective are still plateaus under \gls{algoFFA}.%
+\item<8-> \gls{algoFFA} very significantly speeds up the \gls{algoEAopo} on the \npComplete\ \gls{MaxSAT} problem.%
+\end{itemize}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{FFA: Let's get weird!}%
+%
+\only<-1>{\centering\strut\\\vfill\strut{\Large{Let's get weird!}}\strut\\\vfill\strut}%
+%
+\uncover<2->{%
+\begin{itemize}%
+\item Let’s say you have an optimization problem with objective function~$f(x)$.%
+\item<2-> You \alert{encrypt} the objective values and do not tell them to the algorithm.%
+\item<3-> Let's say you apply AES, RSA, or the Cesar cypher as a function~$g:\naturalNumbersZ\mapsto\naturalNumbersZ$ to~$f$, i.e., do~$g\circ f$.%
+\item<4-> Encryption removes any order, correlation or causality information, i.e., $g\circ f$ does not correlate with~$f$ in any way.%
+\item<5-> $g(f(x))$~will be totally random.\uncover<6->{ No reasonable optimization algorithm could work with that.}%
+\item<7-> If the \gls{algoFEAopo} can find the optimum of~$f(x)$\dots%
+\item<8-> {\dots}then it will find exactly the same solution in exactly the same runtime even if you apply it to the encrypted problem~$g(f(x))$!%
+\item<9-> How incredibly strange is that?%
+\end{itemize}%
+}%
+%
+\end{frame}%
+%
 %
 \input{\sharedDir/advertisement/advertisement.tex}%
 %
