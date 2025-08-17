@@ -31,7 +31,7 @@
 \begin{itemize}%
 \item In optimization, there exist \alert{exact} and \alert{heuristic} algorithms.%
 %
-\item<2-> Let's look at the classical \glsFull{TSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}.%
+\item<2-> Let's look at the classical \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}.%
 \only<6>{\item<6-> What does \alert{exponential growth} mean?}%
 \only<6-7>{\item<6-> Let's say we have a number of cities~$s$\only<-6>{.}\uncover<7->{ and a runtime as a function~$f(s)$ in this log-log plot.}}%
 \only<8>{\item<8-> A linear function means that the runtime~$f(s)$ grows slowly with~$s$.}%
@@ -39,7 +39,7 @@
 \only<10-11>{\item<10-> A quartic function \only<-10>{$f(s)=s^4$ gets quite large for growing~$s$}\only<11>{exceeds the number of milliseconds per day at~$s\approx512$}.}%
 \only<12-13>{\item<12-> \only<-12>{But this is nothing compared to the exponential function~$f(s)=1.1^s$\dots}\only<13->{A runtime of~$1.1^s$ becomes infeasible for~$s>512$.}}%
 \only<14-15>{\item<14-> For larger bases, the runtime grows even faster.}%
-\only<16>{\item<16-> If we would enumerate all possible tours of $s$~cities in a \pgls{TSP}, that would be~\factorial{s}.}%
+\only<16>{\item<16-> If we would enumerate all possible tours of $s$~cities in a \gls{optTSP}, that would be~\factorial{s}.}%
 \only<3-5,17->{%
 \begin{itemize}%
 \only<-5>{\item Clearly, there is (at least) one shortest tour.}%
@@ -154,8 +154,8 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \item<9-> Does not contain \inQuotes{hidden complexities} of algorithm%
 \item<10-> 1~\gls{objFE}: very different costs in different situations!\cite{WCLTTCMY2014BOAAOSFFTTSP}\uncover<11->{%
 \begin{itemize}%
-\item When applying a local search that swaps two cities in each move to the \gls{TSP}, 1~\gls{objFE} can be done in $\bigOb{1}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
-\item<12-> When applying \glsFull{ACO} instead, each \gls{objFE} takes~$\bigOb{s^2}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
+\item When applying a local search that swaps two cities in each move to the \gls{optTSP}, 1~\gls{objFE} can be done in $\bigOb{1}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
+\item<12-> When applying \glsFull{algoACO} instead, each \gls{objFE} takes~$\bigOb{s^2}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
 \end{itemize}%
 }%
 \end{itemize}%
@@ -261,7 +261,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \item<2-> Preferred by many benchmark suites such as\cite{TLSYW2010BFFTC2SSACOLSGO}.%
 \item<3-> Practice Perspective: Best results achievable with given time budget wins.%
 \item<4-> This perspective maybe less suitable for scientific benchmarking, but surely is useful in practice.%
-\item<5-> \inQuotes{How good is the tour for the \gls{TSP} that we can find in 5~minutes with our algorithm?}
+\item<5-> \inQuotes{How good is the tour for the \gls{optTSP} that we can find in 5~minutes with our algorithm?}
 \item<6-> Always well-defined, because vertical cuts can always be reached.%
 \end{itemize}%
 \end{frame}%
@@ -300,7 +300,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \begin{frame}\frametitle{Problem Instances and Randomized Algorithms}%
 %
 \begin{itemize}%
-\item For each \alert<1>{optimization problem} (like the \gls{TSP}) there are several \alert<1>{instances} (e.g., different sets of cities that need to be visited).%
+\item For each \alert<1>{optimization problem} (like the \gls{optTSP}) there are several \alert<1>{instances} (e.g., different sets of cities that need to be visited).%
 \uncover<2->{%
 \begin{itemize}%
 \item Some instances will be easy, some will be hard.%
@@ -477,7 +477,7 @@ But usually this is already it.}}%
 \item<8-> Yes, also in your code! (Btw: Please use \gls{unitTest}\cite{P2021PUTAAOAEUTIP,R2006ASOUTP,TLG2006UTCU}.)%
 \end{itemize}}%
 \item<9-> Or: \alert{bad (but rare) worst-case behaviors of our algorithm!}\uncover<10->{\\[5pt]~~\parbox{0.9\linewidth}{Imagine that:%
-\uncover<11->{ Your algorithm can actually solve the \gls{TSP} or \glsFull{MaxSAT} problem in polynomial time on 90\% of all instances{\dots}%
+\uncover<11->{ Your algorithm can actually solve the \gls{optTSP} or \glsFull{optMaxSAT} problem in polynomial time on 90\% of all instances{\dots}%
 \uncover<12->{ {\dots}but on 10\%, it needs exponential time.%
 \uncover<13->{ If you just look at the median runtime, you may think you discovered something awesome.%
 \uncover<14->{ Actually, this is quite common\dots}}}}}}%
@@ -535,7 +535,7 @@ The geometric mean~\geoMeanb{A} is the $n$\textsuperscript{th} root of the produ
 \only<-40>{\item<39-> Only the geometric mean still indicates that the algorithms perform the same\dots}%
 \item<40-> The geometric mean is the only meaningful average if we have \alert{normalized} data!\cite{FW1986HNTLWSTCWTSBR}%
 \item<41-> And we very often have normalized data.%
-\item<42-> For example, at least half of the papers on the \glsFull{JSSP} normalize the result qualities they obtain on benchmark instances with the \glsFullpl{BKS}\only<-42>{.}\uncover<43->{ and then compute the arithmetic mean.}%
+\item<42-> For example, at least half of the papers on the \glsFull{optJSSP} normalize the result qualities they obtain on benchmark instances with the \glsFullpl{BKS}\only<-42>{.}\uncover<43->{ and then compute the arithmetic mean.}%
 %
 \end{itemize}%
 %
@@ -756,7 +756,7 @@ B &=& {\scalebox{0.8}{(1, 3, 4, 4, 4, 5, 6, 6, 6, 6, 7, 7, 9, 9, 9, 10, 11, 12, 
 \item The global optimum marks a lower bound for the possible objective values.%
 \item<6-> A good algorithm often returns results which are close-to-optimal.%
 \item<7-> There may be a long tail of few but significantly worse runs.
-\item<8-> A statement such as \emph{\inQuotes{For this \gls{TSP}~instance, our algorithm can find tours with a length of $100\pm120$~km.}} makes little sense\dots%
+\item<8-> A statement such as \emph{\inQuotes{For this \gls{optTSP}~instance, our algorithm can find tours with a length of $100\pm120$~km.}} makes little sense\dots%
 \end{itemize}%
 }%
 \end{itemize}%

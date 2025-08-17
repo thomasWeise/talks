@@ -46,6 +46,31 @@
 }\egroup}%
 }%
 %
+%
+\DeclareCiteCommand{\ffaWorkInternal}%
+{\usebibmacro{prenote}}%
+{%
+\clearfield{urlyear}\clearname{urlyear}\clearlist{urlyear}%
+\clearfield{doi}\clearname{doi}\clearlist{doi}%
+\clearfield{issn}\clearname{issn}\clearlist{issn}%
+\clearfield{isbn}\clearname{isbn}\clearlist{isbn}%
+\clearfield{editor}\clearname{editor}\clearlist{editor}%
+\clearfield{address}\clearname{address}\clearlist{address}%
+\clearfield{location}\clearname{location}\clearlist{location}%
+\clearfield{eventdate}\clearname{eventdate}\clearlist{eventdate}%
+\clearfield{venue}\clearname{venue}\clearlist{venue}%
+\clearfield{addendum}\clearname{addendum}\clearlist{addendum}%
+\clearfield{note}\clearname{note}\clearlist{note}%
+\clearfield{notes}\clearname{notes}\clearlist{notes}%
+\clearfield{publisher}\clearname{publisher}\clearlist{publisher}%
+\usedriver{%
+}{\thefield{entrytype}}%
+}%
+{\multicitedelim}%
+{\usebibmacro{postnote}}%
+%
+\protected\gdef\ffaWork#1{{\small{\ffaWorkInternal{#1}}}}%
+%
 \title{Frequency Fitness Assignment}%
 %
 \begin{document}%
@@ -86,7 +111,7 @@
 \parbox{0.373\paperwidth}{%
 \begin{itemize}%
 %
-\item In the \glsFull{TSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}, the goal is to find the shortest round-ttrip tour through a set of $n$~cities.%
+\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}, the goal is to find the shortest round-ttrip tour through a set of $n$~cities.%
 %
 \item<2-> The search space \searchSpace\ thus is the set of all possible round-trip tours through these $n$~cities, usually specified as permutations of the first $n$~natural numbers.%
 %
@@ -107,7 +132,7 @@
 \parbox{0.42\paperwidth}{%
 \begin{itemize}%
 %
-\item The goal of the \glsFull{MaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is to find a setting of \textcolor<2>{red}{$n$~variables} that makes a Boolean formula~$F$ become True. %
+\item The goal of the \glsFull{optMaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is to find a setting of \textcolor<2>{red}{$n$~variables} that makes a Boolean formula~$F$ become True. %
 The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>{blue}{$m$~OR\nobreakdashes-clauses}, whose results flow into \textcolor<5>{green!40!black}{one AND\nobreakdashes-clause}.%
 %
 \item<6-> \searchSpace\ is the set of all possible bit strings of length~$n$.%
@@ -793,7 +818,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \begin{frame}%
 \frametitle{(1+1)~FEA on MaxSAT}%
 \begin{itemize}%
-\item The \glsFull{MaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is \npComplete~\cite{C1971TCOTPP}.%
+\item The \glsFull{optMaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is \npComplete~\cite{C1971TCOTPP}.%
 \item<2-> \gls{SATLIB}\cite{HS2000SAORFROS} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
 \item<3-> We conducted 11\decSep000~runs with the \gls{algoFEAopo} on each instance scale.%
 \item<4-> The \gls{algoEAopo} is very much slower than the \gls{algoFEAopo}, so we could use it only on smaller scales.%
@@ -832,7 +857,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \item<5-> The slowdown is roughly proportional to the number of possible objective different values.%
 \item<6-> On some non-\npHard\ problems for which the \gls{algoEAopo} needs \alert{exponential} runtime, the \gls{algoFEAopo} needs \alert{polynomial} mean runtime.%
 \item<7-> But not for all, because plateaus of the objective are still plateaus under \gls{algoFFA}.%
-\item<8-> \gls{algoFFA} very significantly speeds up the \gls{algoEAopo} on the \npComplete\ \gls{MaxSAT} problem.%
+\item<8-> \gls{algoFFA} very significantly speeds up the \gls{algoEAopo} on the \npComplete\ \gls{optMaxSAT} problem.%
 \end{itemize}%
 %
 \end{frame}%
@@ -846,7 +871,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \begin{itemize}%
 \item Let’s say you have an optimization problem with objective function~$f(x)$.%
 \item<2-> You \alert{encrypt} the objective values and do not tell them to the algorithm.%
-\item<3-> Let's say you apply AES, RSA, or the Cesar cypher as a function~$g:\naturalNumbersZ\mapsto\naturalNumbersZ$ to~$f$, i.e., do~$g\circ f$.%
+\item<3-> Let's say you apply \glslink{cryptoAES}{AES}\cite{FIPSPUB197,FIPSPUB197upd1}, \gls{cryptoRSA}\cite{RSA1978AMFODSAPKC,Y2006MCFCTR}, or the Caesar cipher\cite{O2002CACJCTEATI,Y2006MCFCTR} as a function~$g:\naturalNumbersZ\mapsto\naturalNumbersZ$ to~$f$, i.e., do~$g\circ f$.%
 \item<4-> Encryption removes any order, correlation or causality information, i.e., $g\circ f$ does not correlate with~$f$ in any way.%
 \item<5-> $g(f(x))$~will be totally random.\uncover<6->{ No reasonable optimization algorithm could work with that.}%
 \item<7-> If the \gls{algoFEAopo} can find the optimum of~$f(x)$\dots%
@@ -857,6 +882,69 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 %
 \end{frame}%
 %
+%
+\section{Where did we try FFA?}%
+%
+\begin{frame}%
+\frametitle{Maximum Satisfiability Problem}%
+\begin{itemize}%
+\item We applied \gls{algoFFA} to the \glsFull{optMaxSAT}\uncover<2->{:%
+\begin{itemize}%
+\item \ffaWork{WWLC2021FFAMOAIUBTOTOFV}%
+\end{itemize}%
+}%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Traveling Salesperson Problem}%
+\begin{itemize}%
+\item We applied \gls{algoFFA} to the \glsFull{optTSP}\uncover<2->{:%
+\begin{itemize}%
+\item \ffaWork{LWLvdBTW2024ATTSPWFFAAHA}%
+\item \ffaWork{LWLvdBW2022STTSPUFFA}%
+\item \ffaWork{LWTWW2024GSIWIFFTTSP}%
+\end{itemize}%
+}%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Quadratic Assignment Problem}%
+\begin{itemize}%
+\item We applied \gls{algoFFA} to the \glsFull{optQAP}\uncover<2->{:%
+\begin{itemize}%
+\item \ffaWork{CWTW2024FFAOWBFGSORLSOTQAP}%
+\item \ffaWork{TOvdBLW2024ESTAEFFFA}%
+\end{itemize}%
+}%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Traveling Tournament Problem}%
+\begin{itemize}%
+\item We applied \gls{algoFFA} to the \glsFull{optTTP}\uncover<2->{:%
+\begin{itemize}%
+\item \ffaWork{XWvdBW2024RLSVNVFFAOTTP}%
+\end{itemize}%
+}%
+\end{itemize}%
+\end{frame}%
+%
+\section{Summary}%
+%
+\begin{frame}%
+\frametitle{Summary}%
+\begin{itemize}%
+\item \glsFull{algoFFA} is an algorithm module that can be plugged into existing algorithms.%
+\item<2-> It renders algorithms invariant under all injective transformations of the objective function value.%
+\item<3-> It makes them optimize without bias for good solutions.%
+\item<4-> It slows them down on easy problems.%
+\item<5-> It can speed them up on hard problems or lead them to solution qualities they otherwise cannot reach.%
+\item<6-> It is limited to objective functions that cannot take on too many different objective values.%
+\end{itemize}%
+\end{frame}%
 %
 \input{\sharedDir/advertisement/advertisement.tex}%
 %
