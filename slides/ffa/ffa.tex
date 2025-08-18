@@ -47,30 +47,6 @@
 }%
 %
 %
-\DeclareCiteCommand{\ffaWorkInternal}%
-{\usebibmacro{prenote}}%
-{%
-\clearfield{urlyear}\clearname{urlyear}\clearlist{urlyear}%
-\clearfield{doi}\clearname{doi}\clearlist{doi}%
-\clearfield{issn}\clearname{issn}\clearlist{issn}%
-\clearfield{isbn}\clearname{isbn}\clearlist{isbn}%
-\clearfield{editor}\clearname{editor}\clearlist{editor}%
-\clearfield{address}\clearname{address}\clearlist{address}%
-\clearfield{location}\clearname{location}\clearlist{location}%
-\clearfield{eventdate}\clearname{eventdate}\clearlist{eventdate}%
-\clearfield{venue}\clearname{venue}\clearlist{venue}%
-\clearfield{addendum}\clearname{addendum}\clearlist{addendum}%
-\clearfield{note}\clearname{note}\clearlist{note}%
-\clearfield{notes}\clearname{notes}\clearlist{notes}%
-\clearfield{publisher}\clearname{publisher}\clearlist{publisher}%
-\usedriver{%
-}{\thefield{entrytype}}%
-}%
-{\multicitedelim}%
-{\usebibmacro{postnote}}%
-%
-\protected\gdef\ffaWork#1{{\small{\ffaWorkInternal{#1}}}}%
-%
 \title{Frequency Fitness Assignment}%
 %
 \begin{document}%
@@ -155,7 +131,7 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \begin{frame}[t]%
 \frametitle{Example: Bin Packing Problem}%
 \begin{itemize}%
-\item The goal of the Bin Packing Problem is to pack $n$~objects, each having a specific size, into as few bins~(also of a given size) as possible.%
+\item The goal of the Bin Packing Problem is to pack $n$~objects, each having a specific size, into as few bins~(also of a given size) as possible\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
 \item<2-> The \searchSpace\ comprises all possible packing orders of the $n$~objects.%
 \item<3-> The objective function~$f$ is the number of bins needed by a given packing order.%
 \item<4-> The optimum~$\opti{\sespel}$ is the packing order requiring the fewest bins.%
@@ -886,47 +862,118 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \section{Where did we try FFA?}%
 %
 \begin{frame}%
+\frametitle{Applications of FFA}%
+\begin{itemize}%
+\item Often, when some new type of algorithm is designed, one is tempted to pick some special, niche problems as application area.%
+\item<2-> Then, the competition is not so high and it's easier to get some good papers out.%
+\item<3-> We did not do this.%
+\item<4-> We picked some of the most popular \npHard\ problems as testbeds.%
+\item<5-> We could not (yet) win against the state-of-the-art that matured over decades.%
+\item<6-> But we did get some interesting results on real, hard, and well-known problems.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
 \frametitle{Maximum Satisfiability Problem}%
 \begin{itemize}%
-\item We applied \gls{algoFFA} to the \glsFull{optMaxSAT}\uncover<2->{:%
+\item \Gls{algoFFA} on the \glsFull{optMaxSAT} Problem:~\bracketCite{WWLCL2023FFAOWBFGSCBE,WWLC2021FFAMOAIUBTOTOFV,WWWTDY2014FFA}.%
+\end{itemize}%
+%
+\uncover<2->{%
+\vspace{-1em}%
+\begin{center}%
+\includegraphics[width=0.6\paperwidth]{\sharedDir/graphics/papers/WWLCL2023FFAOWBFGSCBE_p10_snippet}%
+\end{center}%
+\vspace{-1em}%
+%
 \begin{itemize}%
-\item \ffaWork{WWLC2021FFAMOAIUBTOTOFV}%
-\end{itemize}%
+\item Snippet of page~10 of~\bracketCite{WWLCL2023FFAOWBFGSCBE}~(copyright~IEEE).%
+\item Several different \glspl{algoEA} with and without \gls{algoFFA}%
+\item Budget:~$10^{10}$~\glspl{objFE}%
+\end{itemize}%%
 }%
-\end{itemize}%
+%
 \end{frame}%
 %
 \begin{frame}%
 \frametitle{Traveling Salesperson Problem}%
+\parbox{0.5\paperwidth}{%
 \begin{itemize}%
-\item We applied \gls{algoFFA} to the \glsFull{optTSP}\uncover<2->{:%
-\begin{itemize}%
-\item \ffaWork{LWLvdBTW2024ATTSPWFFAAHA}%
-\item \ffaWork{LWLvdBW2022STTSPUFFA}%
-\item \ffaWork{LWTWW2024GSIWIFFTTSP}%
+\item \Gls{algoFFA} on the \glsFull{optTSP}:~\bracketCite{LWLvdBTW2024ATTSPWFFAAHA,LWLvdBW2022STTSPUFFA,LWTWW2024GSIWIFFTTSP}.%
+\item<2-> Snippet of page~12 of~\bracketCite{LWLvdBTW2024ATTSPWFFAAHA}~(copyright Springer).%
+\item<2-> \gls{algoEAopo}, \gls{algoFEAopo}, \gls{algoSA} w/o \gls{algoFFA}, hybrids%
+\item<2-> Budget:~$10^{10}$~\glspl{objFE}%
 \end{itemize}%
 }%
-\end{itemize}%
+%
+\locateGraphic{2}{width=0.45\paperwidth}{\sharedDir/graphics/papers/LWLvdBTW2024ATTSPWFFAAHA_p12_snippet}{0.525}{0.03}%
 \end{frame}%
 %
 \begin{frame}%
 \frametitle{Quadratic Assignment Problem}%
+\parbox{0.5\paperwidth}{%
 \begin{itemize}%
-\item We applied \gls{algoFFA} to the \glsFull{optQAP}\uncover<2->{:%
-\begin{itemize}%
-\item \ffaWork{CWTW2024FFAOWBFGSORLSOTQAP}%
-\item \ffaWork{TOvdBLW2024ESTAEFFFA}%
+\item \Gls{algoFFA} on the \glsFull{optQAP}:~\bracketCite{CWTW2024FFAOWBFGSORLSOTQAP,TOvdBLW2024ESTAEFFFA}.%
+\item<2-> Snippet of page~7 of~\bracketCite{CWTW2024FFAOWBFGSORLSOTQAP}~(copyright SciTePress).%
+\item<2-> \gls{algoRLS} w/o \gls{algoFFA}%
+\item<2-> Budget:~$10^{8}$~\glspl{objFE}%
 \end{itemize}%
 }%
-\end{itemize}%
+%
+\locateGraphic{2}{width=0.45\paperwidth}{\sharedDir/graphics/papers/CWTW2024FFAOWBFGSORLSOTQAP_p7_snippet}{0.525}{0.03}%
+%
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Traveling Tournament Problem}%
+\frametitle{Job Shop Scheduling Problem}%
 \begin{itemize}%
-\item We applied \gls{algoFFA} to the \glsFull{optTTP}\uncover<2->{:%
+\item \Gls{algoFFA} on the \glsFull{optJSSP} Problem:~\bracketCite{WWLC2021FFAMOAIUBTOTOFV,WLCW2021SJSSPWUABFGS,dBTvdB2023FFAOJACR}.%
+\end{itemize}%
+%
+\uncover<2->{%
+\vspace{-1em}%
+\begin{center}%
+\includegraphics[width=0.6\paperwidth]{\sharedDir/graphics/papers/WLCW2021SJSSPWUABFGS_p4_snippet}%
+\end{center}%
+\vspace{-1em}%
+%
 \begin{itemize}%
-\item \ffaWork{XWvdBW2024RLSVNVFFAOTTP}%
+\item Snippet of page~10 of~\bracketCite{WLCW2021SJSSPWUABFGS}~(copyright~ACM).%
+\item Budget:~$2^{30}\approx10^{9}$~\glspl{objFE}%
+\end{itemize}%%
+}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Algorithm Synthesis and Genetic Programming}%
+\begin{itemize}%
+\item \Gls{algoFFA} for algorithm synthesis and \glsFull{algoGP}:~\bracketCite{WWTY2014EEIAWGP,WWWTDY2014FFA}.%
+\end{itemize}%
+%
+\uncover<2->{%
+\vspace{-1em}%
+\begin{center}%
+\includegraphics[width=0.6\paperwidth]{\sharedDir/graphics/papers/WWTY2014EEIAWGP_07_snippet}%
+\end{center}%
+\vspace{-1em}%
+%
+\begin{itemize}%
+\item Snippet of page~7 of~\bracketCite{WWTY2014EEIAWGP}~(copyright~IEEE).%
+\item Budget:~$\approx 100\decSep000$~\glspl{objFE}%
+\end{itemize}%%
+}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Where FFA did not work}%
+\begin{itemize}%
+\item \Gls{algoFFA} cannot work well on problems where local search already gives good results.%
+\item<2-> This includes, surprisingly, also some computationally hard problems\only<-2>{.}\uncover<3->{:%
+\begin{itemize}%
+\item the \glsFull{optTTP}, where \gls{algoRLS} can find surprisingly good results:~\bracketCite{XWvdBW2024RLSVNVFFAOTTTP}.%
+\item the two-dimensional bin packing problem, where \gls{algoRLS} can actually \alert{outperform} several complex state-of-the-art metaheuristics~\bracketCite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
 \end{itemize}%
 }%
 \end{itemize}%
