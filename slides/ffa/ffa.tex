@@ -87,7 +87,7 @@
 \parbox{0.373\paperwidth}{%
 \begin{itemize}%
 %
-\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}, the goal is to find the shortest round-ttrip tour through a set of $n$~cities.%
+\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}, the goal is to find the shortest round-trip tour through a set of $n$~cities.%
 %
 \item<2-> The search space \searchSpace\ thus is the set of all possible round-trip tours through these $n$~cities, usually specified as permutations of the first $n$~natural numbers.%
 %
@@ -147,9 +147,12 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 %
 \item<2-> Currently, there is no algorithm that can \alert{guarantee} to find the optimal solution of \alert{every instance} of a given \npHard\ problem in a runtime that is not longer than polynomial in the size of the problem~(i.e., existing algorithms may need exponential runtime in the \alert{worst case}).%
 %
-\item<3-> In other words, if we want to guarantee to find the best possible solution~\opti{\sespel} for all possible instances of a problem, we often cannot really be much faster than testing all possible candidate solutions~$\sespel\in\searchSpace$ in the \alert{worst case}.%
+\item<4-> In other words, if we want to guarantee to find the best possible solution~\opti{\sespel} for all possible instances of a problem, we often cannot really be much faster than testing all possible candidate solutions~$\sespel\in\searchSpace$ in the \alert{worst case}.%
 %
 \end{itemize}%
+%
+\locateGraphic{3}{width=0.65\paperwidth}{\sharedDir/graphics/function_growth/function_growth}{0.175}{0.44}%
+%
 \end{frame}%
 %
 \section{Metaheuristic Optimization}%
@@ -239,9 +242,14 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \frametitle{Simulated Annealing}%
 \parbox{0.41\paperwidth}{%
 \begin{itemize}%
-\item \glsFull{algoSA}\cite{KGV1983OBSA,C1985TATTTSPAESA,DPSW1982MCTICO,P1970AMCMFTASOCTOCOP} is a local search that accepts also worsening moves, but with a probability that decreases over time AND with the difference in solution quality.%
-\item<7-> The probability is regulated by temperature schedule with parameter\only<10->{s}~$T_0$\only<10->{ and~$\epsilon$}.%
-\item<11-> It also remembers best-so-far solution~$x_B$ and its objective value~$y_B$, because it could get lost.%
+\item \glsFull{algoSA}\cite{KGV1983OBSA} is a local search that accepts also worsening moves, but with a probability that decreases over time and with the difference in solution quality.%
+\item<3-> ${\mathfrak{R}}_0^1$~be a random number uniformly distributed in~$[0,1)$.%
+\item<6-> High temperatures~$T$ increase the acceptance probability~$P$ of worse solutions, low~$T$ reduce it.%
+\item<7-> $P$~is regulated by temperature schedule with parameter\only<10->{s}~$T_0$\only<10->{ and~$\epsilon$}.%
+\end{itemize}%
+}%
+\uncover<11->{\begin{itemize}%
+\item \gls{algoSA} also remembers best-so-far solution~$x_B$ and its objective value~$y_B$, because it could get lost.%
 \end{itemize}%
 }%
 %
@@ -376,7 +384,7 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \begin{frame}%
 \frametitle{Acceptance Criteria}%
 \begin{itemize}%
-\item We have now three example algorithms, \gls{algoEAopo}, \gls{algoSA}, and \gls{algoSGA}.%
+\item We have now three example algorithms:~\gls{algoEAopo}, \gls{algoSA}, and \gls{algoSGA}.%
 %
 \item<2-> Assume that they all work on a population of two solutions, where the new solution be~$x_n$ and the old/parent solution be~$x_c$\only<3->{ and we look at the probability~$P$ to accept~$x_n$}.%
 %
