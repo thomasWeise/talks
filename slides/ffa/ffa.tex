@@ -54,18 +54,18 @@
 %
 \section{Introduction}%
 %
-\begin{frame}[t]%
+\begin{frame}%
 \frametitle{Introduction to Optimization}%
 \begin{itemize}%
 \item Optimization means finding superlatives.%
 \item<2-> Find the \alert{fastest} way to get from Hefei to Beijing.%
-\item<3-> Find the \alert{shortest} route through $n$~cities.%
+%\item<3-> Find the \alert{shortest} route through $n$~cities.%
+\item<3-> Design an airplane wing with the \alert{least} aerodynamic drag.%
 \item<4-> Set the pricing for these apples such that we can get the \alert{largest} revenue when selling them.%
 \item<5-> Place all these chips on a circuit board so that they occupy the \alert{smallest} area while we can still properly connect and cool them.%
-\item<6-> Find the \alert{cheapest} way to transport these goods from Hefei to Wellington.%
-\item<7-> Design an airplane wing with the \alert{least} aerodynamic drag.%
-\item<8-> Find a strategy to manage the power of the nodes in this sensor network so that full coverage is guaranteed for the \alert{longest} possible duration.%
-\item<9-> And so on.%
+%\item<6-> Find the \alert{cheapest} way to transport these goods from Hefei to Wellington.%
+\item<6-> Find a strategy to manage the power of the nodes in this sensor network so that full coverage is guaranteed for the \alert{longest} possible duration.%
+\item<7-> And so on.%
 \end{itemize}%
 \locateGraphic{1}{width=0.85\paperwidth}{\sharedDir/graphics/optimization_superlatives/optimization_superlatives}{0.075}{0.2}%
 \locateGraphic{2-}{width=0.35\paperwidth}{\sharedDir/graphics/optimization_superlatives/optimization_superlatives}{0.63}{0.01}%
@@ -87,7 +87,7 @@
 \parbox{0.373\paperwidth}{%
 \begin{itemize}%
 %
-\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP}, the goal is to find the shortest round-trip tour through a set of $n$~cities.%
+\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO}, the goal is to find the shortest round-trip tour through a set of $n$~cities.%
 %
 \item<2-> The search space \searchSpace\ thus is the set of all possible round-trip tours through these $n$~cities, usually specified as permutations of the first $n$~natural numbers.%
 %
@@ -165,25 +165,25 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \item Metaheuristics follow the Trial-and-Error idea of iterative improvement.%
 \item<2-> They drop the guarantee to find the optimal solution.%
 \item<3-> They try to find good solution within a feasible runtime.%
-\item<4-> They start with random solutions.%
+\item<4-> They (usually) start with random solutions.%
 \item<5-> And then roughly follow this cycle.%
 %
 \end{itemize}%
 }%
 %
-\locateGraphic{5}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_01}{0.47}{0.3}%
+\locateGraphic{4}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_01}{0.47}{0.3}%
 %
-\locateGraphic{6}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_02}{0.47}{0.3}%
+\locateGraphic{5}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_02}{0.47}{0.3}%
 %
-\locateGraphic{7}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_03}{0.47}{0.3}%
+\locateGraphic{6}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_03}{0.47}{0.3}%
 %
-\locateGraphic{8}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_04}{0.47}{0.3}%
+\locateGraphic{7}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_04}{0.47}{0.3}%
 %
-\locateGraphic{9}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_05}{0.47}{0.3}%
+\locateGraphic{8}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_05}{0.47}{0.3}%
 %
-\locateGraphic{10}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_06}{0.47}{0.3}%
+\locateGraphic{9}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_06}{0.47}{0.3}%
 %
-\locateGraphic{11}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_07}{0.47}{0.3}%
+\locateGraphic{10}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_07}{0.47}{0.3}%
 %
 \end{frame}%
 %
@@ -382,25 +382,6 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Acceptance Criteria}%
-\begin{itemize}%
-\item We have now three example algorithms:~\gls{algoEAopo}, \gls{algoSA}, and \gls{algoSGA}.%
-%
-\item<2-> Assume that they all work on a population of two solutions, where the new solution be~$x_n$ and the old/parent solution be~$x_c$\only<3->{ and we look at the probability~$P$ to accept~$x_n$}.%
-%
-\item<3-> For the \gls{algoEAopo}, $P=1$ if~$f(x_n)\leq f(x_c)$ and~$0$~otherwise.%
-%
-\item<4-> In the \gls{algoSA}, $P$~depends on the difference~$\Delta=f(x_c)-f(x_n)$ and is~$1$~if $x_n$ is better than~$x_c$.%
-%
-\item<5-> In an \gls{algoSGA} for maximization, $P$~is proportional to~$f(x_n)/(f(x_c)+f(x_n))$.\uncover<6->{ If we wanted to do minimization, maybe we could use $1-f(x_n)/(f(x_c)+f(x_n))$ instead.}%
-%
-\item<7-> \gls{algoEAopo} and \gls{algoSA} always accept~$x_n$ if it is better than~$x_c$, while in the \gls{algoSGA}, a better~$x_n$ at least has a~$P>0.5$.%
-%
-\item<8-> Let's keep these things in mind.%
-\end{itemize}%
-\end{frame}%
-%
-\begin{frame}%
 \frametitle{Metaheuristic Optimization}%
 \begin{itemize}%
 \item What we have learned is that different metaheuristics realize the trial-and-error scheme differently.%
@@ -429,13 +410,31 @@ If you keep accepting better and better solutions, you will get really good solu
 \begin{itemize}%
 \item Research in optimization, \glsFull{ML}, and \glsFull{AI} often use simple problems to test and benchmark algorithms.%
 \item<2-> These allow for many experiments in a short time.%
-\item<3-> We often know the optimal solutions or at least bounds for the optimal objective values.%
+\item<3-> We often know the optimal solutions or at lower bounds for the optimal objective values.%
 \item<4-> We can understand the results well.%
 \item<5-> What we want is that algorithms perform similar to our benchmarking results also on actual, real-world problems.%
 \item<6-> \alert{We want invariance properties.}\cite{OAAH2017IGOAAUPVIP,HA2014PDOCSSFTTP,JA2010LLCOTSIMMLEAOMFIRFLPS}%
 \end{itemize}%
 \end{frame}%
 %
+\begin{frame}%
+\frametitle{Acceptance Criteria}%
+\begin{itemize}%
+\item We have now three example algorithms:~\gls{algoEAopo}, \gls{algoSA}, and \gls{algoSGA}.%
+%
+\item<2-> Assume that they all work on a population of two solutions, where the new solution be~$x_n$ and the old/parent solution be~$x_c$\only<3->{ and we look at the probability~$P$ to accept~$x_n$}.%
+%
+\item<3-> For the \gls{algoEAopo}, $P=1$ if~$f(x_n)\leq f(x_c)$ and~$0$~otherwise.%
+%
+\item<4-> In the \gls{algoSA}, $P$~depends on the difference~$\Delta=f(x_c)-f(x_n)$ and is~$1$~if $x_n$ is better than~$x_c$.%
+%
+\item<5-> In an \gls{algoSGA} for maximization, $P$~is proportional to~$f(x_n)/(f(x_c)+f(x_n))$.\uncover<6->{ If we wanted to do minimization, maybe we could use ${\color{orange}{1-}}f(x_n)/(f(x_c)+f(x_n))$ instead.}%
+%
+\item<7-> \gls{algoEAopo} and \gls{algoSA} always accept~$x_n$ if it is better than~$x_c$, while in the \gls{algoSGA}, a better~$x_n$ at least has a~$P>0.5$.%
+%
+\item<8-> Let's keep these things in mind.%
+\end{itemize}%
+\end{frame}%
 %
 \begin{frame}%
 \frametitle{Invariance Properties: OneMax Example}%
@@ -463,13 +462,13 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{2}(x)=\fn{1}(x)+10$.%
 \item<3-> Expectation: Any reasonable algorithm should perform the same on~$\fn{1}$ and~$\fn{2}$\only<-3>{.}\uncover<4->{, i.e., make the exact same decisions\only<5->{ given the same random seeds}.}%
 %
-\item<8-> $\fn{1}(x_c)=14$\uncover<9->{, $\fn{1}(x_n)=6$\uncover<10->{, $\fn{2}(x_c)=24$\uncover<11->{, $\fn{2}(x_n)=16$}}}%
+\item<8-> $\fn{1}(x_c)=6$\uncover<9->{, $\fn{1}(x_n)=14$\uncover<10->{, $\fn{2}(x_c)=16$\uncover<11->{, $\fn{2}(x_n)=24$}}}%
 
-\item<12-> \gls{algoEAopo}: $6\leq14$ \textcolor{greenYesColor}{$\mathbf{=}$} $16\leq24$ \greenYes%
+\item<12-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $24\leq16$ \greenYes%
 %
-\item<13-> \gls{algoSA}: $14-6$ \textcolor{greenYesColor}{$\mathbf{=}$} $24-16$ \greenYes%
+\item<13-> \gls{algoSA}: $6-14$ \textcolor{greenYesColor}{$\mathbf{=}$} $16-24$ \greenYes%
 %
-\item<14-> \gls{algoSGA}: $6/(14+6)=0.3$ \textcolor{redNoColor}{$\mathbf{\neq}$} $16/(24+16)=0.4$ \redNo%
+\item<14-> \gls{algoSGA}: ${\color{orange}{1-}}14/(14+6)=0.3$ \textcolor{redNoColor}{$\mathbf{\neq}$} ${\color{orange}{1-}}24/(24+16)=0.4$ \redNo%
 \end{itemize}%
 }%
 %
@@ -501,13 +500,13 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{3}(x)=0.8\fn{1}(x)$.%
 \item<3-> Expectation: Any reasonable algorithm should perform the same on~$\fn{1}$ and~$\fn{3}$, i.e., make the exact same decisions given the same random seeds.%
 %
-\item<5-> $\fn{1}(x_c)=14$, $\fn{1}(x_n)=6$\uncover<6->{, $\fn{3}(x_c)=11.2$, $\fn{3}(x_n)=4.8$}%
+\item<5-> $\fn{1}(x_c)=6$, $\fn{1}(x_n)=14$\uncover<6->{, $\fn{3}(x_c)=4.8$, $\fn{3}(x_n)=11.2$}%
 %
-\item<7-> \gls{algoEAopo}: $6\leq14$ \textcolor{greenYesColor}{$\mathbf{=}$} $4.8\leq11.2$ \greenYes%
+\item<7-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $11.2\leq4.8$ \greenYes%
 %
-\item<8-> \gls{algoSA}: $14-6$ \textcolor{redNoColor}{$\mathbf{\neq}$} $11.2-4.8$ \redNo%
+\item<8-> \gls{algoSA}: $6-14$ \textcolor{redNoColor}{$\mathbf{\neq}$} $4.8-11.2$ \redNo%
 %
-\item<9-> \gls{algoSGA}: $6/(14+6)=0.3$ \textcolor{greenYesColor}{$\mathbf{=}$} $4.8/(11.2+4.8)=0.3$ \greenYes%
+\item<9-> \gls{algoSGA}: ${\color{orange}{1-}}14/(14+6)=0.3$ \textcolor{greenYesColor}{$\mathbf{=}$} ${\color{orange}{1-}}11.2/(11.2+4.8)=0.3$ \greenYes%
 \end{itemize}%
 }%
 %
@@ -535,13 +534,13 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{4}(x)=[\fn{1}(x)]^2$.%
 \item<3-> Expectation: A nice algorithm should perform the same on~$\fn{1}$ and~$\fn{3}$, i.e., make the exact same decisions given the same random seeds.%
 %
-\item<4-> $\fn{1}(x_c)=14$, $\fn{1}(x_n)=6$\uncover<5->{, $\fn{4}(x_c)=196$, $\fn{4}(x_n)=36$}%
+\item<4-> $\fn{1}(x_c)=6$, $\fn{1}(x_n)=14$\uncover<5->{, $\fn{4}(x_c)=36$, $\fn{4}(x_n)=196$}%
 %
-\item<6-> \gls{algoEAopo}: $6\leq14$ \textcolor{greenYesColor}{$\mathbf{=}$} $36\leq196$ \greenYes%
+\item<6-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $196\leq36$ \greenYes%
 %
-\item<7-> \gls{algoSA}: $14-6$ \textcolor{redNoColor}{$\mathbf{\neq}$} $196-36$ \redNo%
+\item<7-> \gls{algoSA}: $6-14$ \textcolor{redNoColor}{$\mathbf{\neq}$} $36-196$ \redNo%
 %
-\item<8-> \gls{algoSGA}: $6/(14+6)=0.3$ \textcolor{redNoColor}{$\mathbf{\neq}$} $36/(196+36)\approx0.156$ \redNo%
+\item<8-> \gls{algoSGA}: ${\color{orange}{1-}}14/(14+6)=0.3$ \textcolor{redNoColor}{$\mathbf{\neq}$} ${\color{orange}{1-}}196/(196+36)\approx0.156$ \redNo%
 \end{itemize}%
 }%
 %
@@ -826,7 +825,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \begin{frame}%
 \frametitle{(1+1)~FEA on MaxSAT: ERT-ECDF}%
 %
-\locateGraphic{}{width=0.75\paperwidth}{\sharedDir/graphics/fea_performance/fea_maxsat_ecdf}{0.125}{0.15}%
+\locateGraphic[\citetitle{WWLC2021FFAMOAIUBTOTOFV}~\bracketCite{WWLC2021FFAMOAIUBTOTOFV}]{}{width=0.75\paperwidth}{\sharedDir/graphics/fea_performance/fea_maxsat_ecdf}{0.125}{0.15}%
 %
 \end{frame}%
 %
