@@ -245,7 +245,7 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \item \glsFull{algoSA}\cite{KGV1983OBSA} is a local search that accepts also worsening moves, but with a probability that decreases over time and with the difference in solution quality.%
 \item<3-> ${\mathfrak{R}}_0^1$~be a random number uniformly distributed in~$[0,1)$.%
 \item<6-> High temperatures~$T$ increase the acceptance probability~$P$ of worse solutions, low~$T$ reduce it.%
-\item<7-> $P$~is regulated by temperature schedule with parameter\only<10->{s}~$T_0$\only<10->{ and~$\epsilon$}.%
+\item<7-> $P$~is regulated by temperature schedule with parameter\only<10->{s}~$T_0$\only<10->{ and~$\varepsilon$}.%
 \end{itemize}%
 }%
 \uncover<11->{\begin{itemize}%
@@ -428,7 +428,7 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 \item<4-> In the \gls{algoSA}, $P$~depends on the difference~$\Delta=f(x_c)-f(x_n)$ and is~$1$~if $x_n$ is better than~$x_c$.%
 %
-\item<5-> In an \gls{algoSGA} for maximization, $P$~is proportional to~$f(x_n)/(f(x_c)+f(x_n))$.\uncover<6->{ If we wanted to do minimization, maybe we could use ${\color{orange}{1-}}f(x_n)/(f(x_c)+f(x_n))$ instead.}%
+\item<5-> In an \gls{algoSGA} for maximization, $P$~is~$f(x_n)/(f(x_c)+f(x_n))$.\uncover<6->{ If we wanted to do minimization, maybe we could use ${\color{orange}{1-}}f(x_n)/(f(x_c)+f(x_n))$ instead.}%
 %
 \item<7-> \gls{algoEAopo} and \gls{algoSA} always accept~$x_n$ if it is better than~$x_c$, while in the \gls{algoSGA}, a better~$x_n$ at least has a~$P>0.5$.%
 %
@@ -462,7 +462,7 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{2}(x)=\fn{1}(x)+10$.%
 \item<3-> Expectation: Any reasonable algorithm should perform the same on~$\fn{1}$ and~$\fn{2}$\only<-3>{.}\uncover<4->{, i.e., make the exact same decisions\only<5->{ given the same random seeds}.}%
 %
-\item<8-> $\fn{1}(x_c)=6$\uncover<9->{, $\fn{1}(x_n)=14$\uncover<10->{, $\fn{2}(x_c)=16$\uncover<11->{, $\fn{2}(x_n)=24$}}}%
+\item<8-> $\fn{1}(x_n)=14$\uncover<9->{, $\fn{1}(x_c)=6$\uncover<10->{, $\fn{2}(x_n)=24$\uncover<11->{, $\fn{2}(x_c)=16$}}}%
 
 \item<12-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $24\leq16$ \greenYes%
 %
@@ -500,7 +500,7 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{3}(x)=0.8\fn{1}(x)$.%
 \item<3-> Expectation: Any reasonable algorithm should perform the same on~$\fn{1}$ and~$\fn{3}$, i.e., make the exact same decisions given the same random seeds.%
 %
-\item<5-> $\fn{1}(x_c)=6$, $\fn{1}(x_n)=14$\uncover<6->{, $\fn{3}(x_c)=4.8$, $\fn{3}(x_n)=11.2$}%
+\item<5-> $\fn{1}(x_n)=14$, $\fn{1}(x_c)=6$\uncover<6->{, $\fn{3}(x_n)=11.2$, $\fn{3}(x_c)=4.8$}%
 %
 \item<7-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $11.2\leq4.8$ \greenYes%
 %
@@ -532,9 +532,9 @@ If you keep accepting better and better solutions, you will get really good solu
 \begin{itemize}%
 \item Now I create another slightly modified variant of this problem.%
 \item<2-> $\fn{4}(x)=[\fn{1}(x)]^2$.%
-\item<3-> Expectation: A nice algorithm should perform the same on~$\fn{1}$ and~$\fn{3}$, i.e., make the exact same decisions given the same random seeds.%
+\item<3-> Expectation: A nice algorithm should perform the same on~$\fn{1}$ and~$\fn{4}$, i.e., make the exact same decisions given the same random seeds.%
 %
-\item<4-> $\fn{1}(x_c)=6$, $\fn{1}(x_n)=14$\uncover<5->{, $\fn{4}(x_c)=36$, $\fn{4}(x_n)=196$}%
+\item<4-> $\fn{1}(x_n)=14$, $\fn{1}(x_c)=6$\uncover<5->{, $\fn{4}(x_n)=196$, $\fn{4}(x_c)=36$}%
 %
 \item<6-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $196\leq36$ \greenYes%
 %
@@ -678,7 +678,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \begin{frame}%
 \frametitle{FFA: What does this do?}%
 \begin{itemize}%
-\item The rating $H[f(x)]$ of a solution~$x$ depends only on the identity of $f(x)$.
+\item The rating $H[f(x)]$ of a solution~$x$ depends only on the identity of~$f(x)$.
 \item<2-> The rating $H[f(x)]$ of a solution~$x$ depends only on how often solutions~$x'$ with $f(x')=f(x)$ have previously been seen in the optimization process.%
 \item<3-> Static optimization problems become dynamic, because frequency fitness~$H$ changes over time.%
 \item<4-> Solutions get less attractive the more often their corresponding objective values have been seen. This also holds for local optima\dots%
@@ -735,7 +735,6 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \item The TwoMax problem has one local opposite to a global optimum\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}.%
 \item<2-> An \gls{algoEAopo} has a 50/50 chance to converge to the local or global optimum and thus has an expected runtime in \bigThetab{n^n}.\cite{FQW2018ELDBOAWHTMO,FOSW2009AODPMFGE}%
 \item<3-> The average runtime \gls{algoFEAopo} on TwoMax seems to be in~\bigOb{n^2 \ln{n}}.%
-\item<4-> It is \alert{identical} to its performance on OneMax, because TwoMax is an injective transformation of OneMax!%
 \end{itemize}%
 }%
 %
@@ -833,11 +832,11 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \frametitle{FFA: What does this do?}%
 %
 \begin{itemize}%
-\item So it turns it, \gls{algoFFA} does work.%
+\item So it turns out, \gls{algoFFA} does work.%
 \item<2-> It works because it prefers solutions with rare objective values.%
 \item<3-> Solutions with very good objective values are also very rare on any problem worth tackling.%
 \item<4-> FFA makes the simple \gls{algoEAopo} slower on problems that it can easily solve.%
-\item<5-> The slowdown is roughly proportional to the number of possible objective different values.%
+\item<5-> The slowdown is roughly proportional to the number of possible different objective values.%
 \item<6-> On some non-\npHard\ problems for which the \gls{algoEAopo} needs \alert{exponential} runtime, the \gls{algoFEAopo} needs \alert{polynomial} mean runtime.%
 \item<7-> But not for all, because plateaus of the objective are still plateaus under \gls{algoFFA}.%
 \item<8-> \gls{algoFFA} very significantly speeds up the \gls{algoEAopo} on the \npComplete\ \gls{optMaxSAT} problem.%
@@ -853,13 +852,13 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \uncover<2->{%
 \begin{itemize}%
 \item Let’s say you have an optimization problem with objective function~$f(x)$.%
-\item<2-> You \alert{encrypt} the objective values and do not tell them to the algorithm.%
-\item<3-> Let's say you apply \glslink{cryptoAES}{AES}\cite{FIPSPUB197,FIPSPUB197upd1}, \gls{cryptoRSA}\cite{RSA1978AMFODSAPKC,Y2006MCFCTR}, or the Caesar cipher\cite{O2002CACJCTEATI,Y2006MCFCTR} as a function~$g:\naturalNumbersZ\mapsto\naturalNumbersZ$ to~$f$, i.e., do~$g\circ f$.%
-\item<4-> Encryption removes any order, correlation or causality information, i.e., $g\circ f$ does not correlate with~$f$ in any way.%
-\item<5-> $g(f(x))$~will be totally random.\uncover<6->{ No reasonable optimization algorithm could work with that.}%
-\item<7-> If the \gls{algoFEAopo} can find the optimum of~$f(x)$\dots%
-\item<8-> {\dots}then it will find exactly the same solution in exactly the same runtime even if you apply it to the encrypted problem~$g(f(x))$!%
-\item<9-> How incredibly strange is that?%
+\item<3-> You \alert{encrypt} the objective values and do not tell them to the algorithm.%
+\item<4-> Let's say you apply \glslink{cryptoAES}{AES}\cite{FIPSPUB197,FIPSPUB197upd1}, \gls{cryptoRSA}\cite{RSA1978AMFODSAPKC,Y2006MCFCTR}, or the Caesar cipher\cite{O2002CACJCTEATI,Y2006MCFCTR} as a function~$g:\naturalNumbersZ\mapsto\naturalNumbersZ$ to~$f$, i.e., do~$g\circ f$.%
+\item<5-> Encryption removes any order, correlation or causality information, i.e., $g\circ f$ does not correlate with~$f$ in any way.%
+\item<6-> $g(f(x))$~will be totally random.\uncover<7->{ No reasonable optimization algorithm could work with that.}%
+\item<8-> If the \gls{algoFEAopo} can find the optimum of~$f(x)$\dots%
+\item<9-> {\dots}then it will find exactly the same solution in exactly the same runtime even if you apply it to the encrypted problem~$g(f(x))$!%
+\item<10-> How incredibly strange is that?%
 \end{itemize}%
 }%
 %
@@ -980,7 +979,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \item<2-> This includes, surprisingly, also some computationally hard problems\only<-2>{.}\uncover<3->{:%
 \begin{itemize}%
 \item the \glsFull{optTTP}, where \gls{algoRLS} can find surprisingly good results:~\bracketCite{XWvdBW2024RLSVNVFFAOTTTP}.%
-\item the two-dimensional bin packing problem, where \gls{algoRLS} can actually \alert{outperform} several complex state-of-the-art metaheuristics~\bracketCite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
+\item<4-> the two-dimensional bin packing problem, where \gls{algoRLS} can actually \alert{outperform} several complex state-of-the-art metaheuristics~\bracketCite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
 \end{itemize}%
 }%
 \end{itemize}%
