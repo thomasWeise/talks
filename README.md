@@ -78,7 +78,14 @@ Most of the material provided in this repository is released under the Attributi
 Exceptions to this licensing are all LaTeX classes and commands.
 Other exceptions are explicitly mentioned, e.g., sometimes a graphic may be under copyright held by another person or organization.
 
-## 5. Contact
+
+## 5. Other Interesting Things
+
+- We provide an open source and free [book](https://thomasweise.github.io/programmingWithPython) and course on [Python programming](https://thomasweise.github.io/programmingWithPython).
+- We provide an open source and free [book](https://thomasweise.github.io/databases) and course on [Databases](https://thomasweise.github.io/databases).
+- We provide an open source Python library on [metaheuristic optimization](https://thomasweise.github.io/moptipy) that supports the automated replicable execution of self-documenting experiments in a parallel and distributed fashion as well as statistical result evaluation.
+
+## 6. Contact
 If you have any questions or suggestions, please contact
 Prof. Dr. Thomas Weise (汤卫思教授)
 at the Institute of Applied Optimization (应用优化研究所, IAO)
