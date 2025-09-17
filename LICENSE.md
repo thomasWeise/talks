@@ -1,6 +1,21 @@
-Most of the material in this repository is under the license listed below.
+
+Most of the material provided in this repository is released under the Attribution-NonCommercial-ShareAlike 4.0 International license (CC&nbsp;BY&#8209;NC&#8209;SA&nbsp;4.0), see [http://creativecommons.org/licenses/by-nc-sa/4.0](http://creativecommons.org/licenses/by-nc-sa/4.0) for a summary.
+
 Exceptions to this licensing are all LaTeX classes and commands.
 Other exceptions are explicitly mentioned, e.g., sometimes a graphic may be under copyright held by another person or organization.
+
+Examples of graphics that do not fall under the Creative Commons license but whose copyright belong to other institutions are:
+
+- `CWTW2024FFAOWBFGSORLSOTQAP_p7_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of SciTePress
+- `HS2000LSAFSAEEp46.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of Springer
+- `LWLvdBTW2024ATTSPWFFAAHA_p12_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of SciTePress
+- `WLCW2021SJSSPWUABFGS_p4_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of ACM
+- `WWLC2021FFAMOAIUBTOTOFV.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWLCL2023FFAOWBFGSCBE.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWLCL2023FFAOWBFGSCBE_p10_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWTY2014EEIAWGP_07_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWWTDY2014FFA.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+
 
 ## creative commons
 

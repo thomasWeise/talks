@@ -6,6 +6,7 @@
 
 - [Comparing Optimization Algorithms](https://thomasweise.github.io/talks/comparingOptimizationAlgorithms.pdf)
 - [Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf)
+- [Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)
 
 ## 2. Talk Abstracts
 
@@ -38,6 +39,13 @@ We plug FFA into the (1+1)&nbsp;EA.
 We show that the resulting (1+1)&nbsp;FEA can solve Trap, TwoMax, and Jump problems in polynomial runtime, whereas the (1+1)&nbsp;EA needs exponential runtime.
 Moreover, the (1+1)&nbsp;FEA performs very significantly faster on the NP-hard MaxSAT problem.
 We conclude the presentation with an outline of other properties of FFA and our other recent works.
+
+### 2.3. Frequency Fitness Assignment as Research Direction
+**[Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)** briefly outlines the research direction *Frequency Fitness Assignment*&nbsp(FFA) of our team.
+It begins by introducing the field of optimization with a particular focus on metaheuristics.
+It then discusses how FFA works and how it can be plugged into metaheuristic optimization algorithms.
+We then show the past achievements resulting from this strand of research before giving pointers to the future tasks and challenges ahead.
+
 
 ## 3. Speaker Biography
 Prof.&nbsp;Dr.&nbsp;Thomas WEISE&nbsp;<span style="color:gray;font-size:90%">(汤卫思)</span> holds a full professorship at Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> in the city Hefei&nbsp;<span style="color:gray;font-size:90%">(合肥市)</span> in the province Anhui&nbsp;<span style="color:gray;font-size:90%">(安徽省)</span> in China.
@@ -78,12 +86,24 @@ Most of the material provided in this repository is released under the Attributi
 Exceptions to this licensing are all LaTeX classes and commands.
 Other exceptions are explicitly mentioned, e.g., sometimes a graphic may be under copyright held by another person or organization.
 
+Examples of graphics that do not fall under the Creative Commons license but whose copyright belong to other institutions are:
+
+- `CWTW2024FFAOWBFGSORLSOTQAP_p7_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of SciTePress
+- `HS2000LSAFSAEEp46.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of Springer
+- `LWLvdBTW2024ATTSPWFFAAHA_p12_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of SciTePress
+- `WLCW2021SJSSPWUABFGS_p4_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of ACM
+- `WWLC2021FFAMOAIUBTOTOFV.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWLCL2023FFAOWBFGSCBE.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWLCL2023FFAOWBFGSCBE_p10_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWTY2014EEIAWGP_07_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- `WWWTDY2014FFA.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+
 
 ## 5. Other Interesting Things
-
 - We provide an open source and free [book](https://thomasweise.github.io/programmingWithPython) and course on [Python programming](https://thomasweise.github.io/programmingWithPython).
 - We provide an open source and free [book](https://thomasweise.github.io/databases) and course on [Databases](https://thomasweise.github.io/databases).
 - We provide an open source [Python library](https://thomasweise.github.io/moptipy) on [metaheuristic optimization](https://thomasweise.github.io/moptipy) that supports the automated replicable execution of self-documenting experiments in a parallel and distributed fashion as well as statistical result evaluation.
+
 
 ## 6. Contact
 If you have any questions or suggestions, please contact

@@ -162,7 +162,7 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \parbox{0.42\paperwidth}{%
 \begin{itemize}%
 %
-\item Metaheuristics follow the Trial-and-Error idea of iterative improvement.%
+\item Because of this hardness of optimization, metaheuristic algorithms that follow the Trial-and-Error idea of iterative improvement have emerged.%
 \item<2-> They drop the guarantee to find the optimal solution.%
 \item<3-> They try to find good solution within a feasible runtime.%
 \item<4-> They (usually) start with random solutions.%
@@ -424,15 +424,15 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 \item<2-> Assume that they all work on a population of two solutions, where the new solution be~$x_n$ and the old/parent solution be~$x_c$\only<3->{ and we look at the probability~$P$ to accept~$x_n$}.%
 %
-\item<3-> For the \gls{algoEAopo}, $P=1$ if~$f(x_n)\leq f(x_c)$ and~$0$~otherwise.%
+\item<4-> For the \gls{algoEAopo}, $P=1$ if~$f(x_n)\leq f(x_c)$ and~$0$~otherwise.%
 %
-\item<4-> In the \gls{algoSA}, $P$~depends on the difference~$\Delta=f(x_c)-f(x_n)$ and is~$1$~if $x_n$ is better than~$x_c$.%
+\item<5-> In the \gls{algoSA}, $P$~depends on the difference~$\Delta=f(x_c)-f(x_n)$ and is~$1$~if $x_n$ is better than~$x_c$.%
 %
-\item<5-> In an \gls{algoSGA} for maximization, $P$~is~$f(x_n)/(f(x_c)+f(x_n))$.\uncover<6->{ If we wanted to do minimization, maybe we could use ${\color{orange}{1-}}f(x_n)/(f(x_c)+f(x_n))$ instead.}%
+\item<6-> In an \gls{algoSGA} for maximization, $P$~is~$f(x_n)/(f(x_c)+f(x_n))$.\uncover<7->{ If we wanted to do minimization, maybe we could use ${\color{orange}{1-}}f(x_n)/(f(x_c)+f(x_n))$ instead.}%
 %
-\item<7-> \gls{algoEAopo} and \gls{algoSA} always accept~$x_n$ if it is better than~$x_c$, while in the \gls{algoSGA}, a better~$x_n$ at least has a~$P>0.5$.%
+\item<8-> \gls{algoEAopo} and \gls{algoSA} always accept~$x_n$ if it is better than~$x_c$, while in the \gls{algoSGA}, a better~$x_n$ at least has a~$P>0.5$.%
 %
-\item<8-> Let's keep these things in mind.%
+\item<9-> Let's keep these things in mind.%
 \end{itemize}%
 \end{frame}%
 %
@@ -637,7 +637,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}[t]%
-\frametitle{FFA: (1+1)~EA und (1+1)~FEA}%
+\frametitle{FFA: (1+1)~EA and (1+1)~FEA}%
 %
 \begin{itemize}%
 \only<-1>{%
