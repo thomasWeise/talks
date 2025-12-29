@@ -40,7 +40,19 @@ We show that the resulting (1+1)&nbsp;FEA can solve Trap, TwoMax, and Jump probl
 Moreover, the (1+1)&nbsp;FEA performs very significantly faster on the NP-hard MaxSAT problem.
 We conclude the presentation with an outline of other properties of FFA and our other recent works.
 
-### 2.3. Frequency Fitness Assignment as Research Direction
+
+### 2.3. Metaheuristic Optimization in Python:&nbsp;`moptipy`
+**[Metaheuristic Optimization in Python:&nbsp;`moptipy`](https://thomasweise.github.io/talks/moptipy.pdf)** gives a brief introduction the [Python](https://thomasweise.github.io/programmingWithPython) framework [`moptipy`](https://thomasweise.github.io/moptipy).
+This framework, developed by our team, allows you to conduct repeatable, replicable, self-documenting experiments that can be executed in parallel or in a distributed fashion.
+It implements many of the basic metaheuristic algorithms as well as some experimental methods like FFA.
+Moreover, it also provides the tools to statistically evaluate the experimental results and to plot various diagrams.
+This is free open source software that can be installed via `pip install moptipy`.
+It ships with many examples.
+The additional package [`moptipyapps`](https://thomasweise.github.io/moptipyapps) provides search spaces and operators for many well-known optimization problems, such as the Quadratic Assignment Problem&nbsp;(QAP), the Traveling Salesperson Problem&nbsp;(TSP), the Traveling Tournament Problem&nbsp;(TTP), or the two-dimensional bin packing task, complementing the domains already built into `moptipy`, namely the Job Shop Scheduling Problem&nbsp;(JSSP) and discrete benchmark functions.
+[not finished]
+
+
+### 2.4. Frequency Fitness Assignment as Research Direction
 **[Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)** briefly outlines the research direction *Frequency Fitness Assignment*&nbsp(FFA) of our team.
 It begins by introducing the field of optimization with a particular focus on metaheuristics.
 It then discusses how FFA works and how it can be plugged into metaheuristic optimization algorithms.

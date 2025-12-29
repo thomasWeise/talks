@@ -1,0 +1,309 @@
+\pdfminorversion=7%
+\documentclass[aspectratio=169,mathserif,notheorems]{beamer}%
+%
+\xdef\bookbaseDir{../../bookbase}%
+\xdef\sharedDir{../../shared}%
+\RequirePackage{\bookbaseDir/styles/slides}%
+\RequirePackage{\sharedDir/styles/styles}%
+%
+\title{Metaheuristic Optimization in Python:~\texttt{moptipy}}%
+%
+\protected\gdef\randomSeed{\ensuremath{s}}%
+\protected\gdef\randomSeeds{\ensuremath{S}}%
+\protected\gdef\varAlgorithm{\ensuremath{\mathcal{A}}}%
+\protected\gdef\varInstance{\ensuremath{\mathcal{I}}}%
+\protected\gdef\varName#1{\ensuremath{\operatorname{name}(#1)}}%
+\protected\gdef\varRandGen{\ensuremath{\mathfrak{R}}}%
+\protected\gdef\nRuns{\ensuremath{n}}%
+%
+\begin{document}%
+\startPresentation%
+%
+\section{Introduction}%
+%
+\begin{frame}%
+\frametitle{Introduction to \texttt{moptipy}}%
+%
+\begin{itemize}%
+%
+\item \moptipy\cite{WW2023RSDEWASSAA} -- \emph{Metaheuristic Optimization in \python} -- as the name suggests, is a library with implementations of metaheuristic optimization methods in \python\cite{programmingWithPython}.%
+%
+\item<2-> Its core website is \url{https://thomasweise.github.io/moptipy}.%
+%
+\item<3-> \moptipy\ offers different optimization algorithms, experiment execution, and result evaluation facilities.%
+%
+\item<4-> It allows you to execute fully replicable and self-documenting experiments in a parallel and distributed fashion.%
+%
+\item<5-> Moreover, it also provides the tools to statistically evaluate the experimental results and to plot various diagrams and charts.%
+%
+\item<6-> Additionally, it ships with two example application areas that can be used for testing algorithms, namely the \glsFull{optJSSP}\cite{W2019JRDAIOTJSSP,WLCW2021SJSSPWUABFGS,WWLC2021FFAMOAIUBTOTOFV}\only<-6>{.}\uncover<7->{ and discrete optimization benchmarks such as those used in\cite{WWLC2021FFAMOAIUBTOTOFV,WWLCL2023FFAOWBFGSCBE}.}%
+%
+\item<8-> Its companion package \softwareStyle{moptipyapps}~(\url{https://thomasweise.github.io/moptipyapps}) offers even more example application areas\only<-8>{.}\uncover<9->{, including the \glsFull{optQAP}\cite{TOvdBLW2024ESTAEFFFA,CWTW2024FFAOWBFGSORLSOTQAP}\only<-9>{.}\uncover<10->{, the \glsFull{optTSP}\cite{LWLvdBTW2024ATTSPWFFAAHA,LWLvdBW2022STTSPUFFA,LWTWW2024GSIWIFFTTSP}\only<-10>{.}\uncover<11->{, the two-dimensional bin packing task\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}\only<-11>{.}\uncover<12->{, as well as the \glsFull{optTTP}\cite{XWvdBW2024RLSVNVFFAOTTTP}.}}}}%
+\end{itemize}%
+%
+\locateGraphic{-4}{width=0.25\linewidth}{\sharedDir/graphics/advertisement/urlQr/moptipy}{0.375}{0.52}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Wishlist}%
+\begin{itemize}%
+\item When doing experiments with optimization algorithms, there are several basic features that we would like to have\only<-1>{.}\uncover<2->{:%
+\begin{enumerate}%
+\item We want experiments to be well-documented.%
+\item<3-> We want experiments to be replicable.%
+\item<4-> We want experiments to run in parallel or even distribute them over several computers.%
+\end{enumerate}%
+}%
+\item<5-> Log files store the information collected during experiments.%
+%
+\item<6-> Their structure lays the foundation for fulfilling the wishlist\only<-6>{.}\uncover<7->{:~A good structure can lead to a natural propensity for parallelism, distribution, and self-documentation, a bad structure can make them impossible.}%
+%
+\item<8-> We here discuss how such features can be achieved.%
+\end{itemize}%
+\end{frame}%
+%
+\section{Log Files in \texttt{moptipy}}%
+%
+\begin{frame}%
+\frametitle{Log Files should automatically contain\dots}%
+\begin{itemize}%
+\item Log files should automatically contain the following information\only<-1>{.}\uncover<2->{:%
+\begin{enumerate}%
+\item all information about the algorithm and its configuration\only<-2>{.}\uncover<3->{,}%
+\item<3-> all information about the problem instance\only<-3>{.}\uncover<4->{,}%
+\item<4-> the random seed of the corresponding run\only<-4>{.}\uncover<5->{,}%
+\item<5-> the end result:~not just in terms of objective value, but the actual element of the solution space; also the point in search space if search~$\neq$~solution space\only<-5>{.}\uncover<6->{,}%
+\item<6-> the total consumed FEs and runtime\only<-6>{.}\uncover<7->{,}%
+\item<7-> the termination criteria\only<-7>{.}\uncover<8->{,}%
+\item<8-> optionally:~the progress of the algorithm over time\only<-8>{.}\uncover<9->{,}%
+\item<9-> the system configuration, including processor, memory, \glsFull{OS}, library versions\dots\uncover<10->{, and}%
+\item<10-> exceptions and the \gls{stackTrace} if something went wrong.%
+\end{enumerate}}%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{1~Log File for 1~Run}%
+\begin{itemize}%
+\item For every single run of one algorithm on one problem instance, one log file should be generated which can describe this run completely.%
+%
+\item<2-> Information should not be divided over multiple files~(harder to understand~$+$~loss of files?).%
+%
+\item<3-> No more than one run should be stored in one file~(What if experiments fails after first run? What about parallelism?)%
+%
+\item<4-> Information should be easy-to-read and easy-to-parse text with a clear and rigid and self-documenting structure.%
+%
+\item<5-> No complicated format like \glsFull{JSON}, \glsFull{YAML}, or \glsFull{XML}!~(Makes parsing complex. Different people may use different subsets of their functionality.)%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{\texttt{moptipy} Log File Structure}%
+\locateGraphic{}{width=0.98\paperwidth}{\sharedDir/graphics/moptipy_log_file/moptipy_log_file}{0.01}{0.15}%
+\end{frame}%
+%
+\section{Repeatability and Replicability}%
+%
+\begin{frame}%
+\frametitle{Repeatable Runs}%
+\begin{itemize}%
+\item 1~run~$=$~1~optimization algorithm setup applied to 1~problem instance.%
+%
+\item<2-> Repeatable runs~$=$~execute one run again and the algorithm will perform exactly the same operations at exactly the same time steps.%
+%
+\item<3-> {\dots}but randomized algorithms are {\dots} well {\dots} randomized?%
+%
+\item<4-> Use the same random seed~\randomSeed~$\Longrightarrow$~algorithms become deterministic.%
+%
+\item<5-> Pass seeded random number generator to the algorithm.%
+%
+\item<6-> No other source of randomness allowed.%
+%
+\item<7-> The seeds~\randomSeed\ should be chosen fairly~(no cherry picking possible)~and in a well-defined, reproducible manner.%
+%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Seeds {\randomSeeds} for {\nRuns} Runs of Algorithm {\varAlgorithm} on Instance {\varInstance}}%
+\begin{itemize}%
+\item \varName{\varInstance} be the user-defined name string of the problem instance~\varInstance.%
+%
+\item<2-> It could be \emph{\inQuotes{onemax\_20}} for the 20\nobreakdashes-bit OneMax problem, or maybe \emph{\inQuotes{swv15}} for an instance of the \glsFull{optJSSP}, for example.%
+%
+\item<3-> Compute the \gls{sha512} digest\cite{FIPSPUB180D4}~(hash) of the \glsShort{utf8} encoded\cite{RFC3629,ISOIEC106462020ITUCCSU} \varName{\varInstance} and get 64~bytes of data~$D$.%
+%
+\item<4-> Divide the data~$D$ into two 32-byte chunks~$D_1$ and~$D_2$.%
+%
+\item<5-> Seed two of \numpy’s \glslink{randPCG}{PCG64} pseudo random number generators\cite{N2025N:PCG6BP,ON2014PAFOSFSESGAFRNG}, $\varRandGen_1$ and~$\varRandGen_2$, with~$D_1$ and~$D_2$, respectively.%
+%
+\item<6-> Draw unsigned 64\nobreakdashes-bit integers as seeds~\randomSeed\ alternatingly from~$\varRandGen_1$ and~$\varRandGen_2$ until~\nRuns\ unique values have been collected.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Advantages of this Method}%
+\begin{itemize}%
+%
+\item Random seeds are generated by a deterministic and replicable procedure\only<-1>{.}\uncover<2->{:%%
+\begin{itemize}%
+\item No cherry picking is possible.%
+\item<3-> If we first generate the set~$\randomSeeds_1$ with~$|\randomSeeds_1|=\nRuns_1$~seeds and then generate the set~$\randomSeeds_2$ with~$|\randomSeeds_2|=\nRuns_2$ seeds with~$\nRuns_2>\nRuns_1$ for the same problem instance~\varInstance, then~$\randomSeeds_1\subset\randomSeeds_2$, i.e., we can iteratively increase the number of runs in an experiment.%
+\end{itemize}%
+}%
+%
+\item<4-> The seeds are still pseudo-random and uniformly distributed.%
+%
+\item<5-> Fairness\only<-5>{.}\uncover<6->{:%
+\begin{itemize}%
+\item Apply two algorithms to the same instance~\varInstance?%
+\item<7-> They start with the same seeds.%
+\item<8-> If they use the same operators to generate their starting points, then they start with the same initial solutions.%
+\item<9-> Different algorithm performance will truly be due to the different decisions that the algorithms make, not a fluke due to different starting points\dots%
+\end{itemize}}%
+%
+\item<10-> Different seeds for different instances avoids always using the same seeds, increases fairness.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\section{Parallel and Distributed Runs}%
+%
+\begin{frame}%
+\frametitle{File and Directory Structure}%
+%
+\def\dirFileStructure{The file \inQuotes{\texttt{results/}{\changeFontSizeRel{-12}{ }}\varName{\varAlgorithm}\texttt{/}{\changeFontSizeRel{-12}{ }}\varName{\varInstance}\texttt{/}{\changeFontSizeRel{-12}{ }}\varName{\varAlgorithm}\texttt{\_}{\changeFontSizeRel{-12}{ }}\varName{\varInstance}\texttt{\_}{\changeFontSizeRel{-12}{ }}$\operatorname{hex}(\randomSeed)$\texttt{.tex}} is created for the run of algorithm setup~\varAlgorithm\ on problem instance~\varInstance\ with random seed~\randomSeed.}%
+%
+\only<-4,6->{%
+\begin{itemize}%
+\item Assume that the base directory is \inQuotes{\texttt{results}}.%
+%
+\item<2-> One directory \inQuotes{\texttt{results/}\varName{\varAlgorithm}} is created for each algorithm setup~\varAlgorithm, whereas \varAlgorithm\ is user-defined, e.g., it could be \inQuotes{\texttt{rls\_flip1}} for \glsFull{algoRLS} with a single-bit-flip operator.%
+%
+\item<3-> One directory \inQuotes{\texttt{results/}\varName{\varAlgorithm}\texttt{/}\varName{\varInstance}} is created for each problem instance~\varInstance\ to which algorithm setup~\varAlgorithm\ is applied.%
+%
+\item<4-> \dirFileStructure%
+%
+\item<6->[$\mathbf{\Rightarrow}$] We have a clearly defined directory structure for experimental results.%
+%
+\item<7->[$\mathbf{\Rightarrow}$] If the random seeds~\randomSeed\ are generated deterministically, then the same experiment will always yield the exactly same file names and directory structure \emph{and} the file contents will also be the same~(with the exception of stored clock time measurements, of course).%
+%
+\end{itemize}%
+}%
+%
+\only<5>{%
+\parbox{0.425\linewidth}{\noindent\begin{itemize}%
+\item \dirFileStructure%
+\end{itemize}%
+}}%
+%
+\locateGraphicTB{5}{width=0.55\paperwidth}{\sharedDir/graphics/moptipy_log_file/moptipy_log_files_explorer}{0.43}{0.1}%
+%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Sequential Experiment Execution}%
+\begin{itemize}%
+%
+\item File creation is atomic on most file systems\only<-1>{.}\uncover<2->{:%
+\begin{itemize}%
+\item Creating a \emph{new} file either succeeds or fails~(e.g., if it already exits).%
+%
+\item<3-> If two processes or threads try to create a new file at the same time, it will succeed for only one process and fail for the other.%
+\end{itemize}%
+}%
+%
+\item<4-> In a sequential experiment, we execute the runs (algorithm setup~\varAlgorithm\ on problem instance~\varInstance\ using random seed~\randomSeed) one after the other.%
+%
+\item<5-> Before doing a run, we try to create the (empty) corresponding log file.%
+%
+\item<6-> The name and directory location of the files are deterministic and clear~(see previous slide).%
+%
+\item<7-> If this file creation fails~(because the file already exist), we skip the run.%
+%
+\item<8-> Otherwise, we perform the run, collect all information in memory, and write it to the log file after the run completes.%
+%
+\end{itemize}%
+\end{frame}%%
+%
+\begin{frame}%
+\frametitle{Experiment Crashes}%
+\begin{itemize}%
+\item What happens if an experiment crashes / power outage?%
+%
+\item<2-> Delete all files of zero size.%
+%
+\item<3-> Restart the experiment.%
+%
+\item<4-> Only the incomplete runs are lost.%
+%
+\item<5-> No need to worry which parts completed and which need to be re-done.%
+%
+\item<6-> The state is always clear: If a log file has non-zero size, the corresponding run has completed. Otherwise, it crashed.%
+%
+\item<7-> Since random seeds, log files, and their locations are deterministic, starting the same experiment twice will do the same runs and produce the same log files~(skipping all completed runs\dots).%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Seeds $+$ Directory Structure $=$ Parallelism!}%
+\begin{itemize}%
+\item If we start the experiment program twice in parallel with the same root directory~\texttt{results}, then both processes will try to create the same log files.%
+%
+\item<2-> The one that succeeds will do the run, the one that fails will try the next run, and so on.%
+%
+\item<3-> Parallelism for free!%
+%
+\item<4-> No inter-process communication, no exchange of data, no mutexes, no job queues, no synchronization {\dots} the file system takes care of everything for us.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Seeds $+$ Directory Structure $=$ Distribution!}%
+\begin{itemize}%
+\item We can share a directory over the (local) network.%
+%
+\item<2-> Almost all operating systems support this out of the box.%
+%
+\item<4-> If file creation is atomic for a file system, then it is also atomic if the folder is shared, because the network share \inQuotes{sits on top} of the basic file system.%
+%
+\item<5-> We create the root experiment folder \texttt{results}.%
+%
+\item<6-> We share the folder over two or more computers.%
+%
+\item<7-> We start the sane experiment program once for each CPU core in the shared folder on each machine.%
+%
+\item<8-> Distributed computing for free!%
+%
+\item<9-> No cluster frameworks, no sockets, no communication needed {\dots} all is done for us for free.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\section{Summary}%
+%
+\begin{frame}%
+\frametitle{Summary}%
+\begin{itemize}%
+\item \moptipy\ allows us to conduct replicable self-documenting experiments with metaheuristic optimization algorithms in \python.%
+\item<2-> These experiments can be executed in parallel on several processors or distributed over a network.%
+%
+\item<3-> \moptipy\ ships with a wide range of experiment execution and statistical evaluation tools, including the ability to draw various charts.%
+%
+\item<4-> It also offers implementation and benchmark datasets of many the classical \npHard\ tasks from operations research.%
+%
+\item<5-> If you are developing new algorithms, it is quite an ideal testbed to explore your methods!%
+\end{itemize}%
+\end{frame}%
+%
+\input{\sharedDir/advertisement/advertisement.tex}%
+%
+\endPresentation%
+\end{document}%%
+\endinput%
+%
