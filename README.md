@@ -6,6 +6,8 @@
 
 - [Comparing Optimization Algorithms](https://thomasweise.github.io/talks/comparingOptimizationAlgorithms.pdf)
 - [Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf)
+- [An Introduction to Optimization](https://thomasweise.github.io/talks/optimization.pdf)
+- [Metaheuristic Optimization in Python:&nbsp;`moptipy`](https://thomasweise.github.io/talks/moptipy.pdf)
 - [Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)
 
 ## 2. Talk Abstracts
@@ -27,6 +29,7 @@ At some early time, algorithm&nbsp;*A* may be better, while at another time, alg
 Curves describing the whole runtime progress of algorithms are therefore useful tools.
 We conclude the talke with some recommendations to avoid pitfalls and on what is considered cheating in experimentation with optimization methods.
 
+
 ### 2.2. Frequency Fitness Assignment
 **[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp;Optimization problems are situations where we have to pick one of many possible choices and want to do this in such a way that we reach a pre-defined goal at a minimum cost.
 Classical optimization problems include the Traveling Salesperson Problem, the Maximum Satisfiability Problem&nbsp;(MaxSAT), and the Bin Packing problem, for example.
@@ -41,7 +44,16 @@ Moreover, the (1+1)&nbsp;FEA performs very significantly faster on the NP-hard M
 We conclude the presentation with an outline of other properties of FFA and our other recent works.
 
 
-### 2.3. Metaheuristic Optimization in Python:&nbsp;`moptipy`
+### 2.3. An Introduction to Optimization
+[An Introduction to Optimization](https://thomasweise.github.io/talks/optimization.pdf) is a talk designed for giving a brief introduction to optimization for an audience unfamiliar with the topic.
+It builds on high school knowledge and drives it further by iteratively tackling problems that can be solved by equations, by simple algorithms, and by an advanced algorithm.
+Then we arrive at a category of problems that algorithms can no longer solve both efficiently and exactly.
+These are the problems requiring metaheuristic optimization algorithms.
+We then finally take a brief look into some basic concepts underlying these algorithms.
+[not finished]
+
+
+### 2.4. Metaheuristic Optimization in Python:&nbsp;`moptipy`
 **[Metaheuristic Optimization in Python:&nbsp;`moptipy`](https://thomasweise.github.io/talks/moptipy.pdf)** gives a brief introduction the [Python](https://thomasweise.github.io/programmingWithPython) framework [`moptipy`](https://thomasweise.github.io/moptipy).
 This framework, developed by our team, allows you to conduct repeatable, replicable, self-documenting experiments that can be executed in parallel or in a distributed fashion.
 It implements many of the basic metaheuristic algorithms as well as some experimental methods like FFA.
@@ -52,7 +64,7 @@ The additional package [`moptipyapps`](https://thomasweise.github.io/moptipyapps
 [not finished]
 
 
-### 2.4. Frequency Fitness Assignment as Research Direction
+### 2.5. Frequency Fitness Assignment as Research Direction
 **[Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)** briefly outlines the research direction *Frequency Fitness Assignment*&nbsp(FFA) of our team.
 It begins by introducing the field of optimization with a particular focus on metaheuristics.
 It then discusses how FFA works and how it can be plugged into metaheuristic optimization algorithms.
@@ -61,12 +73,11 @@ We then show the past achievements resulting from this strand of research before
 
 ## 3. Speaker Biography
 Prof.&nbsp;Dr.&nbsp;Thomas WEISE&nbsp;<span style="color:gray;font-size:90%">(汤卫思)</span> holds a full professorship at Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> in the city Hefei&nbsp;<span style="color:gray;font-size:90%">(合肥市)</span> in the province Anhui&nbsp;<span style="color:gray;font-size:90%">(安徽省)</span> in China.
-He received his Diplom-Informatiker in Computer Science from the Chemnitz University of Technology&nbsp;<span style="color:gray;font-size:90%">(德国开姆尼茨工业大学)</span> in Chemnitz, Germany&nbsp;<span style="color:gray;font-size:90%">(德国开姆尼茨市)</span> in 2005 and his doctoral degree&nbsp;<span style="color:gray;font-size:90%">(博士)</span> from the University of Kassel&nbsp;<span style="color:gray;font-size:90%">(德国卡塞尔大学)</span> in Kassel, Germany&nbsp;<span style="color:gray;font-size:90%">(德国卡
-塞尔市)</span> in 2009.
+He received his Diplom-Informatiker in Computer Science from the Chemnitz University of Technology&nbsp;<span style="color:gray;font-size:90%">(德国开姆尼茨工业大学)</span> in Chemnitz, Germany&nbsp;<span style="color:gray;font-size:90%">(德国开姆尼茨市)</span> in 2005 and his doctoral degree&nbsp;<span style="color:gray;font-size:90%">(博士)</span> from the University of Kassel&nbsp;<span style="color:gray;font-size:90%">(德国卡塞尔大学)</span> in Kassel, Germany&nbsp;<span style="color:gray;font-size:90%">(德国卡塞尔市)</span> in 2009.
 Prof.&nbsp;Weise joined the School of Computer Science and Technology&nbsp;<span style="color:gray;font-size:90%">(计算机科学与技术学院)</span> of the University of
 Science and Technology of China&nbsp;<span style="color:gray;font-size:90%">(USTC, 中国科学技术大学)</span> in Hefei as PostDoc&nbsp;<span style="color:gray;font-size:90%">(博士后)</span> from&nbsp;2009 to&nbsp;2011.
 He then was promoted to Associate Professor&nbsp;<span style="color:gray;font-size:90%">(副教授)</span> in the same school.
-In 2016, Prof.&nbsp;Weise moved to Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> to found the Institute of Applied Optimization&nbsp;<span style="color:gray;font-size:90%">(IAO, 应用优化研究所)</span>, which he leads as director, at the School of Artificial Intelligence and Big Data&nbsp;<span style="color:gray;font-size:90%">(人工智能与大数据学院)</span>.
+In 2016, Prof.&nbsp;Weise moved to Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> to found the Institute of Applied Optimization&nbsp;<span style="color:gray;font-size:90%">(IAO, 应用优化研究所)</span>, which he leads as director, at the School of Artificial Intelligence and Big Data&nbsp;<span style="color:gray;font-size:90%">(人工智能与大数据学院)</span>.off
 Prof.&nbsp;Weise holds the 2025&nbsp;Huangshan Friendship Award of Anhui Province&nbsp;<span style="color:gray;font-size:90%">(安徽省黄山友谊奖)</span> and the 2020&nbsp;Hefei City Friendship Award&nbsp;<span style="color:gray;font-size:90%">(外国专家“友谊奖”)</span>.
 
 The research field of Prof. Weise is metaheuristic optimization, where he made contributions to both fundamental and applied research.
@@ -109,6 +120,7 @@ Examples of graphics that do not fall under the Creative Commons license but who
 - `WWLCL2023FFAOWBFGSCBE_p10_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - `WWTY2014EEIAWGP_07_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - `WWWTDY2014FFA.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
+- The illustration of Euclid von Alexandria in `shared/graphics/euclidOfAlexandria` is [attributed](https://www.antike-griechische.de/Euklid.pdf) to the painter Charles Paul Landon (1760-1826). Source:~[Vikidia](https://fr.vikidia.org/wiki/Cat%C3%A9gorie:Image_Euclide), where it is *domaine public,* i.e., in the Public Domain.
 
 
 ## 5. Other Interesting Things

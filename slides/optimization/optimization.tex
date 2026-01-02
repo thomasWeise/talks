@@ -1,0 +1,711 @@
+\pdfminorversion=7%
+\documentclass[aspectratio=169,mathserif,notheorems]{beamer}%
+%
+\xdef\bookbaseDir{../../bookbase}%
+\xdef\sharedDir{../../shared}%
+\RequirePackage{\bookbaseDir/styles/slides}%
+\RequirePackage{\sharedDir/styles/styles}%
+%
+%
+\title{An Introduction to Optimization}%
+%
+%
+\begin{document}%
+\startPresentation%
+%
+\section{Introduction}%
+%
+\begin{frame}%
+\frametitle{What is Optimization?}%
+\begin{itemize}%
+\item Are are \alert{three} ways to approach this topic\only<-1>{.}\uncover<2->{\medskip%
+\begin{enumerate}%
+%
+\item Optimization is an extension of school mathematics into a field where equations are no longer enough and exact solutions \alert{cannot always be reached}.\medskip%
+%
+\item<3-> Optimization is the art of solving \alert{hard} problems.\medskip%
+%
+\item<4-> Optimization means searching for \alert{superlatives}.%
+\end{enumerate}}%
+\end{itemize}%
+%
+\end{frame}%
+%
+\xdef\sharedSlideTitle{Optimization = Search for Superlatives}%
+\input{\sharedDir/slides/optimization_superlatives.tex}%
+%
+\begin{frame}%
+\frametitle{Business}%
+%
+\locateGraphic{1}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_1}{-0.1}{0.05}%
+\locateGraphic{2}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_2}{-0.1}{0.05}%
+\locateGraphic{3}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_3}{-0.1}{0.05}%
+\locateGraphic{4}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_4}{-0.1}{0.05}%
+\locateGraphic{5}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_5}{-0.1}{0.05}%
+\locateGraphic{6}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_6}{-0.1}{0.05}%
+\locateGraphic{7}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects}{-0.1}{0.05}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Optimization}%
+\begin{itemize}%
+%
+\item There are incredibly many problems from a very wide area where we can use optimization and \glsFull{fieldOR}.\medskip%
+%
+\item<2-> How is this related to what you already learned?%
+\end{itemize}%
+\end{frame}%
+%
+\section{Problems that we can Solve with Equations}%
+%
+\definecolor{square-color}{HTML}{A03214}%
+\definecolor{rectangle-color}{HTML}{0000A0}%
+\definecolor{small-triangle-color}{HTML}{AA0078}%
+\definecolor{large-triangle-color}{HTML}{008200}%
+\definecolor{x-color}{HTML}{00788C}%
+%
+\protected\gdef\aRectangle{{\color{rectangle-color}{\ensuremath{A_{\text{\ding{122}}}}}}}%
+\protected\gdef\aRectangleDiff{{\color{rectangle-color}{\ensuremath{A'_{\text{\ding{122}}}}}}}%
+\protected\gdef\aRectangleMax{{\color{rectangle-color}{\ensuremath{\widehat{A_{\text{\ding{122}}}}}}}}%
+\protected\gdef\aSquare{{\color{square-color}{\ensuremath{A_{\text{\ding{110}}}}}}}%
+\protected\gdef\aSmallTriangle{{\color{small-triangle-color}{\ensuremath{A_{\text{\ding{116}}}}}}}%
+\protected\gdef\aLargeTriangle{{\color{large-triangle-color}{\ensuremath{A_{\text{\ding{115}}}}}}}%
+\protected\gdef\aX{{\color{x-color}{\ensuremath{x}}}}%
+\protected\gdef\aXMax{{\color{x-color}{\ensuremath{\hat{x}}}}}%
+\protected\gdef\aRectangleOfX{\ensuremath{\aRectangle(\aX)}}%
+\protected\gdef\aRectangleOfXDiff{\ensuremath{\aRectangleDiff(\aX)}}%
+%
+\begin{frame}[t]%
+\frametitle{A Problem that we can Solve with (High School Maths) Equations}%
+\begin{itemize}%
+\item A \textcolor{rectangle-color}{rectangle} should be placed inside a \textcolor{square-color}{square} with side\\length~13cm as sketched.%
+%
+\item<2-> What area has the \alert{largest} such \textcolor{rectangle-color}{rectangle}?%
+\end{itemize}%
+%
+\uncover<3->{\parbox{0.6\paperwidth}{\noindent%
+\begin{align}\nonumber%
+%
+\only<-11>{%
+\aRectangle&=\aSquare-2\aSmallTriangle-2\aLargeTriangle%
+}%
+%
+\only<-11>{%
+\nonumber\uncover<4->{\nonumber\\\nonumber%
+\aRectangleOfX&={\color{square-color}{\left(13\text{cm}^2\right)}}-2{\color{small-triangle-color}{\left(\tfrac{1}{2}\aX^2\right)}}-2{\color{large-triangle-color}{\left(\tfrac{1}{2}(13\text{cm}-\aX)^2\right)}}%
+}%
+}%
+%
+\only<-11>{%
+\nonumber\uncover<5->{\nonumber\\\nonumber%
+\aRectangleOfX&=169\text{cm}^2-\aX^2-(13\text{cm}-\aX)^2%
+}%
+%
+\nonumber\uncover<6->{\nonumber\\\nonumber%
+\aRectangleOfX&=169\text{cm}^2-\aX^2-169\text{cm}^2+26\text{cm}*\aX-\aX^2%
+}}%
+%
+\nonumber\uncover<7->{\only<-11>{\nonumber\\}\nonumber%
+\aRectangleOfX&=-2\aX^2+26\text{cm}*\aX%
+}%
+%
+\only<-11>{%
+\nonumber\uncover<8->{\nonumber\\\nonumber%
+\aRectangleOfXDiff&=-4\aX+26\text{cm}%
+}%
+%
+\nonumber\uncover<9->{\nonumber\\\nonumber%
+0&=-4\aXMax+26\text{cm}\uncover%
+}%
+%
+\nonumber\uncover<10->{\nonumber\\\nonumber%
+4\aXMax&=26\text{cm}%
+}%
+}%
+%
+\nonumber\uncover<11->{\nonumber\\\nonumber%
+\aXMax&=6.5\text{cm}%
+}%
+%
+\nonumber\uncover<13->{\nonumber\\\nonumber%
+\aRectangleMax&=\aRectangle(\aXMax)=\aRectangle(6.5\text{cm})%
+}%
+%
+\nonumber\uncover<13->{\nonumber\\\nonumber%
+\aRectangleMax&=-2(6.5\text{cm})^2+26\text{cm}*6.5\text{cm}%
+}%
+%
+\nonumber\uncover<14->{\nonumber\\\nonumber%
+\scalebox{1.5}{\ensuremath{\aRectangleMax\;}}&\scalebox{1.5}{\ensuremath{=\;84.5\text{cm}^2}}%
+}%
+%
+\nonumber%
+\end{align}%
+}}%
+%
+\uncover<15->{%
+\begin{center}%
+\scalebox{1.5}{\textbf{\Large{\alert{Solved.}}}}%
+\end{center}%
+}%%
+%
+\strut\\[\paperheight]\strut%
+%
+\locateGraphic{1-2}{width=0.3\paperwidth}{\sharedDir/graphics/rectangle_problem/rectangle_problem_1}{0.67}{0.15}%
+\locateGraphic{3}{width=0.3\paperwidth}{\sharedDir/graphics/rectangle_problem/rectangle_problem_2}{0.67}{0.15}%
+\locateGraphic{4-}{width=0.3\paperwidth}{\sharedDir/graphics/rectangle_problem/rectangle_problem_3}{0.67}{0.15}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Problems that we can solve with Equations}%
+\begin{itemize}%
+\item We can actually solve a lot of problems.%
+%
+\item<2-> We just used an equation.%
+%
+\item<3-> We did computations in multiple steps.%
+%
+\item<4-> Regardless how the previous problem would be parameterized~(say, 16cm instead of 13cm), we could perform the exactly same steps.%
+%
+\item<5-> \alert{Can we always do that?}%
+\end{itemize}%
+\end{frame}%
+%
+\section{Problems that we can Solve with an Algorithm}%
+%
+\begin{frame}%
+\frametitle{Problems that we can Solve with Algorithms}%
+\begin{itemize}%
+%
+\item \alert<-1>{Can we always do that?}%
+%
+\item<2-> \alert{Can we always solve problems with a pre-defined number of steps?}%
+%
+\item<3-> \alert{No.}%
+%
+\item<4-> There are problems that we cannot solve with equations, but with algorithms.%
+%
+\item<5-> And some problems require us to use algorithms which perform different numbers of steps of different inputs.%
+\end{itemize}%
+\end{frame}%
+%
+\definecolor{flip-color}{HTML}{0000A0}%
+\definecolor{flop-color}{HTML}{AA0078}%
+\protected\gdef\flipColor#1#2{{\color<#1>{flip-color}{#2}}}%
+\protected\gdef\flopColor#1#2{{\color<#1>{flop-color}{#2}}}%
+%
+\begin{frame}[t]%
+\frametitle{A Problem that we can Solve with (a High School) Algorithm}%
+\begin{itemize}%
+%
+\item What is the greatest common divisor~($\operatorname{gcd}$) of~$a=257\decSep9731$ and~$b=164\decSep1647$?%
+\end{itemize}%
+%
+\uncover<2->{\vspace*{-0.4em}%
+\parbox{0.6\paperwidth}{\noindent%
+\begin{itemize}%%
+\only<-8>{%
+\item The $\operatorname{gcd}$ can be computed with the Euclidean algorithm\cite{EHF2008EEOGTGOJLH11FEEEELIEILHIATBG11EAPWMETBFR:ENT,B1999FAOTBEA,TKY2016BEOEAOTCEG} by \citeauthor{EHF2008EEOGTGOJLH11FEEEELIEILHIATBG11EAPWMETBFR:ENT}, who lived about 300~\emph{\glsFull{BCE}}.%
+}%
+%
+\only<-10>{%
+\item<3-> The $\operatorname{gcd}$ of two positive natural numbers~$a\in\naturalNumbersO$ and~$b\in\naturalNumbersO$ is the largest number~$g\in\naturalNumbersO=\operatorname{gcd}(a,b)$ which divides both~$a$ and~$b$ without remainder.%
+}%
+%
+\only<-11>{%
+\item<4-> If $a=b$, then obviously $\operatorname{gcd}(a,b)=a=b$.%
+%
+\item<5-> Otherwise, we know that $a=ig$ for some~$i\in\naturalNumbersO$ and that $b=jg$ for some~$j\in\naturalNumbersO$.%
+%
+\item<6-> Without loss of generality, let's assume that~$a>b$.%
+%
+\item<7-> Then it holds that $c=a-b=(i-j)g$.%
+%
+\item<8-> Thus, $g$ also divides~$c$ without remainder, i.e., $\operatorname{gcd}(a,b)=\operatorname{gcd}(c,b)$.%
+%
+\item<9-> It must also be that $a-b<a$.%
+%
+\item<10-> We can replace~$a$ with~$a-b$.%
+}%
+%
+\item<11-> We can repeatedly subtract the smaller from the larger number until we \inQuotes{converge.}%
+\end{itemize}%
+%
+%
+\uncover<12->{%
+\begin{center}%
+\resizebox{0.95\linewidth}{!}{%
+\begin{tabular}{ccc}%
+\hline%
+\textbf{bigger number:~$a$}&\textbf{smaller number:~$b$}&\textbf{$a-b$}\\%
+\hline%
+%
+\uncover<13->{%
+257\decSep9731&164\decSep1647&\flipColor{13-14}{93\decSep8084}%
+}%
+%
+\uncover<14->{\\%
+164\decSep1647&\flipColor{14}{93\decSep8084}&\flopColor{14-15}{70\decSep3563}%
+}%
+%
+\uncover<15->{\\%
+93\decSep8084&\flopColor{15}{70\decSep3563}&\flipColor{15-16}{23\decSep4521}%
+}%
+%
+\uncover<16->{\\%
+70\decSep3563&\flipColor{16}{23\decSep4521}&\flopColor{16-17}{46\decSep9042}%
+}%
+%
+\uncover<17->{\\%
+\flopColor{17}{46\decSep9042}&\flipColor{17}{23\decSep4521}&\flipColor{17}{23\decSep4521}%
+}%
+%
+\\\hline%
+\end{tabular}%
+}%
+\end{center}%
+%
+\uncover<18->{\medskip\noindent%
+\begin{itemize}%
+\item $\operatorname{gcd}(257\decSep9731,164\decSep1647)=23\decSep4521$.%
+\end{itemize}%
+\uncover<19->{\begin{center}%
+\scalebox{1.5}{\textbf{\Large{\alert{Solved.}}}}%
+\end{center}}%
+}%
+}}}%
+%
+\strut\vspace{\paperheight}\strut%
+%
+\locateGraphicTB[\parbox{0.6\paperwidth}{\noindent\vspace*{-0.5em}\tiny{%
+An illustration of Euclid of Alexandria, \href{https://www.antike-griechische.de/Euklid.pdf}{attributed to} Charles Paul Landon~(1760--1826). Source:~\href{https://fr.vikidia.org/wiki/Cat\%C3\%A9gorie:Image_Euclide}{Vikidia}, where it is listed as \emph{domaine public.}}}%
+]{2-}{width=0.32\paperwidth}{\sharedDir/graphics/euclidOfAlexandria/euclidOfAlexandria}{0.66}{0.25}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Euclidean Algorithm}%
+\begin{itemize}%
+%
+\item The number of steps that the algorithm needs depends on the input.%
+%
+\item<2-> The Euclidean Algorithm can be implemented more \alert<4>{efficiently} using \inQuotes{division remainders} instead of subtractions.%
+%
+\item<3-> It can be made even more \alert<4>{efficient} using a binary variant {\dots} that already existed in China in the first century \glsFull{CE}\cite{B1999FAOTBEA}, published in the famous \emph{Jiu Zhang Suanshu}~(九章算术)\cite{OR2003LH,SCL1999TNCOTMACAC,S1998LHATFGAOCM,D2010AALHOCAS,C2002LFLHADWTDM}.%
+%
+\item<4-> What does \alert<4>{efficient} even mean?%
+%
+\item<5-> \alert{efficient = fast\uncover<6->{ and does not need much memory}}%
+%
+\item<7-> (Side note:~The binary Euclidean algorithm can be computed in~$c*(\log{a}+\log{b})$ steps where $c>0$~is some constance. It needs two memory cells\cite{B1999FAOTBEA,BB1987ASAFEGC}.)%
+\end{itemize}%
+\end{frame}%
+%
+\section{Problems that Algorithms can Solve Fast and Efficiently}%
+%
+\definecolor{start-color}{HTML}{FF00C8}%
+\definecolor{goal-color}{HTML}{00C0C0}%
+\definecolor{path-red}{HTML}{FF0000}%
+\definecolor{path-pink}{HTML}{FF00FF}%
+\definecolor{path-green}{HTML}{008000}%
+\definecolor{path-cyan}{HTML}{00C8C8}%
+\definecolor{path-gray}{HTML}{646464}%
+\protected\gdef\apath#1#2{{\color{path-#1}{#2}}}%
+\protected\gdef\noapath{\protected\gdef\apath##1##2{##2}}%
+%
+\begin{frame}[t]%
+\frametitle{Find the Shortest Path from {\color{start-color}{Start}} to {\color{goal-color}{Goal}}}%
+%
+\locate{2-}{\parbox{0.47\paperwidth}{\noindent%
+\begin{itemize}%
+%
+\item I am at the {\color{start-color}{starting point 合肥大学南二区北大门}}.%
+%
+\item<3-> I want to go to the {\color{goal-color}{goal:~食堂}}.
+%
+\only<-8>{%
+\item<4-> How do I get there the \alert{fastest}?%
+%
+\item<5-> We know the campus map.%
+%
+\item<6-> We want to compute the shortest path~(before actually walking it).%
+%
+\item<7-> We know all the intersections where I could make turns.%
+}%
+%
+\only<-12>{%
+\item<9-> For example, I could walk for \apath{red}{$27s$} to this intersection.%
+%
+\item<10-> Or for \apath{red}{$83s$} to that one.%
+%
+\item<11-> Or for \apath{red}{$195s$} to that one.%
+%
+\item<12-> Which one should we pick?%
+}%
+%
+\only<-21>{%
+\item<13-> We have 3~choices: (a)~$\apath{red}{27s}\only<17->{+\apath{green}{213s}}$, (b)~$\apath{red}{83s}\only<19->{+\apath{green}{221s}}$, (c)~$\apath{red}{195s}\only<21->{+\apath{green}{362s}}$.%
+%
+\item<14-> For each intersection, we can compute the airline distance~(\apath{green}{as the crow flies}) to the~{\color{goal-color}{食堂}}.%
+%
+\item<15-> The actual walking distance can never be shorter than that.%
+}%
+%
+\only<-25>{%
+\item<22-> We have 3~choices: (a)~$240s=\apath{red}{27s}+\apath{green}{213s}$, (b)~$\only<23->{304s=}\apath{red}{83s}+\apath{green}{221s}$, (c)~$\only<24->{557s=}\apath{red}{195s}+\apath{green}{362s}$.%
+}%
+%
+\only<-33>{%
+\item<25-> The most interesting candidate for the first step is clearly~(a).%
+%
+\only<-29>{%
+\item<26-> We have 2~remaining unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$.%
+}%
+%
+\item<27-> From~(a), we can go to~(d) by walking for~\apath{red}{$126s$}\only<28->{ or to~(e) by walking for~\apath{red}{$59s$}}.%
+%
+\item<29-> For both we compute the \apath{green}{distance as the crow flies}.%
+}%
+%
+\only<-34>{%
+\item<31-> We \only<-31>{had 2~remaining }\only<32>{now have 3~}\only<33->{now have 4~}unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$\only<32->{, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$}\only<33->{, (e)~$256s=\apath{red}{86s}+\apath{green}{170s}$}.%
+}%
+%
+\only<-35>{%
+\item<34-> (e)~it is\dots%
+}%
+%
+\only<-37>{%
+\item<35-> We have 3~remaining unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$.%
+}%
+%
+\only<-38>{%
+\item<36-> From this point~(e), we only have one reasonable choice where to go next.%
+}%
+%
+\only<-48>{%
+\item<37-> And we again compute the {\apath{green}{airline distance}} to the~{\color{goal-color}{goal}}.%
+%
+\only<-39>{%
+\item<38-> We now have 4~choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$, (f)~$262s=\apath{red}{132s}+\apath{green}{130s}$.%
+}%
+%
+\only<-47>{%
+\item<39-> (f)~it is\dots%
+}%
+%
+\only<-45>{%
+\item<40-> We have 3~remaining unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$.%
+}%
+%
+\item<41-> From (f), we have two possible choices to continue.%
+%
+\item<46-> We now have \only<-46>{4}\only<47->{5}~unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$, (g)~$262s=\apath{red}{160s}+\apath{green}{102s}$\only<47->{, (h)~$316s=\apath{red}{175s}+\apath{green}{141s}$}.%
+}%
+%
+\only<-54>{%
+\item<48-> (g)~it is\dots%
+%
+\item<49-> We now have 4~unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$, (h)~$316s=\apath{red}{175s}+\apath{green}{141s}$.%
+}%
+%
+\only<-57>{%
+\item<50-> And we get two new choices.%
+%
+\item<55-> We now have \only<-55>{5}\only<56->{6}~unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$, (h)~$316s=\apath{red}{175s}+\apath{green}{141s}$, (i)~$265s=\apath{red}{215s}+\apath{green}{50s}$\only<56->{, (j)~$277s=\apath{red}{190s}+\apath{green}{87s}$}.%
+%
+\item<57-> (i)~it is\dots%
+}%
+%
+\only<-63>{%
+\item<58-> We now have 5~unexplored choices: (b)~$304s=\apath{red}{83s}+\apath{green}{221s}$, (c)~$557s=\apath{red}{195s}+\apath{green}{362s}$, (d)~$273s=\apath{red}{153s}+\apath{green}{120s}$, (h)~$316s=\apath{red}{175s}+\apath{green}{141s}$, (j)~$277s=\apath{red}{190s}+\apath{green}{87s}$.%
+}%
+%
+\only<-66>{%
+\item<59-> From~(i), we again got two new choices.%
+}%
+%
+\only<70->{\noapath}%
+\item<64-> We now have \only<75->{0}\only<74>{1}\only<73>{2}\only<72>{3}\only<71>{4}\only<70>{5}\only<-64,67-70>{6}\only<65-66>{7}~unexplored choices: {\color<72->{path-gray}{(b)~$304s=\apath{red}{83s}+\apath{green}{221s}$}}, {\color<75->{path-gray}{(c)~$557s=\apath{red}{195s}+\apath{green}{362s}$}}, {\color<70->{path-gray}{(d)~$273s=\apath{red}{153s}+\apath{green}{120s}$}}, {\color<73->{path-gray}{(h)~$316s=\apath{red}{175s}+\apath{green}{141s}$}}, {\color<71->{path-gray}{(j)~$277s=\apath{red}{190s}+\apath{green}{87s}$}}, {\color<74->{path-gray}{(k)~$316s=\apath{red}{252s}+\apath{green}{64s}$}}\only<65-66>{, (l)~$268s=\apath{red}{236s}+\apath{green}{32s}$}.%
+%
+\only<-69>{%
+\only<-68>{%
+\item<66-> (l)~it is\dots%
+}%
+%
+\item<67-> There is only one choice to continue:~go to the {\color{goal-color}{goal}}!%
+%
+\item<68-> We found a first complete path from {\color{start-color}{start}} to {\color{goal-color}{goal}}.%
+%
+\item<69-> It has the total length~\apath{red}{$268s$}.%
+}%
+%
+\only<-70>{%
+\item<70-> (d)~definitely will need more than~$268s$.%
+}%
+%
+\only<-71>{%
+\item<71-> (j)~definitely will need more than~$268s$.%
+}%
+%
+\only<-72>{%
+\item<72-> (b)~definitely will need more than~$268s$.%
+}%
+%
+\only<-73>{%
+\item<73-> (h)~definitely will need more than~$268s$.%
+}%
+%
+\only<-74>{%
+\item<74-> (k)~definitely will need more than~$268s$.%
+}%
+%
+\only<-75>{%
+\item<75-> (c)~definitely will need more than~$268s$.%
+}%
+%
+\item<76-> We found the shortest possible path and it takes~$268s$.%
+%
+\item<77-> \scalebox{1.5}{\textbf{\Large{\alert{Solved.}}}}%
+%
+\end{itemize}%
+}}{0.51}{0.1}%075}%
+%
+\locateGraphic{}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar}{-0.02}{0.15}%
+%
+\locateGraphic{2-6}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_01_start_goal}{-0.02}{0.15}%
+\locateGraphic{8-}{width=0.55045\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_03_overlay}{-0.02421}{0.1449}%
+%
+\locateGraphic{7-8}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_02_paths}{-0.02}{0.15}%
+%
+\locateGraphic{9}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04a}{-0.02}{0.15}%
+\locateGraphic{10}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04b}{-0.02}{0.15}%
+\locateGraphic{11-15}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04c}{-0.02}{0.15}%
+\locateGraphic{16-17}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04d}{-0.02}{0.15}%
+\locateGraphic{18-19}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04e}{-0.02}{0.15}%
+\locateGraphic{20-21}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04f}{-0.02}{0.15}%
+%
+\locateGraphic{22}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04g}{-0.02}{0.15}%
+\locateGraphic{23}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04h}{-0.02}{0.15}%
+\locateGraphic{24}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04i}{-0.02}{0.15}%
+%
+\locateGraphic{25-26}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_05}{-0.02}{0.15}%
+%
+\locateGraphic{27}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06a}{-0.02}{0.15}%
+\locateGraphic{28}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06b}{-0.02}{0.15}%
+%
+\locateGraphic{29}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06c}{-0.02}{0.15}%
+\locateGraphic{30-31}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06d}{-0.02}{0.15}%
+%
+\locateGraphic{32}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_07a}{-0.02}{0.15}%
+\locateGraphic{33}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_07b}{-0.02}{0.15}%
+%
+\locateGraphic{34-35}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_07c}{-0.02}{0.15}%
+%
+\locateGraphic{36}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_08a}{-0.02}{0.15}%
+\locateGraphic{37}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_08b}{-0.02}{0.15}%
+\locateGraphic{38}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_09a}{-0.02}{0.15}%
+\locateGraphic{39-41}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_09b}{-0.02}{0.15}%
+%
+\locateGraphic{42}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10a}{-0.02}{0.15}%
+\locateGraphic{43}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10b}{-0.02}{0.15}%
+\locateGraphic{44}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10c}{-0.02}{0.15}%
+%
+\locateGraphic{45}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10d}{-0.02}{0.15}%
+\locateGraphic{46}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_11a}{-0.02}{0.15}%
+%
+\locateGraphic{47}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_11b}{-0.02}{0.15}%
+%
+\locateGraphic{48-50}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_11c}{-0.02}{0.15}%
+%
+\locateGraphic{51}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12a}{-0.02}{0.15}%
+\locateGraphic{52}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12b}{-0.02}{0.15}%
+\locateGraphic{53}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12c}{-0.02}{0.15}%
+\locateGraphic{54}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12d}{-0.02}{0.15}%
+%
+\locateGraphic{55}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_13a}{-0.02}{0.15}%
+\locateGraphic{56}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_13b}{-0.02}{0.15}%
+%
+\locateGraphic{57-59}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_13c}{-0.02}{0.15}%
+%
+\locateGraphic{60}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14a}{-0.02}{0.15}%
+\locateGraphic{61}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14b}{-0.02}{0.15}%
+\locateGraphic{62}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14c}{-0.02}{0.15}%
+\locateGraphic{63}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14d}{-0.02}{0.15}%
+%
+\locateGraphic{64}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_15a}{-0.02}{0.15}%
+\locateGraphic{65}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_15b}{-0.02}{0.15}%
+\locateGraphic{66}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_15c}{-0.02}{0.15}%
+%
+\locateGraphic{67-68}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_16}{-0.02}{0.15}%
+%
+\locateGraphic{69}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_17}{-0.02}{0.15}%
+\locateGraphic{70}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_18}{-0.02}{0.15}%
+\locateGraphic{71}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_19}{-0.02}{0.15}%
+\locateGraphic{72}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_20}{-0.02}{0.15}%
+\locateGraphic{73}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_21}{-0.02}{0.15}%
+\locateGraphic{74}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_22}{-0.02}{0.15}%
+\locateGraphic{75-}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_23}{-0.02}{0.15}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{The \gls{algoAstar}for Finding Shortest Paths}%
+\begin{itemize}%
+%
+\item We just applied the \pgls{algoAstar}\cite{HNR1968AFBFTHDOMCP,P1997AAP}.%
+%
+\item<2-> The \pgls{algoAstar} iteratively constructs a solution.%
+%
+\item<3-> It decides next step to test based on a combination of {\color{path-green}{heuristic}} and {\color{path-red}{cost}}.%
+%
+\item<4-> In the worst case, it needs to \inQuotes{look} at all intersections~(nodes) and streets~(edges) once.%
+%
+\item<5-> Usually, it is quite efficient to find shortest paths on maps.%
+%
+\item<6-> (If we look for shortest paths that do not visit any node twice, where the edge distances are not negative, where the number of choices per node is limited, and where the graph and path are not too big -- then this algorithm is very efficient.)%
+%
+\end{itemize}%
+\end{frame}%
+%
+\section{Problems that Algorithms cannot Solve Efficiently \emph{and} Exactly}%
+%
+\begin{frame}%
+\frametitle{Hard Problems~(1)}%
+\begin{itemize}%
+\item There exists a group of problems that are \emph{hard}.%
+%
+\item<2-> Actually, most of the problems I mention at the beginning of this talk belong to this group of hard problems.%
+%
+\item<3-> A hard problem cannot be solved both exactly and efficiently.%
+%
+\item<4-> Let‘s look at two quick examples.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}[t]%
+\frametitle{Bin Packing}%
+\begin{itemize}%
+\item My car can carry $T\text{kg}$ of weight.%
+%
+\item<2-> I have $n$~objects, each with weight~$wi$ for~$i$ in~$1$ to~$n$.%
+%
+\item<3-> How can I pack my car so that I can carry them from~$A$ to $B$ with the fewest possible hauls?\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}%
+\end{itemize}%
+%
+\locateGraphic{}{width=0.8\paperwidth}{\sharedDir/graphics/bin_packing/bin_packing}{0.1}{0.47}%
+\end{frame}%
+%
+\begin{frame}[t]%
+\frametitle{Traveling Salesperson Problem}%
+\begin{itemize}%
+\item Find the shortest path that visits~$n$ locations and returns back to its origin.\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO}%
+\end{itemize}%
+%
+\locateGraphic{}{width=0.4\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china}{0.3}{0.3}%
+\end{frame}%
+%
+%
+\def\makebigmarkformat{%
+\def\bigmarkformat##1{%
+{\alert{\textbf{\Large{##1}}}}%
+}}%
+\protected\gdef\bigmark#1#2{%
+\def\bigmarkformat##1{##1}%
+\only<#1>{\makebigmarkformat}%
+\bigmarkformat{#2}%
+}%
+%
+\begin{frame}[t]%
+\frametitle{Hard Problems~(2)}%
+\only<-3,20->{%
+\begin{itemize}%
+\item These are just two examples from a huge family of problems called~\npHard.%
+%
+\item<2-> What does that mean?%
+\end{itemize}%
+}%
+%
+%
+\locate{3-}{\parbox{0.9\paperwidth}{\noindent%
+\makeatletter%
+\begin{mdframed}[style=@bestPracticeStyle]\Large{%
+If an algorithm guarantees to always find the \bigmark{5-6}{best-possible} solution for an \npHard\ problem, then its runtime will \bigmark{9-19}{grow exponential} with the \bigmark{7-8}{input size~\only<-8,20->{\emph{s}}}\only<9-19>{\bigmark{9-19}{\emph{s}}} in the \bigmark{22}{worst case}.%
+}\end{mdframed}%
+\makeatother%
+}}{0.05}{0.7}%
+%
+\locateGraphic{4-9}{width=0.4\paperwidth}{\sharedDir/graphics/bin_packing/bin_packing}{0.06666666666}{0.25}%
+\locateGraphic{4-9}{width=0.4\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china}{0.53333333333}{0.05}%
+%
+\locate{6}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{packing with fewest hauls}%
+}}}{0.06666666666}{0.65}%
+\locate{6}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{shortest round-trip tour}%
+}}}{0.53333333333}{0.65}%
+%
+\locate{8}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{number of items to pack}%
+}}}{0.06666666666}{0.65}%
+\locate{8}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{number of cities to visit}%
+}}}{0.53333333333}{0.65}%
+%
+\locate{21}{\parbox{0.7\paperwidth}{\noindent\centering\textbf{\Large{\alert{%
+If we want to get the optimal solution,\\it will take too long.%
+}}}}}{0.15}{0.45}%
+%
+\locate{22}{\parbox{0.7\paperwidth}{\noindent\centering\textbf{\Large{%
+If we want to get the optimal solution,\\it will \alert{sometimes/often/always} take too long.%
+}}}}{0.15}{0.45}%
+%
+\locateGraphic{10}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_01}{0.1}{0.05}%
+\locateGraphic{11}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_02}{0.1}{0.05}%
+\locateGraphic{12}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_03}{0.1}{0.05}%
+\locateGraphic{13}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_04}{0.1}{0.05}%
+\locateGraphic{14}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_05}{0.1}{0.05}%
+\locateGraphic{15}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_06}{0.1}{0.05}%
+\locateGraphic{16}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_07}{0.1}{0.05}%
+\locateGraphic{17}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_08}{0.1}{0.05}%
+\locateGraphic{18}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_09}{0.1}{0.05}%
+\locateGraphic{19}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_10}{0.1}{0.05}%
+%
+\end{frame}%
+%
+\section{Traveling Salesperson Problem}%
+%
+\begin{frame}[t]%
+\frametitle{Traveling Salesperson Problem}%
+%
+\begin{itemize}%
+\item In an \glsFull{optTSP}, we want to find the shortest path through $n$~locations and back to the start.%
+\end{itemize}%
+%
+\locateGraphic{2}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china}{0.256}{0.22}%
+\locateGraphic{3}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china_solution}{0.256}{0.22}%
+%
+\locateGraphic{4}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_1}{0.15}{0.256}%
+\locateGraphic{5}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_2}{0.15}{0.256}%
+\locateGraphic{6}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_3}{0.15}{0.256}%
+\locateGraphic{7}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_4}{0.15}{0.256}%
+\locateGraphic{8}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_5}{0.15}{0.256}%
+\locateGraphic{9}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_6}{0.15}{0.256}%
+\locateGraphic{10}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_7}{0.15}{0.256}%
+\locateGraphic{11}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.15}{0.256}%
+\end{frame}%
+%
+\section{Summary}%
+%
+\begin{frame}[t]%
+\frametitle{Summary}%
+Done.%
+\end{frame}%
+%
+\input{\sharedDir/advertisement/advertisement.tex}%
+%
+\endPresentation%
+\end{document}%%
+\endinput%
+%
