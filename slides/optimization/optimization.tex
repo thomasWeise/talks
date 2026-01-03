@@ -674,7 +674,6 @@ If we want to get the optimal solution,\\it will \alert{sometimes/often/always} 
 %
 \end{frame}%
 %
-\section{Traveling Salesperson Problem}%
 %
 \begin{frame}[t]%
 \frametitle{Traveling Salesperson Problem}%
@@ -696,11 +695,363 @@ If we want to get the optimal solution,\\it will \alert{sometimes/often/always} 
 \locateGraphic{11}{width=0.7\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.15}{0.256}%
 \end{frame}%
 %
+\section{Randomly Guessing Solutions}%
+%
+\begin{frame}%
+\frametitle{\emph{Almost} Solving Hard Problems}%
+\begin{itemize}%
+\item For many problems, it is very easy to \inQuotes{guess} a solution.%
+%
+\item<2-> This solution will (very likely) not be optimal.%
+%
+\item<3-> It will very likely be very bad.%
+%
+\item<4-> But it will be better than nothing.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}[t]%
+\frametitle{Random Sampling for the TSP}%
+\begin{itemize}%
+\only<-3>{%
+\item Back to the \glsFull{optTSP}.%
+%
+\item<2-> How do we \inQuotes{guess} a solution?%
+}%
+%
+\item<3-> We could write down the cities in a random order.%
+%
+\only<-13>{%
+\item<9-> If we do this, we will get a bad result.%
+%
+\item<10-> But we will get it quickly.%
+%
+\item<11-> And we can do this often.%
+%
+\item<12-> For this small problem, my computer can do this \emph{millions} of times in a few seconds.%
+%
+\item<13-> We can let the algorithm run for as much time as we can wait {\dots} and then simply take the best random tour we found.%
+}%
+%
+\only<-14>{%
+\item<14-> This is the improvement of the best-so-far solution of this so-called Random Sampling algorithm over the number of solutions it has generated and tested~(the so-called \glsFullpl{objFE}).%
+}%
+%
+\only<-15>{%
+\item<15-> This is the improvement of the best-so-far solution of this so-called Random Sampling algorithm over the consumed runtime in milliseconds.%
+}%
+%
+\item<16-> And for this small problem, this random sampling eventually finds the optimal tour.%
+%
+\end{itemize}%
+%
+\locateGraphic{4}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china_examples/rs/tsp_china_example_rs_1}{0.25}{0.26}%
+\locateGraphic{5}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china_examples/rs/tsp_china_example_rs_2}{0.25}{0.26}%
+\locateGraphic{6}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china_examples/rs/tsp_china_example_rs_3}{0.25}{0.26}%
+\locateGraphic{7}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china_examples/rs/tsp_china_example_rs_4}{0.25}{0.26}%
+\locateGraphic{8-11}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china_examples/rs/tsp_china_example_rs_5}{0.25}{0.26}%
+%
+\locateGraphic{14}{width=0.625\paperwidth}{\sharedDir/graphics/tsp_china_examples/evaluation/progress_over_log_FEs_rs}{0.1875}{0.37}%
+\locateGraphic{15}{width=0.625\paperwidth}{\sharedDir/graphics/tsp_china_examples/evaluation/progress_over_log_ms_rs}{0.1875}{0.37}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Metaheuristic Optimization}%
+%
+\begin{center}%
+\resizebox{0.77\paperwidth}{!}{\parbox{0.5\paperwidth}{\noindent%
+\alert{Principle~1}:~We can randomly construct solutions.\uncover<2->{\\[10pt]\noindent%
+\alert{Problem~1}:~Guessing an optimal (or even just good) solution randomly is very unlikely.%
+}%
+}}%
+\end{center}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Why don't we use the \gls{algoAstar} for the TSP?}%
+%
+\begin{itemize}%
+\item Before, we talked about the \gls{algoAstar} for path finding.%
+%
+\item<2-> Isn't the \glsShort{optTSP} about finding a path?%
+%
+\item<3-> Why do we not use it for the \glsShort{optTSP}?%
+%
+\item<7-> \alert<7>{It will crash for any larger \glsShort{optTSP}.}%
+%
+\item<8-> But it can be done and used for our small \glsShort{optTSP}.%
+%
+\item<9-> So let's do it.\uncover<10->{ (I spare you all details.)}%
+%
+\end{itemize}%
+%
+\bigskip%
+%
+\uncover<4->{%
+\begin{enumerate}%
+\item The \gls{algoAstar} needs \alert<7>{memory exponential} in the number of nodes in the final solution\cite{SE:SO:WITCOAEIM}.\uncover<5->{ %
+Which is the number of cities in the \glsShort{optTSP}\dots%
+}%
+%
+\item<6-> Also, it is a bit awkward: What are the heuristic and the goal state?%
+\end{enumerate}%
+}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Why don't we use the \gls{algoAstar} for the TSP?}%
+%
+\locateGraphic{1}{width=0.8\paperwidth}{\sharedDir/graphics/tsp_china_examples/evaluation/progress_over_log_ms_astar}{0.1}{0.2}%
+\locateGraphic{2-}{width=0.55\paperwidth}{\sharedDir/graphics/tsp_china_examples/evaluation/progress_over_log_ms_astar}{0.4}{0.35}%
+%
+\uncover<2->{\parbox{0.4\paperwidth}{\noindent%
+\begin{itemize}%
+\item Because not only will it use too much memory for larger instances\dots%
+%
+\item<3-> {\dots}it is also slower than randomly guessing on smaller instances.%
+\end{itemize}%
+}}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Random Sampling still is a bad algorithm}%
+%
+\uncover<-3,5->{%
+\begin{itemize}%
+\item Random sampling is a bad algorithm for the \glsShort{optTSP}~(and basically all other problems, too).%
+%
+\item<2-> It relies on randomly guessing good tours.%
+%
+\item<3-> If we have $n$~cities, then there are $1*2*3*\dots*(n-1)*n=\factorial{n}$ tours.%
+%
+\item<5-> Factorial growth~(\factorial{n}) is even worse than exponential growth\dots%
+%
+\item<6-> So if we try to randomly sample the best possible tour, our chance is extremely small\dots%
+\end{itemize}%
+}%
+%
+\locateGraphic{4}{width=0.9\paperwidth}{\sharedDir/graphics/function_growth/function_growth_11}{0.05}{0.175}%
+\end{frame}%
+%
+\section{Local Search:~Using Information}%
+%
+\begin{frame}%
+\frametitle{Random Sampling is a bad algorithm}%
+\begin{itemize}%
+\item In each step, random sampling creates a completely random tour.%
+\item<2-> It does not gather any information.%
+\item<3-> It keeps the best tour, but does not use any information inside this tour.%
+\item<4-> Just guessing answers randomly is not a good method.%
+\item<5-> Clearly, seeing millions of tours, we should be able learn \emph{something} and somehow use that to find better tours???%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search}%
+%
+\begin{itemize}%
+\item But what could we do?%
+%
+\item<2-> \inQuotes{\alert<2>{In the neighborhood of a solution, there will probably be better or worse solutions.}}%
+%
+\item<3-> neighborhood $=$ solutions that are similar.%
+%
+\item<4-> If we have a tour~$x$, we could randomly pick two cities in the tour and swap them.%
+%
+\item<5-> If we do this, maybe we could get a better tour or a worse tour.%
+%
+\item<6-> We could keep a better tour, but throw away a worse one.%
+%
+\item<7-> Then we do the same with a better tour that we find, and with yet a better tour, and so on.%
+%
+\item<8-> This method is called \glsFull{algoRLS}.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search for the TSP}%
+%
+\locateGraphic{1,4}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_01_04}{0.12}{0.08}%
+\locateGraphic{2}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_02}{0.12}{0.08}%
+\locateGraphic{3}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_03}{0.12}{0.08}%
+\locateGraphic{5}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_05}{0.12}{0.08}%
+\locateGraphic{6,9}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_06_09}{0.12}{0.08}%
+\locateGraphic{7}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_07}{0.12}{0.08}%
+\locateGraphic{8}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_08}{0.12}{0.08}%
+\locateGraphic{10}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_10}{0.12}{0.08}%
+\locateGraphic{11,14}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_11_14}{0.12}{0.08}%
+\locateGraphic{12}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_12}{0.12}{0.08}%
+\locateGraphic{13}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_13}{0.12}{0.08}%
+\locateGraphic{15}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_15}{0.12}{0.08}%
+\locateGraphic{16}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_16}{0.12}{0.08}%
+\locateGraphic{17}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_17}{0.12}{0.08}%
+\locateGraphic{18}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_18}{0.12}{0.08}%
+\locateGraphic{19}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_19}{0.12}{0.08}%
+\locateGraphic{20}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rls2/tsp_china_example_rls2_20}{0.12}{0.08}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search for the TSP}%
+\locateGraphic{}{width=0.8\paperwidth}{\sharedDir/graphics/tsp_china_examples/evaluation/progress_over_log_ms_rls2}{0.1}{0.2}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search for the TSP}%
+\begin{itemize}%
+\item \glsShort{algoRLS} is much faster than random sampling.%
+%
+\item<2-> However\only<-2>{\dots}\uncover<3->{, if our algorithm is at a tour~$x$, then it can only find other tours by swapping two cities.}%
+%
+\item<4-> There are some tours that it cannot reach in one step.%
+%
+\item<5-> If all tours that we can reach in one step are worse than~$x$, we will never leave~$x$.%
+%
+\item<6-> If~$x$ is not the optimum, then we are stuck and won’t ever find the optimal/best tour.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Metaheuristic Optimization}%
+%
+\begin{center}%
+\resizebox{0.77\paperwidth}{!}{\parbox{0.5\paperwidth}{\noindent%
+\alert{Principle~2}:~Applying a small random change to an existing solution sometimes can give us a better solution.%
+\uncover<2->{ This way, we can step-by-step get better solutions.}\uncover<3->{\\[10pt]\noindent%
+\alert{Problem~2}:~Sometimes, a small change is not enough.\uncover<4->{ We can get stuck at a so-called \emph{local} optimum.}%
+}%%
+}}%
+\end{center}%
+%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search for the TSP}%
+\begin{itemize}%
+%
+\item \alert{If all tours that we can reach in one step are worse than the current tour~$x$, then our \glsShort{algoRLS} will never leave~$x$.}%
+%
+\item<2-> There are many things that we can do\only<-2>{.}\uncover<3->{, for example:%
+\begin{enumerate}%
+\item We could restart the algorithm at a new starting point after some time.%
+%
+\item<4-> \alert{Or we could sometimes allow it swap more cities in the current tour.}%
+\end{enumerate}%
+}%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search with a Larger Neighborhood}%
+\locateGraphic{1,4}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_01_04}{0.12}{0.08}%
+\locateGraphic{2}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_02}{0.12}{0.08}%
+\locateGraphic{3}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_03}{0.12}{0.08}%
+\locateGraphic{5}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_05}{0.12}{0.08}%
+\locateGraphic{6,9}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_06_09}{0.12}{0.08}%
+\locateGraphic{7}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_07}{0.12}{0.08}%
+\locateGraphic{8}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_08}{0.12}{0.08}%
+\locateGraphic{10}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_10}{0.12}{0.08}%
+\locateGraphic{11}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_11}{0.12}{0.08}%
+\locateGraphic{12}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_13}{0.12}{0.08}%
+\locateGraphic{13}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_14_19}{0.12}{0.08}%
+\locateGraphic{14}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_15}{0.12}{0.08}%
+\locateGraphic{15}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_16}{0.12}{0.08}%
+\locateGraphic{16}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_20}{0.12}{0.08}%
+\locateGraphic{17}{width=0.76\paperwidth}{\sharedDir/graphics/tsp_china_examples/rlsn/tsp_china_example_rlsn_21}{0.12}{0.08}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search with a Larger Neighborhood}%
+\locateGraphic{}{width=0.8\paperwidth}{\sharedDir/graphics/tsp_china_examples/evaluation/progress_over_log_ms_rlsn}{0.1}{0.2}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Randomized Local Search with a Larger Neighborhood}%
+{\color{gray}{%
+\begin{itemize}%
+%
+\item If all tours that we can reach in one step are worse than the current tour~$x$, then our \glsShort{algoRLS} will never leave~$x$.%
+%
+\item There are many things that we can do, for example:%
+\begin{enumerate}%
+\item We could restart the algorithm at a new starting point after some time.%
+%
+\item Or we could sometimes allow it swap more cities in the current tour.%
+\end{enumerate}%
+%
+\item<2-> \alert{The larger neighborhood of solutions that can be reached in one step makes the search slower, but allows it to escape from local optima.}%
+%
+\end{itemize}}}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Metaheuristic Optimization}%
+%
+\only<-2>{%
+\begin{center}%
+\resizebox{0.77\paperwidth}{!}{\parbox{0.5\paperwidth}{\noindent%
+\alert{Principle~3}:~Larger changes can help us escape from local optima.\uncover<2->{\\[10pt]\noindent%
+\alert{Problem~3}:~Larger changes are less likely to yield improvements (because the new solution is more different), so they slow down the search.%
+}%
+}}%
+\end{center}%
+}%
+\only<3->{%
+\begin{center}%
+\resizebox{0.77\paperwidth}{!}{\parbox{0.5\paperwidth}{\noindent%
+There are many more principles and problems surrounding (metaheuristic) optimization.\uncover<4>{\\[10pt]%
+But we will leave it at what we have seen so far.%
+}%
+}}%
+\end{center}%
+}%
+%
+\end{frame}%
+%
 \section{Summary}%
 %
 \begin{frame}[t]%
+\frametitle{Summary on Algorithms}%
+\begin{itemize}%
+\item We have learned some basic algorithmic principles.%
+%
+\item<2-> Current research tries to improve both the speed of algorithms as well as the solution quality.%
+%
+\item<3-> This requires carefully balancing the step-size of algorithms and to develop methods against getting stuck at local optima.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}[t]%
+\frametitle{Summary on the TSP}%
+\begin{itemize}%
+\item Today, we can actually solve \glsShort{optTSP}s with tens of thousands of cities to optimality\cite{ABCC2006TTSPACS,C2013WT}.\uncover<5->{~\alert{[but not all of them!]}}%
+%
+\item<2-> For this, we actually use principles similar to the \gls{algoAstar}, just a bit differently, in methods like branch and bound\cite{ABCC2006TTSPACS,LMSK1963AAFTTSP,CEG2005CWDPIFT}.%
+%
+\item<3-> We can get close-to-optimal solutions for \glsShort{optTSP}s with millions of cities.\uncover<6->{~\alert{[close-to-optimal, but not optimal~(at least not always)!]}}%
+%
+\item<4-> For this, we use algorithms a bit similar to \glsFull{algoRLS}, but with more targeted search steps, e.g., in the Lin-Kernighan-Helsgaun algorithm\cite{H2009GKOSFTLKTH}.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
 \frametitle{Summary}%
-Done.%
+\begin{itemize}%
+\item Today, we discussed what optimization is.%
+%
+\item<2-> Today, you also saw some of the basic principles and methods that are inside of the algorithms used in optimization and operations research.%
+%
+\item<3-> You can imagine that the same principles that we tested on the \glsShort{optTSP} will work on many different kinds of problems.%
+%
+\item<4-> For example:~As long as we can randomly construct and randomly modify a solution, we can attack the problem with \glsFull{algoRLS}.%
+%
+\item<5-> Understanding the basic principles of optimization is not very hard.%
+%
+\end{itemize}%
 \end{frame}%
 %
 \input{\sharedDir/advertisement/advertisement.tex}%

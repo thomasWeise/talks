@@ -15,7 +15,7 @@ Examples of graphics that do not fall under the Creative Commons license but who
 - `WWLCL2023FFAOWBFGSCBE_p10_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - `WWTY2014EEIAWGP_07_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - `WWWTDY2014FFA.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
-- The illustration of Euclid von Alexandria in `shared/graphics/euclidOfAlexandria` is [attributed](https://www.antike-griechische.de/Euklid.pdf) to the painter Charles Paul Landon (1760-1826). Source:~[Vikidia](https://fr.vikidia.org/wiki/Cat%C3%A9gorie:Image_Euclide), where it is *domaine public,* i.e., in the Public Domain.
+**- The illustration of Euclid von Alexandria in `shared/graphics/euclidOfAlexandria` is [attributed](https://www.antike-griechische.de/Euklid.pdf) to the painter Charles Paul Landon (1760-1826). Source:&nbsp;[Vikidia](https://fr.vikidia.org/wiki/Cat%C3%A9gorie:Image_Euclide), where it is *domaine public,* i.e., in the Public Domain.**
 
 
 ## creative commons

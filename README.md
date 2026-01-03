@@ -1,8 +1,8 @@
-# Talks by Prof. Dr. Thomas Weise
+# Talks by Prof.&nbsp;Dr.&nbsp;Thomas Weise
 
 ## 1. Introduction
 
-[Here](https://thomasweise.github.io/talks) you can find some of the talks given by Prof. Dr. Thomas Weise (汤卫思教授). 
+[Here](https://thomasweise.github.io/talks) you can find some of the talks given by Prof.&nbsp;Dr.&nbsp;Thomas Weise (汤卫思教授). 
 
 - [Comparing Optimization Algorithms](https://thomasweise.github.io/talks/comparingOptimizationAlgorithms.pdf)
 - [Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf)
@@ -50,7 +50,6 @@ It builds on high school knowledge and drives it further by iteratively tackling
 Then we arrive at a category of problems that algorithms can no longer solve both efficiently and exactly.
 These are the problems requiring metaheuristic optimization algorithms.
 We then finally take a brief look into some basic concepts underlying these algorithms.
-[not finished]
 
 
 ### 2.4. Metaheuristic Optimization in Python:&nbsp;`moptipy`
@@ -80,7 +79,7 @@ He then was promoted to Associate Professor&nbsp;<span style="color:gray;font-si
 In 2016, Prof.&nbsp;Weise moved to Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> to found the Institute of Applied Optimization&nbsp;<span style="color:gray;font-size:90%">(IAO, 应用优化研究所)</span>, which he leads as director, at the School of Artificial Intelligence and Big Data&nbsp;<span style="color:gray;font-size:90%">(人工智能与大数据学院)</span>.off
 Prof.&nbsp;Weise holds the 2025&nbsp;Huangshan Friendship Award of Anhui Province&nbsp;<span style="color:gray;font-size:90%">(安徽省黄山友谊奖)</span> and the 2020&nbsp;Hefei City Friendship Award&nbsp;<span style="color:gray;font-size:90%">(外国专家“友谊奖”)</span>.
 
-The research field of Prof. Weise is metaheuristic optimization, where he made contributions to both fundamental and applied research.
+The research field of Prof.&nbsp;Weise is metaheuristic optimization, where he made contributions to both fundamental and applied research.
 Prof.&nbsp;Weise is the author of over 50&nbsp;journal articles and 79&nbsp;conference papers.
 He has authored 139&nbsp;peer-reviewed scientific publications in total.
 According to GoogleScholar, his work has been cited more than 4500&nbsp;times and he has a h-index of&nbsp;30 and an i10-index of&nbsp;59.
@@ -120,7 +119,7 @@ Examples of graphics that do not fall under the Creative Commons license but who
 - `WWLCL2023FFAOWBFGSCBE_p10_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - `WWTY2014EEIAWGP_07_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - `WWWTDY2014FFA.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
-- The illustration of Euclid von Alexandria in `shared/graphics/euclidOfAlexandria` is [attributed](https://www.antike-griechische.de/Euklid.pdf) to the painter Charles Paul Landon (1760-1826). Source:~[Vikidia](https://fr.vikidia.org/wiki/Cat%C3%A9gorie:Image_Euclide), where it is *domaine public,* i.e., in the Public Domain.
+- The illustration of Euclid von Alexandria in `shared/graphics/euclidOfAlexandria` is [attributed](https://www.antike-griechische.de/Euklid.pdf) to the painter Charles Paul Landon (1760-1826). Source:&nbsp;[Vikidia](https://fr.vikidia.org/wiki/Cat%C3%A9gorie:Image_Euclide), where it is *domaine public,* i.e., in the Public Domain.
 
 
 ## 5. Other Interesting Things
@@ -131,7 +130,7 @@ Examples of graphics that do not fall under the Creative Commons license but who
 
 ## 6. Contact
 If you have any questions or suggestions, please contact
-Prof. Dr. Thomas Weise (汤卫思教授)
+Prof.&nbsp;Dr.&nbsp;Thomas Weise (汤卫思教授)
 at the Institute of Applied Optimization (应用优化研究所, IAO)
 of the School of Artificial Intelligence and Big Data ([人工智能与大数据学院](http://www.hfuu.edu.cn/aibd))
 of [Hefei University](http://www.hfuu.edu.cn/english/) ([合肥大学](http://www.hfuu.edu.cn/)),
