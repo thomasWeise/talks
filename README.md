@@ -31,7 +31,7 @@ We conclude the talke with some recommendations to avoid pitfalls and on what is
 
 
 ### 2.2. Frequency Fitness Assignment
-**[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp;Optimization problems are situations where we have to pick one of many possible choices and want to do this in such a way that we reach a pre-defined goal at a minimum cost.
+**[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> in the city Hefei&nbsp;<span style="color:gray;font-size:90%">(频率适应度分配)</span> Optimization problems are situations where we have to pick one of many possible choices and want to do this in such a way that we reach a pre-defined goal at a minimum cost.
 Classical optimization problems include the Traveling Salesperson Problem, the Maximum Satisfiability Problem&nbsp;(MaxSAT), and the Bin Packing problem, for example.
 Since these problems are NP-hard and solving them to optimality would require exponential runtime in the worst case, metaheuristic algorithms have been developed that deliver near-optimal solutions in acceptable runtime.
 Examples for classical metaheuristics are the (1+1)&nbsp;EA, Simulated Annealing&nbsp;(SA), and the Standard Genetic Algorithm&nbsp;(SGA).
@@ -80,9 +80,9 @@ In 2016, Prof.&nbsp;Weise moved to Hefei University&nbsp;<span style="color:gray
 Prof.&nbsp;Weise holds the 2025&nbsp;Huangshan Friendship Award of Anhui Province&nbsp;<span style="color:gray;font-size:90%">(安徽省黄山友谊奖)</span> and the 2020&nbsp;Hefei City Friendship Award&nbsp;<span style="color:gray;font-size:90%">(外国专家“友谊奖”)</span>.
 
 The research field of Prof.&nbsp;Weise is metaheuristic optimization, where he made contributions to both fundamental and applied research.
-Prof.&nbsp;Weise is the author of over 50&nbsp;journal articles and 79&nbsp;conference papers.
-He has authored 139&nbsp;peer-reviewed scientific publications in total.
-According to GoogleScholar, his work has been cited more than 4500&nbsp;times and he has a h-index of&nbsp;30 and an i10-index of&nbsp;59.
+Prof.&nbsp;Weise is the author of over 50&nbsp;journal articles and 80&nbsp;conference papers.
+He has authored more than 140&nbsp;scientific publications in total.
+According to GoogleScholar, his work has been cited more than 4500&nbsp;times and he has a h-index of&nbsp;30 and an i10-index of&nbsp;60.
 He has authored or co-authored works in journals such as the IEEE&nbsp;Transactions on Evolutionary Computation, the IEEE&nbsp;Computational Intelligence Magazine, the IEEE&nbsp;Transactions on Image Processing, Information Fusion, Pattern Recognition, Information Sciences, Applied Soft Computing, Soft Computing, the European Journal of Operational Research, Evolutionary Computation, the Journal of Global Optimization, the Journal of Computer Science &amp; Technology, and the Journal of Combinatorial Optimization.
 Prof.&nbsp;Weise is editorial board member of Applied Soft Computing and reviewer for over 30&nbsp;journals and over 70&nbsp;conferences.
 His book&nbsp;"[Global Optimization Algorithms &mdash; Theory and Application](https://www.researchgate.net/publication/200622167)" has been cited more than 1300&nbsp;times.
