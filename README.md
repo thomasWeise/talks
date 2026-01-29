@@ -1,3 +1,6 @@
+[![build](https://github.com/thomasWeise/talks/actions/workflows/build.yaml/badge.svg)](https://github.com/thomasWeise/talks/actions/workflows/build.yml)
+[![https://thomasweise.github.io](https://shields.io/badge/home-thomasweise.github.io-009000)](https://thomasweise.github.io)
+
 # Talks by Prof.&nbsp;Dr.&nbsp;Thomas Weise
 
 ## 1. Introduction
@@ -76,7 +79,7 @@ He received his Diplom-Informatiker in Computer Science from the Chemnitz Univer
 Prof.&nbsp;Weise joined the School of Computer Science and Technology&nbsp;<span style="color:gray;font-size:90%">(计算机科学与技术学院)</span> of the University of
 Science and Technology of China&nbsp;<span style="color:gray;font-size:90%">(USTC, 中国科学技术大学)</span> in Hefei as PostDoc&nbsp;<span style="color:gray;font-size:90%">(博士后)</span> from&nbsp;2009 to&nbsp;2011.
 He then was promoted to Associate Professor&nbsp;<span style="color:gray;font-size:90%">(副教授)</span> in the same school.
-In 2016, Prof.&nbsp;Weise moved to Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> to found the Institute of Applied Optimization&nbsp;<span style="color:gray;font-size:90%">(IAO, 应用优化研究所)</span>, which he leads as director, at the School of Artificial Intelligence and Big Data&nbsp;<span style="color:gray;font-size:90%">(人工智能与大数据学院)</span>.off
+In 2016, Prof.&nbsp;Weise moved to the School of Artificial Intelligence and Big Data&nbsp;<span style="color:gray;font-size:90%">(人工智能与大数据学院)</span> of Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> as Full Professor.
 Prof.&nbsp;Weise holds the 2025&nbsp;Huangshan Friendship Award of Anhui Province&nbsp;<span style="color:gray;font-size:90%">(安徽省黄山友谊奖)</span> and the 2020&nbsp;Hefei City Friendship Award&nbsp;<span style="color:gray;font-size:90%">(外国专家“友谊奖”)</span>.
 
 The research field of Prof.&nbsp;Weise is metaheuristic optimization, where he made contributions to both fundamental and applied research.
@@ -130,8 +133,7 @@ Examples of graphics that do not fall under the Creative Commons license but who
 
 ## 6. Contact
 If you have any questions or suggestions, please contact
-Prof.&nbsp;Dr.&nbsp;Thomas Weise (汤卫思教授)
-at the Institute of Applied Optimization (应用优化研究所, IAO)
+Prof.&nbsp;Dr.&nbsp;[Thomas Weise](https://thomasweise.github.io) (汤卫思教授)
 of the School of Artificial Intelligence and Big Data ([人工智能与大数据学院](http://www.hfuu.edu.cn/aibd))
 of [Hefei University](http://www.hfuu.edu.cn/english/) ([合肥大学](http://www.hfuu.edu.cn/)),
 in Hefei, Anhui, China (中国安徽省合肥市)
