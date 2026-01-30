@@ -34,9 +34,10 @@ We conclude the talke with some recommendations to avoid pitfalls and on what is
 
 
 ### 2.2. Frequency Fitness Assignment
-**[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> in the city Hefei&nbsp;<span style="color:gray;font-size:90%">(频率适应度分配)</span> Optimization problems are situations where we have to pick one of many possible choices and want to do this in such a way that we reach a pre-defined goal at a minimum cost.
+**[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp(FFA, <span style="color:gray;font-size:90%">频率适应度分配</span>) is a novel approach to metaheuristic optimization.
+Optimization problems are situations where we have to pick one of many possible choices and want to do this in such a way that we reach a pre-defined goal at a minimum cost.
 Classical optimization problems include the Traveling Salesperson Problem, the Maximum Satisfiability Problem&nbsp;(MaxSAT), and the Bin Packing problem, for example.
-Since these problems are NP-hard and solving them to optimality would require exponential runtime in the worst case, metaheuristic algorithms have been developed that deliver near-optimal solutions in acceptable runtime.
+Many of these problems are NP-hard and solving them to optimality would require exponential runtime in the worst case, metaheuristic algorithms have been developed that deliver near-optimal solutions in acceptable runtime.
 Examples for classical metaheuristics are the (1+1)&nbsp;EA, Simulated Annealing&nbsp;(SA), and the Standard Genetic Algorithm&nbsp;(SGA).
 Since we want that such algorithms should behave the same in both quick benchmarking experiments and in practical application, we would like them to exhibit invariance properties.
 Whereas the (1+1)&nbsp;EA is invariant under all order-preserving transformations of the objective function value, SA is not invariant under scaling of the objective function and the SGA is not invariant under translations of the objective function.
@@ -67,7 +68,7 @@ The additional package [`moptipyapps`](https://thomasweise.github.io/moptipyapps
 
 
 ### 2.5. Frequency Fitness Assignment as Research Direction
-**[Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)** briefly outlines the research direction *Frequency Fitness Assignment*&nbsp(FFA) of our team.
+**[Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)** briefly outlines the research direction *Frequency Fitness Assignment*&nbsp(FFA, <span style="color:gray;font-size:90%">频率适应度分配</span>) of our team.
 It begins by introducing the field of optimization with a particular focus on metaheuristics.
 It then discusses how FFA works and how it can be plugged into metaheuristic optimization algorithms.
 We then show the past achievements resulting from this strand of research before giving pointers to the future tasks and challenges ahead.
