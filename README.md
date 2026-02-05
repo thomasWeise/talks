@@ -37,7 +37,8 @@ We conclude the talke with some recommendations to avoid pitfalls and on what is
 **[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp(FFA, <span style="color:gray;font-size:90%">频率适应度分配</span>) is a novel approach to metaheuristic optimization.
 Optimization problems are situations where we have to pick one of many possible choices and want to do this in such a way that we reach a pre-defined goal at a minimum cost.
 Classical optimization problems include the Traveling Salesperson Problem, the Maximum Satisfiability Problem&nbsp;(MaxSAT), and the Bin Packing problem, for example.
-Many of these problems are NP-hard and solving them to optimality would require exponential runtime in the worst case, metaheuristic algorithms have been developed that deliver near-optimal solutions in acceptable runtime.
+Many of these problems are NP-hard and solving them to optimality would require exponential runtime in the worst case.
+Therefore, metaheuristic algorithms have been developed that can deliver good (but not necessarily optimal) solutions in acceptable runtime.
 Examples for classical metaheuristics are the (1+1)&nbsp;EA, Simulated Annealing&nbsp;(SA), and the Standard Genetic Algorithm&nbsp;(SGA).
 Since we want that such algorithms should behave the same in both quick benchmarking experiments and in practical application, we would like them to exhibit invariance properties.
 Whereas the (1+1)&nbsp;EA is invariant under all order-preserving transformations of the objective function value, SA is not invariant under scaling of the objective function and the SGA is not invariant under translations of the objective function.
@@ -46,6 +47,7 @@ We plug FFA into the (1+1)&nbsp;EA.
 We show that the resulting (1+1)&nbsp;FEA can solve Trap, TwoMax, and Jump problems in polynomial runtime, whereas the (1+1)&nbsp;EA needs exponential runtime.
 Moreover, the (1+1)&nbsp;FEA performs very significantly faster on the NP-hard MaxSAT problem.
 We conclude the presentation with an outline of other properties of FFA and our other recent works.
+Find out more about FFA at <https://thomasweise.github.io/research/areas/ffa>.
 
 
 ### 2.3. An Introduction to Optimization
