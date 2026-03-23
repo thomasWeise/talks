@@ -5,7 +5,7 @@
 
 ## 1. Introduction
 
-[Here](https://thomasweise.github.io/talks) you can find some of the talks given by Prof.&nbsp;Dr.&nbsp;Thomas Weise (汤卫思教授). 
+[Here](https://thomasweise.github.io/talks) you can find some of the talks given by Prof.&nbsp;Dr.&nbsp;[Thomas Weise](https://thomasweise.github.io)&nbsp;(汤卫思教授). 
 
 - [Comparing Optimization Algorithms](https://thomasweise.github.io/talks/comparingOptimizationAlgorithms.pdf)
 - [Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf)
@@ -138,6 +138,6 @@ Examples of graphics that do not fall under the Creative Commons license but who
 If you have any questions or suggestions, please contact
 Prof.&nbsp;Dr.&nbsp;[Thomas Weise](https://thomasweise.github.io) (汤卫思教授)
 of the School of Artificial Intelligence and Big Data ([人工智能与大数据学院](http://www.hfuu.edu.cn/aibd))
-of [Hefei University](http://www.hfuu.edu.cn/english/) ([合肥大学](http://www.hfuu.edu.cn/)),
+of [Hefei University](http://www.hfuu.edu.cn/english) ([合肥大学](http://www.hfuu.edu.cn)),
 in Hefei, Anhui, China (中国安徽省合肥市)
 via email to [tweise@hfuu.edu.cn](mailto:tweise@hfuu.edu.cn) with CC to [tweise@ustc.edu.cn](mailto:tweise@ustc.edu.cn).
