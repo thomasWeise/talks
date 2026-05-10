@@ -967,6 +967,8 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \begin{itemize}%
 \item the \glsFull{optTTP}, where \gls{algoRLS} can find surprisingly good results:~\bracketCite{XWvdBW2024RLSVNVFFAOTTTP}.%
 \item<4-> the two-dimensional bin packing problem, where \gls{algoRLS} can actually \alert{outperform} several complex state-of-the-art metaheuristics~\bracketCite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
+\item<5-> FFA can get trapped too\only<-5>{!}\uncover<6->{:~If all neighbors that can be reached with one search step around one solution all have the same objective value, then FFA-guided search may not be able to escape from that solution\cite{ZWWW2026WFFAFTSIFGLS}.\uncover<7->{ This can happen with 1-bit flips on OneMax\cite{ZWWW2026WFFAFTSIFGLS}.}%
+}%
 \end{itemize}%
 }%
 \end{itemize}%
