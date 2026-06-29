@@ -12,6 +12,7 @@
 - [An Introduction to Optimization](https://thomasweise.github.io/talks/optimization.pdf)
 - [Metaheuristic Optimization in Python:&nbsp;`moptipy`](https://thomasweise.github.io/talks/moptipy.pdf)
 - [Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)
+- [Solving the Space Optimization Competiton&nbsp;4 Challenge&nbsp;2 of the European Space Agency](https://thomasweise.github.io/talks/gecco2026_spoc4_keplerian_tsp.pdf)
 
 ## 2. Talk Abstracts
 
@@ -34,7 +35,7 @@ We conclude the talke with some recommendations to avoid pitfalls and on what is
 
 
 ### 2.2. Frequency Fitness Assignment
-**[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp(FFA, <span style="color:gray;font-size:90%">频率适应度分配</span>) is a novel approach to metaheuristic optimization.
+**[Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf):**&nbsp;(FFA, <span style="color:gray;font-size:90%">频率适应度分配</span>) is a novel approach to metaheuristic optimization.
 Optimization problems are situations where we have to pick one of many possible choices and want to do this in such a way that we reach a pre-defined goal at a minimum cost.
 Classical optimization problems include the Traveling Salesperson Problem, the Maximum Satisfiability Problem&nbsp;(MaxSAT), and the Bin Packing problem, for example.
 Many of these problems are NP-hard and solving them to optimality would require exponential runtime in the worst case.
