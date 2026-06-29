@@ -76,6 +76,24 @@ It then discusses how FFA works and how it can be plugged into metaheuristic opt
 We then show the past achievements resulting from this strand of research before giving pointers to the future tasks and challenges ahead.
 
 
+### 2.6. Solving the Space Optimization Competiton&nbsp;4 Challenge&nbsp;2 of the European Space Agency
+As member of the team [ScholORs_HFUU+Sunway](https://optimise.esa.int/user/dd46ba62e88c45b7958a97d529e3a220), Prof.&nbsp;Weise took part in the *Space Optimization Competition*&nbsp;([SpOC&nbsp;4](https://github.com/esa/SpOC4)) at the [GECCO'2026](https://gecco-2026.sigevo.org) conference.
+Our team was one of the earliest to propose solutions for the three challenges.
+Matter of fact, in Challenge&nbsp;2, we were leading for quite some time, until finally being overtaken by several other teams.
+In this second challenge, the goal is to find the fastest way to visit several objects orbiting the Moon with a spacecraft as fast as possible, while obeying severla physical constraints like a maximum velocity change.
+The objects are defined by their orbital data.
+In this **[short talk](https://thomasweise.github.io/talks/gecco2026_spoc4_keplerian_tsp.pdf) (about 5&nbsp;Minutes)**, we present our take on this problem.
+The cool thing about this work is that we participated in this challenge without any prior knowledge about space optimization.
+Yet, we managed to find reasonably good solutions for all problems at all levels of hardness.
+
+**Resources:**
+
+- [the paper](https://doi.org/10.1145/3795101.3815557)
+- [the slides](https://thomasweise.github.io/talks/gecco2026_spoc4_keplerian_tsp.pdf)
+- [the talk video](https://thomasweise.github.io/talks/gecco2026_spoc4_keplerian_tsp_video.m4v)
+- [the poster](https://thomasweise.github.io/talks/gecco2026_spoc4_keplerian_tsp_poster.pdf)
+
+
 ## 3. Speaker Biography
 Prof.&nbsp;Dr.&nbsp;Thomas WEISE&nbsp;<span style="color:gray;font-size:90%">(汤卫思)</span> holds a full professorship at Hefei University&nbsp;<span style="color:gray;font-size:90%">(合肥大学)</span> in the city Hefei&nbsp;<span style="color:gray;font-size:90%">(合肥市)</span> in the province Anhui&nbsp;<span style="color:gray;font-size:90%">(安徽省)</span> in China.
 He received his Diplom-Informatiker in Computer Science from the Chemnitz University of Technology&nbsp;<span style="color:gray;font-size:90%">(德国开姆尼茨工业大学)</span> in Chemnitz, Germany&nbsp;<span style="color:gray;font-size:90%">(德国开姆尼茨市)</span> in 2005 and his doctoral degree&nbsp;<span style="color:gray;font-size:90%">(博士)</span> from the University of Kassel&nbsp;<span style="color:gray;font-size:90%">(德国卡塞尔大学)</span> in Kassel, Germany&nbsp;<span style="color:gray;font-size:90%">(德国卡塞尔市)</span> in 2009.
@@ -111,7 +129,7 @@ He was one of the early developers of automated benchmark systems more than a de
 ## 4. License
 Most of the material provided in this repository is released under the Attribution-NonCommercial-ShareAlike 4.0 International license (CC&nbsp;BY&#8209;NC&#8209;SA&nbsp;4.0), see [http://creativecommons.org/licenses/by-nc-sa/4.0](http://creativecommons.org/licenses/by-nc-sa/4.0) for a summary.
 
-Exceptions to this licensing are all LaTeX classes and commands.
+Exceptions to this licensing are **all LaTeX classes** and commands as well as **all logos**.
 Other exceptions are explicitly mentioned, e.g., sometimes a graphic may be under copyright held by another person or organization.
 
 Examples of graphics that do not fall under the Creative Commons license but whose copyright belong to other institutions are:
@@ -126,6 +144,7 @@ Examples of graphics that do not fall under the Creative Commons license but who
 - `WWTY2014EEIAWGP_07_snippet.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - `WWWTDY2014FFA.[pdf|svg]` in directory `shared/graphics/papers`, which is part of a paper published by and under the copyright of IEEE
 - The illustration of Euclid von Alexandria in `shared/graphics/euclidOfAlexandria` is [attributed](https://www.antike-griechische.de/Euklid.pdf) to the painter Charles Paul Landon (1760-1826). Source:&nbsp;[Vikidia](https://fr.vikidia.org/wiki/Cat%C3%A9gorie:Image_Euclide), where it is *domaine public,* i.e., in the Public Domain.
+- The logos of organizations such as Hefei University and Sunway University, as used in slides or posters, e.g., in [`gecco2026_spoc4_keplerian_tsp_poster.pdf`](/talks/gecco2026_spoc4_keplerian_tsp_poster.pdf).
 
 
 ## 5. Other Interesting Things

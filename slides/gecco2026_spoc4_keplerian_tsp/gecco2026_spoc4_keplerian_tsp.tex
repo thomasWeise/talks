@@ -1,0 +1,264 @@
+\pdfminorversion=7%
+\documentclass[aspectratio=169,mathserif,notheorems]{beamer}%
+%
+\xdef\bookbaseDir{../../bookbase}%
+\xdef\sharedDir{../../shared}%
+\RequirePackage{\bookbaseDir/styles/slides}%
+\RequirePackage{\sharedDir/styles/styles}%
+%
+\protected\gdef\objFunAll{\objFun}%
+\protected\gdef\objFunAllb#1{\objFunb{#1}}%
+\protected\gdef\objFunTrans{\ensuremath{\psi}}%
+\protected\gdef\objFunTransb#1{\ensuremath{\objFunTrans(#1)}}%
+\protected\gdef\fpenalty{\ensuremath{p}}%
+\protected\gdef\fpenaltyb#1{\ensuremath{\fpenalty(#1)}}%
+%
+\protected\gdef\fragment{\ensuremath{\pi}}%
+\protected\gdef\fragmentb#1{\ensuremath{\fragment_{#1}}}%
+%
+%
+%
+\protected\gdef\team{\href{https://optimise.esa.int/user/dd46ba62e88c45b7958a97d529e3a220}{ScholORs\_\linebreak[2]HFUU\linebreak[2]+\linebreak[2]Sunway}}%
+%
+\protected\gdef\scale{\ensuremath{n}}%
+\protected\gdef\dV{\ensuremath{{\Delta}V}}%
+\protected\gdef\dVmax{\ensuremath{\dV_{\mathit{max}}}}%
+\protected\gdef\dVmaxEx{\ensuremath{\dVmax^{\mathit{exception}}}}%
+\protected\gdef\dVmaxLim{\ensuremath{\dVmax^{\mathit{lim}}}}%
+\protected\gdef\orbitA{\ensuremath{a}}%
+\protected\gdef\orbitE{\ensuremath{e}}%
+\protected\gdef\orbitI{\ensuremath{i}}%
+\protected\gdef\orbitOmega{\ensuremath{\Omega}}%
+\protected\gdef\orbitomega{\ensuremath{\omega}}%
+\protected\gdef\orbitNu{\ensuremath{\nu}}%
+\protected\gdef\inTz{\ensuremath{t_0}}%
+\protected\gdef\inDtMin{\ensuremath{{\Delta}t_{\mathit{min}}}}%
+\protected\gdef\inTmax{\ensuremath{t_{\mathit{max}}}}%
+\protected\gdef\inE{\ensuremath{E}}%
+%
+\protected\gdef\nameStyle#1{\mbox{\textbf{\textsf{#1}}}}%
+\protected\gdef\algoStyle#1{\nameStyle{#1}}%
+\protected\gdef\instStyle#1{\nameStyle{#1}}%
+%
+\protected\gdef\instS{\instStyle{small}}%
+\protected\gdef\instM{\instStyle{medium}}%
+\protected\gdef\instL{\instStyle{large}}%
+%
+%
+\protected\gdef\objSrc{\ensuremath{o_s}}%
+\protected\gdef\objDst{\ensuremath{o_d}}%
+\protected\gdef\timeSrc{\ensuremath{t_s}}%
+\protected\gdef\timeDelta{\ensuremath{{\Delta}t}}%
+\protected\gdef\getDv{\ensuremath{\delta}}%\mathit{get}\dV}}%
+\protected\gdef\getDvb#1#2#3#4{\ensuremath{\getDv(#1,#2,#3,#4)}}%
+\protected\gdef\timeDst{\ensuremath{t_d}}%
+\protected\gdef\timeTotal{\ensuremath{t_{\mathit{tot}}}}%
+\protected\gdef\timeTotalb#1{\ensuremath{\timeTotal(#1)}}%
+%
+\protected\gdef\optDv{\ensuremath{\mathit{opt}\dV}}%
+\protected\gdef\optDvb#1#2#3#4#5{\ensuremath{\optDv(#1,#2,#3,#4,#5)}}%
+\protected\gdef\timeSrcOpt{\ensuremath{\timeSrc^{\star}}}%
+\protected\gdef\timeDeltaOpt{\ensuremath{\timeDelta^{\star}}}%
+%
+\protected\gdef\transferMatrix{\ensuremath{\mathcal{T}}}%
+\protected\gdef\transferMatrixb#1#2{\ensuremath{\transferMatrix_{#1,#2}}}%
+%
+\protected\gdef\theoImpos{\ensuremath{{\theta}I}}%
+\protected\gdef\theoEx{\ensuremath{{\theta}E}}%
+\protected\gdef\physImpos{\ensuremath{{\phi}I}}%
+\protected\gdef\physEx{\ensuremath{{\phi}E}}%
+%
+%
+\title{Solving the \mbox{Space Optimization Competition~4} Challenge~2 of the \mbox{European Space Agency}}%
+\subtitle{\normalsize{--- \mbox{Thomas Weise}, \mbox{Sina Abdipoor}, \mbox{Zhize Wu}, and \mbox{Mingxuan Li} ---}}%
+%
+\begin{document}%
+\global\let\outlineSlide\relax%
+\startPresentation%
+%
+%
+\begin{frame}[t]%
+\frametitle{Introduction}%
+%
+\begin{itemize}%
+%
+\item The \glsFull{eventSpOC} is organized by the \glsFull{orgESA} at the \glsFull{eventGECCO}.%
+%
+\item<2-> It poses optimization problems and challenges from space exploration and travel.%
+%
+\item<3-> We are the \mbox{\team} team, a cooperation between researchers from \mbox{Hefei University~(合肥大学)}, China and Sunway University, Malaysia.%
+%%
+\end{itemize}%
+%
+\strut\\\strut\\\strut\\\strut\\\strut\\\strut\\\strut%
+\strut\dotfill\strut\\%
+\tiny{\furtherReading{WALW2026STS4C2WAMSPEFTKTS}}%
+%
+\locateGraphicTB{4-}{width=0.3\linewidth}{\sharedDir/graphics/spoc04/spoc4_challenge_2_small_2026-04-07.png}{0.05}{0.3}%
+\locateGraphicTB{5-}{width=0.3\linewidth}{\sharedDir/graphics/spoc04/spoc4_challenge_2_medium_2026-04-08.png}{0.25}{0.35}%
+\locateGraphicTB{6-}{width=0.3\linewidth}{\sharedDir/graphics/spoc04/spoc4_challenge_2_large_2026-04-16.png}{0.45}{0.25}%
+\locateGraphicTB{7-}{width=0.3\linewidth}{\sharedDir/graphics/spoc04/spoc4_overall_2026-04-17.png}{0.65}{0.36}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{The Challenge}%
+\begin{itemize}%
+\item Given are \scale~objects orbiting our moon with their orbital data.%
+%
+\item<2-> There are three instances \instS, \instM, and \instL, with~$\scale=49$, $181$, and~$1051$.%
+%
+\item<3-> The goal is to visit each of the objects exactly once as fast as possible, starting at an object of choice.%
+%
+\item<4-> For each transfer, our spacecraft may apply a specific change~\dV\ of velocity.%
+%
+\item<5-> \dV\ is limited by \dVmax, but 5~times we are allowed to do a larger velocity change~$\dV\leq\dVmaxEx$.%
+%
+\item<6-> Limits for the shortest transfer and maximum total time are also given.%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Computing Transfers}%
+\begin{itemize}%
+\item We begin by developing a tool~\optDv\ that finds the earliest transfer from one object to another one within a given time window~$[\timeSrc,\timeDst]$, given a \dV\nobreakdashes-limit \dVmaxLim.%
+%
+\item<2-> If no such transfer exists, the function returns and error.%
+%
+\item<3-> We approach this as numerical minimization problem with objective function~\objFunTrans:%
+%
+\end{itemize}%
+%
+\uncover<4->{\medskip%
+\begin{equation}%
+\objFunTransb{t_a,t_b}=\left\{\!\!\begin{array}{rl}%
+\dV&\text{if }\dV>\dVmaxLim\\%
+-1/t_b&\text{otherwise}%
+\end{array}\right.%
+\label{eq:objFunTran}%
+\end{equation}%
+%
+\uncover<4->{%
+\begin{itemize}
+\item If the transfer at times~$\{t_a,t_b\}$ is infeasible, the positive \dV~value is returned and can further be minimized until~$\dV\leq\dVmaxLim$ is reached.%
+%
+\item<5-> Once we found such transfer, $-1/t_b$~minimizes the arrival time~$t_b$.%
+%
+\item<6-> We use a variety of algorithms, including Nelder\&Mead, BFGS, and CMA\nobreakdashes-ES.%
+%
+\item<7-> If a feasible transfer with end time~$t'$ is found, we search again in~$[\timeSrc,t')$ until the search fails, retaining and returning the best result.%
+%
+\end{itemize}%
+}}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Infeasible Transfers and Preprocessing}%
+\begin{itemize}%
+%
+\item We first assemble a transfer matrix~\transferMatrix\ for each instance, telling us whether we can travel from object to another either \emph{not at all}, with excess velocity change, or with a normal velocity change.%
+%%
+\item<2-> The matrices \transferMatrix\ are sparse, most transfers are infeasible!%
+%
+\item<3-> On instance \instS, only 2.8~other objects can be reached with~$\dV\leq\dVmax$ in average!%
+%
+\item<4-> The vast majority of visit sequences will not be feasible, so always using \optDv\ would be a huge waste of runtime\dots%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Permutation Encoding}%
+%
+\begin{itemize}%
+%
+\item We use an encoding based on permutations~\sespel\ of the first \scale~natural numbers.%
+%
+\item<2-> A permutation~$\sespel$ is decoded to a solution vector~$\solution$ with the actual travel times using a three-stage decoding function~$\decode$.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Permutation Encoding: Stage~1}%
+\begin{itemize}%
+%
+\item First, \decodeb{\sespel} processes~\sespel\ from beginning to end and divides it into \emph{fragments}~\fragment\ using the transfer matrix~\transferMatrix.%
+%
+\item<2-> A fragment~\fragment\ is a sub-sequence of~\sespel\ such that normal \dV\ can be used to travel from one object to the next.%
+%
+\item<3-> Fragments that can be stitched together by pre-pending and appending without violating this condition are merged.%
+%
+\item<4-> Fragments that can be inserted into each other without violating the condition are merged.%
+%
+\item<5-> This is repeated with the relaxed requirement to allow excess velocity changes.%
+%
+\item<6-> Finally, all remaining fragments are stitched together regardless, yielding a new permutation~$\sespel'$.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Permutation Encoding: Stage~2}%
+\begin{itemize}%
+%
+\item We use the transfer matrix~\transferMatrix\ to count the expected constraint violations in~$\sespel'$.%
+%
+\item<2-> If constraint violations are expected, the decoding stops --- this is very fast, no physics computation needed at all.%
+%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Permutation Encoding: Stage~3}%
+\begin{itemize}%
+\item Otherwise, we process the permutation~$\sespel'$ from beginning to end computing transfers using the actual physics computation~\optDv.%
+%
+\item<2-> We make sure that each solution uses all 5~permitted excess velocity changes~(even if it does not need them), because then we can make travel faster.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Optimization}%
+\begin{itemize}%
+\item We apply a \glsFull{algoRLS} to minimize the objective function~\objFunAll:%
+\end{itemize}%
+%
+\begin{equation}%
+\objFunAllb{\solution}=\left\{%
+\begin{array}{rl}%
+\fpenaltyb{\solution}&\text{if }\fpenaltyb{\solution}>0\\%
+-1/\timeTotalb{\solution}&\text{otherwise}%
+\end{array}%
+\right.\label{eq:fAll}%
+\end{equation}%
+%
+\uncover<2->{%
+\begin{itemize}%
+\item A solution~\solution\ is infeasible if~$\fpenaltyb{\solution}>0$, in which case the penalty~\fpenalty\ is returned.%
+\item<3-> For feasible solutions, the total time \timeTotal\ is minimized.%
+\end{itemize}%
+}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Summary}%
+\begin{itemize}%
+%
+\item We tested several different algorithm setups implemented in \moptipy\cite{WW2023RSDEWASSAA}.%
+%
+\item<2-> Our results are obtained with low computational cost on off-the-shelf laptops.%
+%
+\item<3-> An early setup found a feasible solution with $\timeTotal=2689.4$ for the \instL\ instance within~187~seconds.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\input{\sharedDir/advertisement/advertisement.tex}%
+%
+\endPresentation%
+\end{document}%%
+\endinput%
+%
