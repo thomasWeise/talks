@@ -1,0 +1,106 @@
+%
+\begin{frame}%
+\frametitle{Hard Problems~(1)}%
+\begin{itemize}%
+\item There exists a group of problems that are \emph{hard}.%
+%
+\item<2-> Actually, most of the problems I mention at the beginning of this talk belong to this group of hard problems.%
+%
+\item<3-> A hard problem cannot be solved both exactly and efficiently.%
+%
+\item<4-> Let's look at two quick examples.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}[t]%
+\frametitle{Bin Packing}%
+\begin{itemize}%
+\item My car can carry $T$~kg of weight.%
+%
+\item<2-> I have $n$~objects, each with weight~$w_i$ for~$i$ in~$1$ to~$n$.%
+%
+\item<3-> How can I pack my car so that I can carry them from~$A$ to $B$ with the fewest possible hauls?\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}%
+\end{itemize}%
+%
+\locateGraphic{}{width=0.8\paperwidth}{\sharedDir/graphics/bin_packing/bin_packing}{0.1}{0.47}%
+\end{frame}%
+%
+\begin{frame}[t]%
+\frametitle{Traveling Salesperson Problem}%
+\begin{itemize}%
+\item Find the shortest path that visits~$n$ locations and returns back to its origin.\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO}%
+\end{itemize}%
+%
+\locateGraphic{}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china}{0.25}{0.24}%
+\end{frame}%
+%
+%
+\def\makebigmarkformat{%
+\def\bigmarkformat##1{%
+{\alert{\textbf{\Large{##1}}}}%
+}}%
+\protected\gdef\bigmark#1#2{%
+\def\bigmarkformat##1{##1}%
+\only<#1>{\makebigmarkformat}%
+\bigmarkformat{#2}%
+}%
+%
+\begin{frame}[t]%
+\frametitle{Hard Problems~(2)}%
+\only<-3,20->{%
+\begin{itemize}%
+\item These are just two examples from a huge family of problems called~\npHard.%
+%
+\item<2-> What does that mean?%
+\end{itemize}%
+}%
+%
+%
+\locate{3-}{\parbox{0.9\paperwidth}{\noindent%
+\makeatletter%
+\begin{mdframed}[style=@bestPracticeStyle]\Large{%
+If an algorithm guarantees to always find the \bigmark{5-6}{best-possible} solution for an \npHard\ problem, then its \bigmark{22}{worst-case} runtime will \bigmark{9-19}{grow exponential} with the \bigmark{7-8}{input size~\only<-8,20->{\emph{s}}}\only<9-19>{\bigmark{9-19}{\emph{s}}}.%
+}\end{mdframed}%
+\makeatother%
+}}{0.05}{0.7}%
+%
+\locateGraphic{4-9}{width=0.4\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china}{0.06666666666}{0.05}%
+\locateGraphic{4-9}{width=0.4\paperwidth}{\sharedDir/graphics/bin_packing/bin_packing}{0.53333333333}{0.25}%
+%
+\locate{6}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{shortest round-trip tour}%
+}}}{0.06666666666}{0.65}%
+\locate{6}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{packing with fewest hauls}%
+}}}{0.53333333333}{0.65}%
+%
+\locate{8}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{number of cities to visit}%
+}}}{0.06666666666}{0.65}%
+\locate{8}{\parbox{0.4\paperwidth}{\noindent\centering\Large{%
+\alert{number of items to pack}%
+}}}{0.53333333333}{0.65}%
+%
+\locate{21}{\parbox{0.7\paperwidth}{\noindent\centering\textbf{\Large{\alert{%
+If we want to get the optimal solution,\\it will take too long.%
+}}}}}{0.15}{0.45}%
+%
+\locate{22}{\parbox{0.7\paperwidth}{\noindent\centering\textbf{\Large{%
+If we want to get the optimal solution,\\it will \alert{sometimes/often/always} take too long.%
+}}}}{0.15}{0.45}%
+%
+\locateGraphic{10}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_01}{0.1}{0.05}%
+\locateGraphic{11}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_02}{0.1}{0.05}%
+\locateGraphic{12}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_03}{0.1}{0.05}%
+\locateGraphic{13}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_04}{0.1}{0.05}%
+\locateGraphic{14}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_05}{0.1}{0.05}%
+\locateGraphic{15}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_06}{0.1}{0.05}%
+\locateGraphic{16}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_07}{0.1}{0.05}%
+\locateGraphic{17}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_08}{0.1}{0.05}%
+\locateGraphic{18}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_09}{0.1}{0.05}%
+\locateGraphic{19}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_10}{0.1}{0.05}%
+%
+\end{frame}%
+%
+\global\let\sharedSlideTitle\relax%
+%

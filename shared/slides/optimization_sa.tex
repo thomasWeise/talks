@@ -1,0 +1,81 @@
+%
+%% needs command algobox, as in ffa slides
+%
+\begin{frame}%
+\sharedframetitle{Simulated Annealing}%
+\parbox{0.41\paperwidth}{%
+\begin{itemize}%
+\item \glsFull{algoSA}\cite{KGV1983OBSA} is a local search that accepts also worsening moves, but with a probability that decreases over time and with the difference in solution quality.%
+\item<3-> ${\mathfrak{R}}_0^1$~be a random number uniformly distributed in~$[0,1)$.%
+\item<6-> High temperatures~$T$ increase the acceptance probability~$P$ of worse solutions, low~$T$ reduce it.%
+\item<7-> $P$~is regulated by temperature schedule with parameter\only<10->{s}~$T_0$\only<10->{ and~$\varepsilon$}.%
+\end{itemize}%
+}%
+\uncover<11->{\begin{itemize}%
+\item \gls{algoSA} also remembers best-so-far solution~$x_B$ and its objective value~$y_B$, because it could get lost.%
+\end{itemize}%
+}%
+%
+%
+\locate{2}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_01}}%
+}{0.44}{0.24}%
+%
+\locate{3}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_02}}%
+}{0.44}{0.24}%
+%
+\locate{4}{%
+\algobox{0.4}{\includegraphics[width=0.4\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_02}}%
+}{0.44}{0.07}%
+%
+\locate{4}{%
+\resizebox{0.5\paperwidth}{!}{\bgroup%
+\fboxsep=2pt%
+\fboxrule=2pt%
+\fcolorbox{black}{white}{%
+\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/exp}%
+}%
+\egroup}%%
+}{0.46}{0.41}%
+%
+\locate{5}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_03}}%
+}{0.44}{0.24}%
+%
+\locate{6}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_04}}%
+}{0.44}{0.24}%
+%
+\locate{7}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_05}}%
+}{0.44}{0.24}%
+%
+\locate{8}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_06}}%
+}{0.44}{0.24}%
+%
+\locate{9}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_07}}%
+}{0.44}{0.24}%
+%
+\locate{10}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_08}}%
+}{0.44}{0.24}%
+%
+\locate{11}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_09}}%
+}{0.44}{0.24}%
+%
+\locate{12}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_10}}%
+}{0.44}{0.24}%
+%
+\locate{13}{%
+\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa}}%
+}{0.44}{0.24}%
+%
+\end{frame}%
+%
+\global\let\sharedSlideTitle\relax%
+%

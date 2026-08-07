@@ -6,6 +6,18 @@
 \RequirePackage{\bookbaseDir/styles/slides}%
 \RequirePackage{\sharedDir/styles/styles}%
 %
+\protected\gdef\algobox#1#2{\resizebox{#1\paperwidth}{!}{%
+\bgroup%
+\fboxsep=0pt%
+\fboxrule=2pt%
+\mbox{\fcolorbox{white}{white}{\bgroup%
+\fboxsep=2pt%
+\fboxrule=2pt%
+\mbox{\fcolorbox{hfuu-red!80}{hfuu-orange!60}{%
+\mbox{#2}%
+}}\egroup%
+}}%
+\egroup}}%
 %
 \title{Metaheuristic Optimization: State of the Art}%
 %
@@ -24,18 +36,226 @@
 %
 \input{\sharedDir/slides/optimization_three_views.tex}%
 \input{\sharedDir/slides/optimization_superlatives.tex}%
+\input{\sharedDir/slides/optimization_optimization_problem.tex}%
 \input{\sharedDir/slides/optimization_business.tex}%
+%
+\section{The Field of Optimization}%
+%
 %
 \begin{frame}%
 \frametitle{Optimization}%
 \begin{itemize}%
 %
-\item There are incredibly many problems from a very wide area where we can use optimization and \glsFull{fieldOR}.\medskip%
+\item There are incredibly many such problems from a very wide area where we can use optimization and \glsFull{fieldOR} methods.\medskip%
 %
-\item<2-> How is this related to what you already learned?%
+\item<2-> How is this related to what you know?%
 \end{itemize}%
 \end{frame}%
 %
+\definecolor{square-color}{HTML}{A03214}%
+\definecolor{rectangle-color}{HTML}{0000A0}%
+\definecolor{small-triangle-color}{HTML}{AA0078}%
+\definecolor{large-triangle-color}{HTML}{008200}%
+\definecolor{x-color}{HTML}{00788C}%
+%
+\protected\gdef\aRectangle{{\color{rectangle-color}{\ensuremath{A_{\text{\ding{122}}}}}}}%
+\protected\gdef\aRectangleDiff{{\color{rectangle-color}{\ensuremath{A'_{\text{\ding{122}}}}}}}%
+\protected\gdef\aRectangleMax{{\color{rectangle-color}{\ensuremath{\widehat{A_{\text{\ding{122}}}}}}}}%
+\protected\gdef\aSquare{{\color{square-color}{\ensuremath{A_{\text{\ding{110}}}}}}}%
+\protected\gdef\aSmallTriangle{{\color{small-triangle-color}{\ensuremath{A_{\text{\ding{116}}}}}}}%
+\protected\gdef\aLargeTriangle{{\color{large-triangle-color}{\ensuremath{A_{\text{\ding{115}}}}}}}%
+\protected\gdef\aX{{\color{x-color}{\ensuremath{x}}}}%
+\protected\gdef\aXMax{{\color{x-color}{\ensuremath{\hat{x}}}}}%
+\protected\gdef\aRectangleOfX{\ensuremath{\aRectangle(\aX)}}%
+\protected\gdef\aRectangleOfXDiff{\ensuremath{\aRectangleDiff(\aX)}}%
+%
+\begin{frame}[t]%
+\frametitle{A Problem that we can solve with high school Maths equations}%
+\noindent\parbox{0.65\linewidth}{\noindent%
+\begin{itemize}%
+\item A \textcolor{rectangle-color}{rectangle} should be placed inside a \textcolor{square-color}{square} with side\\length~13cm as sketched.%
+%
+\item<2-> What area has the \alert{largest} such \textcolor{rectangle-color}{rectangle}?%
+%
+\item<3-> We can solve this by realizing that $\aRectangleOfX={\color{square-color}{\left(13\text{cm}^2\right)}}-2{\color{small-triangle-color}{\left(\tfrac{1}{2}\aX^2\right)}}-2{\color{large-triangle-color}{\left(\tfrac{1}{2}(13\text{cm}-\aX)^2\right)}}$\only<-3>{.}\uncover<4->{ and then finding the maximum by setting $0=\aRectangleOfXDiff=-4\aX+26\text{cm}$.}%
+%
+\item<5-> We get $\aXMax=6.5\text{cm}$\only<-5>{.}\uncover<6->{ and, hence, $\aRectangleMax=84.5\text{cm}^2$.}%
+%
+\item<7-> Maxima and minima are superlatives $=$ optima.%
+%
+\item<8-> Sometimes we can simply compute them and do not need fancy algorithms.%
+\end{itemize}}%
+%%
+\strut\\[\paperheight]\strut%
+%
+\locateGraphic{1-2}{width=0.3\paperwidth}{\sharedDir/graphics/rectangle_problem/rectangle_problem_1}{0.67}{0.15}%
+\locateGraphic{3-}{width=0.3\paperwidth}{\sharedDir/graphics/rectangle_problem/rectangle_problem_3}{0.67}{0.15}%
+%
+\end{frame}%
+%
+
+\definecolor{start-color}{HTML}{FF00C8}%
+\definecolor{goal-color}{HTML}{00C0C0}%
+\definecolor{path-red}{HTML}{FF0000}%
+\definecolor{path-pink}{HTML}{FF00FF}%
+\definecolor{path-green}{HTML}{008000}%
+\definecolor{path-cyan}{HTML}{00C8C8}%
+\definecolor{path-gray}{HTML}{646464}%
+\protected\gdef\apath#1#2{{\color{path-#1}{#2}}}%
+\protected\gdef\noapath{\protected\gdef\apath##1##2{##2}}%
+%
+\begin{frame}[t]%
+\frametitle{Problems that algorithms can solve efficiently}%
+%
+\locate{2-}{\parbox{0.47\paperwidth}{\noindent%
+\begin{itemize}%
+%
+\only<-9>{%
+\item I am at the {\color{start-color}{starting point 合肥大学南二区北大门}}.%
+%
+\item<3-> I want to go to the {\color{goal-color}{goal:~食堂}}.
+%
+\item<4-> How do I get there the \alert{fastest}?%
+%
+\item<5-> We know the campus map.%
+%
+\item<6-> We want to compute the shortest path~(before actually walking it).%
+%
+\item<7-> We know all the intersections where I could make turns.%
+%
+\item<8-> There is no mathematical equation that we can use to solve this.%
+}%
+%
+\item<9-> But we can use the \pgls{algoAstar}\cite{HNR1968AFBFTHDOMCP,P1997AAP}, which iteratively constructs a solution by combining a {\color{path-green}{heuristic}} and a {\color{path-red}{cost}} function.%
+%
+\only<-15>{%
+\item<10-> For example, I could walk for \apath{red}{$27s$} to this intersection.%
+%
+\item<11-> Or for \apath{red}{$83s$} to that one.%
+%
+\item<12-> Or for \apath{red}{$195s$} to that one.%
+}%
+%
+\only<-23>{%
+\item<13-> We have 3~choices: (a)~$\apath{red}{27s}\only<17->{+\apath{green}{213s}}$, (b)~$\apath{red}{83s}\only<18->{+\apath{green}{221s}}$, (c)~$\apath{red}{195s}\only<19->{+\apath{green}{362s}}$.%
+%
+\item<14-> For each intersection, we can compute the airline distance~(\apath{green}{as the crow flies}) to the~{\color{goal-color}{食堂}}.%
+%
+\item<15-> The actual walking distance can never be shorter than that.%
+%
+\item<16-> Combining the two distances for each node gives us a good impression of how useful going there would be.%
+%
+\item<23-> (e)~it is\dots%
+}%
+%
+\only<-64>{%
+\item<24-> {\dots}and so on.%
+%
+\item<56-> We found a first complete path from {\color{start-color}{start}} to {\color{goal-color}{goal}}.%
+%
+\item<57-> It has the total length~\apath{red}{$268s$}.%
+%
+\item<64-> We confirmed the shortest possible path and it takes~$268s$.%
+}%
+%
+\item<65-> In the worst case, the \pgls{algoAstar} needs to \inQuotes{look} at all intersections~(nodes) and streets~(edges) once.%
+%
+\item<66-> Usually, it is quite efficient to find shortest paths on maps.%
+%
+\item<67-> If we look for shortest paths that do not visit any node twice, where the edge distances are not negative, where the number of choices per node is limited, and where the graph and path are not too big/long -- then this algorithm is very efficient.%
+%
+\end{itemize}%
+}}{0.51}{0.1}%075}%
+%
+\locateGraphic{}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar}{-0.02}{0.15}%
+%
+\locateGraphic{2-6}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_01_start_goal}{-0.02}{0.15}%
+\locateGraphic{8-}{width=0.55045\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_03_overlay}{-0.02421}{0.1449}%
+%
+\locateGraphic{7-9}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_02_paths}{-0.02}{0.15}%
+%
+\locateGraphic{10}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04a}{-0.02}{0.15}%
+\locateGraphic{11}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04b}{-0.02}{0.15}%
+\locateGraphic{12-16}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04c}{-0.02}{0.15}%
+\locateGraphic{17}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04d}{-0.02}{0.15}%
+\locateGraphic{18}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04e}{-0.02}{0.15}%
+\locateGraphic{19}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04f}{-0.02}{0.15}%
+%
+\locateGraphic{20}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04g}{-0.02}{0.15}%
+\locateGraphic{21}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04h}{-0.02}{0.15}%
+\locateGraphic{22}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_04i}{-0.02}{0.15}%
+%
+\locateGraphic{23}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_05}{-0.02}{0.15}%
+%
+\locateGraphic{24}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06a}{-0.02}{0.15}%
+\locateGraphic{25}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06b}{-0.02}{0.15}%
+%
+\locateGraphic{26}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06c}{-0.02}{0.15}%
+\locateGraphic{27}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_06d}{-0.02}{0.15}%
+%
+\locateGraphic{28}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_07a}{-0.02}{0.15}%
+\locateGraphic{29}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_07b}{-0.02}{0.15}%
+%
+\locateGraphic{30}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_07c}{-0.02}{0.15}%
+%
+\locateGraphic{31}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_08a}{-0.02}{0.15}%
+\locateGraphic{32}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_08b}{-0.02}{0.15}%
+\locateGraphic{33}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_09a}{-0.02}{0.15}%
+\locateGraphic{34}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_09b}{-0.02}{0.15}%
+%
+\locateGraphic{35}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10a}{-0.02}{0.15}%
+\locateGraphic{36}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10b}{-0.02}{0.15}%
+\locateGraphic{37}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10c}{-0.02}{0.15}%
+%
+\locateGraphic{38}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_10d}{-0.02}{0.15}%
+\locateGraphic{39}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_11a}{-0.02}{0.15}%
+%
+\locateGraphic{40}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_11b}{-0.02}{0.15}%
+%
+\locateGraphic{41}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_11c}{-0.02}{0.15}%
+%
+\locateGraphic{42}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12a}{-0.02}{0.15}%
+\locateGraphic{43}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12b}{-0.02}{0.15}%
+\locateGraphic{44}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12c}{-0.02}{0.15}%
+\locateGraphic{45}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_12d}{-0.02}{0.15}%
+%
+\locateGraphic{46}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_13a}{-0.02}{0.15}%
+\locateGraphic{47}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_13b}{-0.02}{0.15}%
+%
+\locateGraphic{48}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_13c}{-0.02}{0.15}%
+%
+\locateGraphic{49}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14a}{-0.02}{0.15}%
+\locateGraphic{50}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14b}{-0.02}{0.15}%
+\locateGraphic{51}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14c}{-0.02}{0.15}%
+\locateGraphic{52}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_14d}{-0.02}{0.15}%
+%
+\locateGraphic{53}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_15a}{-0.02}{0.15}%
+\locateGraphic{54}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_15b}{-0.02}{0.15}%
+\locateGraphic{55}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_15c}{-0.02}{0.15}%
+%
+\locateGraphic{56}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_16}{-0.02}{0.15}%
+%
+\locateGraphic{57}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_17}{-0.02}{0.15}%
+\locateGraphic{58}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_18}{-0.02}{0.15}%
+\locateGraphic{59}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_19}{-0.02}{0.15}%
+\locateGraphic{60}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_20}{-0.02}{0.15}%
+\locateGraphic{61}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_21}{-0.02}{0.15}%
+\locateGraphic{62}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_22}{-0.02}{0.15}%
+\locateGraphic{63-}{width=0.545\paperwidth}{\sharedDir/graphics/hfuu_campus_map_astar/hfuu_campus_map_astar_23}{-0.02}{0.15}%
+%
+\end{frame}%
+%
+%
+\input{\sharedDir/slides/optimization_hard_problems.tex}%
+%
+\section{Metaheuristics}%
+\input{\sharedDir/slides/optimization_metaheuristic_cycle.tex}%
+%
+\gdef\sharedSlideTitle{Example:~RLS and the $(1+1)$~EA}%
+\input{\sharedDir/slides/optimization_opoea_rls.tex}%
+%
+\xdef\sharedSlideTitle{Example:~Simulated Annealing}%
+\input{\sharedDir/slides/optimization_sa.tex}%
 %
 \input{\sharedDir/advertisement/advertisement.tex}%
 %

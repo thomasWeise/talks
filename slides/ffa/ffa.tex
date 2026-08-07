@@ -56,18 +56,9 @@
 \section{Introduction}%
 %
 \xdef\sharedSlideTitle{Introduction to Optimization}%
-\input{\sharedDir/slides/optimization_superlatives.tex}%
 %
-\begin{frame}[t]%
-\frametitle{Views on Optimization}%
-\begin{itemize}%
-\only<-1>{\item There are two ways to look at optimization.}%
-\only<-2>{\item<2-> The economic view.}%
-\item<3-> The mathematical view.%
-\end{itemize}%
-\locateGraphic{2}{width=0.75\paperwidth}{\sharedDir/graphics/optimization_views/optimization_views_1}{0.125}{0.3}%
-\locateGraphic{3}{width=0.75\paperwidth}{\sharedDir/graphics/optimization_views/optimization_views_2}{0.125}{0.3}%
-\end{frame}%
+\input{\sharedDir/slides/optimization_superlatives.tex}%
+\input{\sharedDir/slides/optimization_optimization_problem.tex}%
 %
 \begin{frame}%
 \frametitle{Example: Traveling Salesperson Problem}%
@@ -144,162 +135,11 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 %
 \section{Metaheuristic Optimization}%
 %
-\begin{frame}%
-\frametitle{Metaheuristic Optimization}%
-\parbox{0.42\paperwidth}{%
-\begin{itemize}%
-%
-\item Because of this hardness of optimization, metaheuristic algorithms that follow the Trial-and-Error idea of iterative improvement have emerged.%
-\item<2-> They drop the guarantee to find the optimal solution.%
-\item<3-> They try to find good solutions within a feasible runtime.%
-\item<4-> They (usually) start with random solutions.%
-\item<5-> And then roughly follow this cycle.%
-%
-\end{itemize}%
-}%
-%
-\locateGraphic{4}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_01}{0.47}{0.3}%
-%
-\locateGraphic{5}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_02}{0.47}{0.3}%
-%
-\locateGraphic{6}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_03}{0.47}{0.3}%
-%
-\locateGraphic{7}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_04}{0.47}{0.3}%
-%
-\locateGraphic{8}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_05}{0.47}{0.3}%
-%
-\locateGraphic{9}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_06}{0.47}{0.3}%
-%
-\locateGraphic{10}{width=0.5\paperwidth}{\sharedDir/graphics/metaheuristic_cycle/metaheuristic_cycle_07}{0.47}{0.3}%
-%
-\end{frame}%
-%
-\begin{frame}[t]%
-\frametitle{The $(1+1)$~EA and RLS}%
-\begin{itemize}%
-\item Local search with $|S_i|=|N_i|=1$ is the simplest realization of the metaheuristic idea.%
-\item<2-> \GlsFull{algoRLS} and the \glsFull{algoEAopo} work according the same pattern~(and differ only in their unary search operator~$\mathop{move}$)\cite{DJW2002OTAOTOPOEA,CPD2018TAMPARAOEA}.%
-\item<8-> They accept the new solution if it is better or equally good compared to the current solution.%
-\end{itemize}%
+\input{\sharedDir/slides/optimization_metaheuristic_cycle.tex}%
+\input{\sharedDir/slides/optimization_opoea_rls.tex}%
+\input{\sharedDir/slides/optimization_sa.tex}%
 %
 %
-\locate{2}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_1}}%
-}{0.125}{0.445}%
-%
-\locate{3}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_2}}%
-}{0.125}{0.445}%
-%
-\locate{4}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_3}}%
-}{0.125}{0.445}%
-%
-\locate{5}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_4}}%
-}{0.125}{0.445}%
-%
-\locate{6}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_5}}%
-}{0.125}{0.445}%
-%
-\locate{7}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_6}}%
-}{0.125}{0.445}%
-%
-\locate{8}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_7}}%
-}{0.125}{0.445}%
-%
-\locate{9}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_8}}%
-}{0.125}{0.445}%
-%
-\locate{10}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea_9}}%
-}{0.125}{0.445}%
-%
-\locate{11-}{%
-\algobox{0.75}{\includegraphics[width=0.75\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/opoea/opoea}}%
-}{0.125}{0.445}%
-%
-\end{frame}%
-%
-\begin{frame}%
-\frametitle{Simulated Annealing}%
-\parbox{0.41\paperwidth}{%
-\begin{itemize}%
-\item \glsFull{algoSA}\cite{KGV1983OBSA} is a local search that accepts also worsening moves, but with a probability that decreases over time and with the difference in solution quality.%
-\item<3-> ${\mathfrak{R}}_0^1$~be a random number uniformly distributed in~$[0,1)$.%
-\item<6-> High temperatures~$T$ increase the acceptance probability~$P$ of worse solutions, low~$T$ reduce it.%
-\item<7-> $P$~is regulated by temperature schedule with parameter\only<10->{s}~$T_0$\only<10->{ and~$\varepsilon$}.%
-\end{itemize}%
-}%
-\uncover<11->{\begin{itemize}%
-\item \gls{algoSA} also remembers best-so-far solution~$x_B$ and its objective value~$y_B$, because it could get lost.%
-\end{itemize}%
-}%
-%
-%
-\locate{2}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_01}}%
-}{0.44}{0.24}%
-%
-\locate{3}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_02}}%
-}{0.44}{0.24}%
-%
-\locate{4}{%
-\algobox{0.4}{\includegraphics[width=0.4\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_02}}%
-}{0.44}{0.07}%
-%
-\locate{4}{%
-\resizebox{0.5\paperwidth}{!}{\bgroup%
-\fboxsep=2pt%
-\fboxrule=2pt%
-\fcolorbox{black}{white}{%
-\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/exp}%
-}%
-\egroup}%%
-}{0.46}{0.41}%
-%
-\locate{5}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_03}}%
-}{0.44}{0.24}%
-%
-\locate{6}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_04}}%
-}{0.44}{0.24}%
-%
-\locate{7}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_05}}%
-}{0.44}{0.24}%
-%
-\locate{8}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_06}}%
-}{0.44}{0.24}%
-%
-\locate{9}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_07}}%
-}{0.44}{0.24}%
-%
-\locate{10}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_08}}%
-}{0.44}{0.24}%
-%
-\locate{11}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_09}}%
-}{0.44}{0.24}%
-%
-\locate{12}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa_10}}%
-}{0.44}{0.24}%
-%
-\locate{13}{%
-\algobox{0.5}{\includegraphics[width=0.5\paperwidth]{\sharedDir/graphics/metaheuristic_algorithms/sa/sa}}%
-}{0.44}{0.24}%
-%
-\end{frame}%
 %
 \begin{frame}%
 \frametitle{Standard Genetic Algorithm with Roulette Wheel Selection}%
