@@ -9,10 +9,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.2.2
+      - uses: actions/checkout@v7.0.1
         with:
           submodules: true
-      - uses: xu-cheng/texlive-action@d9f893f837a29f066e3c70080540976b47263721
+      - uses: xu-cheng/texlive-action@v3
         with:
           scheme: full
           run: |
@@ -21,7 +21,7 @@ jobs:
             cp resources/* /home/runner/work/talks/talks/website/
 # deploy to github pages
       - name: deploy documentation
-        uses: JamesIves/github-pages-deploy-action@94f3c658273cf92fb48ef99e5fbc02bd2dc642b2
+        uses: JamesIves/github-pages-deploy-action@v4.8.0
         with:
           branch: gh-pages
           folder: /home/runner/work/talks/talks/website/

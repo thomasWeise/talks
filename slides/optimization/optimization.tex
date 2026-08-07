@@ -15,37 +15,9 @@
 %
 \section{Introduction}%
 %
-\begin{frame}%
-\frametitle{What is Optimization?}%
-\begin{itemize}%
-\item Are are \alert{three} ways to approach this topic\only<-1>{.}\uncover<2->{\medskip%
-\begin{enumerate}%
-%
-\item Optimization is an extension of school mathematics into a field where equations are no longer enough and exact solutions \alert{cannot always be reached}.\medskip%
-%
-\item<3-> Optimization is the art of solving \alert{hard} problems.\medskip%
-%
-\item<4-> Optimization means searching for \alert{superlatives}.%
-\end{enumerate}}%
-\end{itemize}%
-%
-\end{frame}%
-%
-\xdef\sharedSlideTitle{Optimization = Search for Superlatives}%
-\input{\sharedDir/slides/optimization_superlatives.tex}%
-%
-\begin{frame}%
-\frametitle{Business}%
-%
-\locateGraphic{1}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_1}{-0.1}{0.05}%
-\locateGraphic{2}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_2}{-0.1}{0.05}%
-\locateGraphic{3}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_3}{-0.1}{0.05}%
-\locateGraphic{4}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_4}{-0.1}{0.05}%
-\locateGraphic{5}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_5}{-0.1}{0.05}%
-\locateGraphic{6}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects_6}{-0.1}{0.05}%
-\locateGraphic{7}{width=1.05\paperwidth}{\sharedDir/graphics/five_aspects/five_aspects}{-0.1}{0.05}%
-%
-\end{frame}%
+\input{\sharedDir/slides/optimization_three_views.tex}%
+\input{\sharedDir/slides/optimization_superlatives.tex}%}%
+\input{\sharedDir/slides/optimization_business.tex}%
 %
 \begin{frame}%
 \frametitle{Optimization}%
@@ -57,7 +29,7 @@
 \end{itemize}%
 \end{frame}%
 %
-\section{Problems that we can Solve with Equations}%
+\section{Problems that we can solve with equations}%
 %
 \definecolor{square-color}{HTML}{A03214}%
 \definecolor{rectangle-color}{HTML}{0000A0}%
@@ -77,7 +49,7 @@
 \protected\gdef\aRectangleOfXDiff{\ensuremath{\aRectangleDiff(\aX)}}%
 %
 \begin{frame}[t]%
-\frametitle{A Problem that we can Solve with (High School Maths) Equations}%
+\frametitle{A Problem that we can solve with (high school Maths) equations}%
 \begin{itemize}%
 \item A \textcolor{rectangle-color}{rectangle} should be placed inside a \textcolor{square-color}{square} with side\\length~13cm as sketched.%
 %
@@ -159,7 +131,7 @@
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Problems that we can solve with Equations}%
+\frametitle{Problems that we can solve with equations}%
 \begin{itemize}%
 \item We can actually solve a lot of problems.%
 %
@@ -173,10 +145,10 @@
 \end{itemize}%
 \end{frame}%
 %
-\section{Problems that we can Solve with an Algorithm}%
+\section{Problems that we can solve with an algorithm}%
 %
 \begin{frame}%
-\frametitle{Problems that we can Solve with Algorithms}%
+\frametitle{Problems that we can solve with algorithms}%
 \begin{itemize}%
 %
 \item \alert<-1>{Can we always do that?}%
@@ -197,7 +169,7 @@
 \protected\gdef\flopColor#1#2{{\color<#1>{flop-color}{#2}}}%
 %
 \begin{frame}[t]%
-\frametitle{A Problem that we can Solve with (a High School) Algorithm}%
+\frametitle{A Problem that we can solve with (a high school) algorithm}%
 \begin{itemize}%
 %
 \item What is the greatest common divisor~($\operatorname{gcd}$) of~$a=257\decSep9731$ and~$b=164\decSep1647$?%
@@ -302,7 +274,7 @@ An illustration of Euclid of Alexandria, \href{https://www.antike-griechische.de
 \end{itemize}%
 \end{frame}%
 %
-\section{Problems that Algorithms can Solve Fast and Efficiently}%
+\section{Problems that algorithms can solve fast and efficiently}%
 %
 \definecolor{start-color}{HTML}{FF00C8}%
 \definecolor{goal-color}{HTML}{00C0C0}%
@@ -569,7 +541,7 @@ An illustration of Euclid of Alexandria, \href{https://www.antike-griechische.de
 \end{itemize}%
 \end{frame}%
 %
-\section{Problems that Algorithms cannot Solve Efficiently \emph{and} Exactly}%
+\section{Problems that algorithms cannot solve both efficiently \emph{and} exactly}%
 %
 \begin{frame}%
 \frametitle{Hard Problems~(1)}%
