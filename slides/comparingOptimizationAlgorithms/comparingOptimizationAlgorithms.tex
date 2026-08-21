@@ -1079,7 +1079,7 @@ the \mbox{Randomization Test\cite{BLB2008VMIDBS,E1995RT}}, and %
 %
 \begin{frame}[t]\frametitle{Compare $N\geq 2$ Algorithms}%
 %
-\only<-4,6-7>{%
+\only<-4,6-7,9->{%
 \begin{itemize}%
 \item For comparing $N\geq 2$~algorithms, we can compare any two algorithms with each other%
 \only<2->{%
@@ -1087,8 +1087,10 @@ the \mbox{Randomization Test\cite{BLB2008VMIDBS,E1995RT}}, and %
 \only<3->{%
 \item<3-> $k$~tests and each with error proability \ensuremath{\alpha}\only<4->{ $\Longrightarrow$ %
 total probability~$E$ to make at least one error~$E=1-((1-\ensuremath{\alpha})^k)$%
-\item<6-> Correction needed\uncover<7->{: Bonferroni correction\cite{D1961MCAM}\uncover<6->{:~Use $\ensuremath{\alpha}'=\ensuremath{\alpha}/k$ as significance level instead of $\ensuremath{\alpha}$, then the overall probability $E$ to make an error will remain $E\leq\ensuremath{\alpha}$.}}%
+\item<6-> Correction needed\uncover<7->{: Bonferroni correction\cite{B1935ICDASGDT,S1995MHT,MJ1981SSI}\uncover<6->{:~Use $\ensuremath{\alpha}'=\ensuremath{\alpha}/k$ as significance level instead of $\ensuremath{\alpha}$, then the overall probability $E$ to make an error will remain $E\leq\ensuremath{\alpha}$.}}%
 }}}%
+\item<9-> The Bonferroni correction is very conservative and not suitable when checking independent parameters\cite{P1998WWWBA}, but for comparing optimization algorithm, it does the trick.
+Being conservative is good.
 \end{itemize}%
 }%
 \locateGraphic{5}{width=0.9\paperwidth}{\sharedDir/graphics/errorProb/multicomp_bonferroni_error}{0.05}{0.22}%
