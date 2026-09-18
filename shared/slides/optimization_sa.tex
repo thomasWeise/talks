@@ -6,6 +6,7 @@
 \parbox{0.41\paperwidth}{%
 \begin{itemize}%
 \item \glsFull{algoSA}\cite{KGV1983OBSA} is a local search that accepts also worsening moves, but with a probability that decreases over time and with the difference in solution quality.%
+\only<-2>{\item<2-> Let's start with \gls{algoRLS}/\gls{algoEAopo} and modify it to become \gls{algoSA}.}%
 \item<3-> ${\mathfrak{R}}_0^1$~be a random number uniformly distributed in~$[0,1)$.%
 \item<6-> High temperatures~$T$ increase the acceptance probability~$P$ of worse solutions, low~$T$ reduce it.%
 \item<7-> $P$~is regulated by temperature schedule with parameter\only<10->{s}~$T_0$\only<10->{ and~$\varepsilon$}.%

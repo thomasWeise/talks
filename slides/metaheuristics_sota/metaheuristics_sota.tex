@@ -6,6 +6,8 @@
 \RequirePackage{\bookbaseDir/styles/slides}%
 \RequirePackage{\sharedDir/styles/styles}%
 %
+\gdef\searchSpace{\ensuremath{\mathbb{X}}}%
+%
 \protected\gdef\algobox#1#2{\resizebox{#1\paperwidth}{!}{%
 \bgroup%
 \fboxsep=0pt%
@@ -35,20 +37,35 @@
 \end{frame}%
 %
 \input{\sharedDir/slides/optimization_three_views.tex}%
+%
+\begin{frame}%
+\frametitle{Views on Optimization, Part~1}%
+\begin{itemize}%
+\item Let's start with the first view: \alert{Superlatives}.%
+\end{itemize}%
+\end{frame}%
+%
 \input{\sharedDir/slides/optimization_superlatives.tex}%
+%
+\begin{frame}%
+\frametitle{Views on Optimization, Part~2}%
+\begin{itemize}%
+\item Now let us consider the second view: \alert{Solving hard problems}.%
+\item<2-> Later, we learn how to quantify \emph{hard}.%
+\item<3-> For now, let's first think about how to define \emph{problem}?%
+\end{itemize}%
+\end{frame}%
+%
 \input{\sharedDir/slides/optimization_optimization_problem.tex}%
 \input{\sharedDir/slides/optimization_business.tex}%
 %
-\section{The Field of Optimization}%
-%
-%
 \begin{frame}%
-\frametitle{Optimization}%
+\frametitle{Views on Optimization, Part~3}%
 \begin{itemize}%
 %
-\item There are incredibly many such problems from a very wide area where we can use optimization and \glsFull{fieldOR} methods.\medskip%
+\item This brings us to the third view of optimization: We need to solve problems where equations are \inQuotes{not enough} and for which we cannot always find the best solution.%
 %
-\item<2-> How is this related to what you know?%
+\item<2-> Let's start with high school Maths, move to undergraduate computer science, and then approach this field of problems.%
 \end{itemize}%
 \end{frame}%
 %
@@ -75,7 +92,7 @@
 \begin{itemize}%
 \item A \textcolor{rectangle-color}{rectangle} should be placed inside a \textcolor{square-color}{square} with side\\length~13cm as sketched.%
 %
-\item<2-> What area has the \alert{largest} such \textcolor{rectangle-color}{rectangle}?%
+\item<2-> What area has the \emph{largest} such \textcolor{rectangle-color}{rectangle}?%
 %
 \item<3-> We can solve this by realizing that $\aRectangleOfX={\color{square-color}{\left(13\text{cm}^2\right)}}-2{\color{small-triangle-color}{\left(\tfrac{1}{2}\aX^2\right)}}-2{\color{large-triangle-color}{\left(\tfrac{1}{2}(13\text{cm}-\aX)^2\right)}}$\only<-3>{.}\uncover<4->{ and then finding the maximum by setting $0=\aRectangleOfXDiff=-4\aX+26\text{cm}$.}%
 %
@@ -145,15 +162,17 @@
 %
 \item<16-> Combining the two distances for each node gives us a good impression of how useful going there would be.%
 %
-\item<23-> (e)~it is\dots%
+\item<23-> (a)~it is\dots%
 }%
 %
 \only<-64>{%
-\item<24-> {\dots}and so on.%
+\item<24-> We continue doing this procedure until the first path to the goal is found.%
 %
 \item<56-> We found a first complete path from {\color{start-color}{start}} to {\color{goal-color}{goal}}.%
 %
 \item<57-> It has the total length~\apath{red}{$268s$}.%
+%
+\item<58-> Now we need to only check the remaining paths that might be shorter, those that are at least as long can be ignored.%
 %
 \item<64-> We confirmed the shortest possible path and it takes~$268s$.%
 }%
@@ -245,10 +264,26 @@
 %
 \end{frame}%
 %
+\begin{frame}%
+\frametitle{Transition to Hard Problems}%
+\begin{itemize}%
+\item So we first looked at an optimization problem that can easily be solved to optimality using high school mathematics.%
+%
+\item<2-> Then we looked at a problem that can be solved to optimality using an algorithm that you should have learned during your Bachelor's studies.%
+%
+\item<3-> What about \emph{hard} problems?%
+%
+\item<4-> What about problems where traditional Maths and algorithms do not really help us much?%
+%
+\item<5-> Here we go.%
+\end{itemize}%
+\end{frame}%
+%
 %
 \input{\sharedDir/slides/optimization_hard_problems.tex}%
 %
 \section{Metaheuristics}%
+%
 \input{\sharedDir/slides/optimization_metaheuristic_cycle.tex}%
 %
 \gdef\sharedSlideTitle{Example:~RLS and the $(1+1)$~EA}%
@@ -257,7 +292,99 @@
 \xdef\sharedSlideTitle{Example:~Simulated Annealing}%
 \input{\sharedDir/slides/optimization_sa.tex}%
 %
-\input{\sharedDir/advertisement/advertisement.tex}%
+\input{\sharedDir/slides/optimization_metaheuristic_components.tex}%
+%
+\begin{frame}[t]%
+\frametitle{Types of Metaheuristics}%
+%
+\begin{itemize}%
+%
+\item We can build many interesting algorithms just using such components~(and sometimes a bit more problem-specific information).
+%
+\item<2-> Local Search\only<3->{:%
+\begin{itemize}%
+\item Keep one solution~$x_c$, sample at least one new solution~$x_n$ from its neighborhood in each step, move to better solutions as discovered.%
+%
+\only<-5>{%
+\item<4-> {\color{green!60!black}Advantage}: Fast%
+\item<5-> {\color{red!60!black}Disadvantage}: May get stuck at a local optimum%
+}%
+\end{itemize}%
+}%
+%
+\item<6-> Population-based Methods\only<7->{:%
+\begin{itemize}%
+\item Maintain population~$S$ of $|S|=\mu\geq1$ solutions, sample set~$N$ of $|N|=\lambda\geq1$ new solutions in each step by creating modified copies of the elements in~$S$, then update $S$.%
+\only<-9>{%
+\item<8-> {\color{green!60!black}Advantage}: Less likely to get stuck at local optimum.%
+\item<9-> {\color{red!60!black}Disadvantage}: Slow.%
+}%
+\end{itemize}%
+}%
+%
+\item<10-> Model-based Methods\only<11->{:%
+\begin{itemize}%
+\item Maintain a stochastic model~$M$ (usually a multivariate probility distribution) of what good solutions could look like, sample set~$N$ of $|N|=\lambda\geq1$ new solutions based on~$M$ in each step, then update~$M$.%
+\only<-13>{%
+\item<12-> {\color{green!60!black}Advantage}: Sometimes really good performance.%
+\item<13-> {\color{red!60!black}Disadvantage}: Complicated, sampling and model update may be slow.%
+}%
+\end{itemize}%
+}%
+%
+\item<14-> Hybrid Algorithms\only<15->{:%
+\begin{itemize}%
+\item Usually combine model-based or population-based approach with local search: Each new solution from model/population is refined with local search.%
+\only<-17>{%
+\item<16-> {\color{green!60!black}Advantage}: Fast (because local search), good global search (because of population/model)%
+\item<17-> {\color{red!60!black}Disadvantage}: usually few.%
+}%
+\end{itemize}%
+}%
+%
+\end{itemize}%
+%
+\end{frame}%
+%
+\section{Fields where Metaheuristics can be Applied}%
+%
+\begin{frame}%
+\frametitle{Types of Search Spaces / Decision Variables}%
+%
+\begin{itemize}%
+\item Discrete problems have solutions that can be expressed as bit strings of length~$n$, i.e., search in~$\{0,1\}^n$.%
+%
+\item<2-> Combinatorial problems have solutions that can be expressed as permutations of first $n$~natural numbers.%
+%
+\item<3-> Integer problems have solutions that can be expressed as integer vectors~$\subset\integerNumbers^n$.%
+%
+\item<4-> Continuous problems have solutions that can be expressed as real vectors~$\subset\realNumbers^n$.%
+%
+\item<5-> Mixed problems: usually discrete + integer + continuous.%
+%
+\item<6-> Genetic Programming usually has solutions that can be expressed as tree data structures with different types of nodes and a maximum depth~(imagine mathematical expressions like~$(5x+3)/3$, which have inherent tree nature).
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Mode of the Objective Function(s)}%
+%
+\begin{itemize}%
+\item The objective function~$f(x)$ tells us how good a solution~$x$ is; the smaller~$f(x)$, the better.%
+%
+\item<2-> $f$~can be a mathematical function with properties such as differentiability, etc.%
+%
+\item<3-> $f$~can be discrete function, like on the TSP.%
+%
+\item<4-> $f$~may require us to run complex simulations, e.g., if $x$~is some engineering design or a policy that needs to be simulated.%
+%
+\item<5-> $f$~usually is static and does not change{\dots}%
+%
+\item<6-> {\dots}but sometimes, $f$~is dynamic and may change while we try to optimize it.%
+%
+\item<7-> Sometimes, we face a multi-objective problem, where we do not have a single objective function, but multiple functions, i.e., a vector function~$\vec{f}(x)$, and we try to trade-off different goals; for example speed vs.\ cost.%
+\end{itemize}%
+\end{frame}%
 %
 \endPresentation%
 \end{document}%%

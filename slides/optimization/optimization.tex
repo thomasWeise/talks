@@ -53,7 +53,7 @@
 \begin{itemize}%
 \item A \textcolor{rectangle-color}{rectangle} should be placed inside a \textcolor{square-color}{square} with side\\length~13cm as sketched.%
 %
-\item<2-> What area has the \alert{largest} such \textcolor{rectangle-color}{rectangle}?%
+\item<2-> What area has the \emph{largest} such \textcolor{rectangle-color}{rectangle}?%
 \end{itemize}%
 %
 \uncover<3->{\parbox{0.6\paperwidth}{\noindent%
@@ -145,134 +145,6 @@
 \end{itemize}%
 \end{frame}%
 %
-\section{Problems that we can solve with an algorithm}%
-%
-\begin{frame}%
-\frametitle{Problems that we can solve with algorithms}%
-\begin{itemize}%
-%
-\item \alert<-1>{Can we always do that?}%
-%
-\item<2-> \alert{Can we always solve problems with a pre-defined number of steps?}%
-%
-\item<3-> \alert{No.}%
-%
-\item<4-> There are problems that we cannot solve with equations, but with algorithms.%
-%
-\item<5-> And some problems require us to use algorithms which perform different numbers of steps of different inputs.%
-\end{itemize}%
-\end{frame}%
-%
-\definecolor{flip-color}{HTML}{0000A0}%
-\definecolor{flop-color}{HTML}{AA0078}%
-\protected\gdef\flipColor#1#2{{\color<#1>{flip-color}{#2}}}%
-\protected\gdef\flopColor#1#2{{\color<#1>{flop-color}{#2}}}%
-%
-\begin{frame}[t]%
-\frametitle{A Problem that we can solve with (a high school) algorithm}%
-\begin{itemize}%
-%
-\item What is the greatest common divisor~($\operatorname{gcd}$) of~$a=257\decSep9731$ and~$b=164\decSep1647$?%
-\end{itemize}%
-%
-\uncover<2->{\vspace*{-0.4em}%
-\parbox{0.6\paperwidth}{\noindent%
-\begin{itemize}%%
-\only<-8>{%
-\item The $\operatorname{gcd}$ can be computed with the Euclidean algorithm\cite{EHF2008EEOGTGOJLH11FEEEELIEILHIATBG11EAPWMETBFR:ENT,B1999FAOTBEA,TKY2016BEOEAOTCEG} by \citeauthor{EHF2008EEOGTGOJLH11FEEEELIEILHIATBG11EAPWMETBFR:ENT}, who lived about 300~\emph{\glsFull{BCE}}.%
-}%
-%
-\only<-10>{%
-\item<3-> The $\operatorname{gcd}$ of two positive natural numbers~$a\in\naturalNumbersO$ and~$b\in\naturalNumbersO$ is the largest number~$g\in\naturalNumbersO=\operatorname{gcd}(a,b)$ which divides both~$a$ and~$b$ without remainder.%
-}%
-%
-\only<-11>{%
-\item<4-> If $a=b$, then obviously $\operatorname{gcd}(a,b)=a=b$.%
-%
-\item<5-> Otherwise, we know that $a=ig$ for some~$i\in\naturalNumbersO$ and that $b=jg$ for some~$j\in\naturalNumbersO$.%
-%
-\item<6-> Without loss of generality, let's assume that~$a>b$.%
-%
-\item<7-> Then it holds that $c=a-b=(i-j)g$.%
-%
-\item<8-> Thus, $g$ also divides~$c$ without remainder, i.e., $\operatorname{gcd}(a,b)=\operatorname{gcd}(c,b)$.%
-%
-\item<9-> It must also be that $a-b<a$.%
-%
-\item<10-> We can replace~$a$ with~$a-b$.%
-}%
-%
-\item<11-> We can repeatedly subtract the smaller from the larger number until we \inQuotes{converge.}%
-\end{itemize}%
-%
-%
-\uncover<12->{%
-\begin{center}%
-\resizebox{0.95\linewidth}{!}{%
-\begin{tabular}{ccc}%
-\hline%
-\textbf{bigger number:~$a$}&\textbf{smaller number:~$b$}&\textbf{$a-b$}\\%
-\hline%
-%
-\uncover<13->{%
-257\decSep9731&164\decSep1647&\flipColor{13-14}{93\decSep8084}%
-}%
-%
-\uncover<14->{\\%
-164\decSep1647&\flipColor{14}{93\decSep8084}&\flopColor{14-15}{70\decSep3563}%
-}%
-%
-\uncover<15->{\\%
-93\decSep8084&\flopColor{15}{70\decSep3563}&\flipColor{15-16}{23\decSep4521}%
-}%
-%
-\uncover<16->{\\%
-70\decSep3563&\flipColor{16}{23\decSep4521}&\flopColor{16-17}{46\decSep9042}%
-}%
-%
-\uncover<17->{\\%
-\flopColor{17}{46\decSep9042}&\flipColor{17}{23\decSep4521}&\flipColor{17}{23\decSep4521}%
-}%
-%
-\\\hline%
-\end{tabular}%
-}%
-\end{center}%
-%
-\uncover<18->{\medskip\noindent%
-\begin{itemize}%
-\item $\operatorname{gcd}(257\decSep9731,164\decSep1647)=23\decSep4521$.%
-\end{itemize}%
-\uncover<19->{\begin{center}%
-\scalebox{1.5}{\textbf{\Large{\alert{Solved.}}}}%
-\end{center}}%
-}%
-}}}%
-%
-\strut\vspace{\paperheight}\strut%
-%
-\locateGraphicTB[\parbox{0.6\paperwidth}{\noindent\vspace*{-0.5em}\tiny{%
-An illustration of Euclid of Alexandria, \href{https://www.antike-griechische.de/Euklid.pdf}{attributed to} Charles Paul Landon~(1760--1826). Source:~\href{https://fr.vikidia.org/wiki/Cat\%C3\%A9gorie:Image_Euclide}{Vikidia}, where it is listed as \emph{domaine public.}}}%
-]{2-}{width=0.32\paperwidth}{\sharedDir/graphics/euclidOfAlexandria/euclidOfAlexandria}{0.66}{0.25}%
-\end{frame}%
-%
-\begin{frame}%
-\frametitle{Euclidean Algorithm}%
-\begin{itemize}%
-%
-\item The number of steps that the algorithm needs depends on the input.%
-%
-\item<2-> The Euclidean Algorithm can be implemented more \alert<4>{efficiently} using \inQuotes{division remainders} instead of subtractions.%
-%
-\item<3-> It can be made even more \alert<4>{efficient} using a binary variant {\dots} that already existed in China in the first century \glsFull{CE}\cite{B1999FAOTBEA}, published in the famous \emph{Jiu Zhang Suanshu}~(九章算术)\cite{OR2003LH,SCL1999TNCOTMACAC,S1998LHATFGAOCM,D2010AALHOCAS,C2002LFLHADWTDM}.%
-%
-\item<4-> What does \alert<4>{efficient} even mean?%
-%
-\item<5-> \alert{efficient = fast\uncover<6->{ and does not need much memory}}%
-%
-\item<7-> (Side note:~The binary Euclidean algorithm can be computed in~$c*(\log{a}+\log{b})$ steps where $c>0$~is some constance. It needs two memory cells\cite{B1999FAOTBEA,BB1987ASAFEGC}.)%
-\end{itemize}%
-\end{frame}%
 %
 \section{Problems that algorithms can solve fast and efficiently}%
 %
