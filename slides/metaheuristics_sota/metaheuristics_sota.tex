@@ -349,17 +349,30 @@
 %
 \section{Discrete Optimization}%
 %
-\begin{frame}%
+\begin{frame}[t]%
 \frametitle{Black-Box Discrete Optimization}%
 \begin{itemize}%
 %
 \item \alert{Problem}: Search space is bit strings~$\{0,1\}^n$ of length~$n$, nothing is known about objective function~$f:\{0,1\}^n\mapsto\integerNumbers$.%
 %
-\item<2-> \alert{Benchmarks}\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}: OneMax\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH}, LeadingOnes\cite{R1997CPOEA,W1989TGAASPWRBAORTIB}, LinearHarmonic\cite{DYHWSB2020BDOHWI,DJW2002OTAOTOPOEA}, BinInt\cite{TGG1998DCDATSSOP}, Trap\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}, TwoMax\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}, Jump\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}, Plateau\cite{AD2018PRAFP}, Ising Models\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}, N-Queens, W-Model%
+\item<2-> Benchmarks here often have the goal to investigate problematic aspects of discrete problems in isolation\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}.%
 %
-\item<3-> \alert{Baseline}: \glsFull{algoRLS}~(unary operator flips 1~bit), \glsFull{algoEAopo}~(unary operator flips each bit with probability~$1/n$)
+\item<2-> \alert{Benchmarks}: %
+\alert<2>{OneMax}\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH}\only<-2>{ (total number of \texttt{1} bits, very easy, single optimum)}%
+\only<3->{, \alert<3>{Linear Harmonic Function}\cite{DYHWSB2020BDOHWI,DJW2002OTAOTOPOEA}\only<-3>{ like OneMax, but bits have linearly increasing weights)}}%
+\only<4->{, \alert<4>{BinInt}\cite{TGG1998DCDATSSOP}\only<-4>{ (like OneMax, but bits have exponentially increasing weights)}}%
+\only<5->{, \alert<5>{LeadingOnes}\cite{R1997CPOEA,W1989TGAASPWRBAORTIB}\only<-5>{ (number of leading \texttt{1} bits:~contribution of variable~$x_i$ depends on all variables~$x_j$ with~$j<i$)}}%
+\only<6->{, \alert<6>{Trap}\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}\only<-6>{ (OneMax, but optimum and worse solution swapped -- extremely hard, local search needs exponential runtime)}}%
+\only<7->{, \alert<7>{TwoMax}\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}\only<-7>{ (two optima, a global and a local one, of same size, local search needs exponential runtime with 50\% probability)}}%
+\only<8->{, \alert<8>{Jump}\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}\only<-8>{ (like OneMax, but $\omega$~bits around optimum are deceptive)}}%
+\only<9->{, \alert<9>{Plateau}\cite{AD2018PRAFP}\only<-9>{ (like Jump, but bits around optimum are neutral)}}%
+\only<10->{, \alert<10>{Ising Models}\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}\only<-10>{ (many interactions between variables)}}%
+\only<11->{, \alert<11>{N\nobreakdashes-Queens}\cite{DYHWSB2020BDOHWI}\only<-11>{ (place $n$~queens on chessboard, many interactions between variables)}}%
+\only<12->{, \alert<10>{W\nobreakdashes-Model}\cite{WW2018DFOCOPATTWBPFST,WNSRG2008ATMFMOERANFL}\only<-12>{ (allows you to tune and combine the above features)}}%
 %
-\item<4-> \alert{SOTA}: Self-Adjusting~$(1+\lambda,\lambda)$~GA, $(1+1)$~FEA
+\item<13-> \alert{Baseline}: \glsFull{algoRLS}~(unary operator flips 1~bit), \glsFull{algoEAopo}~(unary operator flips each bit with probability~$1/n$)
+%
+\item<14-> \alert{SOTA}: Self-Adjusting~$(1+\lambda,\lambda)$~GA, $(1+1)$~FEA
 %
 \end{itemize}%
 \end{frame}%
