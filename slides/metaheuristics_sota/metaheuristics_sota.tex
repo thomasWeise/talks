@@ -306,7 +306,7 @@
 \item Keep one solution~$x_c$, sample at least one new solution~$x_n$ from its neighborhood in each step, move to better solutions as discovered.%
 %
 \only<-5>{%
-\item<4-> {\color{green!60!black}Advantage}: Fast%
+\item<4-> {\color{green!60!black}Advantage}: Fast (and sometimes simple)%
 \item<5-> {\color{red!60!black}Disadvantage}: May get stuck at a local optimum%
 }%
 \end{itemize}%
@@ -346,43 +346,195 @@
 %
 \end{frame}%
 %
-\section{Fields where Metaheuristics can be Applied}%
+%
+\section{Discrete Optimization}%
 %
 \begin{frame}%
-\frametitle{Types of Search Spaces / Decision Variables}%
-%
+\frametitle{Black-Box Discrete Optimization}%
 \begin{itemize}%
-\item Discrete problems have solutions that can be expressed as bit strings of length~$n$, i.e., search in~$\{0,1\}^n$.%
 %
-\item<2-> Combinatorial problems have solutions that can be expressed as permutations of first $n$~natural numbers.%
+\item \alert{Problem}: Search space is bit strings~$\{0,1\}^n$ of length~$n$, nothing is known about objective function~$f:\{0,1\}^n\mapsto\integerNumbers$.%
 %
-\item<3-> Integer problems have solutions that can be expressed as integer vectors~$\subset\integerNumbers^n$.%
+\item<2-> \alert{Benchmarks}\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}: OneMax\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH}, LeadingOnes\cite{R1997CPOEA,W1989TGAASPWRBAORTIB}, LinearHarmonic\cite{DYHWSB2020BDOHWI,DJW2002OTAOTOPOEA}, BinInt\cite{TGG1998DCDATSSOP}, Trap\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}, TwoMax\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}, Jump\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}, Plateau\cite{AD2018PRAFP}, Ising Models\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}, N-Queens, W-Model%
 %
-\item<4-> Continuous problems have solutions that can be expressed as real vectors~$\subset\realNumbers^n$.%
+\item<3-> \alert{Baseline}: \glsFull{algoRLS}~(unary operator flips 1~bit), \glsFull{algoEAopo}~(unary operator flips each bit with probability~$1/n$)
 %
-\item<5-> Mixed problems: usually discrete + integer + continuous.%
+\item<4-> \alert{SOTA}: Self-Adjusting~$(1+\lambda,\lambda)$~GA, $(1+1)$~FEA
 %
-\item<6-> Genetic Programming usually has solutions that can be expressed as tree data structures with different types of nodes and a maximum depth~(imagine mathematical expressions like~$(5x+3)/3$, which have inherent tree nature).
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Maximum Satisfiability Problem}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
 \end{itemize}%
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Mode of the Objective Function(s)}%
-%
+\frametitle{Integer Set Division Problem}%
 \begin{itemize}%
-\item The objective function~$f(x)$ tells us how good a solution~$x$ is; the smaller~$f(x)$, the better.%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
 %
-\item<2-> $f$~can be a mathematical function with properties such as differentiability, etc.%
 %
-\item<3-> $f$~can be discrete function, like on the TSP.%
+\begin{frame}%
+\frametitle{Low Autocorrelation Binary Sequences}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
 %
-\item<4-> $f$~may require us to run complex simulations, e.g., if $x$~is some engineering design or a policy that needs to be simulated.%
 %
-\item<5-> $f$~usually is static and does not change{\dots}%
+\section{(Multi-)Permutation Problems}%
 %
-\item<6-> {\dots}but sometimes, $f$~is dynamic and may change while we try to optimize it.%
+\begin{frame}%
+\frametitle{Black-Box Permutation Problems}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
 %
-\item<7-> Sometimes, we face a multi-objective problem, where we do not have a single objective function, but multiple functions, i.e., a vector function~$\vec{f}(x)$, and we try to trade-off different goals; for example speed vs.\ cost.%
+\begin{frame}%
+\frametitle{Traveling Salesperson Problem}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Quadratic Assignment Problem}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Job Shop Scheduling Problem}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{2D~Bin Packing Problem}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Traveling Tournament Problem}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Vehicle Routing Problems}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\section{Continuous Optimization}%
+%
+\begin{frame}%
+\frametitle{Black-Box Continuous Optimization}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+%
+\section{Multi-Objective Optimization / Noisy Optimization}%
+%
+\begin{frame}%
+\frametitle{Black-Box Multi-Objective Problems}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Black-Box Noisy-Objective Problems}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Material Flow Control for Make-to-Stock with Reorder Points}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\section{Tree-based Search Spaces}%
+%
+\begin{frame}%
+\frametitle{Equation and Algorithm Synthesis}%
+\begin{itemize}%
+\item \alert{Problem}:%
+\item<2-> \alert{Benchmarks}:%
+\item<3-> \alert{Baselines}:%
+\item<4-> \alert{SOTA}:%
+\end{itemize}%
+\end{frame}%
+%
+\section{Summary}%
+%
+\begin{frame}%
+\frametitle{Summary}%
+\begin{itemize}%
+\item Today, I gave you a brief introduction into optimization.%
+\item<2-> You learned roughly what it is.%
+\item<3-> Then we looked at different examples for optimization problems.%
 \end{itemize}%
 \end{frame}%
 %
