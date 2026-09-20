@@ -467,18 +467,25 @@ and the baselines for discrete optimization}.%
 \frametitle{Low Autocorrelation Binary Sequences}%
 \begin{itemize}%
 \item \alert{Problem}: \glsFullpl{optLABS} are bit strings of length~$n$ whose autocorrelation is as low as possible. %
-\item<2-> This means that sub-sequences of any length~$1\leq k <n$ should ideally never repeat. %
+\only<-4>{%
+\item<2-> This means that sub-sequences of any length~$1\leq k<n$ should ideally never repeat. %
 \item<3-> The objective function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$ represents the energy of a bit string~\sespel\ and can be defined as~$\objFunb{\sespel}=\sum_{k=1}^{n-1}\left(\sum_{i=0}^{n-1-k} \arrayIndex{s}{i} \cdot \arrayIndex{s}{i+k}\right)^2$ with~$\arrayIndex{s}{j}=2\arrayIndex{\sespel}{j}-1$.%
-\item<4-> Such sequences are needed for communication- and radar-like applications.%
+\item<4-> Such sequences are needed for communication engineering\cite{MDW2015NESFLLABS,BBB2017LABSOIMFARPTAT}, cryptography\cite{MDW2015NESFLLABS}, as well as modulation pulses in radar and sonar ranging\cite{PM2016LABS}.%
+}%
 \item<5-> \alert{Benchmarks}: The objective function for different values of~$n$%
 %
-\item<6-> \alert{Baselines}: see discrete optimization, a binary-coded \glspl{algoEA}\cite{MZB1998ESFLABS}, or exhaustive enumeration\cite{M1996ESFLABS}~(for small~$n$)
+\item<6-> \alert{Baselines}: see discrete optimization\uncover<7->{ and for small~$n$ %
+a binary-coded \gls{algoEA}\cite{MZB1998ESFLABS}\uncover<8->{ %
+ or exhaustive enumeration\cite{M1996ESFLABS}\uncover<9->{ and %
+the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
+}}}%
 %
 %
-\item<5-> \alert{\gls{SOTA}}:\uncover<5->{%
+\item<10-> \alert{\gls{SOTA}}:\uncover<10->{%
 \begin{itemize}%
-\item<5-> the somewhat outdated online repository~\cite{BBB2016AGAFSASOTLP},%
-\item<6-> for small~$n$ maybe the \gls{algoMA} from\cite{GCF2007AMAFTLABSP}, the local search in\cite{HYH2008ESLSFTLABSP}, or the branch-and-bound method from\cite{P2013IBABFLABS}.%
+\item<11-> for small~$n$ maybe the \gls{algoMA} from\cite{GCF2007AMAFTLABSP}\uncover<12->{, the local search in\cite{HYH2008ESLSFTLABSP}\uncover<13->{, or the branch-and-bound methods from\cite{P2013IBABFLABS,PM2016LABS},}}%
+\item<14-> the \gls{algoMA} from\cite{MDW2015NESFLLABS}\uncover<15->{,}%
+\item<15-> the self-avoiding walks w/o local search from\cite{BBB2017LABSOIMFARPTAT,BB2018AHAFALABSPWOLAHMF}.%
 \end{itemize}%%
 }%
 \end{itemize}%
