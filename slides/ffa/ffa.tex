@@ -6,9 +6,6 @@
 \RequirePackage{\bookbaseDir/styles/slides}%
 \RequirePackage{\sharedDir/styles/styles}%
 %
-\gdef\searchSpace{\ensuremath{\mathbb{X}}}%
-\gdef\sespel{\ensuremath{x}}%
-\gdef\opti#1{\ensuremath{#1^{\star}}}%
 %
 %% Print an algorithm box around something.
 \protected\gdef\algobox#1#2{\resizebox{#1\paperwidth}{!}{%
@@ -71,7 +68,7 @@
 %
 \item<3-> The objective function~$f:\searchSpace\mapsto\realNumbers$, subject to minimization, is the length of the tour.%
 %
-\item<4-> The optimal solution~$\opti{\sespel}\in\searchSpace$ is the shortest possible tour.%
+\item<4-> The optimal solution~$\globalOptimumOf{\sespel}\in\searchSpace$ is the shortest possible tour.%
 %
 \end{itemize}%
 }%
@@ -81,30 +78,8 @@
 %
 \end{frame}%
 %
-\begin{frame}%
-\frametitle{Example: Maximum Satisfiability Problem}%
-\parbox{0.42\paperwidth}{%
-\begin{itemize}%
-%
-\item The goal of the \glsFull{optMaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is to find a setting of \textcolor<2>{red}{$n$~variables} that makes a Boolean formula~$F$ become True. %
-The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>{blue}{$m$~OR\nobreakdashes-clauses}, whose results flow into \textcolor<5>{green!40!black}{one AND\nobreakdashes-clause}.%
-%
-\item<6-> \searchSpace\ is the set of all possible bit strings of length~$n$.%
-%
-\item<7-> The objective function~$f:\searchSpace\mapsto\realNumbers$ is the number of unsatisfied OR\nobreakdashes-clauses.%
-%
-\item<8-> The optimum~$\opti{\sespel}\in\searchSpace$ has $f(\opti{\sespel})=0$, i.e., all clauses satisfied, i.e., $F(\opti{\sespel})=\textnormal{True}$.%
-%
-\end{itemize}%
-}%
-%
-\locateGraphic{-1,6-}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_plain}{0.47}{0.3}%
-\locateGraphic{2}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_variables}{0.47}{0.3}%
-\locateGraphic{3}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_negated}{0.47}{0.3}%
-\locateGraphic{4}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_clauses}{0.47}{0.3}%
-\locateGraphic{5}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_and}{0.47}{0.3}%
-%
-\end{frame}%
+\xdef\sharedSlideTitle{Example: Maximum Satisfiability Problem}%
+\input{\sharedDir/slides/optimization_maxsat.tex}%
 %
 \begin{frame}[t]%
 \frametitle{Example: Bin Packing Problem}%
@@ -112,7 +87,7 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \item The goal of the Bin Packing Problem is to pack $n$~objects, each having a specific size, into as few bins~(also of a given size) as possible\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
 \item<2-> The \searchSpace\ comprises all possible packing orders of the $n$~objects.%
 \item<3-> The objective function~$f$ is the number of bins needed by a given packing order.%
-\item<4-> The optimum~$\opti{\sespel}$ is the packing order requiring the fewest bins.%
+\item<4-> The optimum~$\globalOptimumOf{\sespel}$ is the packing order requiring the fewest bins.%
 \end{itemize}%
 \locateGraphic{}{width=0.85\paperwidth}{\sharedDir/graphics/bin_packing/bin_packing}{0.075}{0.5}%
 \end{frame}%
@@ -121,11 +96,11 @@ The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>
 \frametitle{Optimization is Hard}%
 \begin{itemize}%
 %
-\item Finding the globally optimal solution~\opti{\sespel} from the set of all possible solutions~\searchSpace\ is often an \npHard\ problem.%
+\item Finding the globally optimal solution~\globalOptimumOf{\sespel} from the set of all possible solutions~\searchSpace\ is often an \npHard\ problem.%
 %
 \item<2-> Currently, there is no algorithm that can \alert{guarantee} to find the optimal solution of \alert{every instance} of a given \npHard\ problem in a runtime that is not longer than polynomial in the size of the problem~(i.e., existing algorithms may need exponential runtime in the \alert{worst case}).%
 %
-\item<4-> In other words, if we want to guarantee to find the best possible solution~\opti{\sespel} for all possible instances of a problem, we often cannot really be much faster than testing all possible candidate solutions~$\sespel\in\searchSpace$ in the \alert{worst case}.%
+\item<4-> In other words, if we want to guarantee to find the best possible solution~\globalOptimumOf{\sespel} for all possible instances of a problem, we often cannot really be much faster than testing all possible candidate solutions~$\sespel\in\searchSpace$ in the \alert{worst case}.%
 %
 \end{itemize}%
 %
@@ -251,11 +226,11 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 \item<2-> Assume that they all work on a population of two solutions, where the new solution be~$x_n$ and the old/parent solution be~$x_c$\only<3->{ and we look at the probability~$P$ to accept~$x_n$}.%
 %
-\item<4-> For the \gls{algoEAopo}, $P=1$ if~$f(x_n)\leq f(x_c)$ and~$0$~otherwise.%
+\item<4-> For the \gls{algoEAopo}, $P=1$ if~$\objFunb{\sespel_n}\leq \objFunb{\sespel_c}$ and~$0$~otherwise.%
 %
-\item<5-> In the \gls{algoSA}, $P$~depends on the difference~$\Delta=f(x_c)-f(x_n)$ and is~$1$~if $x_n$ is better than~$x_c$.%
+\item<5-> In the \gls{algoSA}, $P$~depends on the difference~$\Delta=\objFunb{\sespel_c}-\objFunb{\sespel_n}$ and is~$1$~if $x_n$ is better than~$x_c$.%
 %
-\item<6-> In an \gls{algoSGA} for maximization, $P$~is~$f(x_n)/(f(x_c)+f(x_n))$.\uncover<7->{ If we wanted to do minimization, maybe we could use ${\color{orange}{1-}}f(x_n)/(f(x_c)+f(x_n))$ instead.}%
+\item<6-> In an \gls{algoSGA} for maximization, $P$~is~$\objFunb{\sespel_n}/(\objFunb{\sespel_c}+\objFunb{\sespel_n})$.\uncover<7->{ If we wanted to do minimization, maybe we could use ${\color{orange}{1-}}\objFunb{\sespel_n}/(\objFunb{\sespel_c}+\objFunb{\sespel_n})$ instead.}%
 %
 \item<8-> \gls{algoEAopo} and \gls{algoSA} always accept~$x_n$ if it is better than~$x_c$, while in the \gls{algoSGA}, a better~$x_n$ at least has a~$P>0.5$.%
 %
@@ -289,7 +264,7 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{2}(x)=\fn{1}(x)+10$.%
 \item<3-> Expectation: Any reasonable algorithm should perform the same on~$\fn{1}$ and~$\fn{2}$\only<-3>{.}\uncover<4->{, i.e., make the exact same decisions\only<5->{ given the same random seeds}.}%
 %
-\item<8-> $\fn{1}(x_n)=14$\uncover<9->{, $\fn{1}(x_c)=6$\uncover<10->{, $\fn{2}(x_n)=24$\uncover<11->{, $\fn{2}(x_c)=16$}}}%
+\item<8-> $\fn{1}(\sespel_n)=14$\uncover<9->{, $\fn{1}(\sespel_c)=6$\uncover<10->{, $\fn{2}(\sespel_n)=24$\uncover<11->{, $\fn{2}(\sespel_c)=16$}}}%
 
 \item<12-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $24\leq16$ \greenYes%
 %
@@ -327,7 +302,7 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{3}(x)=0.8\fn{1}(x)$.%
 \item<3-> Expectation: Any reasonable algorithm should perform the same on~$\fn{1}$ and~$\fn{3}$, i.e., make the exact same decisions given the same random seeds.%
 %
-\item<5-> $\fn{1}(x_n)=14$, $\fn{1}(x_c)=6$\uncover<6->{, $\fn{3}(x_n)=11.2$, $\fn{3}(x_c)=4.8$}%
+\item<5-> $\fn{1}(\sespel_n)=14$, $\fn{1}(\sespel_c)=6$\uncover<6->{, $\fn{3}(\sespel_n)=11.2$, $\fn{3}(\sespel_c)=4.8$}%
 %
 \item<7-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $11.2\leq4.8$ \greenYes%
 %
@@ -361,7 +336,7 @@ If you keep accepting better and better solutions, you will get really good solu
 \item<2-> $\fn{4}(x)=[\fn{1}(x)]^2$.%
 \item<3-> Expectation: A nice algorithm should perform the same on~$\fn{1}$ and~$\fn{4}$, i.e., make the exact same decisions given the same random seeds.%
 %
-\item<4-> $\fn{1}(x_n)=14$, $\fn{1}(x_c)=6$\uncover<5->{, $\fn{4}(x_n)=196$, $\fn{4}(x_c)=36$}%
+\item<4-> $\fn{1}(\sespel_n)=14$, $\fn{1}(\sespel_c)=6$\uncover<5->{, $\fn{4}(\sespel_n)=196$, $\fn{4}(\sespel_c)=36$}%
 %
 \item<6-> \gls{algoEAopo}: $14\leq6$ \textcolor{greenYesColor}{$\mathbf{=}$} $196\leq36$ \greenYes%
 %
@@ -628,7 +603,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \frametitle{(1+1)~FEA on MaxSAT}%
 \begin{itemize}%
 \item The \glsFull{optMaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is \npComplete~\cite{C1971TCOTPP}.%
-\item<2-> \gls{SATLIB}\cite{HS2000SAORFROS} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
+\item<2-> \gls{optSATLIB}\cite{HS2000SAORFROS} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
 \item<3-> We conducted 11\decSep000~runs with the \gls{algoFEAopo} on each instance scale.%
 \item<4-> The \gls{algoEAopo} is very much slower than the \gls{algoFEAopo}, so we could use it only on smaller scales.%
 \item<5-> Our computational budget was always~$10^{10}$~\glsFullpl{objFE}.%

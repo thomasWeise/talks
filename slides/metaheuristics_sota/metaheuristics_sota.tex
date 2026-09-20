@@ -6,7 +6,7 @@
 \RequirePackage{\bookbaseDir/styles/slides}%
 \RequirePackage{\sharedDir/styles/styles}%
 %
-\gdef\searchSpace{\ensuremath{\mathbb{X}}}%
+%\gdef\searchSpace{\ensuremath{\mathbb{X}}}%
 %
 \protected\gdef\algobox#1#2{\resizebox{#1\paperwidth}{!}{%
 \bgroup%
@@ -28,6 +28,15 @@
 \startPresentation%
 %
 \section{Introduction}%
+%
+\begin{frame}%
+\frametitle{Introduction}%
+\begin{itemize}%
+\item Today, we will discuss the research frontier on metaheuristic optimization.%
+\item<2-> Therefore, we will first introduce what metaheuristic optimization is and why we need.%
+\item<3-> Then we will discuss the current \gls{SOTA} on several of the many, many, many domains where metaheuristics are applied.%
+\end{itemize}%
+\end{frame}%
 %
 \begin{frame}%
 \frametitle{Metaheuristics}%
@@ -353,7 +362,7 @@
 \frametitle{Black-Box Discrete Optimization}%
 \begin{itemize}%
 %
-\item \alert{Problem}: Search space is bit strings~$\{0,1\}^n$ of length~$n$, nothing is known about objective~function~$f:\{0,1\}^n\mapsto\naturalNumbersZ$.%
+\item \alert{Problem}: Search space~\searchSpace\ corresponds to the set~$\{0,1\}^n$ of bit strings of length~$n$ and nothing is known about objective~function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$.%
 %
 \item<2-> Benchmarks here often have the goal to investigate problematic aspects of discrete problems in isolation\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}.%
 %
@@ -393,7 +402,7 @@
 \only<-15>{~(traditional population-based GA)}%
 }%
 %
-\item<16-> \alert{SOTA}: %
+\item<16-> \alert{\gls{SOTA}}: %
 \only<-16>{\alert<16>{\glsShort{algoSAGA}}}\only<17->{\glsShort{algoSAGA}}\cite{CPD2018TAMPARAOEA,DD2018OSASAPCFT1LLGA}%
 \only<-16>{~(linear runtime on \glsShort{optOneMax})}%
 %
@@ -417,14 +426,29 @@
 \locateGraphic{9}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_plateau}{0.67}{0.6}%
 \end{frame}%
 %
+\input{\sharedDir/slides/optimization_maxsat.tex}%
 %
 \begin{frame}%
 \frametitle{Maximum Satisfiability Problem}%
 \begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item \alert{Problem}: Find a bit string that makes as many OR\nobreakdashes-clauses True as possible.%
+%
+\item<2-> The so-called phase transition region with~$\frac{m}{n}\approx4.26$, the average instance hardness for stochastic local search algorithms is maximal~\cite{HS2000SAORFROS,DNS2017TCAOEAORSkCF,DNS2015IRBFTOPOEOR3CFBOFDC}
+%
+\item<3-> \alert{Benchmarks}: \gls{optSATLIB}\cite{HS2000SAORFROS,HS2001STSL} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
+%
+\item<3-> \alert{Baselines}: WalkSAT~\cite{SKC1994NSFILS}\uncover<5->{ %
+and the baselines for discrete optimization}.%
+%
+\item<5-> \alert{\gls{SOTA}}:\uncover<5->{%
+\begin{itemize}%
+\item For smaller-scale instances: branch-and-bound algorithms like in\cite{LMMP2010RBLBIM}.%
+%
+\item<6-> Encoding-based methods can deal with even much larger instances\cite{PRB2018DPWEFSWM}.%
+%
+\item<7-> The \gls{SOTA} for incomplete solvers\cite{GKSS2008SS} comprises local search algorithms, often based on ideas dating back to WalkSAT, such as AMLS\cite{LH2012AMBLSFMS} or NuWLS\cite{CCL2023NILSFWPMBNWT}.
+\end{itemize}%
+}%
 \end{itemize}%
 \end{frame}%
 %
@@ -434,7 +458,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -445,7 +469,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -458,7 +482,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -468,7 +492,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -478,7 +502,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -488,7 +512,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -498,7 +522,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -508,7 +532,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -518,7 +542,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -530,7 +554,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -543,7 +567,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -553,7 +577,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -564,7 +588,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
@@ -576,7 +600,7 @@
 \item \alert{Problem}:%
 \item<2-> \alert{Benchmarks}:%
 \item<3-> \alert{Baselines}:%
-\item<4-> \alert{SOTA}:%
+\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %

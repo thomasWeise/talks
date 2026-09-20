@@ -1,0 +1,28 @@
+%
+\begin{frame}%
+\sharedframetitle{Maximum Satisfiability Problem}%
+\parbox{0.42\paperwidth}{%
+\begin{itemize}%
+%
+\item The goal of the \glsFull{optMaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is to find a setting of \textcolor<2>{red}{$n$~variables} that makes a Boolean formula~$F$ become True. %
+The variables appear directly or \textcolor<3>{violet}{negated} in \textcolor<4>{blue}{$m$~OR\nobreakdashes-clauses}, whose results flow into \textcolor<5>{green!40!black}{one AND\nobreakdashes-clause}.%
+%
+\item<6-> \searchSpace\ is the set of all possible bit strings of length~$n$.%
+%
+\item<7-> The objective function~$\objFun:\searchSpace\mapsto\realNumbers$ is the number of unsatisfied OR\nobreakdashes-clauses.%
+%
+\item<8-> If the problem can be solved, then the optimum~$\globalOptimumOf{\sespel}\in\searchSpace$ has $\objFunb{\globalOptimumOf{\sespel}}=0$, i.e., all clauses satisfied, i.e., $F(\globalOptimumOf{\sespel})=\textnormal{True}$.%
+%
+\end{itemize}%
+}%
+%
+\locateGraphic{-1,6-}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_plain}{0.47}{0.3}%
+\locateGraphic{2}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_variables}{0.47}{0.3}%
+\locateGraphic{3}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_negated}{0.47}{0.3}%
+\locateGraphic{4}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_clauses}{0.47}{0.3}%
+\locateGraphic{5}{width=0.5\paperwidth}{\sharedDir/graphics/sat/sat_and}{0.47}{0.3}%
+%
+\end{frame}%
+%
+\global\let\sharedSlideTitle\relax%
+%

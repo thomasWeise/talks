@@ -4,13 +4,13 @@
 %
 \begin{itemize}%
 %
-\item We have a space~${\mathbb X}$ of potential solutions.%
+\item We have a space~\searchSpace\ of potential solutions.%
 %
-\item<2-> ${\mathbb X}$ is often very/exponentially large.%
+\item<2-> \searchSpace~is often very/exponentially large.%
 %
-\item<3-> We repeatedly sample elements~$x$ from this space~${\mathbb X}$, so we need operators to do that\only<-3>{.}\only<4->{:%
+\item<3-> We repeatedly sample elements~\sespel\ from this space~\searchSpace, so we need operators to do that\only<-3>{.}\only<4->{:%
 \begin{itemize}%
-\item a \emph{nullary} operator usually returns a randomly chosen point from~${\mathbb X}$.\uncover<5->{ %
+\item a \emph{nullary} operator usually returns a randomly chosen point from~$\searchSpace$.\uncover<5->{ %
 This is often used to get starting points for the search.}%
 %
 \item<6-> a \emph{unary} operator receives an existing point as input and creates a slightly modified copy.\uncover<7->{ %
@@ -22,7 +22,7 @@ This is often used to combine traits from good solutions.}%
 \end{itemize}%
 }%
 %
-\item<10-> We evaluate the quality of solutions using the objective function~$f:{\mathbb X}\mapsto\realNumbers$, which usually is subject to minimization~(smaller values are better).%
+\item<10-> We evaluate the quality of solutions using the objective function~$\objFun:\searchSpace\mapsto\realNumbers$, which usually is subject to minimization~(smaller values are better).%
 %
 \item<11-> These are the usual main ingredients of metaheuristic optimization.%
 %
