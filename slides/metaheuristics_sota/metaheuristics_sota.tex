@@ -353,28 +353,68 @@
 \frametitle{Black-Box Discrete Optimization}%
 \begin{itemize}%
 %
-\item \alert{Problem}: Search space is bit strings~$\{0,1\}^n$ of length~$n$, nothing is known about objective function~$f:\{0,1\}^n\mapsto\integerNumbers$.%
+\item \alert{Problem}: Search space is bit strings~$\{0,1\}^n$ of length~$n$, nothing is known about objective~function~$f:\{0,1\}^n\mapsto\naturalNumbersZ$.%
 %
 \item<2-> Benchmarks here often have the goal to investigate problematic aspects of discrete problems in isolation\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}.%
 %
 \item<2-> \alert{Benchmarks}: %
-\alert<2>{OneMax}\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH}\only<-2>{ (total number of \texttt{1} bits, very easy, single optimum)}%
-\only<3->{, \alert<3>{Linear Harmonic Function}\cite{DYHWSB2020BDOHWI,DJW2002OTAOTOPOEA}\only<-3>{ like OneMax, but bits have linearly increasing weights)}}%
-\only<4->{, \alert<4>{BinInt}\cite{TGG1998DCDATSSOP}\only<-4>{ (like OneMax, but bits have exponentially increasing weights)}}%
-\only<5->{, \alert<5>{LeadingOnes}\cite{R1997CPOEA,W1989TGAASPWRBAORTIB}\only<-5>{ (number of leading \texttt{1} bits:~contribution of variable~$x_i$ depends on all variables~$x_j$ with~$j<i$)}}%
-\only<6->{, \alert<6>{Trap}\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}\only<-6>{ (OneMax, but optimum and worse solution swapped -- extremely hard, local search needs exponential runtime)}}%
-\only<7->{, \alert<7>{TwoMax}\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}\only<-7>{ (two optima, a global and a local one, of same size, local search needs exponential runtime with 50\% probability)}}%
-\only<8->{, \alert<8>{Jump}\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}\only<-8>{ (like OneMax, but $\omega$~bits around optimum are deceptive)}}%
-\only<9->{, \alert<9>{Plateau}\cite{AD2018PRAFP}\only<-9>{ (like Jump, but bits around optimum are neutral)}}%
-\only<10->{, \alert<10>{Ising Models}\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}\only<-10>{ (many interactions between variables)}}%
-\only<11->{, \alert<11>{N\nobreakdashes-Queens}\cite{DYHWSB2020BDOHWI}\only<-11>{ (place $n$~queens on chessboard, many interactions between variables)}}%
-\only<12->{, \alert<10>{W\nobreakdashes-Model}\cite{WW2018DFOCOPATTWBPFST,WNSRG2008ATMFMOERANFL}\only<-12>{ (allows you to tune and combine the above features)}}%
 %
-\item<13-> \alert{Baseline}: \glsFull{algoRLS}~(unary operator flips 1~bit), \glsFull{algoEAopo}~(unary operator flips each bit with probability~$1/n$)
+\only<-2>{\alert<2>{\glsShort{optOneMax}}}\only<3->{\glsShort{optOneMax}}\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH}\only<-2>{~(total number of \texttt{1} bits, very easy, single optimum)}%
 %
-\item<14-> \alert{SOTA}: Self-Adjusting~$(1+\lambda,\lambda)$~GA, $(1+1)$~FEA
+\only<3->{, \only<-3>{\alert<3>{\glsFull{optLinHarm}}}\only<4->{\glsShort{optLinHarm}}\cite{DYHWSB2020BDOHWI,DJW2002OTAOTOPOEA}\only<-3>{~like \glsShort{optOneMax}, but bits have linearly increasing weights)}}%
+%
+\only<4->{, \only<-4>{\alert<4>{\glsFull{optBinInt}}}\only<5->{\glsShort{optBinInt}}\cite{TGG1998DCDATSSOP}\only<-4>{~(like \glsShort{optOneMax}, but bits have exponentially increasing weights)}}%
+%
+\only<5->{, \only<-5>{\alert<5>{\glsShort{optLeadingOnes}}}\only<6->{\glsShort{optLeadingOnes}}\cite{R1997CPOEA,W1989TGAASPWRBAORTIB}\only<-5>{~(number of leading \texttt{1} bits:~contribution of variable~$x_i$ depends on all variables~$x_j$ with~$j<i$)}}%
+%
+\only<6->{, \only<-6>{\alert<6>{\glsShort{optTrap}}}\only<7->{\glsShort{optTrap}}\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}\only<-6>{~(\glsShort{optOneMax}, but optimum and worse solution swapped -- extremely hard, local search needs exponential runtime)}}%
+%
+\only<7->{, \only<-7>{\alert<7>{\glsShort{optTwoMax}}}\only<8->{\glsShort{optTwoMax}}\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}\only<-7>{~(two optima, a global and a local one, of same size, local search needs exponential runtime with 50\% probability)}}%
+%
+\only<8->{, \only<-8>{\alert<8>{\glsShort{optJump}}}\only<9->{\glsShort{optJump}}\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}\only<-8>{~(like OneMax, but $\omega$~bits around optimum are deceptive)}}%
+%
+\only<9->{, \only<-9>{\alert<9>{\glsShort{optPlateau}}}\only<10->{\glsShort{optPlateau}}\cite{AD2018PRAFP}\only<-9>{ (like Jump, but bits around optimum are neutral)}}%
+%
+\only<10->{, \only<-10>{\alert<10>{\glsShortpl{optIsing}}}\only<11->{\glsShortpl{optIsing}}\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}\only<-10>{~(many interactions between variables)}}%
+%
+\only<11->{, \only<-11>{\alert<11>{\glsShort{optNQueens}}}\only<12->{\glsShort{optNQueens}}\cite{DYHWSB2020BDOHWI}\only<-11>{~(place $n$~queens on chessboard, many interactions between variables)}}%
+%
+\only<12->{, \only<-12>{\alert<12>{\glsShort{optWModel}}}\only<13->{\glsShort{optWModel}}\cite{WW2018DFOCOPATTWBPFST,WNSRG2008ATMFMOERANFL}\only<-12>{~(allows you to tune and combine the above features)}}%
+%
+\item<13-> \alert{Baseline}: %
+\only<-13>{\glsFull{algoRLS}~(unary operator flips 1~bit)}\only<14->{\gls{algoRLS}}%
+%
+\only<14->{, %
+\only<-14>{\glsShort{algoEAopo}~(unary operator flips each bit with probability~$1/n$)}\only<14->{\glsShort{algoEAopo}}%
+}%
+%
+\only<15->{, and the %
+\only<-15>{\glsFull{algoSGA}}\only<16->{\glsShort{algoSGA}}\cite{G1989GA,DJ2006ECAUA,W2009GOATAA,BFM1997HOEC,M1996GADSEP,M1998AITGA}%
+\only<-15>{~(traditional population-based GA)}%
+}%
+%
+\item<16-> \alert{SOTA}: %
+\only<-16>{\alert<16>{\glsShort{algoSAGA}}}\only<17->{\glsShort{algoSAGA}}\cite{CPD2018TAMPARAOEA,DD2018OSASAPCFT1LLGA}%
+\only<-16>{~(linear runtime on \glsShort{optOneMax})}%
+%
+\only<17->{, %
+\only<-17>{\alert<17>{\glsShort{algoG2P1GA}}}\only<18->{\glsShort{algoG2P1GA}}\cite{S2012CSUBBA,S2017HCSUBBAIGA,CPD2018TAMPARAOEA,CPD2018ASPFTUOCIBBO}%
+\only<-17>{~(algorithm using binary operator and being twice as fast as any unary-operator only black-box method on \glsShort{optOneMax})}%
+}%
+%
+\only<18->{, and the %
+\only<-18>{\alert<18>{\glsFull{algoFEAopo}}}\only<19->{\glsShort{algoFEAopo}}\cite{WWLC2021FFAMOAIUBTOTOFV,WWLCL2023FFAOWBFGSCBE,ZWWW2026WFFAFTSIFGLS}%
+\only<-19>{~(the only algorithm achieving polynomial runtime on \glsShort{optTrap}, \glsShort{optTwoMax}, and \glsShort{optJump})}.%
+}%
 %
 \end{itemize}%
+%
+%
+\locateGraphic{2}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax}{0.67}{0.6}%
+\locateGraphic{6}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax_trap}{0.67}{0.6}%
+\locateGraphic{7}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_twomax}{0.67}{0.6}%
+\locateGraphic{8}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_jump}{0.67}{0.6}%
+\locateGraphic{9}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_plateau}{0.67}{0.6}%
 \end{frame}%
 %
 %
