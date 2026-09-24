@@ -467,11 +467,11 @@ and the baselines for discrete optimization}.%
 \frametitle{Low Autocorrelation Binary Sequences}%
 \begin{itemize}%
 \item \alert{Problem}: \glsFullpl{optLABS} are bit strings of length~$n$ whose autocorrelation is as low as possible. %
-\only<-4>{%
+%
 \item<2-> This means that sub-sequences of any length~$1\leq k<n$ should ideally never repeat. %
 \item<3-> The objective function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$ represents the energy of a bit string~\sespel\ and can be defined as~$\objFunb{\sespel}=\sum_{k=1}^{n-1}\left(\sum_{i=0}^{n-1-k} \arrayIndex{s}{i} \cdot \arrayIndex{s}{i+k}\right)^2$ with~$\arrayIndex{s}{j}=2\arrayIndex{\sespel}{j}-1$.%
 \item<4-> Such sequences are needed for communication engineering\cite{MDW2015NESFLLABS,BBB2017LABSOIMFARPTAT}, cryptography\cite{MDW2015NESFLLABS}, as well as modulation pulses in radar and sonar ranging\cite{PM2016LABS}.%
-}%
+%
 \item<5-> \alert{Benchmarks}: The objective function for different values of~$n$%
 %
 \item<6-> \alert{Baselines}: see discrete optimization\uncover<7->{ and for small~$n$ %
@@ -483,9 +483,10 @@ the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
 %
 \item<10-> \alert{\gls{SOTA}}:\uncover<10->{%
 \begin{itemize}%
-\item<11-> for small~$n$ maybe the \gls{algoMA} from\cite{GCF2007AMAFTLABSP}\uncover<12->{, the local search in\cite{HYH2008ESLSFTLABSP}\uncover<13->{, or the branch-and-bound methods from\cite{P2013IBABFLABS,PM2016LABS},}}%
-\item<14-> the \gls{algoMA} from\cite{MDW2015NESFLLABS}\uncover<15->{,}%
-\item<15-> the self-avoiding walks w/o local search from\cite{BBB2017LABSOIMFARPTAT,BB2018AHAFALABSPWOLAHMF}.%
+\item<11-> the algorithm by \textcite{D2022NCOBSWHMF}\uncover<12->{,}%
+\item<12-> the \gls{algoMA} by \textcite{MDW2015NESFLLABS}\uncover<13->{,}%
+\item<13-> the xLastovka-family of methods by \citeauthor{BB2022CSOLSSBSWHMF}~\bracketCite{BB2022CSOLSSBSWHMF,BB2018AHAFALABSPWOLAHMF}\uncover<14->{, and}%
+\item<14-> the local search by \textcite{DBN2020EGOLABS}.%
 \end{itemize}%%
 }%
 \end{itemize}%
