@@ -186,7 +186,7 @@
 \begin{frame}%
 \frametitle{Metaheuristic Optimization}%
 \begin{itemize}%
-\item What we have learned is that different metaheuristics realize the trial-and-error scheme differently.%
+\item What we have learned is that different \glspl{metaheuristic} realize the trial-and-error scheme differently.%
 \item<2-> During their selection steps, they all prefer better solutions over worse ones.%
 \item<3-> If they would always and only accept the better solutions, they could get trapped in local optima.%
 \item<4-> So some of them sometimes accept worse solutions, but the probability to choose a better solution is always higher in average.%
@@ -602,7 +602,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \begin{frame}%
 \frametitle{(1+1)~FEA on MaxSAT}%
 \begin{itemize}%
-\item The \glsFull{optMaxSAT}\cite{HS2004SLSFAA,C1971TCOTPP} problem is \npComplete~\cite{C1971TCOTPP}.%
+\item The \glsFull{optMaxSAT}\cite{HS2005SLSFAA,C1971TCOTPP} problem is \npComplete~\cite{C1971TCOTPP}.%
 \item<2-> \gls{optSATLIB}\cite{HS2000SAORFROS} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
 \item<3-> We conducted 11\decSep000~runs with the \gls{algoFEAopo} on each instance scale.%
 \item<4-> The \gls{algoEAopo} is very much slower than the \gls{algoFEAopo}, so we could use it only on smaller scales.%
