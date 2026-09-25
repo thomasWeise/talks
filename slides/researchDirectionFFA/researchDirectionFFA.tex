@@ -65,11 +65,11 @@
 \begin{itemize}%
 \item In the field of continuous optimization, we could literally try to find the \alert{minimum} of a mathematical function~$f:\realNumbers^n\mapsto\realNumbers$.%
 %
-\item<2-> The search space~\searchSpace\ would then be the $n$-dimensional real vectors, i.e., $\searchSpace=\realNumbers^n$.%
+\item<2-> The search space~\searchSpace\ would then be the \scale-dimensional real vectors, i.e., $\searchSpace=\realNumbers^{\scale}$.%
 %
-\item<3-> The objective function would, well, be the function~$f$.%
+\item<3-> The objective function would, well, be the function~\objFun.%
 %
-\item<4-> The optimal solution~$\globalOptimumOf{\sespel}\in\searchSpace$ is the minimum of~$f$.%
+\item<4-> The optimal solution~$\globalOptimumOf{\sespel}\in\searchSpace$ is the minimum of~\objFun.%
 %
 \item<5-> \alert{This is \emph{not} what I am working on, though.}%
 %
@@ -84,9 +84,9 @@
 \parbox{0.373\paperwidth}{%
 \begin{itemize}%
 %
-\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}, the goal is to find the shortest round-trip tour through a set of $n$~cities.%
+\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}, the goal is to find the shortest round-trip tour through a set of \scale~cities.%
 %
-\item<2-> The search space \searchSpace\ thus is the set of all possible round-trip tours through these $n$~cities, usually specified as permutations of the first $n$~natural numbers.%
+\item<2-> The search space \searchSpace\ thus is the set of all possible round-trip tours through these \scale~cities, usually specified as permutations of the first \scale~natural numbers.%
 %
 \item<3-> The objective function~$f:\searchSpace\mapsto\realNumbers$, subject to minimization, is the length of the tour.%
 %
@@ -103,9 +103,9 @@
 \begin{frame}[t]%
 \frametitle{Example: Bin Packing Problem}%
 \begin{itemize}%
-\item The goal of the Bin Packing Problem is to pack $n$~objects, each having a specific size, into as few bins~(also of a given size) as possible\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
-\item<2-> The \searchSpace\ comprises all possible packing orders of the $n$~objects.%
-\item<3-> The objective function~$f$ is the number of bins needed by a given packing order.%
+\item The goal of the Bin Packing Problem is to pack \scale~objects, each having a specific size, into as few bins~(also of a given size) as possible\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
+\item<2-> The \searchSpace\ comprises all possible packing orders of the \scale~objects.%
+\item<3-> The objective function~\objFun\ is the number of bins needed by a given packing order.%
 \item<4-> The optimum~$\globalOptimumOf{\sespel}$ is the packing order requiring the fewest bins.%
 \end{itemize}%
 \locateGraphic{}{width=0.85\paperwidth}{\sharedDir/graphics/bin_packing/bin_packing}{0.075}{0.5}%
@@ -342,7 +342,7 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 \begin{itemize}%
 %
-\item Discrete optimization algorithms work on bit strings of length~$n$ as search space and use only the objective values of the solutions they sample to solve a problem.%
+\item Discrete optimization algorithms work on bit strings of length~\scale\ as search space and use only the objective values of the solutions they sample to solve a problem.%
 \end{itemize}%
 %
 \uncover<2->{\parbox{0.6\paperwidth}{%
@@ -352,13 +352,13 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 \item<3-> We plug \pgls{algoFFA} into the \gls{algoEAopo} and obtain the \gls{algoFEAopo}.%
 %
-\item<4-> The \gls{algoEAopo} can easily solve the OneMax problem, where the goal is to find a bit string of all~\texttt{1}s\cite{M1992HGARWMAH}.%
+\item<4-> The \gls{algoEAopo} can easily solve the \gls{optOneMax} problem, where the goal is to find a bit string of all~\texttt{1}s\cite{M1992HGARWMAH}.%
 %
-\item<5-> It needs \bigThetab{n^n} on traps\cite{DJW2002OTAOTOPOEA}, where the optimum and the worst solution are exchanged compared to OneMax\only<-5>{.}\uncover<6->{, as well as on TwoMax\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}, which has one local and one global optimum.}%
+\item<5-> It needs \bigThetab{n^n} on traps\cite{DJW2002OTAOTOPOEA}, where the optimum and the worst solution are exchanged compared to \gls{optOneMax}\only<-5>{.}\uncover<6->{, as well as on \gls{optTwoMax}\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}, which has one local and one global optimum.}%
 \end{itemize}}%
 \uncover<7->{%
 \begin{itemize}%
-\item The \gls{algoFEAopo} solves all three problems in polynomial time\only<-7>{!}\uncover<8->{ as well as the Jump problem, where the \pgls{algoEAopo} also needs exponential runtime!}%
+\item The \gls{algoFEAopo} solves all three problems in polynomial time\only<-7>{!}\uncover<8->{ as well as the \gls{optJump} problem, where the \pgls{algoEAopo} also needs exponential runtime!}%
 \end{itemize}}}%
 %
 \locateGraphic{4}{width=0.35\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax}{0.63}{0.3}%
@@ -505,7 +505,7 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 \end{frame}%
 %
-\input{\sharedDir/advertisement/advertisement.tex}%
+\input{\sharedDir/slides/advertisement.tex}%
 %
 \endPresentation%
 \end{document}%%

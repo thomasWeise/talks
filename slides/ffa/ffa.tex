@@ -39,7 +39,7 @@
 \color{fFiveColor}\or%
 \color{fSixColor}\else%
 \color{fSevenColor}\fi%
-\ensuremath{f_{#1}}
+\ensuremath{\objFun_{#1}}
 }\egroup}%
 }%
 %
@@ -62,9 +62,9 @@
 \parbox{0.373\paperwidth}{%
 \begin{itemize}%
 %
-\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}, the goal is to find the shortest round-trip tour through a set of $n$~cities.%
+\item In the \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}, the goal is to find the shortest round-trip tour through a set of \scale~cities.%
 %
-\item<2-> The search space \searchSpace\ thus is the set of all possible round-trip tours through these $n$~cities, usually specified as permutations of the first $n$~natural numbers.%
+\item<2-> The search space \searchSpace\ thus is the set of all possible round-trip tours through these \scale~cities, usually specified as permutations of the first \scale~natural numbers.%
 %
 \item<3-> The objective function~$f:\searchSpace\mapsto\realNumbers$, subject to minimization, is the length of the tour.%
 %
@@ -84,9 +84,9 @@
 \begin{frame}[t]%
 \frametitle{Example: Bin Packing Problem}%
 \begin{itemize}%
-\item The goal of the Bin Packing Problem is to pack $n$~objects, each having a specific size, into as few bins~(also of a given size) as possible\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
-\item<2-> The \searchSpace\ comprises all possible packing orders of the $n$~objects.%
-\item<3-> The objective function~$f$ is the number of bins needed by a given packing order.%
+\item The goal of the Bin Packing Problem is to pack \scale~objects, each having a specific size, into as few bins~(also of a given size) as possible\cite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
+\item<2-> The \searchSpace\ comprises all possible packing orders of the \scale~objects.%
+\item<3-> The objective function~\objFun\ is the number of bins needed by a given packing order.%
 \item<4-> The optimum~$\globalOptimumOf{\sespel}$ is the packing order requiring the fewest bins.%
 \end{itemize}%
 \locateGraphic{}{width=0.85\paperwidth}{\sharedDir/graphics/bin_packing/bin_packing}{0.075}{0.5}%
@@ -239,14 +239,14 @@ If you keep accepting better and better solutions, you will get really good solu
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Invariance Properties: OneMax Example}%
+\frametitle{Invariance Properties: \gls{optOneMax} Example}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
-\item OneMax is the simplest benchmark problem in discrete optimization\cite{M1992HGARWMAH}.%
-\item<2-> It is defined over~$\searchSpace=\{0,1\}^n$, i.e., the bit strings of length~$n$.%
+\item \gls{optOneMax} is the simplest benchmark problem in discrete optimization\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH,ZWWW2026WFFAFTSIFGLS}.%
+\item<2-> It is defined over~$\searchSpace=\{0,1\}^{\scale}$, i.e., the bit strings of length~\scale.%
 \item<3-> Goal:~\inQuotes{Find the bit string of all 1s!}%
 \item<4-> \inQuotes{Maximize the number of 1s!}%
-\item<5-> $\fn{1}(x)=n-\sum{x}$~(for minimization).%
+\item<5-> $\fn{1}(x)=\scale-\sum{x}$~(for minimization).%
 \item<6-> Every reasonable algorithm can solve this problem.%
 \end{itemize}%
 }%
@@ -257,7 +257,7 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 %
 \begin{frame}%
-\frametitle{Invariance Properties: OneMax Example -- Translation}%
+\frametitle{Invariance Properties: \gls{optOneMax} Example -- Translation}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
 \item Now I create a slightly modified variant of this problem.%
@@ -295,7 +295,7 @@ If you keep accepting better and better solutions, you will get really good solu
 %
 %
 \begin{frame}%
-\frametitle{Invariance Properties: OneMax Example -- Scaling}%
+\frametitle{Invariance Properties: \gls{optOneMax} Example -- Scaling}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
 \item Now I create another slightly modified variant of this problem.%
@@ -329,7 +329,7 @@ If you keep accepting better and better solutions, you will get really good solu
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Invariance Properties: OneMax Example -- Squaring}%
+\frametitle{Invariance Properties: \gls{optOneMax} Example -- Squaring}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
 \item Now I create another slightly modified variant of this problem.%
@@ -368,14 +368,14 @@ If you keep accepting better and better solutions, you will get really good solu
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Invariance Properties: OneMax Example -- Trap}%
+\frametitle{Invariance Properties: \gls{optOneMax} Example -- \gls{optTrap}}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
-\item Now I create another modified variant of this problem:~a trap\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}.%
+\item Now I create another modified variant of this problem:~a \gls{optTrap}\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}.%
 \item<2-> \mbox{$\fn{5}(x)=\left\{\begin{array}{rl}0&\textnormal{if~}\fn{1}(x)=50\\1+\fn{1}(x)&\textnormal{otherwise}\end{array}\right.$\hspace{-5em}}%
 \item<4-> Expectation: Algorithm performance on~\fn{1} does not carry over to~\fn{5}.
 \item<5-> Neither the \gls{algoEAopo}, \gls{algoSA}, nor the \gls{algoSGA} can deal with this well.%
-\item<6-> The \gls{algoEAopo} has expected runtime~\bigThetab{n^n} on traps\cite{DJW2002OTAOTOPOEA}.%
+\item<6-> The \gls{algoEAopo} has expected runtime~\bigThetab{\scale^{\scale}} on \glspl{optTrap}\cite{DJW2002OTAOTOPOEA}.%
 \end{itemize}%
 }%
 \locateGraphic{1}{width=0.51\paperwidth}{\sharedDir/graphics/onemax/onemax_f1_f2_f3_f4}{0.455}{0.27}%
@@ -384,21 +384,21 @@ If you keep accepting better and better solutions, you will get really good solu
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Invariance Properties: OneMax Example -- Jump}%
+\frametitle{Invariance Properties: \gls{optOneMax} Example -- \gls{optJump}}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
 \item Now I create another modified variant of this problem:~a jump of width~$\omega=10$~bits.%
 \item<2-> $\fn{6}(x)$ has a deceptive area of $\omega-1$ bits before the optimum.%
 \item<3-> Expectation: Algorithm performance on~\fn{1} does not carry over to~\fn{6}.%
 \item<4-> Neither the \gls{algoEAopo}, \gls{algoSA}, nor the \gls{algoSGA} can deal with this well.%
-\item<5-> The \gls{algoEAopo} has expected runtime~\bigThetab{n^{\omega} + n\ln{n}} on jumps\cite{DJW2002OTAOTOPOEA}.%
+\item<5-> The \gls{algoEAopo} has expected runtime~\bigThetab{\scale^{\omega} + \scale\ln{\scale}} on jumps\cite{DJW2002OTAOTOPOEA}.%
 \end{itemize}%
 }%
 \locateGraphic{}{width=0.51\paperwidth}{\sharedDir/graphics/onemax/onemax_f1_f6}{0.455}{0.27}%
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{Invariance Properties: OneMax Example -- Injection}%
+\frametitle{Invariance Properties: \gls{optOneMax} Example -- Injection}%
 \parbox{0.415\paperwidth}{%
 \begin{itemize}%
 \item How about I apply an arbitrary injection~$g$ that preserves the location of optimum to~\fn{1} and get~$\fn{7}(x)=g(\fn{1}(x))$?.%
@@ -487,7 +487,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \item<5-> Solutions with better objective values are no longer preferred over such with worse objective value.%
 \item<6-> Instead, solutions with less-frequent objective values are preferred.%
 \item<7-> \alert{Algorithms using \gls{algoFFA} are invariant under all injective transformations of the objective function value.}%
-\item<8-> \alert{They perform identical on ALL of the OneMax-based functions from before!}%
+\item<8-> \alert{They perform identical on ALL of the \gls{optOneMax}-based functions from before!}%
 \end{itemize}%
 \end{frame}%
 %
@@ -503,12 +503,12 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on OneMax}%
+\frametitle{(1+1)~FEA on \gls{optOneMax}}%
 \parbox{0.37\paperwidth}{%
 \begin{itemize}%
-\item As first example, we again take OneMax\cite{M1992HGARWMAH}.%
-\item<2-> The expected runtime of \gls{algoEAopo} on OneMax is in \bigThetab{n\ln{n}}.\cite{DDE2015FBBCTDNGA,M1992HGARWMAH}%
-\item<3-> The average runtime \gls{algoFEAopo} on OneMax seems to be slower by factor proportional to~$n$, i.e., seems to be in~\bigOb{n^2\ln{n}}.%
+\item As first example, we again take \gls{optOneMax}\cite{M1992HGARWMAH}.%
+\item<2-> The expected runtime of \gls{algoEAopo} on \gls{optOneMax} is in \bigThetab{\scale\ln{\scale}}\cite{DDE2015FBBCTDNGA,M1992HGARWMAH}.%
+\item<3-> The average runtime \gls{algoFEAopo} on \gls{optOneMax} seems to be slower by factor proportional to~\scale, i.e., seems to be in~\bigOb{\scale^2\ln{\scale}}\cite{WWLC2021FFAMOAIUBTOTOFV}.%
 \end{itemize}%
 }%
 %
@@ -517,12 +517,12 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on LeadingOnes}%
+\frametitle{(1+1)~FEA on \gls{optLeadingOnes}}%
 \parbox{0.37\paperwidth}{%
 \begin{itemize}%
-\item The LeadingOnes problem maximizes the number of leading \texttt{1} bits in a bit string\cite{W1989TGAASPWRBAORTIB,R1997CPOEA}.%
-\item<2-> The expected runtime of \gls{algoEAopo} on LeadingOnes is in \bigThetab{n^2}.\cite{DJW2002OTAOTOPOEA}%
-\item<3-> The average runtime \gls{algoFEAopo} on LeadingOnes seems to be slower by factor proportional to~$n$, i.e., seems to be in~\bigOb{n^3}.%
+\item The \gls{optLeadingOnes} problem maximizes the number of leading \texttt{1} bits in a bit string\cite{W1989TGAASPWRBAORTIB,R1997CPOEA}.%
+\item<2-> The expected runtime of \gls{algoEAopo} on \gls{optLeadingOnes} is in \bigThetab{\scale^2}\cite{DJW2002OTAOTOPOEA}.%
+\item<3-> The average runtime \gls{algoFEAopo} on \gls{optLeadingOnes} seems to be slower by factor proportional to~\scale, i.e., seems to be in~\bigOb{\scale^3}\cite{WWLC2021FFAMOAIUBTOTOFV}.%
 \end{itemize}%
 }%
 %
@@ -531,12 +531,12 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on TwoMax}%
+\frametitle{(1+1)~FEA on \gls{optTwoMax}}%
 \parbox{0.37\paperwidth}{%
 \begin{itemize}%
-\item The TwoMax problem has one local opposite to a global optimum\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}.%
-\item<2-> An \gls{algoEAopo} has a 50/50 chance to converge to the local or global optimum and thus has an expected runtime in \bigThetab{n^n}.\cite{FQW2018ELDBOAWHTMO,FOSW2009AODPMFGE}%
-\item<3-> The average runtime \gls{algoFEAopo} on TwoMax seems to be in~\bigOb{n^2 \ln{n}}.%
+\item The \gls{optTwoMax} problem has one local opposite to a global optimum\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP,ZWWW2026WFFAFTSIFGLS}.%
+\item<2-> An \gls{algoEAopo} has a 50/50 chance to converge to the local or global optimum and thus has an expected runtime in \bigThetab{\scale^{\scale}}.\cite{FQW2018ELDBOAWHTMO,FOSW2009AODPMFGE}%
+\item<3-> The average runtime \gls{algoFEAopo} on \gls{optTwoMax} seems to be in~\bigOb{\scale^2 \ln{\scale}}\cite{WWLC2021FFAMOAIUBTOTOFV}.%
 \end{itemize}%
 }%
 %
@@ -546,16 +546,16 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on Trap}%
+\frametitle{(1+1)~FEA on \gls{optTrap}}%
 \parbox{0.37\paperwidth}{%
 \begin{itemize}%
-\item The Trap problem basically swaps the global optimum with the worst solution\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}.%
-\item<2-> An \gls{algoEAopo} will converge to the resulting local optimum and thus have an expected runtime of \bigThetab{n^n}.\cite{DJW2002OTAOTOPOEA}%
-\item<3-> The average runtime \gls{algoFEAopo} on Trap seems to be in~\bigOb{n^2 \ln{n}}.%
+\item The \gls{optTrap} problem basically swaps the global optimum with the worst solution\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}.%
+\item<2-> An \gls{algoEAopo} will converge to the resulting local optimum and thus have an expected runtime of \bigThetab{\scale^{\scale}}\cite{DJW2002OTAOTOPOEA}.%
+\item<3-> The average runtime \gls{algoFEAopo} on \gls{optTrap} seems to be in~\bigOb{\scale^2 \ln{\scale}}\cite{WWLC2021FFAMOAIUBTOTOFV}.%
 \end{itemize}%
 }\\%
 \uncover<4->{\begin{itemize}%
-\item The expected runtime is the same as on OneMax, because Trap is an injective transformation of OneMax, symmetric, and FFA \inQuotes{converges} into both directions.%
+\item The expected runtime is the same as on \gls{optOneMax}, because \gls{optTrap} is an injective transformation of \gls{optOneMax}, symmetric, and FFA \inQuotes{converges} into both directions.%
 \end{itemize}%
 }%
 %
@@ -565,16 +565,16 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on Jumps}%
+\frametitle{(1+1)~FEA on \glspl{optJump}}%
 \parbox{0.37\paperwidth}{%
 \begin{itemize}%
-\item The Jump problem inserts a deceptive region of~$\omega-1$~bits before the optimum, forcing the algorithm to toggle~$\omega$ bits at once\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}.%
-\item<2-> An \gls{algoEAopo} will converge to the resulting local optimum and thus have an expected runtime of \bigThetab{n^{\omega}+n\ln{n}}.\cite{DJW2002OTAOTOPOEA}%
-\item<3-> The average runtime \gls{algoFEAopo} on Jump seems to \alert{always} be in~\bigOb{n^2 \ln{n}}.%
+\item The \gls{optJump} problem inserts a deceptive region of~$\omega-1$~bits before the optimum, forcing the algorithm to toggle~$\omega$ bits at once\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}.%
+\item<2-> An \gls{algoEAopo} will converge to the resulting local optimum and thus have an expected runtime of \bigThetab{\scale^{\omega}+\scale\ln{\scale}}\cite{DJW2002OTAOTOPOEA}.%
+\item<3-> The average runtime \gls{algoFEAopo} on \gls{optJump} seems to \alert{always} be in~\bigOb{\scale^2 \ln{\scale}}\cite{WWLC2021FFAMOAIUBTOTOFV}.%
 \end{itemize}%
 }\\%
 \uncover<4->{\begin{itemize}%
-\item It is \alert{identical} to its performance on OneMax regardless of~$\omega$, because all Jumps are an injective transformation of OneMax!%
+\item It is \alert{identical} to its performance on \gls{optOneMax} regardless of~$\omega$, because all \glspl{optJump} are an injective transformation of \gls{optOneMax}!%
 \end{itemize}%
 }%
 %
@@ -584,12 +584,12 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on Plateaus}%
+\frametitle{(1+1)~FEA on \glspl{optPlateau}}%
 \parbox{0.37\paperwidth}{%
 \begin{itemize}%
-\item The Plateau problem inserts a neutral region of~$\omega-1$~bits before the optimum, forcing the algorithm to toggle~$\omega$ bits at once\cite{AD2018PRAFP}.%
-\item<2-> An \gls{algoEAopo} has an expected runtime of \bigThetab{n^{\omega}} on plateaus\cite{AD2018PRAFP}.%
-\item<3-> The average runtime \gls{algoFEAopo} on Plateaus is slower, again by a factor seemingly proportional in~$n$.%
+\item The \gls{optPlateau} problem inserts a neutral region of~$\omega-1$~bits before the optimum, forcing the algorithm to toggle~$\omega$ bits at once\cite{AD2018PRAFP}.%
+\item<2-> An \gls{algoEAopo} has an expected runtime of \bigThetab{\scale^{\omega}} on plateaus\cite{AD2018PRAFP}.%
+\item<3-> The average runtime \gls{algoFEAopo} on \glspl{optPlateau} is slower, again by a factor seemingly proportional in~\scale.%
 \item<4-> Plateaus remain plateaus under the identity-based fitness assignment FFA.%
 \end{itemize}%
 }%
@@ -600,10 +600,10 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on MaxSAT}%
+\frametitle{(1+1)~FEA on \gls{optMaxSAT}}%
 \begin{itemize}%
 \item The \glsFull{optMaxSAT}\cite{HS2005SLSFAA,C1971TCOTPP} problem is \npComplete~\cite{C1971TCOTPP}.%
-\item<2-> \gls{optSATLIB}\cite{HS2000SAORFROS} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
+\item<2-> \gls{optSATLIB}\cite{HS2000SAORFROS} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$\scale\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
 \item<3-> We conducted 11\decSep000~runs with the \gls{algoFEAopo} on each instance scale.%
 \item<4-> The \gls{algoEAopo} is very much slower than the \gls{algoFEAopo}, so we could use it only on smaller scales.%
 \item<5-> Our computational budget was always~$10^{10}$~\glsFullpl{objFE}.%
@@ -612,10 +612,10 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{frame}%
 %
 \begin{frame}%
-\frametitle{(1+1)~FEA on MaxSAT}%
+\frametitle{(1+1)~FEA on \gls{optMaxSAT}}%
 \parbox{0.25\paperwidth}{%
 \begin{itemize}%
-\item The \gls{algoFEAopo} is better on problems with 250 variables than the \gls{algoEAopo} on problems with 50.%
+\item The \gls{algoFEAopo} is better on problems with 250~variables than the \gls{algoEAopo} on problems with~50.%
 \end{itemize}%
 }%
 %
@@ -653,13 +653,13 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 %
 \uncover<2->{%
 \begin{itemize}%
-\item Let’s say you have an optimization problem with objective function~$f(x)$.%
+\item Let’s say you have an optimization problem with objective function~\objFunb{x}.%
 \item<3-> You \alert{encrypt} the objective values and do not tell them to the algorithm.%
-\item<4-> Let's say you apply \glslink{cryptoAES}{AES}\cite{FIPSPUB197,FIPSPUB197upd1}, \gls{cryptoRSA}\cite{RSA1978AMFODSAPKC,Y2006MCFCTR}, or the Caesar cipher\cite{O2002CACJCTEATI,Y2006MCFCTR} as a function~$g:\naturalNumbersZ\mapsto\naturalNumbersZ$ to~$f$, i.e., do~$g\circ f$.%
-\item<5-> Encryption removes any order, correlation or causality information, i.e., $g\circ f$ does not correlate with~$f$ in any way.%
-\item<6-> $g(f(x))$~will be totally random.\uncover<7->{ No reasonable optimization algorithm could work with that.}%
-\item<8-> If the \gls{algoFEAopo} can find the optimum of~$f(x)$\dots%
-\item<9-> {\dots}then it will find exactly the same solution in exactly the same runtime even if you apply it to the encrypted problem~$g(f(x))$!%
+\item<4-> Let's say you apply \glslink{cryptoAES}{AES}\cite{FIPSPUB197,FIPSPUB197upd1}, \gls{cryptoRSA}\cite{RSA1978AMFODSAPKC,Y2006MCFCTR}, or the Caesar cipher\cite{O2002CACJCTEATI,Y2006MCFCTR} as a function~$g:\naturalNumbersZ\mapsto\naturalNumbersZ$ to~\objFun, i.e., do~$g\circ \objFun$.%
+\item<5-> Encryption removes any order, correlation or causality information, i.e., $g\circ \objFun$ does not correlate with~\objFun\ in any way.%
+\item<6-> $g(\objFunb{x})$~will be totally random.\uncover<7->{ No reasonable optimization algorithm could work with that.}%
+\item<8-> If the \gls{algoFEAopo} can find the optimum of~\objFunb{x}\dots%
+\item<9-> {\dots}then it will find exactly the same solution in exactly the same runtime even if you apply it to the encrypted problem~$g(\objFunb{x})$!%
 \item<10-> How incredibly strange is that?%
 \end{itemize}%
 }%
@@ -782,7 +782,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \begin{itemize}%
 \item the \glsFull{optTTP}, where \gls{algoRLS} can find surprisingly good results:~\bracketCite{XWvdBW2024RLSVNVFFAOTTTP}.%
 \item<4-> the two-dimensional bin packing problem, where \gls{algoRLS} can actually \alert{outperform} several complex state-of-the-art metaheuristics~\bracketCite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
-\item<5-> FFA can get trapped too\only<-5>{!}\uncover<6->{:~If all neighbors that can be reached with one search step around one solution all have the same objective value, then FFA-guided search may not be able to escape from that solution\cite{ZWWW2026WFFAFTSIFGLS}.\uncover<7->{ This can happen with 1-bit flips on OneMax\cite{ZWWW2026WFFAFTSIFGLS}.}%
+\item<5-> FFA can get trapped too\only<-5>{!}\uncover<6->{:~If all neighbors that can be reached with one search step around one solution all have the same objective value, then FFA-guided search may not be able to escape from that solution\cite{ZWWW2026WFFAFTSIFGLS}.\uncover<7->{ This can happen with 1-bit flips on \gls{optOneMax}\cite{ZWWW2026WFFAFTSIFGLS}.}%
 }%
 \end{itemize}%
 }%
@@ -803,7 +803,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \end{itemize}%
 \end{frame}%
 %
-\input{\sharedDir/advertisement/advertisement.tex}%
+\input{\sharedDir/slides/advertisement.tex}%
 %
 \endPresentation%
 \end{document}%%

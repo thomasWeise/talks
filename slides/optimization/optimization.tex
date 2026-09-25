@@ -422,7 +422,7 @@
 \frametitle{Traveling Salesperson Problem}%
 %
 \begin{itemize}%
-\item In an \glsFull{optTSP}, we want to find the shortest path through $n$~locations and back to the start\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}.%
+\item In an \glsFull{optTSP}, we want to find the shortest path through \scale~locations and back to the start\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}.%
 \end{itemize}%
 %
 \locateGraphic{2}{width=0.5\paperwidth}{\sharedDir/graphics/tsp_china/tsp_china}{0.256}{0.22}%
@@ -568,9 +568,9 @@ Which is the number of cities in the \glsShort{optTSP}\dots%
 %
 \item<2-> It relies on randomly guessing good tours.%
 %
-\item<3-> If we have $n$~cities, then there are $1*2*3*\dots*(n-1)*n=\factorial{n}$ tours.%
+\item<3-> If we have \scale~cities, then there are $1*2*3*\dots*(\scale-1)*\scale=\factorial{\scale}$ tours.%
 %
-\item<5-> Factorial growth~(\factorial{n}) is even worse than exponential growth\dots%
+\item<5-> Factorial growth~(\factorial{\scale}) is even worse than exponential growth\dots%
 %
 \item<6-> So if we try to randomly sample the best possible tour, our chance is extremely small\dots%
 \end{itemize}%
@@ -797,7 +797,7 @@ But we will leave it at what we have seen so far.%
 \end{itemize}%
 \end{frame}%
 %
-\input{\sharedDir/advertisement/advertisement.tex}%
+\input{\sharedDir/slides/advertisement.tex}%
 %
 \endPresentation%
 \end{document}%%

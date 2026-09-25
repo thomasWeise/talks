@@ -295,13 +295,14 @@
 %
 \input{\sharedDir/slides/optimization_metaheuristic_cycle.tex}%
 %
+\input{\sharedDir/slides/optimization_metaheuristic_components.tex}%
+%
 \gdef\sharedSlideTitle{Example:~RLS and the $(1+1)$~EA}%
 \input{\sharedDir/slides/optimization_opoea_rls.tex}%
 %
 \xdef\sharedSlideTitle{Example:~Simulated Annealing}%
 \input{\sharedDir/slides/optimization_sa.tex}%
 %
-\input{\sharedDir/slides/optimization_metaheuristic_components.tex}%
 %
 \begin{frame}[t]%
 \frametitle{Types of Metaheuristics}%
@@ -362,7 +363,7 @@
 \frametitle{Black-Box Discrete Optimization}%
 \begin{itemize}%
 %
-\item \alert{Problem}: Search space~\searchSpace\ corresponds to the set~$\{0,1\}^n$ of bit strings of length~$n$ and nothing is known about objective~function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$.%
+\item \alert{Problem}: Search space~\searchSpace\ corresponds to the set~$\{0,1\}^{\scale}$ of bit strings of length~\scale\ and nothing is known about objective~function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$.%
 %
 \item<2-> Benchmarks here often have the goal to investigate problematic aspects of discrete problems in isolation\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}.%
 %
@@ -382,11 +383,11 @@
 %
 \only<8->{, \only<-8>{\alert<8>{\glsShort{optJump}}}\only<9->{\glsShort{optJump}}\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}\only<-8>{~(like OneMax, but $\omega$~bits around optimum are deceptive)}}%
 %
-\only<9->{, \only<-9>{\alert<9>{\glsShort{optPlateau}}}\only<10->{\glsShort{optPlateau}}\cite{AD2018PRAFP}\only<-9>{ (like Jump, but bits around optimum are neutral)}}%
+\only<9->{, \only<-9>{\alert<9>{\glsShort{optPlateau}}}\only<10->{\glsShort{optPlateau}}\cite{AD2018PRAFP}\only<-9>{ (like \gls{optJump}, but bits around optimum are neutral)}}%
 %
 \only<10->{, \only<-10>{\alert<10>{\glsShortpl{optIsing}}}\only<11->{\glsShortpl{optIsing}}\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}\only<-10>{~(many interactions between variables)}}%
 %
-\only<11->{, \only<-11>{\alert<11>{\glsShort{optNQueens}}}\only<12->{\glsShort{optNQueens}}\cite{DYHWSB2020BDOHWI}\only<-11>{~(place $n$~queens on chessboard, many interactions between variables)}}%
+\only<11->{, \only<-11>{\alert<11>{\glsShort{optNQueens}}}\only<12->{\glsShort{optNQueens}}\cite{DYHWSB2020BDOHWI}\only<-11>{~(place $N$~queens on a chessboard, many interactions between variables)}}%
 %
 \only<12->{, \only<-12>{\alert<12>{\glsShort{optWModel}}}\only<13->{\glsShort{optWModel}}\cite{WW2018DFOCOPATTWBPFST,WNSRG2008ATMFMOERANFL}\only<-12>{~(allows you to tune and combine the above features)}}%
 %
@@ -470,15 +471,15 @@ and the baselines for discrete optimization}.%
 \begin{frame}%
 \frametitle{Low Autocorrelation Binary Sequences}%
 \begin{itemize}%
-\item \alert{Problem}: \glsFullpl{optLABS} are bit strings of length~$n$ whose autocorrelation is as low as possible. %
+\item \alert{Problem}: \glsFullpl{optLABS} are bit strings of length~\scale\ whose autocorrelation is as low as possible. %
 %
-\item<2-> This means that sub-sequences of any length~$1\leq k<n$ should ideally never repeat. %
-\item<3-> The objective function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$ represents the energy of a bit string~\sespel\ and can be defined as~$\objFunb{\sespel}=\sum_{k=1}^{n-1}\left(\sum_{i=0}^{n-1-k} \arrayIndex{s}{i} \cdot \arrayIndex{s}{i+k}\right)^2$ with~$\arrayIndex{s}{j}=2\arrayIndex{\sespel}{j}-1$.%
+\item<2-> This means that sub-sequences of any length~$1\leq k<\scale$ should ideally never repeat. %
+\item<3-> The objective function~$\objFun:\{0,1\}^{\scale}\mapsto\naturalNumbersZ$ represents the energy of a bit string~\sespel\ and can be defined as~$\objFunb{\sespel}=\sum_{k=1}^{\scale-1}\left(\sum_{i=0}^{\scale-1-k} \arrayIndex{s}{i} \cdot \arrayIndex{s}{i+k}\right)^2$ with~$\arrayIndex{s}{j}=2\arrayIndex{\sespel}{j}-1$.%
 \item<4-> Such sequences are needed for communication engineering\cite{MDW2015NESFLLABS,BBB2017LABSOIMFARPTAT}, cryptography\cite{MDW2015NESFLLABS}, as well as modulation pulses in radar and sonar ranging\cite{PM2016LABS}.%
 %
-\item<5-> \alert{Benchmarks}: The objective function for different values of~$n$%
+\item<5-> \alert{Benchmarks}: The objective function for different values of~\scale.%
 %
-\item<6-> \alert{Baselines}: see discrete optimization\uncover<7->{ and for small~$n$ %
+\item<6-> \alert{Baselines}: see discrete optimization\uncover<7->{ and for small~\scale\ %
 a \gls{algoGA}\cite{MZB1998ESFLABS}\uncover<8->{ %
  or exhaustive enumeration\cite{M1996ESFLABS}\uncover<9->{ and %
 the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
@@ -502,7 +503,7 @@ the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
 \begin{frame}%
 \frametitle{Black-Box Permutation Problems}%
 \begin{itemize}%
-\item \alert{Problem}: The search space~\searchSpace\ corresponds to the set of all permutations of the first $n$~natural numbers.%
+\item \alert{Problem}: The search space~\searchSpace\ corresponds to the set of all permutations of the first \scale~natural numbers.%
 \item<2-> \alert{Baselines}: \gls{algoRLS} with a unary operator that swaps two elements\uncover<3->{, %
 \gls{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \gls{algoEAopo} for permutations)\uncover<4->{, %
 \gls{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<5->{, and a %
@@ -641,7 +642,7 @@ the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
 \end{itemize}%
 \end{frame}%
 %
-\input{\sharedDir/advertisement/advertisement.tex}%
+\input{\sharedDir/slides/advertisement.tex}%
 %
 \endPresentation%
 \end{document}%%

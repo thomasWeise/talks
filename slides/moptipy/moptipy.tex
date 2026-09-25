@@ -14,7 +14,7 @@
 \protected\gdef\varInstance{\ensuremath{\mathcal{I}}}%
 \protected\gdef\varName#1{\ensuremath{\operatorname{name}(#1)}}%
 \protected\gdef\varRandGen{\ensuremath{\mathfrak{R}}}%
-\protected\gdef\nRuns{\ensuremath{n}}%
+\protected\gdef\nRuns{\ensuremath{\mathit{nRuns}}}%
 %
 \begin{document}%
 \startPresentation%
@@ -131,7 +131,7 @@
 \begin{itemize}%
 \item \varName{\varInstance} be the user-defined name string of the problem instance~\varInstance.%
 %
-\item<2-> It could be \emph{\inQuotes{onemax\_20}} for the 20\nobreakdashes-bit OneMax problem, or maybe \emph{\inQuotes{swv15}} for an instance of the \glsFull{optJSSP}, for example.%
+\item<2-> It could be \emph{\inQuotes{onemax\_20}} for the 20\nobreakdashes-bit \gls{optOneMax} problem, or maybe \emph{\inQuotes{swv15}} for an instance of the \glsFull{optJSSP}, for example.%
 %
 \item<3-> Compute the \gls{sha512} digest\cite{FIPSPUB180D4}~(hash) of the \glsShort{utf8} encoded\cite{RFC3629,ISOIEC106462020ITUCCSU} \varName{\varInstance} and get 64~bytes of data~$D$.%
 %
@@ -301,7 +301,7 @@
 \end{itemize}%
 \end{frame}%
 %
-\input{\sharedDir/advertisement/advertisement.tex}%
+\input{\sharedDir/slides/advertisement.tex}%
 %
 \endPresentation%
 \end{document}%%

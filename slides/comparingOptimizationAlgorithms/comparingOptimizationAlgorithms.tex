@@ -33,23 +33,23 @@
 %
 \item<2-> Let's look at the classical \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}.%
 \only<6>{\item<6-> What does \alert{exponential growth} mean?}%
-\only<6-7>{\item<6-> Let's say we have a number of cities~$s$\only<-6>{.}\uncover<7->{ and a runtime as a function~$f(s)$ in this log-log plot.}}%
-\only<8>{\item<8-> A linear function means that the runtime~$f(s)$ grows slowly with~$s$.}%
-\only<9>{\item<9-> A quadratic function (a straight line in log-log plots) is also OK.}%
-\only<10-11>{\item<10-> A quartic function \only<-10>{$f(s)=s^4$ gets quite large for growing~$s$}\only<11>{exceeds the number of milliseconds per day at~$s\approx512$}.}%
-\only<12-13>{\item<12-> \only<-12>{But this is nothing compared to the exponential function~$f(s)=1.1^s$\dots}\only<13->{A runtime of~$1.1^s$ becomes infeasible for~$s>512$.}}%
+\only<6-7>{\item<6-> Let's say we have a number of cities~\scale\only<-6>{.}\uncover<7->{ and a runtime as a function~$f(\scale)$ in this log-log plot.}}%
+\only<8>{\item<8-> A linear function means that the runtime~$f(\scale)$ grows slowly with~\scale.}%
+\only<9>{\item<9-> A quadratic function~(a straight line in log-log plots) is also OK.}%
+\only<10-11>{\item<10-> A quartic function \only<-10>{$f(\scale)=\scale^4$ gets quite large for growing~\scale}\only<11>{exceeds the number of milliseconds per day at~$\scale\approx512$}.}%
+\only<12-13>{\item<12-> \only<-12>{But this is nothing compared to the exponential function~$f(\scale)=1.1^{\scale}$\dots}\only<13->{A runtime of~$1.1^{\scale}$ becomes infeasible for~$\scale>512$.}}%
 \only<14-15>{\item<14-> For larger bases, the runtime grows even faster.}%
-\only<16>{\item<16-> If we would enumerate all possible tours of $s$~cities in a \gls{optTSP}, that would be~\factorial{s}.}%
-\only<3-5,17->{%
+\only<16-17>{\item<16-> If we would enumerate all possible tours of \scale~cities in a \gls{optTSP}, that would be~\factorial{\scale}.}%
+\only<3-5,18->{%
 \begin{itemize}%
 \only<-5>{\item Clearly, there is (at least) one shortest tour.}%
-\only<-8>{\item<5-> \only<-5>{Theory proofs that the worst-case runtime needed to find this tour grows exponentially with the number~$s$ of cities we want to visit.\cite{LLRKS1993SASAAC,CPW1998AROMSCAAA,C1971TCOTPP,K1972RACP,A2008TLOQC}}%
-\only<17->{\item Finding the best tour (what exact algorithms do) may take too long.}}%
-\only<-19>{\item<18-> But we can find just \alert{some} tour very quickly.}%
-\only<-20>{\item<19-> Of course the quality of that tour will be lower\only<20>{: the tour will be longer than the best one}.}%
-\only<-22>{\item<21-> Is there something in between?}%
-\only<-23>{\item<22-> (Meta-)Heuristic optimization algorithms try to find solutions which are as good as possible as fast as possible.}%
-\item<23-> \alert{Optimization often means to make a trade-off between solution quality and runtime.}%
+\only<-8>{\item<5-> \only<-5>{Theory proofs that the worst-case runtime needed to find this tour grows exponentially with the number~\scale\ of cities we want to visit.\cite{LLRKS1993SASAAC,CPW1998AROMSCAAA,C1971TCOTPP,K1972RACP,A2008TLOQC}}%
+\only<18->{\item Finding the best tour (what exact algorithms do) may take too long.}}%
+\only<-20>{\item<19-> But we can find just \alert{some} tour very quickly.}%
+\only<-21>{\item<20-> Of course the quality of that tour will be lower\only<20>{: the tour will be longer than the best one}.}%
+\only<-23>{\item<22-> Is there something in between?}%
+\only<-24>{\item<23-> (Meta-)Heuristic optimization algorithms try to find solutions which are as good as possible as fast as possible.}%
+\item<24-> \alert{Optimization often means to make a trade-off between solution quality and runtime.}%
 \end{itemize}%
 }%
 \end{itemize}%
@@ -71,14 +71,15 @@
 \locateGraphic{14}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_09}{0.1}{0.29}%
 \locateGraphic{15}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_10}{0.1}{0.29}%
 \locateGraphic{16}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth_11}{0.1}{0.29}%
+\locateGraphic{17}{width=0.8\paperwidth}{\sharedDir/graphics/function_growth/function_growth}{0.1}{0.29}%
 %
-\locateGraphic{17}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_2}{0.21}{0.38}%
-\locateGraphic{18}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_3}{0.21}{0.38}%
-\locateGraphic{19-20}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_4}{0.21}{0.38}%
-\locateGraphic{21}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_5}{0.21}{0.38}%
-\locateGraphic{22}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_6}{0.21}{0.38}%
-\locateGraphic{23}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_7}{0.21}{0.38}%
-\locateGraphic{24}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.21}{0.38}%
+\locateGraphic{18}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_2}{0.21}{0.38}%
+\locateGraphic{19}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_3}{0.21}{0.38}%
+\locateGraphic{20-21}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_4}{0.21}{0.38}%
+\locateGraphic{22}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_5}{0.21}{0.38}%
+\locateGraphic{23}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_6}{0.21}{0.38}%
+\locateGraphic{24}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_7}{0.21}{0.38}%
+\locateGraphic{25}{width=0.58\paperwidth}{\sharedDir/graphics/runtime_quality_tradeoff/runtime_quality_tradeoff_8}{0.21}{0.38}%
 \end{frame}%
 %
 \section{Views on Performance and Time}%
@@ -155,7 +156,7 @@ We can measure (count) the \glsFullpl{objFE}, i.e., the number of tested candida
 \item<10-> 1~\gls{objFE}: very different costs in different situations!\cite{WCLTTCMY2014BOAAOSFFTTSP}\uncover<11->{%
 \begin{itemize}%
 \item When applying a local search that swaps two cities in each move to the \gls{optTSP}, 1~\gls{objFE} can be done in $\bigOb{1}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
-\item<12-> When applying \glsFull{algoACO} instead, each \gls{objFE} takes~$\bigOb{s^2}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
+\item<12-> When applying \glsFull{algoACO} instead, each \gls{objFE} takes~$\bigOb{\scale^2}$\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
 \end{itemize}%
 }%
 \end{itemize}%
@@ -1216,7 +1217,7 @@ Algorithm must be clearly specified and ideally the source code is available to 
 \end{itemize}%
 \end{frame}%
 %
-\input{\sharedDir/advertisement/advertisement.tex}%
+\input{\sharedDir/slides/advertisement.tex}%
 %
 \endPresentation%
 \end{document}%%
