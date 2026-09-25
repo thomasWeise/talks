@@ -506,20 +506,28 @@ the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
 \item \alert{Problem}: The search space~\searchSpace\ corresponds to the set of all permutations of the first \scale~natural numbers.%
 \item<2-> \alert{Baselines}: \gls{algoRLS} with a unary operator that swaps two elements\uncover<3->{, %
 \gls{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \gls{algoEAopo} for permutations)\uncover<4->{, %
-\gls{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<5->{, and a %
-\gls{algoEAmpl} with these operators and the Alternating Position Crossover~(AP) operator\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
-}}}%
-\item<4-> \alert{\gls{SOTA}}:%
+\gls{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<5->{, %
+ \gls{algoTS} with the same operator that forbids moving values to recently-used indicess\uncover<6->{, and a %
+\gls{algoEAmpl} with these operators and the Alternating Position Crossover operator\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
+}}}}%
+\item<7-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
-\begin{frame}%
-\frametitle{Traveling Salesperson Problem}%
+\begin{frame}[t]%
+\frametitle{\glsFull{optTSP}}%
 \begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
+\item \alert{Problem}: The goal of a \glsShort{optTSP} is to find the shortest round-trip tour through \scale~cities.%
+%
+\item<2-> The \glsShort{optTSP} has applications in transportation, logistics, but also in the control of CNC drilling machines or machines that paste chips on boards.%
+%
+\item<3-> \alert{Benchmarks}: %
+The \gls{TSPLib}\cite{R2016T,R1991ATSPL}\only<-3>{ %
+with 110~symmetric instances with scales~$\scale\in\intRange{14}{85\decSep900}$ and 19~asymmetric instances with scales~$\scale\in\intRange{17}{443}$.%
+}%
+%
+\item<4-> \alert{Baselines}:%
+\item<5-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
