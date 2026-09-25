@@ -33,11 +33,11 @@
 %
 \item<2-> Let's look at the classical \glsFull{optTSP}\cite{ABCC2006TTSPACS,LLRKS1985TTSPAGTOCO,GP2002TTSPAIV,WCLTTCMY2014BOAAOSFFTTSP,LWLvdBTW2024ATTSPWFFAAHA,WWCTL2016GVLSTIOPSOEAP}.%
 \only<6>{\item<6-> What does \alert{exponential growth} mean?}%
-\only<6-7>{\item<6-> Let's say we have a number of cities~\scale\only<-6>{.}\uncover<7->{ and a runtime as a function~$f(\scale)$ in this log-log plot.}}%
-\only<8>{\item<8-> A linear function means that the runtime~$f(\scale)$ grows slowly with~\scale.}%
+\only<6-7>{\item<6-> Let's say we have a number of cities~\scale\only<-6>{.}\uncover<7->{ and a runtime as a function~$R(\scale)$ in this log-log plot.}}%
+\only<8>{\item<8-> A linear function means that the runtime~$R(\scale)$ grows slowly with~\scale.}%
 \only<9>{\item<9-> A quadratic function~(a straight line in log-log plots) is also OK.}%
-\only<10-11>{\item<10-> A quartic function \only<-10>{$f(\scale)=\scale^4$ gets quite large for growing~\scale}\only<11>{exceeds the number of milliseconds per day at~$\scale\approx512$}.}%
-\only<12-13>{\item<12-> \only<-12>{But this is nothing compared to the exponential function~$f(\scale)=1.1^{\scale}$\dots}\only<13->{A runtime of~$1.1^{\scale}$ becomes infeasible for~$\scale>512$.}}%
+\only<10-11>{\item<10-> A quartic function \only<-10>{$R(\scale)=\scale^4$ gets quite large for growing~\scale}\only<11>{exceeds the number of milliseconds per day at~$\scale\approx512$}.}%
+\only<12-13>{\item<12-> \only<-12>{But this is nothing compared to the exponential function~$R(\scale)=1.1^{\scale}$\dots}\only<13->{A runtime of~$1.1^{\scale}$ becomes infeasible for~$\scale>512$.}}%
 \only<14-15>{\item<14-> For larger bases, the runtime grows even faster.}%
 \only<16-17>{\item<16-> If we would enumerate all possible tours of \scale~cities in a \gls{optTSP}, that would be~\factorial{\scale}.}%
 \only<3-5,18->{%
