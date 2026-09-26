@@ -504,12 +504,15 @@ the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
 \frametitle{Black-Box Permutation Problems}%
 \begin{itemize}%
 \item \alert{Problem}: The search space~\searchSpace\ corresponds to the set of all permutations of the first \scale~natural numbers.%
-\item<2-> \alert{Baselines}: \gls{algoRLS} with a unary operator that swaps two elements\uncover<3->{, %
-\gls{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \gls{algoEAopo} for permutations)\uncover<4->{, %
-\gls{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<5->{, %
- \gls{algoTS} with the same operator that forbids moving values to recently-used indicess\uncover<6->{, and a %
-\gls{algoEAmpl} with these operators and the Alternating Position Crossover operator\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
-}}}}%
+\item<2-> \alert{Baselines}:\uncover<2->{%
+\begin{itemize}%
+\item \gls{algoRLS} with a unary operator that swaps two elements\uncover<3->{,}%
+\item<3-> \gls{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \gls{algoEAopo} for permutations)\uncover<4->{,}%
+\item<4-> \gls{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<5->{,}%
+\item<5-> \gls{algoTS} with the same operator that forbids moving values to recently-used indicess\uncover<6->{, and a}%
+\item<6-> \gls{algoEAmpl} with these operators and maybe \glsFull{algoAPcross}\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
+\end{itemize}%
+}%
 \item<7-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
@@ -519,32 +522,38 @@ the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
 \begin{itemize}%
 \item \alert{Problem}: The goal of a \glsShort{optTSP} is to find the shortest round-trip tour through \scale~cities.%
 %
-\item<2-> The \glsShort{optTSP} has applications in transportation, logistics, but also in the control of CNC drilling machines or machines that paste chips on boards.%
+\item<2-> The \glsShort{optTSP} has many applications in transportation, logistics, drilling problems, telescope aiming, and genome sequencing\cite{ABCC2006TTSPACS}.%
 %
-\item<3-> \alert{Benchmarks}: %
-The \gls{TSPLib}\cite{R2016T,R1991ATSPL}\only<-3>{ %
-with 110~symmetric instances with scales~$\scale\in\intRange{14}{85\decSep900}$ and 19~asymmetric instances with scales~$\scale\in\intRange{17}{443}$.%
-}\uncover<4->{, the %
-instances of the 8th~DIMACS challenge\cite{JMGR20008DICTTSP,JM2002EAOHFTS,JGMYZZ2002EAOHFTS}\only<-4>{, %
-with instances with up to~10\decSep000\decSep000~cities.%
-}}%
-\uncover<5->{, and the %
-\citetitle{C2013WT} repository\cite{C2013WT}\only<-5>{ %
-with many real-world geographical instances, including one with all 1\decSep904\decSep711 registered populated places of the Earth at some point in time in the 2000s%
-}.}%
-%
-\item<6-> \alert{Baselines}: the \only<-6>{\glsFull{algoLK} algorithm, which exchanges variable number of edges in a tour.}\only<7->{\glsShort{algoLK} algorithm}\cite{LK1973AEHAFTTSP}%
-%
-\item<7-> \alert{\gls{SOTA}}:\uncover<7->{%
+\item<3-> \alert{Benchmarks}: \uncover<3->{%
 \begin{itemize}%
-\item the \only<-7>{%
-\glsFull{algoLKH} algorithm building on top of the \glsShort{algoLK} algorithm.}\only<8->{\glsShort{algoLKH} algorithm}\cite{H2009GKOSFTLKTH,H2000AEIOTLKTSH}\only<8->{,}%
+\item The \gls{TSPLib}\cite{R2016T,R1991ATSPL}\only<-3>{ %
+with 110~symmetric instances with scales~$\scale\in\intRange{14}{85\decSep900}$ and 19~asymmetric instances with scales~$\scale\in\intRange{17}{443}$.%
+}\uncover<4->{, the} %
+\item<4-> instances of the 8th~DIMACS challenge\cite{JMGR20008DICTTSP,JM2002EAOHFTS,JGMYZZ2002EAOHFTS}\only<-4>{, %
+with instances with up to~10\decSep000\decSep000~cities.%
+}%
+\uncover<5->{, the}%
+\item<5-> \citetitle{C2013WT} repository\cite{C2013WT}\only<-5>{ %
+with many real-world geographical instances, including one with all 1\decSep904\decSep711 registered populated places of the Earth at some point in time in the 2000s%
+}\uncover<6->{, and the}%
+\item<6-> \gls{TSPSuite}\only<-6>{, which offers an integrated \gls{Java} environment for benchmarking algorithms on the \gls{TSPLib} instances}\cite{WCLTTCMY2014BOAAOSFFTTSP}.
+\end{itemize}%
+}%
 %
-\item<8-> \only<-8>{an \glsShort{algoEA} with \glsFull{algoEAX} as binary operator}\only<9->{\glsShort{algoEAX}}\cite{NK1997EACAHPGAFTTSP,NS2012ANGAFTATSP,NK2013APGAUEACFTTSP}\only<9->{,}%
+\item<7-> \alert{Baselines}: the \only<-7>{\glsFull{algoLK} algorithm, which exchanges variable number of edges in a tour.}\only<8->{\glsShort{algoLK} algorithm}\cite{LK1973AEHAFTTSP}%
 %
-\item<9-> \only<-9>{an \glsShort{algoMA} with \glsFull{algoGPX} as binary operator}\only<10->{\glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<10->{, in particular}%%
+\item<8-> \alert{\gls{SOTA}}:\uncover<8->{%
+\begin{itemize}%
+\item the \only<-8>{%
+\glsFull{algoLKH} algorithm building on top of the \glsShort{algoLK} algorithm.}\only<8->{\glsShort{algoLKH} algorithm}\cite{H2009GKOSFTLKTH,H2000AEIOTLKTSH}\only<9->{,}%
 %
-\item<10-> \only<-10>{\glsShort{algoLKH} run in an \glsShort{algoMA}-fashion with \glsShort{algoGPX} as binary operator}\only<11->{\glsShort{algoLKH} + \glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<11->{, and}%%
+\item<9-> \only<-9>{an \glsShort{algoEA} with \glsFull{algoEAX} as binary operator}\only<10->{\glsShort{algoEAX}}\cite{NK1997EACAHPGAFTTSP,NS2012ANGAFTATSP,NK2013APGAUEACFTTSP}\only<10->{,}%
+%
+\item<9-> \only<-10>{an \glsShort{algoMA} with \glsFull{algoGPX} as binary operator}\only<11->{\glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<11->{, in particular}%%
+%
+\item<11-> \only<-11>{\glsShort{algoLKH} run in an \glsShort{algoMA}-fashion with \glsShort{algoGPX} as binary operator}\only<12->{\glsShort{algoLKH} + \glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<12->{, and}%%
+%
+\item<12-> \gls{Concorde}, an exact solver for the \gls{optTSP}\cite{C1997CTS,ABCC2006TTSPACS,C2012IPOTTSMATLOC}, which could even solve the largest instance of \gls{TSPLib}~(with 85\decSep900~cities) to optimality!%
 %
 \end{itemize}%
 }%
