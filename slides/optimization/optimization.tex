@@ -772,11 +772,11 @@ But we will leave it at what we have seen so far.%
 \begin{itemize}%
 \item Today, we can actually solve \glsShort{optTSP}s with tens of thousands of cities to optimality\cite{ABCC2006TTSPACS,C2013WT}.\uncover<5->{~\alert{[but not all of them!]}}%
 %
-\item<2-> For this, we actually use principles similar to the \gls{algoAstar}, just a bit differently, in methods like branch and bound\cite{ABCC2006TTSPACS,LMSK1963AAFTTSP,CEG2005CWDPIFT}.%
+\item<2-> For this, we actually use principles similar to the \gls{algoAstar}, just a bit differently, in methods\cite{ABCC2006TTSPACS,CEG2005CWDPIFT} like \glsFull{algoBB}\cite{LMSK1963AAFTTSP}.%
 %
 \item<3-> We can get close-to-optimal solutions for \glsShort{optTSP}s with millions of cities.\uncover<6->{~\alert{[close-to-optimal, but not optimal~(at least not always)!]}}%
 %
-\item<4-> For this, we use algorithms a bit similar to \glsFull{algoRLS}, but with more targeted search steps, e.g., in the Lin-Kernighan-Helsgaun algorithm\cite{H2009GKOSFTLKTH}.%
+\item<4-> For this, we use algorithms a bit similar to \glsFull{algoRLS}, but with more targeted search steps, e.g., in the \glsFull{algoLKH} algorithm\cite{H2009GKOSFTLKTH,H2000AEIOTLKTSH}.%
 %
 \end{itemize}%
 \end{frame}%

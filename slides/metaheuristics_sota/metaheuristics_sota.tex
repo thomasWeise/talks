@@ -447,7 +447,7 @@ and the baselines for discrete optimization}.%
 %
 \item<5-> \alert{\gls{SOTA}}:\uncover<5->{%
 \begin{itemize}%
-\item For smaller-scale instances: branch-and-bound algorithms like in\cite{LMMP2010RBLBIM}.%
+\item For smaller-scale instances: \glsFull{algoBB} algorithms like in\cite{LMMP2010RBLBIM}.%
 %
 \item<6-> Encoding-based methods can deal with even much larger instances\cite{PRB2018DPWEFSWM}.%
 %
@@ -533,8 +533,22 @@ with instances with up to~10\decSep000\decSep000~cities.%
 with many real-world geographical instances, including one with all 1\decSep904\decSep711 registered populated places of the Earth at some point in time in the 2000s%
 }.}%
 %
-\item<6-> \alert{Baselines}:%
-\item<7-> \alert{\gls{SOTA}}:%
+\item<6-> \alert{Baselines}: the \only<-6>{\glsFull{algoLK} algorithm, which exchanges variable number of edges in a tour.}\only<7->{\glsShort{algoLK} algorithm}\cite{LK1973AEHAFTTSP}%
+%
+\item<7-> \alert{\gls{SOTA}}:\uncover<7->{%
+\begin{itemize}%
+\item the \only<-7>{%
+\glsFull{algoLKH} algorithm building on top of the \glsShort{algoLK} algorithm.}\only<8->{\glsShort{algoLKH} algorithm}\cite{H2009GKOSFTLKTH,H2000AEIOTLKTSH}\only<8->{,}%
+%
+\item<8-> \only<-8>{an \glsShort{algoEA} with \glsFull{algoEAX} as binary operator}\only<9->{\glsShort{algoEAX}}\cite{NK1997EACAHPGAFTTSP,NS2012ANGAFTATSP,NK2013APGAUEACFTTSP}\only<9->{,}%
+%
+\item<9-> \only<-9>{an \glsShort{algoMA} with \glsFull{algoGPX} as binary operator}\only<10->{\glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<10->{, in particular}%%
+%
+\item<10-> \only<-10>{\glsShort{algoLKH} run in an \glsShort{algoMA}-fashion with \glsShort{algoGPX} as binary operator}\only<11->{\glsShort{algoLKH} + \glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<11->{, and}%%
+%
+\end{itemize}%
+}%
+%
 \end{itemize}%
 \end{frame}%
 %
