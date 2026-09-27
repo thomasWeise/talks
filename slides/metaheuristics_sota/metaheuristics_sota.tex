@@ -358,204 +358,268 @@
 %
 %
 \section{Discrete Optimization}%
+\subsection{Black-Box Discrete Optimization Benchmarks}%
 %
-\begin{frame}[t]%
-\frametitle{Black-Box Discrete Optimization}%
+%
+\begin{frame}%
+\frametitle{Black-Box Discrete Optimization Benchmarks: Introduction}%
 \begin{itemize}%
 %
-\item \alert{Problem}: Search space~\searchSpace\ corresponds to the set~$\{0,1\}^{\scale}$ of bit strings of length~\scale\ and nothing is known about objective~function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$.%
+\item \alert{Problem}: Search space~\searchSpace\ corresponds to the set~$\{0,1\}^{\scale}$ of bit strings of length~\scale\ and \emph{nothing} is known about objective~function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$.%
 %
 \item<2-> Benchmarks here often have the goal to investigate problematic aspects of discrete problems in isolation\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}.%
 %
-\item<2-> \alert{Benchmarks}: %
+\item<3-> The benchmarks are functions that scale with~\scale\ and are usually computable in~\bigOb{\scale} or~\bigOb{\scale^2}.%
 %
-\only<-2>{\alert<2>{\glsShort{optOneMax}}}\only<3->{\glsShort{optOneMax}}\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH}\only<-2>{~(total number of \texttt{1} bits, very easy, single optimum)}%
+\item<4-> Their optima are known~(but the algorithms we apply to them don't know them).%
 %
-\only<3->{, \only<-3>{\alert<3>{\glsFull{optLinHarm}}}\only<4->{\glsShort{optLinHarm}}\cite{DYHWSB2020BDOHWI,DJW2002OTAOTOPOEA}\only<-3>{~like \glsShort{optOneMax}, but bits have linearly increasing weights)}}%
+\end{itemize}%
+\end{frame}%
 %
-\only<4->{, \only<-4>{\alert<4>{\glsFull{optBinInt}}}\only<5->{\glsShort{optBinInt}}\cite{TGG1998DCDATSSOP}\only<-4>{~(like \glsShort{optOneMax}, but bits have exponentially increasing weights)}}%
+\begin{frame}[t]%
+\frametitle{Black-Box Discrete Optimization Benchmarks: Benchmarks}%
+\begin{itemize}%
 %
-\only<5->{, \only<-5>{\alert<5>{\glsShort{optLeadingOnes}}}\only<6->{\glsShort{optLeadingOnes}}\cite{R1997CPOEA,W1989TGAASPWRBAORTIB}\only<-5>{~(number of leading \texttt{1} bits:~contribution of variable~$x_i$ depends on all variables~$x_j$ with~$j<i$)}}%
+\item \alert<-1>{\gls{optOneMax}}\cite{DJW2006UALBFRSHIBBO,M1992HGARWMAH}\only<-1>{:~maximize number of \texttt{1} bits, very easy, single optimum.}%
 %
-\only<6->{, \only<-6>{\alert<6>{\glsShort{optTrap}}}\only<7->{\glsShort{optTrap}}\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}\only<-6>{~(\glsShort{optOneMax}, but optimum and worse solution swapped -- extremely hard, local search needs exponential runtime)}}%
+\only<-2>{\item<2->}\only<3->{,} \alert<-2>{\glsFull{optLinHarm}}\cite{DYHWSB2020BDOHWI,DJW2002OTAOTOPOEA}\only<-2>{:~like \gls{optOneMax}, but bits have linearly increasing weights.}%
 %
-\only<7->{, \only<-7>{\alert<7>{\glsShort{optTwoMax}}}\only<8->{\glsShort{optTwoMax}}\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}\only<-7>{~(two optima, a global and a local one, of same size, local search needs exponential runtime with 50\% probability)}}%
+\only<-3>{\item<3->}\only<4->{,} \alert<-3>{\glsFull{optBinInt}}\cite{TGG1998DCDATSSOP}\only<-3>{:~like \gls{optLinHarm}, but bits have exponentially increasing weights.}%
 %
-\only<8->{, \only<-8>{\alert<8>{\glsShort{optJump}}}\only<9->{\glsShort{optJump}}\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}\only<-8>{~(like OneMax, but $\omega$~bits around optimum are deceptive)}}%
+\only<-4>{\item<4->}\only<5->{,} \alert<-4>{\gls{optLeadingOnes}}\cite{R1997CPOEA,W1989TGAASPWRBAORTIB}\only<-4>{:~number of leading \texttt{1} bits; contribution of variable~$x_i$ depends on all variables~$x_j$ with~$j<i$.}%
 %
-\only<9->{, \only<-9>{\alert<9>{\glsShort{optPlateau}}}\only<10->{\glsShort{optPlateau}}\cite{AD2018PRAFP}\only<-9>{ (like \gls{optJump}, but bits around optimum are neutral)}}%
+\only<-5>{\item<5->}\only<6->{,} \alert<-5>{\gls{optTrap}}\cite{DJW2002OTAOTOPOEA,NB2003AAOTBOSEAOTF}\only<-5>{:~\gls{optOneMax}, but optimum and worse solution swapped -- extremely hard, local search needs exponential runtime.}%
 %
-\only<10->{, \only<-10>{\alert<10>{\glsShortpl{optIsing}}}\only<11->{\glsShortpl{optIsing}}\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}\only<-10>{~(many interactions between variables)}}%
+\only<-6>{\item<6->}\only<7->{,} \alert<-6>{\gls{optTwoMax}}\cite{FQW2018ELDBOAWHTMO,VHGN2002FTTIMEAHSP}\only<-6>{:~two optima, a global and a local one, of same size, local search needs exponential runtime with 50\% probability.}%
 %
-\only<11->{, \only<-11>{\alert<11>{\glsShort{optNQueens}}}\only<12->{\glsShort{optNQueens}}\cite{DYHWSB2020BDOHWI}\only<-11>{~(place $N$~queens on a chessboard, many interactions between variables)}}%
+\only<-7>{\item<7->}\only<8->{,} \alert<-7>{\gls{optJump}}\cite{DJW2002OTAOTOPOEA,FQW2018ELDBOAWHTMO}\only<-7>{:~like \gls{optOneMax}, but last $\omega$~bit flips around optimum are deceptive = lead away from optimum.}%
 %
-\only<12->{, \only<-12>{\alert<12>{\glsShort{optWModel}}}\only<13->{\glsShort{optWModel}}\cite{WW2018DFOCOPATTWBPFST,WNSRG2008ATMFMOERANFL}\only<-12>{~(allows you to tune and combine the above features)}}%
+\only<-8>{\item<8->}\only<9->{,} \alert<-8>{\gls{optPlateau}}\cite{AD2018PRAFP}\only<-8>{:~like \gls{optJump}, but last $\omega$~bit fips around optimum are neutral = have same objective value.}%
 %
-\item<13-> \alert{Baseline}: %
-\only<-13>{\glsFull{algoRLS}~(unary operator flips 1~bit)}\only<14->{\glsShort{algoRLS}}%
+\only<-9>{\item<9->}\only<10->{,} \alert<-9>{\glsFullpl{optIsing}}\cite{DYHWSB2020BDOHWI,F2004APUBFAMBAOTTDIM,FW2005TODIMMVR}\only<-9>{:~variables should take on same values as neighbors in a given tology~(ring, torus, \dots); many interactions between variables.}%
 %
-\only<14->{, %
-\only<-14>{\glsShort{algoEAopo}~(unary operator flips each bit with probability~$1/n$)}\only<14->{\glsShort{algoEAopo}}%
-}%
+\only<-10>{\item<10->}\only<11->{,} \alert<-10>{\gls{optNQueens}}\cite{DYHWSB2020BDOHWI}\only<-10>{:~place $N$~queens on a chessboard so that they cannot beat each other, many interactions between variables.}%
 %
-\only<15->{, the %
-\only<-15>{\glsFull{algoSGA}}\only<16->{\glsShort{algoSGA}}\cite{G1989GA,DJ2006ECAUA,W2009GOATAA,BFM1997HOEC,M1996GADSEP,M1998AITGA}%
-\only<-15>{~(traditional population-based GA)}%
-}%
+\only<-11>{\item<11->}\only<12->{,} \alert<-11>{\gls{optWModel}}\cite{WW2018DFOCOPATTWBPFST,WNSRG2008ATMFMOERANFL}\only<-11>{:~allows you to tune and combine the above features.}%
 %
-\only<16->{, and %
-\only<-16>{\glsFull{algoTS}~(like \gls{algoRLS}, but forbit flipping of bits recently flipped to avoid cycles)}\only<17->{\glsShort{algoTS}}%
-}%
+\item<12-> If an algorithm performs well on all of these problems, then it can probably also solve real problems quite well\dots%
 %
-\item<17-> \alert{\gls{SOTA}}: %
-\only<-17>{\alert<16>{\glsShort{algoSAGA}}}\only<18->{\glsShort{algoSAGA}}\cite{CPD2018TAMPARAOEA,DD2018OSASAPCFT1LLGA}%
-\only<-17>{~(linear runtime on \glsShort{optOneMax})}%
+\end{itemize}%
+\locateGraphic{1}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax}{0.67}{0.6}%
+\locateGraphic{5}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax_trap}{0.67}{0.6}%
+\locateGraphic{6}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_twomax}{0.67}{0.6}%
+\locateGraphic{7}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_jump}{0.67}{0.6}%
+\locateGraphic{8}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_plateau}{0.67}{0.6}%
+\end{frame}%
 %
-\only<18->{, %
-\only<-18>{\alert<18>{\glsShort{algoG2P1GA}}}\only<19->{\glsShort{algoG2P1GA}}\cite{S2012CSUBBA,S2017HCSUBBAIGA,CPD2018TAMPARAOEA,CPD2018ASPFTUOCIBBO}%
-\only<-18>{~(algorithm using binary operator and being twice as fast as any unary-operator only black-box method on \glsShort{optOneMax})}%
-}%
+\begin{frame}%
+\frametitle{Black-Box Discrete Optimization Benchmarks: Baselines}%
+\begin{itemize}%
 %
-\only<19->{, and the %
-\only<-19>{\alert<19>{\glsFull{algoFEAopo}}}\only<20->{\glsShort{algoFEAopo}}\cite{WWLC2021FFAMOAIUBTOTOFV,WWLCL2023FFAOWBFGSCBE,ZWWW2026WFFAFTSIFGLS}%
-\only<-20>{~(the only algorithm achieving polynomial runtime on \glsShort{optTrap}, \glsShort{optTwoMax}, and \glsShort{optJump})}.%
+\item \glsFull{algoRLS}:~unary operator flips 1~bit%
+%
+\item<2-> \glsShort{algoEAopo}:~unary operator flips each bit with probability~$1/n$%
+%
+\item<3-> \glsFull{algoSGA}\cite{G1989GA,W2009GOATAA,BFM1997HOEC}:~traditional population-based \glsShort{algoGA}, now outdated%
+%
+\item<4-> \glsFull{algoTS}:~like \gls{algoRLS}, but forbit flipping of recently flipped bits to avoid cycles%
+%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Black-Box Discrete Optimization Benchmarks: SOTA}%
+\begin{itemize}%
+%
+\item The \alert<-1>{\glsShort{algoSAGA}} by \citeauthor{CPD2018TAMPARAOEA}~\bracketCite{CPD2018TAMPARAOEA,DD2018OSASAPCFT1LLGA}: linear runtime on \gls{optOneMax}.%
+%
+\item<2-> The \alert<-2>{\glsShort{algoG2P1GA}} by \citeauthor{S2012CSUBBA}~\bracketCite{S2012CSUBBA,S2017HCSUBBAIGA,CPD2018TAMPARAOEA,CPD2018ASPFTUOCIBBO}:~An algorithm using a binary operator and proven to be twice as fast as any unary-operator only black-box method on \gls{optOneMax}.%
+%
+\item<3-> \alert<-3>{\glsShort{algoFEAopo}} by Weise et al.~\bracketCite{WWLC2021FFAMOAIUBTOTOFV,WWLCL2023FFAOWBFGSCBE,ZWWW2026WFFAFTSIFGLS}, i.e., the \glsShort{algoEAopo} with \glsFull{algoFFA}:~the \emph{only} algorithm achieving polynomial runtime on \gls{optTrap}, \gls{optTwoMax}, and \gls{optJump}.\uncover<4->{ %
+\alert{Invented here.}%
 }%
 %
 \end{itemize}%
 %
-%
-\locateGraphic{2}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax}{0.67}{0.6}%
-\locateGraphic{6}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_onemax_trap}{0.67}{0.6}%
-\locateGraphic{7}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_twomax}{0.67}{0.6}%
-\locateGraphic{8}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_jump}{0.67}{0.6}%
-\locateGraphic{9}{width=0.3\paperwidth}{\sharedDir/graphics/discrete_benchmarks/discrete_benchmarks_plateau}{0.67}{0.6}%
 \end{frame}%
 %
+\subsection{Maximum Satisfiability Problem}%
+%
+\xdef\sharedSlideTitle{Maximum Satisfiability Problem: Introduction}%
 \input{\sharedDir/slides/optimization_maxsat.tex}%
 %
 \begin{frame}%
-\frametitle{Maximum Satisfiability Problem}%
+\frametitle{Maximum Satisfiability Problem: Benchmarks}%
 \begin{itemize}%
-\item \alert{Problem}: Find a bit string that makes as many OR\nobreakdashes-clauses True as possible.%
 %
-\item<2-> The so-called phase transition region with~$\frac{m}{n}\approx4.26$, the average instance hardness for stochastic local search algorithms is maximal~\cite{HS2000SAORFROS,DNS2017TCAOEAORSkCF,DNS2015IRBFTOPOEOR3CFBOFDC}
+\item At so-called phase transition region with~$\frac{m}{n}\approx4.26$, the average instance hardness for \gls{algoSLS} algorithms is maximal\cite{HS2000SAORFROS,DNS2017TCAOEAORSkCF,DNS2015IRBFTOPOEOR3CFBOFDC}, so instances from this region are most interesting.%
 %
-\item<3-> \alert{Benchmarks}: \gls{optSATLIB}\cite{HS2000SAORFROS,HS2001STSL} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
+\item<2-> \gls{optSATLIB}\cite{HS2000SAORFROS,HS2001STSL} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
 %
-\item<3-> \alert{Baselines}: WalkSAT~\cite{SKC1994NSFILS}\uncover<5->{ %
-and the baselines for discrete optimization}.%
-%
-\item<5-> \alert{\gls{SOTA}}:\uncover<5->{%
-\begin{itemize}%
-\item For smaller-scale instances: \glsFull{algoBB} algorithms like in\cite{LMMP2010RBLBIM}.%
-%
-\item<6-> Encoding-based methods can deal with even much larger instances\cite{PRB2018DPWEFSWM}.%
-%
-\item<7-> The \gls{SOTA} for incomplete solvers\cite{GKSS2008SS} comprises local search algorithms, often based on ideas dating back to WalkSAT, such as AMLS\cite{LH2012AMBLSFMS} or NuWLS\cite{CCL2023NILSFWPMBNWT}.
-\end{itemize}%
-}%
-\end{itemize}%
-\end{frame}%
-%
-\begin{frame}%
-\frametitle{Integer Set Division Problem}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
 \end{itemize}%
 \end{frame}%
 %
 %
 \begin{frame}%
-\frametitle{Low Autocorrelation Binary Sequences}%
+\frametitle{Maximum Satisfiability Problem: Baselines}%
 \begin{itemize}%
-\item \alert{Problem}: \glsFullpl{optLABS} are bit strings of length~\scale\ whose autocorrelation is as low as possible. %
+\item As black-box baselines, we can use the algorithms already listed for discrete benchmarks.%
+ %
+\item<2-> A good problem-specific baseline is WalkSAT by \textcite{SKC1994NSFILS}.%
 %
-\item<2-> This means that sub-sequences of any length~$1\leq k<\scale$ should ideally never repeat. %
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Maximum Satisfiability Problem: SOTA}%
+\begin{itemize}%
+%
+\item For smaller-scale instances we can use \glsFull{algoBB} algorithms like \textcite{LMMP2010RBLBIM}.%
+%
+\item<2-> Encoding-based methods like those of \textcite{PRB2018DPWEFSWM} can deal with even much larger instances.%
+%
+\item<3-> The \gls{SOTA} for incomplete solvers\cite{GKSS2008SS} comprises \glsShort{algoSLS} algorithms, often based on ideas dating back to WalkSAT, such as AMLS by \textcite{LH2012AMBLSFMS} or NuWLS by \textcite{CCL2023NILSFWPMBNWT}.%
+%
+\end{itemize}%
+\end{frame}%
+%
+%
+\subsection{Low Autocorrelation Binary Sequences}%
+%
+\begin{frame}%
+\frametitle{Low Autocorrelation Binary Sequences: Introduction}%
+\begin{itemize}%
+\item \glsFullpl{optLABS} are bit strings of length~\scale\ whose autocorrelation is as low as possible.%
+%
+\item<2-> This means that sub-sequences of any length~$1\leq k<\scale$ should ideally never repeat.%
+%
 \item<3-> The objective function~$\objFun:\{0,1\}^{\scale}\mapsto\naturalNumbersZ$ represents the energy of a bit string~\sespel\ and can be defined as~$\objFunb{\sespel}=\sum_{k=1}^{\scale-1}\left(\sum_{i=0}^{\scale-1-k} \arrayIndex{s}{i} \cdot \arrayIndex{s}{i+k}\right)^2$ with~$\arrayIndex{s}{j}=2\arrayIndex{\sespel}{j}-1$.%
+%
 \item<4-> Such sequences are needed for communication engineering\cite{MDW2015NESFLLABS,BBB2017LABSOIMFARPTAT}, cryptography\cite{MDW2015NESFLLABS}, as well as modulation pulses in radar and sonar ranging\cite{PM2016LABS}.%
 %
-\item<5-> \alert{Benchmarks}: The objective function for different values of~\scale.%
+\end{itemize}%
+\end{frame}%
 %
-\item<6-> \alert{Baselines}: see discrete optimization\uncover<7->{ and for small~\scale\ %
-a \gls{algoGA}\cite{MZB1998ESFLABS}\uncover<8->{ %
- or exhaustive enumeration\cite{M1996ESFLABS}\uncover<9->{ and %
-the (outdated) online repository\cite{BBB2016AGAFSASOTLP}.%
-}}}%
-%
-%
-\item<10-> \alert{\gls{SOTA}}:\uncover<10->{%
+\begin{frame}%
+\frametitle{Low Autocorrelation Binary Sequences: Benchmarks}%
 \begin{itemize}%
-\item<11-> the algorithm by \textcite{D2022NCOBSWHMF}\uncover<12->{,}%
-\item<12-> the \gls{algoMA} by \textcite{MDW2015NESFLLABS}\uncover<13->{,}%
-\item<13-> the xLastovka-family of methods by \citeauthor{BB2022CSOLSSBSWHMF}~\bracketCite{BB2022CSOLSSBSWHMF,BB2018AHAFALABSPWOLAHMF}\uncover<14->{, and}%
-\item<14-> the local search by \textcite{DBN2020EGOLABS}.%
-\end{itemize}%%
-}%
+\item The problem itself is also the benchmark.%
+\item<2-> So we only got the objective function~\objFun\ for different values of~\scale\dots%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Low Autocorrelation Binary Sequences: Baselines}%
+\begin{itemize}%
+\item The algorithms listed under discrete optimization benchmarks.%
+%
+\item<2-> For small scales~\scale\ the \gls{algoGA} by \textcite{MZB1998ESFLABS} or the exhaustive enumeration by \textcite{M1996ESFLABS}.%
+%
+\item<3-> See also the (outdated) online repository \citeurl{BBB2016AGAFSASOTLP} by \textcite{BBB2016AGAFSASOTLP}.%
+\end{itemize}%
+\end{frame}%
+%
+%
+\begin{frame}%
+\frametitle{Low Autocorrelation Binary Sequences: SOTA}%
+\begin{itemize}%
+%
+\item the algorithm by \textcite{D2022NCOBSWHMF}\uncover<2->{,}%
+%
+\item<2-> the \glsFull{algoMA} by \textcite{MDW2015NESFLLABS}\uncover<3->{,}%
+%
+\item<3-> the xLastovka-family of methods by \citeauthor{BB2022CSOLSSBSWHMF}~\bracketCite{BB2022CSOLSSBSWHMF,BB2018AHAFALABSPWOLAHMF}\uncover<4->{, and}%
+%
+\item<4-> the \glsShort{algoSLS} by \textcite{DBN2020EGOLABS}~(= best-performing method).%
 \end{itemize}%
 \end{frame}%
 %
 %
 \section{(Multi-)Permutation Problems}%
 %
+\subsection{Black-Box Permutation Problems}%
+%
 \begin{frame}%
-\frametitle{Black-Box Permutation Problems}%
+\frametitle{Black-Box Permutation Problems: Introduction}%
 \begin{itemize}%
-\item \alert{Problem}: The search space~\searchSpace\ corresponds to the set of all permutations of the first \scale~natural numbers.%
-\item<2-> \alert{Baselines}:\uncover<2->{%
-\begin{itemize}%
-\item \gls{algoRLS} with a unary operator that swaps two elements\uncover<3->{,}%
-\item<3-> \gls{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \gls{algoEAopo} for permutations)\uncover<4->{,}%
-\item<4-> \gls{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<5->{,}%
-\item<5-> \gls{algoTS} with the same operator that forbids moving values to recently-used indicess\uncover<6->{, and a}%
-\item<6-> \gls{algoEAmpl} with these operators and maybe \glsFull{algoAPcross}\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
-\end{itemize}%
-}%
-\item<7-> \alert{\gls{SOTA}}:%
+\item The search space~\searchSpace\ corresponds to the set of all permutations of the first \scale~natural numbers.%
+%
+\item<2-> The algorithms know nothing about the problem nature, they only can sample permutations~\sespel\ and compute their objective values~\objFunb{\sespel}.%
+%
+\item<3-> When faced with a new problem where solutions can be mapped to permutations, it makes sense to try the baseline algorithms from this field.%
+%
 \end{itemize}%
 \end{frame}%
 %
-\begin{frame}[t]%
-\frametitle{Traveling Salesperson Problem}%
+\begin{frame}%
+\frametitle{Black-Box Permutation Problems: Baselines}%
 \begin{itemize}%
-\item \alert{Problem}: The goal of a \glsShort{optTSP} is to find the shortest round-trip tour through \scale~cities.%
+%
+\item \glsFull{algoRLS} with a unary operator that swaps two elements\uncover<2->{,}%
+\item<2-> \glsShort{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \glsFull{algoEAopo} for permutations)\uncover<3->{,}%
+\item<3-> \glsFull{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<4->{,}%
+\item<4-> \glsFull{algoTS} with the same operator that forbids moving values to recently-used indicess\uncover<5->{, and a}%
+\item<5-> \glsFull{algoEAmpl} with these operators and maybe \glsFull{algoAPcross}\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
+\end{itemize}%
+\end{frame}%
+%
+%
+\subsection{Traveling Salesperson Problem}%
+%
+\begin{frame}%
+\frametitle{Traveling Salesperson Problem: Introduction}%
+\begin{itemize}%
+%
+\item The goal of a \glsShort{optTSP} is to find the shortest round-trip tour through \scale~cities.%
 %
 \item<2-> The \glsShort{optTSP} has many applications in transportation, logistics, drilling problems, telescope aiming, and genome sequencing\cite{ABCC2006TTSPACS}.%
 %
-\item<3-> \alert{Benchmarks}: \uncover<3->{%
-\begin{itemize}%
-\item The \gls{TSPLib}\cite{R2016T,R1991ATSPL}\only<-3>{ %
-with 110~symmetric instances with scales~$\scale\in\intRange{14}{85\decSep900}$ and 19~asymmetric instances with scales~$\scale\in\intRange{17}{443}$.%
-}\uncover<4->{, the} %
-\item<4-> instances of the 8th~DIMACS challenge\cite{JMGR20008DICTTSP,JM2002EAOHFTS,JGMYZZ2002EAOHFTS}\only<-4>{, %
-with instances with up to~10\decSep000\decSep000~cities.%
-}%
-\uncover<5->{, the}%
-\item<5-> \citetitle{C2013WT} repository\cite{C2013WT}\only<-5>{ %
-with many real-world geographical instances, including one with all 1\decSep904\decSep711 registered populated places of the Earth at some point in time in the 2000s%
-}\uncover<6->{, and the}%
-\item<6-> \gls{TSPSuite}\only<-6>{, which offers an integrated \gls{Java} environment for benchmarking algorithms on the \gls{TSPLib} instances}\cite{WCLTTCMY2014BOAAOSFFTTSP}.
-\end{itemize}%
-}%
-%
-\item<7-> \alert{Baselines}: the \only<-7>{\glsFull{algoLK} algorithm, which exchanges variable number of edges in a tour.}\only<8->{\glsShort{algoLK} algorithm}\cite{LK1973AEHAFTTSP}%
-%
-\item<8-> \alert{\gls{SOTA}}:\uncover<8->{%
-\begin{itemize}%
-\item the \only<-8>{%
-\glsFull{algoLKH} algorithm building on top of the \glsShort{algoLK} algorithm.}\only<8->{\glsShort{algoLKH} algorithm}\cite{H2009GKOSFTLKTH,H2000AEIOTLKTSH}\only<9->{,}%
-%
-\item<9-> \only<-9>{an \glsShort{algoEA} with \glsFull{algoEAX} as binary operator}\only<10->{\glsShort{algoEAX}}\cite{NK1997EACAHPGAFTTSP,NS2012ANGAFTATSP,NK2013APGAUEACFTTSP}\only<10->{,}%
-%
-\item<9-> \only<-10>{an \glsShort{algoMA} with \glsFull{algoGPX} as binary operator}\only<11->{\glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<11->{, in particular}%%
-%
-\item<11-> \only<-11>{\glsShort{algoLKH} run in an \glsShort{algoMA}-fashion with \glsShort{algoGPX} as binary operator}\only<12->{\glsShort{algoLKH} + \glsShort{algoGPX}}\cite{WHH2010AHGAFTTSPUGPC}\only<12->{, and}%%
-%
-\item<12-> \gls{Concorde}, an exact solver for the \gls{optTSP}\cite{C1997CTS,ABCC2006TTSPACS,C2012IPOTTSMATLOC}, which could even solve the largest instance of \gls{TSPLib}~(with 85\decSep900~cities) to optimality!%
+\item<3-> Solutions are often encoded as permutations, where each city gets a number and the order of numbers in the permutation corresponds to the order of cities in the tour.%
 %
 \end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Traveling Salesperson Problem: Benchmarks}%
+\begin{itemize}%
+%
+\item \gls{TSPLib} with 110~symmetric instances with scales~$\scale\in\intRange{14}{85\decSep900}$ and 19~asymmetric instances with scales~$\scale\in\intRange{17}{443}$\cite{R2016T,R1991ATSPL}.%
+%
+\item<2-> The instances of the 8th~DIMACS challenge\cite{JMGR20008DICTTSP,JM2002EAOHFTS,JGMYZZ2002EAOHFTS}, which have up to~10\decSep000\decSep000~cities.%
+%
+\item<3-> The \citetitle{C2013WT} repository\cite{C2013WT} with many real-world geographical instances, including one with all 1\decSep904\decSep711 registered populated places of the Earth at some point in time in the 2000s.%
+%
+\item<4-> The \gls{TSPSuite}, which offers an integrated \gls{Java} environment for benchmarking algorithms on the \gls{TSPLib} instances\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Traveling Salesperson Problem: Baselines}%
+\begin{itemize}%
+%
+\item The \glsFull{algoLK} algorithm\cite{LK1973AEHAFTTSP}, which exchanges variable number of edges in a tour in each step.%
+%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Traveling Salesperson Problem: SOTA}%
+\begin{itemize}%
+%
+\item The \glsFull{algoLKH} algorithm building on top of the \glsShort{algoLK} algorithm\cite{H2009GKOSFTLKTH,H2000AEIOTLKTSH}.%
+%
+\item<2-> An \glsFull{algoEA} with \glsFull{algoEAX} as binary operator by \citeauthor{NK1997EACAHPGAFTTSP}~\bracketCite{NK1997EACAHPGAFTTSP,NS2012ANGAFTATSP,NK2013APGAUEACFTTSP}.%
+%
+\item<3-> An \glsFull{algoMA} with \glsFull{algoGPX} as binary operator by \textcite{WHH2010AHGAFTTSPUGPC}.
+%
+\item<4-> Especially: \glsShort{algoLKH} run in an \glsShort{algoMA}-fashion with \glsShort{algoGPX} as binary operator as proposed by \textcite{THW2018ERITLKHTSH}.%
+%
+\item<5-> \gls{Concorde}, an exact solver for the \gls{optTSP} by \citeauthor{ABCC2006TTSPACS}~\bracketCite{C1997CTS,ABCC2006TTSPACS,C2012IPOTTSMATLOC}, which even solved the largest instance of \gls{TSPLib}~(with 85\decSep900~cities) to optimality!\uncover<6->{ %
+(This algorithm uses \glsShort{algoLK}-style algorithms methods like \glsShort{algoLKH} to find its starting point.)%
 }%
 %
 \end{itemize}%
