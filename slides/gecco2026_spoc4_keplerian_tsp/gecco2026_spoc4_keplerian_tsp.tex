@@ -6,8 +6,8 @@
 \RequirePackage{\bookbaseDir/styles/slides}%
 \RequirePackage{\sharedDir/styles/styles}%
 %
-\protected\gdef\objFunAll{\objFun}%
-\protected\gdef\objFunAllb#1{\objFunb{#1}}%
+\global\let\objFunAll\objFun%
+\global\let\objFunAllb\objFunb%
 \protected\gdef\objFunTrans{\ensuremath{\psi}}%
 \protected\gdef\objFunTransb#1{\ensuremath{\objFunTrans(#1)}}%
 \protected\gdef\fpenalty{\ensuremath{p}}%
@@ -20,7 +20,6 @@
 %
 \protected\gdef\team{\href{https://optimise.esa.int/user/dd46ba62e88c45b7958a97d529e3a220}{ScholORs\_\linebreak[2]HFUU\linebreak[2]+\linebreak[2]Sunway}}%
 %
-\protected\gdef\scale{\ensuremath{n}}%
 \protected\gdef\dV{\ensuremath{{\Delta}V}}%
 \protected\gdef\dVmax{\ensuremath{\dV_{\mathit{max}}}}%
 \protected\gdef\dVmaxEx{\ensuremath{\dVmax^{\mathit{exception}}}}%
@@ -114,6 +113,8 @@
 \item<5-> \dV\ is limited by \dVmax, but 5~times we are allowed to do a larger velocity change~$\dV\leq\dVmaxEx$.%
 %
 \item<6-> Limits for the shortest transfer and maximum total time are also given.%
+%
+\item<7-> Despite its name, this is not actually a \glsFull{optTSP}, because there is no trip back to the beginning.%
 \end{itemize}%
 \end{frame}%
 %

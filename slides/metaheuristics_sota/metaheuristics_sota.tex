@@ -581,7 +581,7 @@
 %
 \item<4-> Hence, the objective function subject to minimization is~$\objFunb{\sespel}=\matrixIndex{\matrixDistance}{\arrayIndex{\sespel}{\scale}}{\arrayIndex{\sespel}{1}}+\sum_{i=1}^{\scale-1}\matrixIndex{\matrixDistance}{\arrayIndex{\sespel}{i}}{\arrayIndex{\sespel}{i+1}}$.%
 %
-\item<5-> The \glsShort{optTSP} has many applications in transportation, logistics, drilling problems, telescope aiming, and genome sequencing\cite{ABCC2006TTSPACS}.%
+\item<5-> The \glsShort{optTSP} has many applications\cite{ABCC2006TTSPACS}, including in transportation, logistics, (circuit) plotting and drilling problems\cite{GJR1991OCOPADMACS}, telescope aiming, and genome sequencing.%
 %
 %
 \end{itemize}%
@@ -632,11 +632,26 @@
 %
 \subsection{Quadratic Assignment Problem}%
 %
-\begin{frame}%
+\begin{frame}[t]%
 \frametitle{Quadratic Assignment Problem: Introduction}%
 \begin{itemize}%
-\item bla%
+%
+\item In a \glsFull{optQAP}, \scale~facilities need to be assigned to \scale~locations\cite{KB1957APATLOEA,BCPP1998TQAP,LdABNHQ2007ASFTQAP,CWTW2024FFAOWBFGSORLSOTQAP}.%
+%
+\item<2-> Such an assignment can be represented as a permutation~\sespel\ of the first \scale~natural numbers, where \arrayIndex{\sespel}{i}~specifies the location where facility~$i$ should be placed.%
+%
+\item<3-> \matrixDistance~is the distance matrix and \matrixIndex{\matrixDistance}{a}{b}~is the distance from location~$a$ to location~$b$.%
+%
+\item<4-> \matrixFlow~is the flow matrix and \matrixIndex{\matrixFlow}{i}{j}~is the amount of material flowing~(e.g., daily)~from facility~$i$ to facility~$j$.%
+%
+\item<5-> We want to minimize the objective function~$\objFunb{\sespel}=\sum_{i=1}^{\scale}\sum_{j=1}^{\scale} \matrixIndex{\matrixDistance}{\arrayIndex{\sespel}{i}}{\arrayIndex{\sespel}{j}}*\matrixIndex{\matrixFlow}{i}{j}$, i.e., we want to minimize the sum of the products of distance and flows.%
+%
+\item<6-> The \glsShort{optQAP} has applications such as building layout\cite{E1977HLAAQAP,CNTSA2021HLDRAAQAPWGD,KP1978CALD}, keyboard layout\cite{BO1977EVSMQZ}, circuit design\cite{EW1990OSOSTFSM}, wiring\cite{S1961TBWPAPA}, and scheduling\cite{S2011SISBSMSWST}.
+%
 \end{itemize}%
+%
+\locateGraphic{-4}{width=0.8\paperwidth}{\sharedDir/graphics/qap/qap_example}{0.1}{0.57}%
+%
 \end{frame}%
 %
 \begin{frame}%
