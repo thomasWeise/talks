@@ -190,7 +190,7 @@
 \item<2-> During their selection steps, they all prefer better solutions over worse ones.%
 \item<3-> If they would always and only accept the better solutions, they could get trapped in local optima.%
 \item<4-> So some of them sometimes accept worse solutions, but the probability to choose a better solution is always higher in average.%
-\item<5-> This is the most fundamental concept of metaheuristic optimization:%
+\item<5-> This is the most fundamental concept of \gls{metaheuristic} optimization:%
 \end{itemize}%
 %
 \uncover<5->{\smallskip%
@@ -781,7 +781,7 @@ Indeed, \alert{no} existing algorithm can deal with this, let alone have some in
 \item<2-> This includes, surprisingly, also some computationally hard problems\only<-2>{.}\uncover<3->{:%
 \begin{itemize}%
 \item the \glsFull{optTTP}, where \gls{algoRLS} can find surprisingly good results:~\bracketCite{XWvdBW2024RLSVNVFFAOTTTP}.%
-\item<4-> the two-dimensional bin packing problem, where \gls{algoRLS} can actually \alert{outperform} several complex state-of-the-art metaheuristics~\bracketCite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
+\item<4-> the two-dimensional bin packing problem, where \gls{algoRLS} can actually \alert{outperform} several complex state-of-the-art \glspl{metaheuristic}~\bracketCite{ZLWvdBTW2024RLSOT2RBPPWIR,ZWvdBTLTW2024RLSFTDBPAANRFFFA}.%
 \item<5-> FFA can get trapped too\only<-5>{!}\uncover<6->{:~If all neighbors that can be reached with one search step around one solution all have the same objective value, then FFA-guided search may not be able to escape from that solution\cite{ZWWW2026WFFAFTSIFGLS}.\uncover<7->{ This can happen with 1-bit flips on \gls{optOneMax}\cite{ZWWW2026WFFAFTSIFGLS}.}%
 }%
 \end{itemize}%
