@@ -499,6 +499,8 @@
 %
 \item<4-> Such sequences are needed for communication engineering\cite{MDW2015NESFLLABS,BBB2017LABSOIMFARPTAT}, cryptography\cite{MDW2015NESFLLABS}, as well as modulation pulses in radar and sonar ranging\cite{PM2016LABS}.%
 %
+\item<5-> The \glsShort{optLABS} is \npHard\cite{T2021CNAOTELOTLABSP}.%
+%
 \end{itemize}%
 \end{frame}%
 %
@@ -583,6 +585,8 @@
 %
 \item<5-> The \glsShort{optTSP} has many applications\cite{ABCC2006TTSPACS}, including in transportation, logistics, (circuit) plotting and drilling problems\cite{GJR1991OCOPADMACS}, telescope aiming, and genome sequencing.%
 %
+\item<6-> The \glsShort{optTSP} is \npHard\cite{GJ1979CAIAGTTTONC,GP2002TTSPAIV,K1988TCOOP}.%
+%
 %
 \end{itemize}%
 \end{frame}%
@@ -646,11 +650,13 @@
 %
 \item<5-> We want to minimize the objective function~$\objFunb{\sespel}=\sum_{i=1}^{\scale}\sum_{j=1}^{\scale} \matrixIndex{\matrixDistance}{\arrayIndex{\sespel}{i}}{\arrayIndex{\sespel}{j}}*\matrixIndex{\matrixFlow}{i}{j}$, i.e., we want to minimize the sum of the products of distance and flows.%
 %
-\item<6-> The \glsShort{optQAP} has applications such as building layout\cite{E1977HLAAQAP,CNTSA2021HLDRAAQAPWGD,KP1978CALD}, keyboard layout\cite{BO1977EVSMQZ}, circuit design\cite{EW1990OSOSTFSM}, wiring\cite{S1961TBWPAPA}, and scheduling\cite{S2011SISBSMSWST}.
+\item<6-> The \glsShort{optQAP} has applications such as building layout\cite{E1977HLAAQAP,CNTSA2021HLDRAAQAPWGD,KP1978CALD}, keyboard layout\cite{BO1977EVSMQZ}, circuit design\cite{EW1990OSOSTFSM}, wiring\cite{S1961TBWPAPA}, and scheduling\cite{S2011SISBSMSWST}.%
+%
+\item<7-> The \glsShort{optQAP} is \npComplete\cite{SGA1976PCAP,DPST2006MFHOSATSEAGAACMACS} and even among this problem class, is considered as particularly hard for \glspl{metaheuristic}\cite{LdABNHQ2007ASFTQAP,BAP2015MAFTQAPPAC,S2006ILSFTQAP,BCPP1998TQAP}.%
 %
 \end{itemize}%
 %
-\locateGraphic{-4}{width=0.8\paperwidth}{\sharedDir/graphics/qap/qap_example}{0.1}{0.57}%
+\locateGraphic{-4}{width=0.8\paperwidth}{\sharedDir/graphics/qap_example/qap_example}{0.1}{0.57}%
 %
 \end{frame}%
 %
@@ -667,7 +673,8 @@
 \begin{itemize}%
 \item the robust \glsFull{algoTS} algorithms by \textcite{T1991RTSFTQAP,T1995COISFTQAP} and \textcite{M2005ATSAFTQAP},%
 \item<2-> \glsFull{algoSA} by \textcite{TB1994AISAAFTQAP}, \textcite{M2003AMSAAFTQAP},%
-\item<3-> the \glsFull{algoRTS} by \textcite{BT1994SAATSITLRACOQT,BT1994TRTS}
+\item<3-> the \glsFull{algoRTS} by \textcite{BT1994SAATSITLRACOQT,BT1994TRTS}, and%
+\item<4-> the \glsFull{algoILS} by \textcite{S2006ILSFTQAP}.%
 \end{itemize}%
 \end{frame}%
 %
@@ -675,22 +682,73 @@
 \begin{frame}%
 \frametitle{Quadratic Assignment Problem: SOTA}%
 \begin{itemize}%
-\item the \glsFullpl{algoMA} by \textcite{FF1993GHFTQAP} and \textcite{TG1997AMFTQAP}, which use the \glsShort{algoTS} from~\cite{T1991RTSFTQAP} as local search,%
-\item<2-> the Iterated \glsShort{algoTS} by \textcite{M2012AIOTITSAFTQAP}, and%
-\item<3-> the \gls{algoMA} by \textcite{MF1999ACOMATSAACFTQAP}.%
-\end{itemize}%
-\end{frame}%
-%
-%
-\begin{frame}%
-\frametitle{Job Shop Scheduling Problem}%
+\item \textcite{BAP2015MAFTQAPPAC} provide a nice experimental overview.%
+\item<2-> Apart from this, we can identify the following methods\uncover<2->{:%
 \begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
+\item the \glsFullpl{algoMA} by \textcite{FF1993GHFTQAP} and \textcite{TG1997AMFTQAP}, which use the \glsShort{algoTS} from~\cite{T1991RTSFTQAP} as local search,%
+\item<3-> the \gls{algoMA} by \textcite{MF1999ACOMATSAACFTQAP}, and%
+\item<4-> the Iterated \glsShort{algoTS} by \textcite{M2012AIOTITSAFTQAP}.%
+\end{itemize}%
+}%
 \end{itemize}%
 \end{frame}%
+%
+\subsection{Job Shop Scheduling Problem}
+%
+\begin{frame}[t]%
+\frametitle{Job Shop Scheduling Problem: Introduction}%
+\begin{itemize}%
+\item The \glsFull{optJSSP}~\cite{LLRKS1993SASAAC,BDP1996TJSSPCANST,CGLL1995STAIA,GLLRK1977OAAIDSASAS} is one of the most prominent and well-studied scheduling tasks. %
+\item<2-> A \glsShort{optJSSP} instance is defined by \alert<3>{\jsspJobs~jobs} with operations that need to be processed by each of the \alert<4>{\jsspMachines~machines} in a job-specific order.%
+\item<5-> Each such operation of each job needs a specific time.%
+%
+\only<-13>{%
+\item<6-> Job~0 first goes for 10s to machine~0\only<7->{, %
+then it goes for 20s to machine~1\only<8->{, %
+then for 20s to machine~2\only<9->{, %
+then for 40s to machine~3\only<10->{, %
+and finally for 10s to machine~4}}}}.%
+%
+\item<11-> Job~1 first goes for 20s to machine~1\only<12->{, %
+then it goes for 10s to machine~0\only<13->{{\dots} {\dots}and so on}.%
+}}%
+%
+\item<14-> The goal is to find the assignment of jobs to machines with the smallest possible makespan, i.e., the schedule that finishes the fastest.%
+\item<15-> The \glsShort{optJSSP} is a \npHard\cite{LLRKS1993SASAAC,CPW1998AROMSCAAA}.
+\end{itemize}%
+%
+%
+\locateGraphic{3}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_01}{0.25}{0.625}%
+\locateGraphic{3}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_02}{0.25}{0.625}%
+\locateGraphic{4}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_03}{0.25}{0.625}%
+\locateGraphic{5,13}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance}{0.25}{0.625}%
+\locateGraphic{6}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_04}{0.25}{0.625}%
+\locateGraphic{7}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_05}{0.25}{0.625}%
+\locateGraphic{8}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_06}{0.25}{0.625}%
+\locateGraphic{9}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_07}{0.25}{0.625}%
+\locateGraphic{10}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_08}{0.25}{0.625}%
+\locateGraphic{11}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_09}{0.25}{0.625}%
+\locateGraphic{12}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_10}{0.25}{0.625}%
+\end{frame}%
+%
+\begin{frame}[t]%
+\frametitle{Job Shop Scheduling Problem: Possible Metaheuristic Approach}%
+\begin{itemize}%
+\item Schedules / \glspl{ganttChart} are complex data structures.%
+\item<2-> Defining search operators for them is not easy.%
+\item<3-> However, it is possible to map permutations of operations to \glspl{ganttChart}.%
+\item<4-> And we know how to search in a space of permutations\dots%
+\item<5-> \alert{Idea}:\uncover<6->{%
+\begin{itemize}%
+\item The search space~\searchSpace\ corresponds of permutations with repetitions~\sespel, where each of the \jsspJobs~job~IDs appears \jsspMachines~times.%
+\item<7-> The solution space~\solutionSpace\ is the set of correct \glspl{ganttChart}~\solution.%
+\item<8-> A decoding function~$\decode:\searchSpace\mapsto\solutionSpace$ is designed that constructs a \gls{ganttChart}~$\solution=\decodeb{\sespel}$ from such a permutation~\sespel.%
+\item<9-> Then we can use the algorithms and operators we already know\dots%
+\end{itemize}%
+}%
+\end{itemize}%
+\end{frame}%
+%
 %
 \begin{frame}%
 \frametitle{2D~Bin Packing Problem}%
