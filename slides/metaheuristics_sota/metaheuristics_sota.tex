@@ -699,8 +699,11 @@
 \frametitle{Job Shop Scheduling Problem: Introduction}%
 \begin{itemize}%
 \item The \glsFull{optJSSP}~\cite{LLRKS1993SASAAC,BDP1996TJSSPCANST,CGLL1995STAIA,GLLRK1977OAAIDSASAS} is one of the most prominent and well-studied scheduling tasks. %
+%
+\only<-13>{%
 \item<2-> A \glsShort{optJSSP} instance is defined by \alert<3>{\jsspJobs~jobs} with operations that need to be processed by each of the \alert<4>{\jsspMachines~machines} in a job-specific order.%
 \item<5-> Each such operation of each job needs a specific time.%
+}%
 %
 \only<-13>{%
 \item<6-> Job~0 first goes for 10s to machine~0\only<7->{, %
@@ -713,7 +716,7 @@ and finally for 10s to machine~4}}}}.%
 then it goes for 10s to machine~0\only<13->{{\dots} {\dots}and so on}.%
 }}%
 %
-\item<14-> The goal is to find the assignment of jobs to machines with the smallest possible makespan, i.e., the schedule that finishes the fastest.%
+\item<14-> The goal is to find the assignment of jobs to machines with the smallest possible makespan, i.e., the schedule~(\gls{ganttChart}\cite{W2003GCACA,K2000SORCP}) that finishes the fastest.%
 \item<15-> The \glsShort{optJSSP} is a \npHard\cite{LLRKS1993SASAAC,CPW1998AROMSCAAA}.
 \end{itemize}%
 %
@@ -729,16 +732,18 @@ then it goes for 10s to machine~0\only<13->{{\dots} {\dots}and so on}.%
 \locateGraphic{10}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_08}{0.25}{0.625}%
 \locateGraphic{11}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_09}{0.25}{0.625}%
 \locateGraphic{12}{width=0.5\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_instance_10}{0.25}{0.625}%
+\locateGraphic{14-15}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_gantt}{0.125}{0.43}%
 \end{frame}%
 %
 \begin{frame}[t]%
 \frametitle{Job Shop Scheduling Problem: Possible Metaheuristic Approach}%
 \begin{itemize}%
+\only<-9>{%
 \item Schedules / \glspl{ganttChart} are complex data structures.%
 \item<2-> Defining search operators for them is not easy.%
 \item<3-> However, it is possible to map permutations of operations to \glspl{ganttChart}.%
 \item<4-> And we know how to search in a space of permutations\dots%
-\item<5-> \alert{Idea}:\uncover<6->{%
+\item<5-> \alert{Idea} by \textcite{GTK1994SJSSPBGA}, \citeauthor{B1995AGPATJSSWGA}~\bracketCite{B1995AGPATJSSWGA,BMK1996OPRFSP}, and \textcite{SIS1997NESFSJSPBGA}:\uncover<6->{%
 \begin{itemize}%
 \item The search space~\searchSpace\ corresponds of permutations with repetitions~\sespel, where each of the \jsspJobs~job~IDs appears \jsspMachines~times.%
 \item<7-> The solution space~\solutionSpace\ is the set of correct \glspl{ganttChart}~\solution.%
@@ -746,7 +751,35 @@ then it goes for 10s to machine~0\only<13->{{\dots} {\dots}and so on}.%
 \item<9-> Then we can use the algorithms and operators we already know\dots%
 \end{itemize}%
 }%
+}%
+\item<10-> Permutations~\sespel\ are processed from beginning to end and the operations belonging to the listed jobs are placed at their corresponding machines at the earliest possible time in a \gls{ganttChart}.%
 \end{itemize}%
+%
+\locateGraphic{11}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_01}{0.15}{0.3}%
+\locateGraphic{12}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_02}{0.15}{0.3}%
+\locateGraphic{13}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_03}{0.15}{0.3}%
+\locateGraphic{14}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_04}{0.15}{0.3}%
+\locateGraphic{15}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_05}{0.15}{0.3}%
+\locateGraphic{16}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_06}{0.15}{0.3}%
+\locateGraphic{17}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_07}{0.15}{0.3}%
+\locateGraphic{18}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_08}{0.15}{0.3}%
+\locateGraphic{19}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_09}{0.15}{0.3}%
+\locateGraphic{20}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_10}{0.15}{0.3}%
+\locateGraphic{21}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_11}{0.15}{0.3}%
+\locateGraphic{22}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_12}{0.15}{0.3}%
+\locateGraphic{23}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_13}{0.15}{0.3}%
+\locateGraphic{24}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_14}{0.15}{0.3}%
+\locateGraphic{25}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_15}{0.15}{0.3}%
+\locateGraphic{26}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_16}{0.15}{0.3}%
+\locateGraphic{27}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_17}{0.15}{0.3}%
+\locateGraphic{28}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_18}{0.15}{0.3}%
+\locateGraphic{29}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_19}{0.15}{0.3}%
+\locateGraphic{30}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_20}{0.15}{0.3}%
+\locateGraphic{31}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_21}{0.15}{0.3}%
+\locateGraphic{32}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_22}{0.15}{0.3}%
+\locateGraphic{33}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_23}{0.15}{0.3}%
+\locateGraphic{34}{width=0.7\paperwidth}{\sharedDir/graphics/jssp_example/jssp_example_24}{0.15}{0.3}%
+%
 \end{frame}%
 %
 %
