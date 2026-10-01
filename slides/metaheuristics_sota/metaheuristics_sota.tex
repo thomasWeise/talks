@@ -862,6 +862,23 @@ and we want to pack them into rectangular bins without overlap such that their e
 %
 \end{frame}%
 %
+\begin{frame}[t]%
+\frametitle{2D~Bin Packing Problem: Benchmarks}%
+\begin{itemize}%
+\item The standard benchmark set in this field is \gls{2DPackLib}\cite{IdLMM20222ATDCAPL,IdLMM20212}, which can be found at \citeurl{IdLMM20212}.\uncover<2->{%
+\begin{itemize}%
+\item 10~instances of type \instFormat{beng}\cite{B1982PRPAHA} with 20 and 200~items\uncover<3->{,}%
+\item<3-> 10~\instFormat{class} instance sets\cite{BW1987TDFBPA,MV1998ESOTTDFBPP} with 5~group of 10~instances each, with up to 100~items\uncover<4->{, and}%
+\item<4-> the \instFormat{A} instance set\cite{MAVdC2010AFMFTTDGCSP} offers 43~instances with 13~to 809~items.%
+\end{itemize}}%
+%
+\item<5-> The \glsFull{optAsqas} problem\cite{vdBBMSB2016ASIASSTFI} asks us to put objects of sizes~$1\times2$, $2\times3$, \dots, $\scale\times(\scale+1)$ into a similarly almost-square bin without waste.\uncover<6->{ %
+It has only 4~interesting instances, with bin sizes $5\times4$ for $\scale=3$, \alert<6>{$15\times16$ for $\scale=8$}, $55\times56$ for $\scale=20$, and $119\times120$ for $\scale=34$.}%
+%
+\end{itemize}%
+\locateGraphic{6}{width=0.8\paperwidth}{\sharedDir/graphics/asqas/asqas_8}{0.1}{0.635}%
+\end{frame}%
+%
 \begin{frame}%
 \frametitle{Traveling Tournament Problem}%
 \begin{itemize}%
