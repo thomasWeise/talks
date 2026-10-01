@@ -838,15 +838,28 @@ then it goes for 10s to machine~0\only<13->{{\dots} {\dots}and so on}.%
 \end{itemize}%
 \end{frame}%
 %
+\subsection{2D~Bin Packing}%
 %
-\begin{frame}%
-\frametitle{2D~Bin Packing Problem}%
+\begin{frame}[t]%
+\frametitle{2D~Bin Packing Problem: Introduction}%
 \begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
+\item In a \glsFull{optBPP2D}, we have a set of \scale~rectangles\only<2->{ %
+and we want to pack them into rectangular bins without overlap such that their edges are parallel to the bin edges\only<-3>{, with the goal to use as few bins as possible}}\cite{LMM2002TDPPAS,LMV2002RAOTDBPP,IdLMMM2021ESTFTDCAP}.%
+%
+\item<4-> Typical flavors of this problem include the \glsFull{optBPP2DrotFree} and the \glsFull{optBPP2DnoRotFree}.%
+%
+\item<5-> The \glsShort{optBPP2D} is strongly \npHard\cite{LMV2002RAOTDBPP}.%
+%
+\item<6-> The problem is closely related to the 2D\nobreakdashes-\gls{optCSP}, where the goal is to cut rectangles from larger rectangles\dots%
+%
+\item<7-> It has many practical applications, e.g., in cutting~(wood, glas)\cite{LMV2002RAOTDBPP}, packing~(transportation, warehouse)\cite{LMV2002RAOTDBPP}, newspaper page layout\cite{SH2008ALOPNP}, as well as in scheduling and build formation in additive manufacturing\cite{PSTM2024SIORAMSNASOOAMSMTT,LZ2018SBPMSWTDBPC}.%
+%
 \end{itemize}%
+%
+\locateGraphic{1}{width=0.7\paperwidth}{\sharedDir/graphics/2dbpp_example/2dbpp_example_instance_cl01-020-04_1}{0.125}{0.5}%
+\locateGraphic{2}{width=0.7\paperwidth}{\sharedDir/graphics/2dbpp_example/2dbpp_example_instance_cl01-020-04_2}{0.125}{0.5}%
+\locateGraphic{3}{width=0.7\paperwidth}{\sharedDir/graphics/2dbpp_example/2dbpp_example_solution_cl01-020-04}{0.125}{0.55}%
+%
 \end{frame}%
 %
 \begin{frame}%
