@@ -10,6 +10,7 @@
 - [Comparing Optimization Algorithms](https://thomasweise.github.io/talks/comparingOptimizationAlgorithms.pdf)
 - [Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf)
 - [An Introduction to Optimization](https://thomasweise.github.io/talks/optimization.pdf)
+- [Metaheuristic Optimization: State of the Art](https://thomasweise.github.io/talks/metaheuristic_sota.pdf)
 - [Metaheuristic Optimization in Python:&nbsp;`moptipy`](https://thomasweise.github.io/talks/moptipy.pdf)
 - [Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)
 - [Solving the Space Optimization Competiton&nbsp;4 Challenge&nbsp;2 of the European Space Agency](https://thomasweise.github.io/talks/gecco2026_spoc4_keplerian_tsp.pdf)
@@ -59,7 +60,22 @@ These are the problems requiring metaheuristic optimization algorithms.
 We then finally take a brief look into some basic concepts underlying these algorithms.
 
 
-### 2.4. Metaheuristic Optimization in Python:&nbsp;`moptipy`
+### 2.4. Metaheuristic Optimization: State of the Art
+**[Metaheuristic Optimization: State of the Art](https://thomasweise.github.io/talks/metaheuristic_sota.pdf)** presents the research frontier of metaheuristic optimization.
+It first introduces optimization as a field that attempts to solve hard problems.
+Indeed, we cannot solve many problems to guaranteed optimality within acceptable time.
+Metaheuristics are then presented as a very wide algorithm family that deals with this fact by dropping the guarantee to find optimal solutions in return for finding good solutions quickly.
+They commonly do so in a cycle of trial and error, where new solutions are sampled and better discovered solutions are remembered.
+We briefly present a few basic metaheuristics.
+Then we move on to different problem domains.
+We then step-by-step define a set of different discrete and combinatorial problems, show the common benchmark instances of these problems, and discuss baseline and state-of-the-art algorithms.
+We look at discrete benchmark functions, at the search for Low-Autocorrelation Binary Sequences, the Maximum Satisfiability Problem, the Traveling Salesperson Problem, the Quadratic Assignment Problem, the Job Shop Scheduling Problem, and two-dimensional bin packing.
+This survey should give a good impression on the state of the field and maybe serve as inspiration to explore it more.
+A huge amount of references, definitions, glossary terms, and links are provided.
+*If you have any suggestions for updates of the SOTA of some of the fields, let me know.* 
+
+
+### 2.5. Metaheuristic Optimization in Python:&nbsp;`moptipy`
 **[Metaheuristic Optimization in Python:&nbsp;`moptipy`](https://thomasweise.github.io/talks/moptipy.pdf)** gives a brief introduction the [Python](https://thomasweise.github.io/programmingWithPython) framework [`moptipy`](https://thomasweise.github.io/moptipy).
 This framework, developed by our team, allows you to conduct repeatable, replicable, self-documenting experiments that can be executed in parallel or in a distributed fashion.
 It implements many of the basic metaheuristic algorithms as well as some experimental methods like FFA.
@@ -70,14 +86,14 @@ The additional package [`moptipyapps`](https://thomasweise.github.io/moptipyapps
 [not finished]
 
 
-### 2.5. Frequency Fitness Assignment as Research Direction
+### 2.6. Frequency Fitness Assignment as Research Direction
 **[Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)** briefly outlines the research direction *Frequency Fitness Assignment*&nbsp(FFA, <span style="color:gray;font-size:90%">频率适应度分配</span>) of our team.
 It begins by introducing the field of optimization with a particular focus on metaheuristics.
 It then discusses how FFA works and how it can be plugged into metaheuristic optimization algorithms.
 We then show the past achievements resulting from this strand of research before giving pointers to the future tasks and challenges ahead.
 
 
-### 2.6. Solving the Space Optimization Competiton&nbsp;4 Challenge&nbsp;2 of the European Space Agency
+### 2.7. Solving the Space Optimization Competiton&nbsp;4 Challenge&nbsp;2 of the European Space Agency
 As member of the team [ScholORs_HFUU+Sunway](https://optimise.esa.int/user/dd46ba62e88c45b7958a97d529e3a220), Prof.&nbsp;Weise took part in the *Space Optimization Competition*&nbsp;([SpOC&nbsp;4](https://github.com/esa/SpOC4)) at the [GECCO'2026](https://gecco-2026.sigevo.org) conference.
 Our team was one of the earliest to propose solutions for the three challenges.
 Matter of fact, in Challenge&nbsp;2, we were leading for quite some time, until finally being overtaken by several other teams.

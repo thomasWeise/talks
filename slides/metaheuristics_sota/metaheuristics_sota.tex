@@ -35,13 +35,20 @@
 \item Today, we will discuss the research frontier on \gls{metaheuristic} optimization.%
 \item<2-> Therefore, we will first introduce what \gls{metaheuristic} optimization is and why we need.%
 \item<3-> Then we will discuss the current \gls{SOTA} on several of the many, many, many domains where \glspl{metaheuristic} are applied.%
+\item<4-> I can, of course, not discuss all algorithms or applications in detail.%
+\item<5-> However, I will introduce each problem, provide typical benchmarks, baselines, and \gls{SOTA} algorithms.%
+\item<6-> And many, many literature references.%
+\item<7-> Therefore, if this lecture interests you in this field, you will have many starting points for your own research.%
 \end{itemize}%
 \end{frame}%
 %
 \begin{frame}%
 \frametitle{Metaheuristics}%
 \begin{itemize}%
-\item \Glspl{metaheuristic} are a class of algorithms used for \alert{optimization}.%
+\item So let's begin.%
+\item<2-> What are \emph{\glspl{metaheuristic}} anyway?%
+\item<3-> \Glspl{metaheuristic} are a class of algorithms used for \alert{optimization}.%
+\item<4-> So what is optimization?%
 \end{itemize}%
 \end{frame}%
 %
@@ -297,12 +304,6 @@
 %
 \input{\sharedDir/slides/optimization_metaheuristic_components.tex}%
 %
-\gdef\sharedSlideTitle{Example:~RLS and the $(1+1)$~EA}%
-\input{\sharedDir/slides/optimization_opoea_rls.tex}%
-%
-\xdef\sharedSlideTitle{Example:~Simulated Annealing}%
-\input{\sharedDir/slides/optimization_sa.tex}%
-%
 %
 \begin{frame}[t]%
 \frametitle{Types of Metaheuristics}%
@@ -357,6 +358,23 @@
 \end{frame}%
 %
 %
+\gdef\sharedSlideTitle{Example:~RLS and the $(1+1)$~EA}%
+\input{\sharedDir/slides/optimization_opoea_rls.tex}%
+%
+\xdef\sharedSlideTitle{Example:~Simulated Annealing}%
+\input{\sharedDir/slides/optimization_sa.tex}%
+%
+\begin{frame}%
+\frametitle{Problem Domains}%
+\begin{itemize}%
+\item We now have at least a cursory understanding of \glspl{metaheuristic}.%
+\item<2-> So let's directly skip directly to the \emph{research frontier} of this field.%
+\item<3-> Let us therefore look a handful of discrete and combinatorial problems.%
+\item<4-> (We ignore the continuous domain~$\searchSpace=\realNumbers^{\scale}$.)%
+\end{itemize}%
+\end{frame}%
+%
+%
 \section{Discrete Optimization}%
 \subsection{Black-Box Discrete Optimization Benchmarks}%
 %
@@ -372,6 +390,8 @@
 \item<3-> The benchmarks are functions that scale with~\scale\ and are usually computable in~\bigOb{\scale} or~\bigOb{\scale^2}.%
 %
 \item<4-> Their optima are known~(but the algorithms we apply to them don't know them).%
+%
+\item<5-> So what are such benchmarks?%
 %
 \end{itemize}%
 \end{frame}%
@@ -416,13 +436,19 @@
 \frametitle{Black-Box Discrete Optimization Benchmarks: Baselines}%
 \begin{itemize}%
 %
+\item So what are the baseline algorithms for black-box discrete optimization, i.e., the algorithms that you absolutely must beat and against which any new idea should be compared?%
+\uncover<2->{%
+\begin{itemize}%
+%
 \item \glsFull{algoRLS}:~unary operator flips 1~bit%
 %
-\item<2-> \glsShort{algoEAopo}:~unary operator flips each bit with probability~$1/n$%
+\item<3-> \glsShort{algoEAopo}:~unary operator flips each bit with probability~$1/n$%
 %
-\item<3-> \glsFull{algoSGA}\cite{G1989GA,W2009GOATAA,BFM1997HOEC}:~traditional population-based \glsShort{algoGA}, now outdated%
+\item<4-> \glsFull{algoSGA}\cite{G1989GA,W2009GOATAA,BFM1997HOEC}:~traditional population-based \glsShort{algoGA}, now outdated%
 %
-\item<4-> \glsFull{algoTS}:~like \gls{algoRLS}, but forbit flipping of recently flipped bits to avoid cycles%
+\item<5-> \glsFull{algoTS}:~like \gls{algoRLS}, but forbit flipping of recently flipped bits to avoid cycles%
+\end{itemize}%
+}%
 %
 \end{itemize}%
 \end{frame}%
@@ -432,13 +458,18 @@
 \frametitle{Black-Box Discrete Optimization Benchmarks: SOTA}%
 \begin{itemize}%
 %
+\item The \gls{SOTA} algorithms are the most interesting methods currently put forward by research.%
+\uncover<2->{%
+\begin{itemize}%
+%
 \item The \alert<-1>{\glsShort{algoSAGA}} by \citeauthor{CPD2018TAMPARAOEA}~\bracketCite{CPD2018TAMPARAOEA,DD2018OSASAPCFT1LLGA}: linear runtime on \gls{optOneMax}.%
 %
-\item<2-> The \alert<-2>{\glsShort{algoG2P1GA}} by \citeauthor{S2012CSUBBA}~\bracketCite{S2012CSUBBA,S2017HCSUBBAIGA,CPD2018TAMPARAOEA,CPD2018ASPFTUOCIBBO}:~An algorithm using a binary operator and proven to be twice as fast as any unary-operator only black-box method on \gls{optOneMax}.%
+\item<3-> The \alert<-2>{\glsShort{algoG2P1GA}} by \citeauthor{S2012CSUBBA}~\bracketCite{S2012CSUBBA,S2017HCSUBBAIGA,CPD2018TAMPARAOEA,CPD2018ASPFTUOCIBBO}:~An algorithm using a binary operator and proven to be twice as fast as any unary-operator only black-box method on \gls{optOneMax}.%
 %
-\item<3-> \alert<-3>{\glsShort{algoFEAopo}} by Weise et al.~\bracketCite{WWLC2021FFAMOAIUBTOTOFV,WWLCL2023FFAOWBFGSCBE,ZWWW2026WFFAFTSIFGLS}, i.e., the \glsShort{algoEAopo} with \glsFull{algoFFA}:~the \emph{only} algorithm achieving polynomial runtime on \gls{optTrap}, \gls{optTwoMax}, and \gls{optJump}.\uncover<4->{ %
+\item<4-> \alert<-3>{\glsShort{algoFEAopo}} by \citeauthor{WWLC2021FFAMOAIUBTOTOFV}~\bracketCite{WWLC2021FFAMOAIUBTOTOFV,WWLCL2023FFAOWBFGSCBE,ZWWW2026WFFAFTSIFGLS}, i.e., the \glsShort{algoEAopo} with \glsFull{algoFFA}:~the \emph{only} algorithm achieving polynomial runtime on \gls{optTrap}, \gls{optTwoMax}, and \gls{optJump}.\uncover<4->{ %
 \alert{Invented here.}%
 }%
+\end{itemize}}%
 %
 \end{itemize}%
 %
@@ -455,19 +486,42 @@
 %
 \item At so-called phase transition region with~$\frac{m}{n}\approx4.26$, the average instance hardness for \gls{algoSLS} algorithms is maximal\cite{HS2000SAORFROS,DNS2017TCAOEAORSkCF,DNS2015IRBFTOPOEOR3CFBOFDC}, so instances from this region are most interesting.%
 %
-\item<2-> \gls{SATLIB}\cite{HS2000SAORFROS,HS2001STSL} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$.%
+\item<2-> \gls{SATLIB}\cite{HS2000SAORFROS,HS2001STSL} provides satisfiable benchmark instances from the phase transition region~(i.e., the hardest type of instances) for different scales~$n\in20 \cup \{25 i\; \forall i \in \intRange{2}{10}\}$, which is enough to test black-box algorithms.%
+%
+\item<3-> The \glsFull{optMaxSATEvaluation} offers a much more comprehensive and up-to-date set of benchmark instances\cite{JVBFKMSS2026MECBC} as well as solvers and results\cite{VJBFKMSS2026ME2SBR}.
 %
 \end{itemize}%
 \end{frame}%
 %
+\begin{frame}%
+\frametitle{Maximum Satisfiability: Solver Types}%
+\begin{itemize}%
+%
+\item We can distinguish \emph{complete} and \emph{incomplete} \glsShort{optMaxSAT} solvers\cite{GKSS2008SS}.\uncover<2->{%
+\begin{itemize}%
+%
+\item \alert{Complete Solvers}: guaranteed to output a provably optimal solution to any instance, i.e., a solution that solves as many clauses as possible, given enough runtime and memory.%
+%
+\item<3-> \alert{Incomplete Solvers}: provide good solutions quickly, but may not guarantee optimality.%
+\end{itemize}%
+}%
+%
+\item<4-> \Glspl{metaheuristic} tend to be incomplete solvers and these are therefore more interesting for us.%
+\end{itemize}%
+\end{frame}%
 %
 \begin{frame}%
 \frametitle{Maximum Satisfiability Problem: Baselines}%
 \begin{itemize}%
+\item Traditional incomplete solvers that are the very bottom line against we should compare new idea at least are\only<-1>{\dots}\uncover<2->{:%
+\begin{itemize}%
+%
 \item As black-box baselines, we can use the algorithms already listed for discrete benchmarks.%
  %
-\item<2-> A good problem-specific baseline is \gls{algoWalkSAT} by \textcite{SKC1994NSFILS}.%
+\item<3-> A good problem-specific baseline is \gls{algoWalkSAT} by \textcite{SKC1994NSFILS}.%
 %
+\end{itemize}%
+}%
 \end{itemize}%
 \end{frame}%
 %
@@ -476,11 +530,11 @@
 \frametitle{Maximum Satisfiability Problem: SOTA}%
 \begin{itemize}%
 %
-\item For smaller-scale instances we can use \glsFull{algoBB} algorithms like \textcite{LMMP2010RBLBIM}.%
-%
-\item<2-> Encoding-based methods like those of \textcite{PRB2018DPWEFSWM} can deal with even much larger instances.%
-%
-\item<3-> The \gls{SOTA} for incomplete solvers\cite{GKSS2008SS} comprises \glsShort{algoSLS} algorithms, often based on ideas dating back to \gls{algoWalkSAT}, such as \glsFull{algoAMLS} by \textcite{LH2012AMBLSFMS} or \gls{algoNuWLS} by \textcite{CCL2023NILSFWPMBNWT}.%
+\item<3-> The \gls{SOTA} for heuristic incomplete solvers comprises \glsShort{algoSLS} algorithms, often based on ideas dating back to \gls{algoWalkSAT}\only<-1>{.}\uncover<2->{, such as%
+\begin{itemize}%
+\item \glsFull{algoAMLS} by \textcite{LH2012AMBLSFMS}\uncover<3->{ or}%
+\item<3-> \gls{algoNuWLS} by \textcite{CCL2023NILSFWPMBNWT}.%
+\end{itemize}}%
 %
 \end{itemize}%
 \end{frame}%
@@ -516,11 +570,15 @@
 \begin{frame}%
 \frametitle{Low Autocorrelation Binary Sequences: Baselines}%
 \begin{itemize}%
+\item The baselines for this problem are\only<-1>{\dots}\uncover<2->{:%
+\begin{itemize}%
 \item The algorithms listed under discrete optimization benchmarks.%
 %
-\item<2-> For small scales~\scale\ the \gls{algoGA} by \textcite{MZB1998ESFLABS} or the exhaustive enumeration by \textcite{M1996ESFLABS}.%
+\item<3-> For small scales~\scale\ the \gls{algoGA} by \textcite{MZB1998ESFLABS} or the exhaustive enumeration by \textcite{M1996ESFLABS}.%
 %
-\item<3-> See also the (outdated) online repository \citeurl{BBB2016AGAFSASOTLP} by \textcite{BBB2016AGAFSASOTLP}.%
+\item<4-> See also the (outdated) online repository \citeurl{BBB2016AGAFSASOTLP} by \textcite{BBB2016AGAFSASOTLP}.%
+\end{itemize}%
+}%
 \end{itemize}%
 \end{frame}%
 %
@@ -529,13 +587,17 @@
 \frametitle{Low Autocorrelation Binary Sequences: SOTA}%
 \begin{itemize}%
 %
-\item the algorithm by \textcite{D2022NCOBSWHMF}\uncover<2->{,}%
+\item The \gls{SOTA}, i.e., the best current algorithms for \glsShort{optLABS} are\only<-1>{\dots}\uncover<2->{:%
+\begin{itemize}%
 %
-\item<2-> the \glsFull{algoMA} by \textcite{MDW2015NESFLLABS}\uncover<3->{,}%
+\item the algorithm by \textcite{D2022NCOBSWHMF}\uncover<3->{,}%
 %
-\item<3-> the xLastovka-family of methods by \citeauthor{BB2022CSOLSSBSWHMF}~\bracketCite{BB2022CSOLSSBSWHMF,BB2018AHAFALABSPWOLAHMF}\uncover<4->{, and}%
+\item<3-> the \glsFull{algoMA} by \textcite{MDW2015NESFLLABS}\uncover<4->{,}%
 %
-\item<4-> the \glsShort{algoSLS} by \textcite{DBN2020EGOLABS}~(= best-performing method).%
+\item<4-> the xLastovka-family of methods by \citeauthor{BB2022CSOLSSBSWHMF}~\bracketCite{BB2022CSOLSSBSWHMF,BB2018AHAFALABSPWOLAHMF}\uncover<5->{, and}%
+%
+\item<5-> the \glsShort{algoSLS} by \textcite{DBN2020EGOLABS}~(= best-performing method).%
+\end{itemize}}%
 \end{itemize}%
 \end{frame}%
 %
@@ -559,12 +621,16 @@
 \begin{frame}%
 \frametitle{Black-Box Permutation Problems: Baselines}%
 \begin{itemize}%
+\item Some baselines for any permutation-based problem include\only<-1>{\dots}\uncover<2->{:%
+\begin{itemize}%
 %
-\item \glsFull{algoRLS} with a unary operator that swaps two elements\uncover<2->{,}%
-\item<2-> \glsShort{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \glsFull{algoEAopo} for permutations)\uncover<3->{,}%
-\item<3-> \glsFull{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<4->{,}%
-\item<4-> \glsFull{algoTS} with the same operator that forbids moving values to recently-used indicess\uncover<5->{, and a}%
-\item<5-> \glsFull{algoEAmpl} with these operators and maybe \glsFull{algoAPcross}\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
+\item \glsFull{algoRLS} with a unary operator that swaps two elements\uncover<3->{,}%
+\item<3-> \glsShort{algoRLS} with a unary operator that swaps a binomially distributed number of elements~(similar to the \glsFull{algoEAopo} for permutations)\uncover<4->{,}%
+\item<4-> \glsFull{algoSA} with the same operators and suitable exponential temperature schedule setups\uncover<5->{,}%
+\item<5-> \glsFull{algoTS} with the same operator that forbids moving values to recently-used indicess\uncover<6->{, and a}%
+\item<6-> \glsFull{algoEAmpl} with these operators and maybe \glsFull{algoAPcross}\cite{LKPM1997DBNTOTMGWGA,LKMID1999GAFTTSPARORAO}.%
+\end{itemize}%
+}%
 \end{itemize}%
 \end{frame}%
 %
@@ -594,15 +660,19 @@
 \begin{frame}%
 \frametitle{Traveling Salesperson Problem: Benchmarks}%
 \begin{itemize}%
+\item The commone benchmark instances for the \glsShort{optTSP} can be obtained from\only<-1>{\dots}\uncover<2->{:%
+\begin{itemize}%
 %
 \item \gls{TSPLib} with 110~symmetric instances with scales~$\scale\in\intRange{14}{85\decSep900}$ and 19~asymmetric instances with scales~$\scale\in\intRange{17}{443}$\cite{R2016T,R1991ATSPL}.%
 %
-\item<2-> The instances of the 8th~DIMACS challenge\cite{JMGR20008DICTTSP,JM2002EAOHFTS,JGMYZZ2002EAOHFTS}, which have up to~10\decSep000\decSep000~cities.%
+\item<3-> The instances of the 8th~DIMACS challenge\cite{JMGR20008DICTTSP,JM2002EAOHFTS,JGMYZZ2002EAOHFTS}, which have up to~10\decSep000\decSep000~cities.%
 %
-\item<3-> The \citetitle{C2013WT} repository\cite{C2013WT} with many real-world geographical instances, including one with all 1\decSep904\decSep711 registered populated places of the Earth at some point in time in the 2000s.%
+\item<4-> The \citetitle{C2013WT} repository\cite{C2013WT} with many real-world geographical instances, including one with all 1\decSep904\decSep711 registered populated places of the Earth at some point in time in the 2000s.%
 %
-\item<4-> The \gls{TSPSuite}, which offers an integrated \gls{Java} environment for benchmarking algorithms on the \gls{TSPLib} instances\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
+\item<5-> The \gls{TSPSuite}, which offers an integrated \gls{Java} environment for benchmarking algorithms on the \gls{TSPLib} instances\cite{WCLTTCMY2014BOAAOSFFTTSP}.%
 %
+\end{itemize}%
+}%
 \end{itemize}%
 \end{frame}%
 %
@@ -610,7 +680,7 @@
 \frametitle{Traveling Salesperson Problem: Baselines}%
 \begin{itemize}%
 %
-\item The \glsFull{algoLK} algorithm\cite{LK1973AEHAFTTSP}, which exchanges variable number of edges in a tour in each step.%
+\item Besides permutation baselines, the baseline for the \glsShort{optTSP} is the \glsFull{algoLK} algorithm\cite{LK1973AEHAFTTSP}, which exchanges variable number of edges in a tour in each step.%
 %
 \end{itemize}%
 \end{frame}%
@@ -619,20 +689,26 @@
 \frametitle{Traveling Salesperson Problem: SOTA}%
 \begin{itemize}%
 %
+\item The \gls{SOTA} on the \glsShort{optTSP} comprises\only<-1>{\dots}\uncover<2->{:%
+\begin{itemize}%
+%
 \item The \glsFull{algoLKH} algorithm building on top of the \glsShort{algoLK} algorithm\cite{H2009GKOSFTLKTH,H2000AEIOTLKTSH}.%
 %
-\item<2-> An \glsFull{algoEA} with \glsFull{algoEAX} as binary operator by \citeauthor{NK1997EACAHPGAFTTSP}~\bracketCite{NK1997EACAHPGAFTTSP,NS2012ANGAFTATSP,NK2013APGAUEACFTTSP}.%
+\item<3-> An \glsFull{algoEA} with \glsFull{algoEAX} as binary operator by \citeauthor{NK1997EACAHPGAFTTSP}~\bracketCite{NK1997EACAHPGAFTTSP,NS2012ANGAFTATSP,NK2013APGAUEACFTTSP}.%
 %
-\item<3-> An \glsFull{algoMA} with \glsFull{algoGPX} as binary operator by \textcite{WHH2010AHGAFTTSPUGPC}.
+\item<4-> An \glsFull{algoMA} with \glsFull{algoGPX} as binary operator by \textcite{WHH2010AHGAFTTSPUGPC}.
 %
-\item<4-> Especially: \glsShort{algoLKH} run in an \glsShort{algoMA}-fashion with \glsShort{algoGPX} as binary operator as proposed by \textcite{THW2018ERITLKHTSH}.%
+\item<5-> Especially: \glsShort{algoLKH} run in an \glsShort{algoMA}-fashion with \glsShort{algoGPX} as binary operator as proposed by \textcite{THW2018ERITLKHTSH}.%
 %
-\item<5-> \gls{Concorde}, an exact solver for the \gls{optTSP} by \citeauthor{ABCC2006TTSPACS}~\bracketCite{C1997CTS,ABCC2006TTSPACS,C2012IPOTTSMATLOC}, which even solved the largest instance of \gls{TSPLib}~(with 85\decSep900~cities) to optimality!\uncover<6->{ %
+\item<6-> \gls{Concorde}, an exact solver for the \gls{optTSP} by \citeauthor{ABCC2006TTSPACS}~\bracketCite{C1997CTS,ABCC2006TTSPACS,C2012IPOTTSMATLOC}, which even solved the largest instance of \gls{TSPLib}~(with 85\decSep900~cities) to optimality!\uncover<6->{ %
 (This algorithm uses \glsShort{algoLK}-style algorithms methods like \glsShort{algoLKH} to find its starting point.)%
 }%
 %
 \end{itemize}%
+}%
+\end{itemize}%
 \end{frame}%
+%
 %
 \subsection{Quadratic Assignment Problem}%
 %
@@ -663,7 +739,7 @@
 \begin{frame}%
 \frametitle{Quadratic Assignment Problem: Benchmarks}%
 \begin{itemize}%
-\item the 136~instances of \gls{QAPLib}\cite{BKR1997QAQAPL,BCKRAH2022QAQAPLPIAS}, 28~of which have not yet been solved to optimality\cite{A2023TQC}~(at least by \citeyear{A2023TQC}).%
+\item The typical benchmark for the \glsShort{optQAP} are the 136~instances of \gls{QAPLib}\cite{BKR1997QAQAPL,BCKRAH2022QAQAPLPIAS}, 28~of which have not yet been solved to optimality\cite{A2023TQC}~(at least by \citeyear{A2023TQC}).%
 \end{itemize}%
 \end{frame}%
 %
@@ -671,10 +747,13 @@
 \begin{frame}%
 \frametitle{Quadratic Assignment Problem: Baselines}%
 \begin{itemize}%
-\item the robust \glsFull{algoTS} algorithms by \textcite{T1991RTSFTQAP,T1995COISFTQAP} and \textcite{M2005ATSAFTQAP},%
-\item<2-> \glsFull{algoSA} by \textcite{TB1994AISAAFTQAP}, \textcite{M2003AMSAAFTQAP},%
-\item<3-> the \glsFull{algoRTS} by \textcite{BT1994SAATSITLRACOQT,BT1994TRTS}, and%
-\item<4-> the \glsFull{algoILS} by \textcite{S2006ILSFTQAP}.%
+\item Algorithms that have performed well on the \glsShort{optQAP} and therefore are baselines include\only<-1>{\dots}\uncover<2->{:%
+\begin{itemize}%
+\item the robust \glsFull{algoTS} algorithms by \textcite{T1991RTSFTQAP,T1995COISFTQAP} and \textcite{M2005ATSAFTQAP}\uncover<3->{,}%
+\item<3-> \glsFull{algoSA} by \textcite{TB1994AISAAFTQAP}, \textcite{M2003AMSAAFTQAP}\uncover<4->{,}%
+\item<4-> the \glsFull{algoRTS} by \textcite{BT1994SAATSITLRACOQT,BT1994TRTS}\uncover<5->{, and}%
+\item<5-> the \glsFull{algoILS} by \textcite{S2006ILSFTQAP}.%
+\end{itemize}}%
 \end{itemize}%
 \end{frame}%
 %
@@ -682,7 +761,7 @@
 \begin{frame}%
 \frametitle{Quadratic Assignment Problem: SOTA}%
 \begin{itemize}%
-\item \textcite{BAP2015MAFTQAPPAC} provide a nice experimental overview.%
+\item \textcite{BAP2015MAFTQAPPAC} provide a nice experimental overview on the \gls{SOTA} of the \glsShort{optQAP}.%
 \item<2-> Apart from this, we can identify the following methods\uncover<2->{:%
 \begin{itemize}%
 \item the \glsFullpl{algoMA} by \textcite{FF1993GHFTQAP} and \textcite{TG1997AMFTQAP}, which use the \glsShort{algoTS} from~\cite{T1991RTSFTQAP} as local search,%
@@ -820,7 +899,7 @@ then it goes for 10s to machine~0\only<13->{{\dots} {\dots}and so on}.%
 \frametitle{Job Shop Scheduling Problem: Baselines}%
 %
 \begin{itemize}%
-\item See the large study by \textcite{W2019JRDAIOTJSSP} at \citeurl{W2019JRDAIOTJSSP} for old/classical methods.%
+\item See the large study by \textcite{W2019JRDAIOTJSSP} at \citeurl{W2019JRDAIOTJSSP} for old/classical methods that are baselines on the \glsShort{optJSSP}.%
 \item<2-> Good classical algorithms to outperform are the \glsFull{algoTS} algorithms by \textcite{NS1996AFTSAFTJSP} and \textcite{PM2000ATSMGBSBFTJSSP} or the \glsFull{algoLS} by \textcite{BV1998GLSWSBFJSS}.%
 \end{itemize}%
 \end{frame}%
@@ -828,13 +907,17 @@ then it goes for 10s to machine~0\only<13->{{\dots} {\dots}and so on}.%
 %
 \begin{frame}[t]%
 \frametitle{Job Shop Scheduling Problem: SOTA}%
+\begin{itemize}%
+\item The \gls{SOTA} on the \glsShort{optJSSP} includes\only<-1>{\dots}\uncover<2->{:%
 %
 \begin{itemize}%
-\item the \glsFullpl{algoMA} by \textcite{H2002PJSSP}\uncover<2->{,}%
-\item<2-> the \glsFull{algoTS} algorithms by \textcite{SS2018BBOVBCACSOJSS}, \textcite{PLC2015ATSPRATSTJSSP}, and \textcite{ZSRQ2008SNROTSAATTJSSP}\uncover<3->{,}%
-\item<3-> the \glsShort{algoSA}-related method by \textcite{PSV2010SJSSPUTPOBABV}\uncover<4->{,}%
-\item<4-> the \glsFull{algoBRKGA}, here realized as \glsShort{algoMA} combining continuous optimization, the permutation-based encoding, and \glsShort{algoTS} by \textcite{GR2014AEAGMWABRKGAFJSS}\uncover<5->{, and}%
-\item<5-> the algorithm by \textcite{VLS2015FDSFCBS}.%
+\item the \glsFullpl{algoMA} by \textcite{H2002PJSSP}\uncover<3->{,}%
+\item<3-> the \glsFull{algoTS} algorithms by \textcite{SS2018BBOVBCACSOJSS}, \textcite{PLC2015ATSPRATSTJSSP}, and \textcite{ZSRQ2008SNROTSAATTJSSP}\uncover<4->{,}%
+\item<4-> the \glsShort{algoSA}-related method by \textcite{PSV2010SJSSPUTPOBABV}\uncover<5->{,}%
+\item<5-> the \glsFull{algoBRKGA}, here realized as \glsShort{algoMA} combining continuous optimization, the permutation-based encoding, and \glsShort{algoTS} by \textcite{GR2014AEAGMWABRKGAFJSS}\uncover<6->{, and}%
+\item<6-> the algorithm by \textcite{VLS2015FDSFCBS}.%
+\end{itemize}%
+}%
 \end{itemize}%
 \end{frame}%
 %
@@ -959,94 +1042,49 @@ It has only 4~interesting instances, with bin sizes $5\times4$ for $\scale=3$, \
 \end{frame}%
 %
 %
-\begin{frame}%
-\frametitle{Traveling Tournament Problem}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
-\end{itemize}%
-\end{frame}%
-%
-\begin{frame}%
-\frametitle{Vehicle Routing Problems}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
-\end{itemize}%
-\end{frame}%
-%
-\section{Continuous Optimization}%
-%
-\begin{frame}%
-\frametitle{Black-Box Continuous Optimization}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
-\end{itemize}%
-\end{frame}%
-%
-%
-\section{Multi-Objective Optimization / Noisy Optimization}%
-%
-\begin{frame}%
-\frametitle{Black-Box Multi-Objective Problems}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
-\end{itemize}%
-\end{frame}%
-%
-\begin{frame}%
-\frametitle{Black-Box Noisy-Objective Problems}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
-\end{itemize}%
-\end{frame}%
-%
-%
-\begin{frame}%
-\frametitle{Material Flow Control for Make-to-Stock with Reorder Points}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
-\end{itemize}%
-\end{frame}%
-%
-\section{Tree-based Search Spaces}%
-%
-\begin{frame}%
-\frametitle{Equation and Algorithm Synthesis}%
-\begin{itemize}%
-\item \alert{Problem}:%
-\item<2-> \alert{Benchmarks}:%
-\item<3-> \alert{Baselines}:%
-\item<4-> \alert{\gls{SOTA}}:%
-\end{itemize}%
-\end{frame}%
-%
 \section{Summary}%
 %
 \begin{frame}%
 \frametitle{Summary}%
 \begin{itemize}%
 \item Today, I gave you a brief introduction into optimization.%
-\item<2-> You learned roughly what it is.%
+\item<2-> You learned roughly what it is and saw some basic \gls{metaheuristic} algorithms.%
 \item<3-> Then we looked at different examples for optimization problems.%
+\item<4-> What did we learn?%
 \end{itemize}%
 \end{frame}%
+%
+\begin{frame}%
+\frametitle{Algorithm Families}%
+\begin{itemize}%
+\item Among the \gls{SOTA}, we can find many \gls{algoSLS} methods.%
+\item<2-> \glsFull{algoTS} is quite successful, \glsFull{algoSA} is less often among the \gls{SOTA}.%
+\item<3-> Pure population-based methods like \glspl{algoEA} are rarely \gls{SOTA}.%
+\item<4-> However, if hybridized with \gls{algoLS}, i.e., in the form of \glspl{algoMA}, they rock.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Encodings}%
+\begin{itemize}%
+\item Surprisingly many problems where the solutions are complex data structures can still be solved using simple \glspl{metaheuristic}.%
+\item<2-> Here, we often use a simple search space~\searchSpace\ and map it to the complex solution space~\solutionSpace\ using a decoding function~$\decode:\searchSpace\mapsto\solutionSpace$.%
+\item<3-> Typical examples were the \gls{optJSSP} and the \gls{optBPP2D}, where permutations are translated to \glspl{ganttChart} and packings, respectively.%
+\end{itemize}%
+\end{frame}%
+%
+\begin{frame}%
+\frametitle{Generalized Problems}%
+\begin{itemize}%
+\item Many of the problems introduced here were presented in a \inQuotes{pure} form, but in the real world, they are often more complicated.%
+\item<2-> In a real-world \gls{optJSSP}, there may be transportation times for material between machines, which may even be job-specific.%
+\item<3-> In a real-world \gls{optMaxSAT}, the clauses may have different weights, i.e., some may be more important than others.%
+\item<4-> And so on.%
+\item<5-> Such special problems can often still be tackled with \gls{metaheuristic}, which often are the best methods for them.%
+\item<6-> If you understand these concepts, then you can tackle basically \emph{any} problem occuring in management, logistics, warehousing, planning, scheduling, packing, or even engineering.%
+\end{itemize}%
+\end{frame}%
+%
 %
 \input{\sharedDir/slides/advertisement.tex}%
 %
