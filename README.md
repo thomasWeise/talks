@@ -10,7 +10,7 @@
 - [Comparing Optimization Algorithms](https://thomasweise.github.io/talks/comparingOptimizationAlgorithms.pdf)
 - [Frequency Fitness Assignment](https://thomasweise.github.io/talks/ffa.pdf)
 - [An Introduction to Optimization](https://thomasweise.github.io/talks/optimization.pdf)
-- [Metaheuristic Optimization: State of the Art](https://thomasweise.github.io/talks/metaheuristic_sota.pdf)
+- [Metaheuristic Optimization: State of the Art](https://thomasweise.github.io/talks/metaheuristics_sota.pdf)
 - [Metaheuristic Optimization in Python:&nbsp;`moptipy`](https://thomasweise.github.io/talks/moptipy.pdf)
 - [Frequency Fitness Assignment as Research Direction](https://thomasweise.github.io/talks/researchDirectionFFA.pdf)
 - [Solving the Space Optimization Competiton&nbsp;4 Challenge&nbsp;2 of the European Space Agency](https://thomasweise.github.io/talks/gecco2026_spoc4_keplerian_tsp.pdf)
@@ -61,7 +61,7 @@ We then finally take a brief look into some basic concepts underlying these algo
 
 
 ### 2.4. Metaheuristic Optimization: State of the Art
-**[Metaheuristic Optimization: State of the Art](https://thomasweise.github.io/talks/metaheuristic_sota.pdf)** presents the research frontier of metaheuristic optimization.
+**[Metaheuristic Optimization: State of the Art](https://thomasweise.github.io/talks/metaheuristics_sota.pdf)** presents the research frontier of metaheuristic optimization.
 It first introduces optimization as a field that attempts to solve hard problems.
 Indeed, we cannot solve many problems to guaranteed optimality within acceptable time.
 Metaheuristics are then presented as a very wide algorithm family that deals with this fact by dropping the guarantee to find optimal solutions in return for finding good solutions quickly.
