@@ -4,27 +4,29 @@
 %
 \begin{itemize}%
 %
-\item We have a space~\searchSpace\ in which we search for potential solutions~\sespel.%
+\item Which things do we need in order to apply a \gls{metaheuristic}?%
 %
-\item<2-> \searchSpace~is often very/exponentially large in the input size.%
+\item<2-> We need to have a space~\searchSpace\ in which we search for potential solutions~\sespel.%
 %
-\item<3-> We repeatedly sample elements~\sespel\ from this space~\searchSpace, so we need operators to do that\only<-3>{.}\only<4->{:%
+\item<3-> \searchSpace~is often very/exponentially large in the input size.%
+%
+\item<4-> We want to repeatedly sample elements~\sespel\ from this space~\searchSpace, so we need operators to do that\only<-4>{.}\only<5->{:%
 \begin{itemize}%
-\item a \emph{nullary} operator usually returns a randomly chosen point from~$\searchSpace$.\uncover<5->{ %
+\item a \emph{nullary} operator usually returns a randomly chosen point from~$\searchSpace$.\uncover<6->{ %
 This is often used to get starting points for the search.}%
 %
-\item<6-> a \emph{unary} operator receives an existing point as input and creates a slightly modified copy.\uncover<7->{ %
+\item<7-> a \emph{unary} operator receives an existing point as input and creates a slightly modified copy.\uncover<8->{ %
 This is often used to explore the neighborhood of good solutions.}%
 %
-\item<8-> a \emph{binary} operator receives a two existing points as input and creates a new point with elements from both of these \inQuotes{parents}.\uncover<9->{ %
+\item<9-> a \emph{binary} operator receives a two existing points as input and creates a new point with elements from both of these \inQuotes{parents}.\uncover<10->{ %
 This is often used to combine traits from good solutions.}%
 %
 \end{itemize}%
 }%
 %
-\item<10-> We evaluate the quality of solutions using the objective function~$\objFun:\searchSpace\mapsto\realNumbers$, which usually is subject to minimization~(smaller values are better).%
+\item<11-> We need to evaluate the quality of solutions, so we need an objective function~$\objFun:\searchSpace\mapsto\realNumbers$, which usually is subject to minimization~(smaller values are better).%
 %
-\item<11-> These are the usual main ingredients of \gls{metaheuristic} optimization.%
+\item<12-> These are the usual main ingredients needed for \gls{metaheuristic} optimization.%
 %
 \end{itemize}%
 %

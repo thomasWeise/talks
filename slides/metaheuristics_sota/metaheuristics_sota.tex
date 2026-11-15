@@ -34,7 +34,7 @@
 \begin{itemize}%
 \item Today, we will discuss the research frontier on \gls{metaheuristic} optimization.%
 \item<2-> Therefore, we will first introduce what \gls{metaheuristic} optimization is and why we need.%
-\item<3-> Then we will discuss the current \gls{SOTA} on several of the many, many, many domains where \glspl{metaheuristic} are applied.%
+\item<3-> Then we will discuss the current \glsFull{SOTA} on several of the many, many, many domains where \glspl{metaheuristic} are applied.%
 \item<4-> I can, of course, not discuss all algorithms or applications in detail.%
 \item<5-> However, I will introduce each problem, provide typical benchmarks, baselines, and \gls{SOTA} algorithms.%
 \item<6-> And many, many literature references.%
@@ -48,7 +48,7 @@
 \item So let's begin.%
 \item<2-> What are \emph{\glspl{metaheuristic}} anyway?%
 \item<3-> \Glspl{metaheuristic} are a class of algorithms used for \alert{optimization}.%
-\item<4-> So what is optimization?%
+\item<4-> What is optimization?%
 \end{itemize}%
 \end{frame}%
 %
@@ -312,7 +312,7 @@
 %
 \item We can build many interesting algorithms just using such components~(and sometimes a bit more problem-specific information).
 %
-\item<2-> \glsFull{algoSLS}\only<3->{:%
+\item<2-> (Stochastic) Local Search~(\glsShort{algoSLS}/\glsShort{algoLS})\only<3->{:%
 \begin{itemize}%
 \item Keep one solution~$x_c$, sample at least one new solution~$x_n$ from its neighborhood in each step, move to better solutions as discovered.%
 %
@@ -335,7 +335,7 @@
 %
 \item<10-> Model-based Methods\only<11->{:%
 \begin{itemize}%
-\item Maintain a stochastic model~$M$ (usually a multivariate probility distribution) of what good solutions could look like, sample set~$N$ of $|N|=\lambda\geq1$ new solutions based on~$M$ in each step, then update~$M$.%
+\item Maintain a stochastic model~$M$ (usually a multivariate probability distribution) of what good solutions could look like, sample set~$N$ of $|N|=\lambda\geq1$ new solutions based on~$M$ in each step, then update~$M$.%
 \only<-13>{%
 \item<12-> {\color{green!60!black}Advantage}: Sometimes really good performance.%
 \item<13-> {\color{red!60!black}Disadvantage}: Complicated, sampling and model update may be slow.%
@@ -368,7 +368,7 @@
 \frametitle{Problem Domains}%
 \begin{itemize}%
 \item We now have at least a cursory understanding of \glspl{metaheuristic}.%
-\item<2-> So let's directly skip directly to the \emph{research frontier} of this field.%
+\item<2-> So let's skip directly to the \emph{research frontier} of this field.%
 \item<3-> Let us therefore look a handful of discrete and combinatorial problems.%
 \item<4-> (We ignore the continuous domain~$\searchSpace=\realNumbers^{\scale}$.)%
 \end{itemize}%
@@ -383,15 +383,19 @@
 \frametitle{Black-Box Discrete Optimization Benchmarks: Introduction}%
 \begin{itemize}%
 %
-\item \alert{Problem}: Search space~\searchSpace\ corresponds to the set~$\{0,1\}^{\scale}$ of bit strings of length~\scale\ and \emph{nothing} is known about objective~function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$.%
+\item \alert{Problem}: Search space~\searchSpace\ corresponds to the set~$\{0,1\}^{\scale}$ of bit strings of length~\scale\ and \emph{nothing} is known about the objective~function~$\objFun:\{0,1\}^n\mapsto\naturalNumbersZ$.%
 %
-\item<2-> Benchmarks here often have the goal to investigate problematic aspects of discrete problems in isolation\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}.%
+\item<2-> How can we test algorithms for such a very general setting?%
 %
-\item<3-> The benchmarks are functions that scale with~\scale\ and are usually computable in~\bigOb{\scale} or~\bigOb{\scale^2}.%
+\item<3-> We need simple, easy-to-understand, and fast problems that have features that are hard for \glspl{metaheuristic}.%
 %
-\item<4-> Their optima are known~(but the algorithms we apply to them don't know them).%
+\item<4-> Thus, the common discrete benchmarks here often have the goal to investigate problematic aspects of discrete problems in isolation\cite{ZWWW2026WFFAFTSIFGLS,DYHWSB2020BDOHWI}.%
 %
-\item<5-> So what are such benchmarks?%
+\item<5-> These benchmarks are functions that scale with~\scale\ and are usually computable in~\bigOb{\scale} or~\bigOb{\scale^2}.%
+%
+\item<6-> Their optima are known~(but the algorithms we apply to them don't know them).%
+%
+\item<7-> So what are such benchmarks?%
 %
 \end{itemize}%
 \end{frame}%
@@ -503,10 +507,12 @@
 \item \alert{Complete Solvers}: guaranteed to output a provably optimal solution to any instance, i.e., a solution that solves as many clauses as possible, given enough runtime and memory.%
 %
 \item<3-> \alert{Incomplete Solvers}: provide good solutions quickly, but may not guarantee optimality.%
+%
+\item<4-> \alert{\glslink{anytimeAlgorithm}{Anytime Solvers}}: Can provide a guess about the solution at each step, i.e., you can stop it anytime and get an approximate result.%
 \end{itemize}%
 }%
 %
-\item<4-> \Glspl{metaheuristic} tend to be incomplete solvers and these are therefore more interesting for us.%
+\item<5-> \Glspl{metaheuristic} tend to be incomplete solvers and these are therefore more interesting for us.%
 \end{itemize}%
 \end{frame}%
 %
@@ -530,10 +536,18 @@
 \frametitle{Maximum Satisfiability Problem: SOTA}%
 \begin{itemize}%
 %
-\item<3-> The \gls{SOTA} for heuristic incomplete solvers comprises \glsShort{algoSLS} algorithms, often based on ideas dating back to \gls{algoWalkSAT}\only<-1>{.}\uncover<2->{, such as%
+\item The \gls{SOTA} for heuristic incomplete solvers comprises \glsShort{algoSLS} algorithms, often based on ideas dating back to \gls{algoWalkSAT} or other \glspl{algoLS}\only<-1>{.}\uncover<2->{, such as%
+%
 \begin{itemize}%
-\item \glsFull{algoAMLS} by \textcite{LH2012AMBLSFMS}\uncover<3->{ or}%
-\item<3-> \gls{algoNuWLS} by \textcite{CCL2023NILSFWPMBNWT}.%
+%
+\item \glsFull{algoAMLS} by \textcite{LH2012AMBLSFMS}\uncover<3->{,}%
+%
+\item<3-> \gls{algoNuWLS} by \textcite{CCL2023NILSFWPMBNWT}\uncover<4->{,}%
+%
+\item<4-> {PASMaxSAT\nobreakdashes-c} by \textcite{JCZH2026PAAMSEM} using a \gls{algoLS} and introducing concepts from SPB\nobreakdashes-MaxSAT\scite{ZZLH2024RTSCPBCOMLSS} into {TT\nobreakdashes-Open\nobreakdashes-WBO\nobreakdashes-Inc}\scite{N2024TOWIAEAMS}\uncover<5->{, and}%
+%
+\item<5-> {SGAT\nobreakdashes-\glslink{algoNuWLS}{NuWLS}\nobreakdashes-c} by \textcite{MI2026SFME2} building on \gls{algoNuWLS} and introducing a SAT-based Graph Attention Network for initialization.%
+%
 \end{itemize}}%
 %
 \end{itemize}%
